@@ -89,10 +89,6 @@ Descrever os principais stakeholders envolvidos no projeto e seus papéis.
 
 Preencher seguindo as orientações da Adalove.
 
-## Análise da Indústria
-
-Análise da indústria (Modelo de 5 Forças de Porter) em relação ao cenário da empresa parceira.
-
 ## Canvas Proposta de Valor
 
 Preencher seguindo as orientações da Adalove.
