@@ -48,6 +48,39 @@ Descrever os objetivos do projeto.
 
 Descrever os principais stakeholders envolvidos no projeto e seus papéis.
 
+# Análise de Requisitos
+
+## Requisitos Funcionais
+| Código   |Descrição do Requisito                          | Tipo                  |Grupo                 |Prioridade        |
+|----------|------------------------------------------------|-----------------------|----------------------|------------------|
+| RF01 | O sistema deve permitir o usuário curtir os conteúdos que têm interesse | Funcional | Acessibilidade | MEDIUM |
+| RF02 | A interface precisa ser dividida entre 2 usuários (time de vendas e time de marketing) | Funcional | Usabilidade | HIGH |
+| RF03 | O usuário deve ter acesso a antigas pesquisas | Funcional | Acessibilidade | LOW |
+| RF04 | O sistema deve mostrar os resultados da busca na interface de acordo com o perfil do usuário | Funcional | Usabilidade | MEDIUM |
+| RF05 | O sistema deve apresentar possíveis respostas alternativas caso não encontre uma resposta certeira para a pergunta | Funcional | Usabilidade | HIGH |
+| RF06 | O sistema deve compreender corretamente a pergunta do usuário e trazer uma resposta com algum fundamento | Funcional | Usabilidade | HIGH |
+| RF07 | A aplicação deve ser projetada para funcionar em smartphones, permitindo que o time de vendas da IBM acesse facilmente as informações enquanto estiver em deslocamento | Funcional | Usabilidade | HIGH |
+| RF08 | O sistema deve responder ao time de vendas com tendências, gráficos e títulos de manchete | Funcional | Usabilidade | MEDIUM |
+| RF09 | O sistema deve responder ao time de marketing com um pequeno texto sobre o que foi perguntado | Funcional | Usabilidade | LOW |
+| RF10 | O sistema deve informar a fonte e data das pesquisas dadas na resposta | Funcional | Usabilidade | LOW |
+| RF11 | O usuário deve poder clicar em cima de uma pesquisa e ser direcionado para ela | Funcional | Usabilidade | HIGH |
+| RF12 | O sistema deve permitir a pesquisa por comando de voz | Funcional | Usabilidade | MEDIUM |
+
+## Requisitos não funcionais
+| Código   |Descrição do Requisito                          | Tipo                  |Grupo                 |Prioridade        |
+|----------|------------------------------------------------|-----------------------|----------------------|------------------|
+| RNF01 | A aplicação deve estar disponível e acessível aos usuários durante a maior parte do tempo, minimizando possíveis períodos de inatividade | Não Funcional | Acessibilidade | MEDIUM |
+| RNF02 | O sistema deve manter a privacidade dos dados dos usuários | Não Funcional | Segurança | HIGH |
+| RNF03 | O sistema deve ser fluido e rápido | Não Funcional | Performance | HIGH |
+| RNF04 | O sistema deve conseguir manter um fluxo de conversa com o usuário | Não Funcional | Usabilidade | HIGH |
+| RNF05 | O sistema deve seguir as normas da LGPD | Não Funcional | Legal | HIGH |
+| RNF06 | O sistema não deve demorar mais do que 10 segundos para processar um arquivo de áudio por completo | Não Funcional | Performance | MEDIUM |
+| RNF07 | O sistema deve rodar na nuvem | Não Funcional | Implementação | HIGH |
+| RNF08 | O sistema só deve permitir o acesso à página a usuários autenticados | Não Funcional | Segurança | HIGH |
+| RNF09 | O sistema deve ser escalável | Não Funcional | Performance | HIGH |
+| RNF10 | O sistema deve rodar em telefones móveis | Não Funcional | Usabilidade | HIGH |
+| RNF11 | O sistema deve ser implementado na IBM | Não Funcional | Implementação | HIGH |
+
 
 # Entendimento do Negócio (Sprint 1)
 
