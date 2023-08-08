@@ -89,15 +89,15 @@ Descrever os principais stakeholders envolvidos no projeto e seus papéis.
 
 Preencher seguindo as orientações da Adalove.
 
-### Análise da Indústria
+## Análise da Indústria
 
 Análise da indústria (Modelo de 5 Forças de Porter) em relação ao cenário da empresa parceira.
 
-### Canvas Proposta de Valor
+## Canvas Proposta de Valor
 
 Preencher seguindo as orientações da Adalove.
 
-### Matriz de Risco
+## Matriz de Risco
 
 1. A AI não conseguir devolver uma resposta correta
 2. Baixo engajamento por parte dos envolvidos no projeto
@@ -112,7 +112,7 @@ Preencher seguindo as orientações da Adalove.
 
 <img src="https://imgur.com/ZkhwB7r.png"/>
 
-### Análise Financeira
+## Análise Financeira
 
 O primeiro ponto a ser considerado é o tipo de projeto. Levando em conta o atual, não existe nenhum valor de gasto projetado pelo fato de ser um projeto interno da IBM em parceria com a faculdade Inteli. Contudo, é possível analisar o custo do projeto e quais serão as vantagens ao concluí-lo.
 
