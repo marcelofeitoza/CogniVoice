@@ -99,7 +99,18 @@ Preencher seguindo as orientações da Adalove.
 
 ### Matriz de Risco
 
-Preencher seguindo as orientações da Adalove.
+1. A AI não conseguir devolver uma resposta correta
+2. Baixo engajamento por parte dos envolvidos no projeto
+3. Complexidade do projeto não mensurada
+4. Aprendizado de novas tecnologias por parte do time desenvolvedor
+5. Defeitos no software podem não ser detectados até sua implementação
+6. Aumento dos requisitos por parte do cliente
+7. A AI pode não conseguir entender corretamente o comando recebido
+8. A solução pode ser pouco utilizada, considerando a faixa etária dos funcionários
+9. Adoção da solução pela empresa
+10. Não conseguir concluir o MVP, considerando o tempo de desenvolvimento do projeto
+
+<img src="https://imgur.com/ZkhwB7r.png"/>
 
 ### Análise Financeira
 
