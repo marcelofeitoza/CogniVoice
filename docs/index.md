@@ -12,9 +12,9 @@ Nome do Projeto: Automação com reconhecimento por voz
 
 Nome do Parceiro: IBM
 
-Nome do Grupo: X
+Nome do Grupo: CogniVoice
 
-Integrantes do grupo: Fulano, Beltrano, Ciclano.
+Integrantes do grupo: Antonio Nassar, Bruno Meira, Luísa Silva, Marcelo Feitoza, Matheus Macedo, Pedro Baptista, Sofia Pimazzoni
 
 **Conteúdo**
 
