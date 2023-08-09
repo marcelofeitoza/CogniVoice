@@ -133,7 +133,10 @@ OBS1: Deve-se ter em vista que está análise refere-se mais a uma simulação d
 
 ### Estudo sobre o usuário do sistema
 
-Preencher seguindo as orientações da Adalove.
+As personas ajudam a entender da melhor forma possível o público-alvo do sistema. Esse, é representado por uma pessoa, que possui uma biografia, motivações e dores atuais, que serão posteriormente resolvidas pela a sua solução. Considerando que o nosso público-alvo vai ser o time de vendas e de marketing da IBM, foram desenvolvidas duas personas, uma para cada time.
+
+<img src="https://imgur.com/e6k9sfr.png"/></br>
+<img src="https://imgur.com/Ts0gilL.png"/>
 
 ### Experiências que o usuário deverá passar ao utilizar o sistema
 
