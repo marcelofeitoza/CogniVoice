@@ -55,7 +55,9 @@ Acrescentar as informações necessárias para instalação do projeto, assim co
 ## 🗃 Histórico de lançamentos
 
 * 0.1.0 - 11/08/2023
-    * Entendiment
+    * Entendimento de negócio
+    * Entendimento de design
+    * Arquitetura do sistema 1.0
 * 0.0.0 - 31/07/2023
     * Template Inicial.
 
