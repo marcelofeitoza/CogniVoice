@@ -8,15 +8,16 @@
 
 # Automação com reconhecimento por voz
 
-## Grupo X
+## CogniVoice
 
 ### 🚀 Integrantes
-- <a href="https://www.linkedin.com/in/vthayashi/">Naruto</a>
-- <a href="https://www.linkedin.com/in/vthayashi/">Saitama</a>
-- <a href="https://www.linkedin.com/in/vthayashi/">Goku</a>
-- <a href="https://www.linkedin.com/in/vthayashi/">Charmander</a>
-- <a href="https://www.linkedin.com/in/vthayashi/">Squirtle</a>
-- <a href="https://www.linkedin.com/in/vthayashi/">Bulbasaur</a>
+- <a href="https://www.linkedin.com/in/antonionassar/">Antonio Nassar</a>
+- <a href="https://www.linkedin.com/in/bruno-omeira/">Bruno Meira</a>
+- <a href="https://www.linkedin.com/in/luísa-vitória-leite-silva-681443230/">Luísa Silva</a>
+- <a href="https://www.linkedin.com/in/marcelofeitoza7/">Marcelo Feitoza</a>
+- <a href="https://www.linkedin.com/in/matheusmacedosantos/">Matheus Santos</a>
+- <a href="https://www.linkedin.com/in/pedro-hagge/">Pedro Baptista</a>
+- <a href="https://www.linkedin.com/in/sofia-moreiras-pimazzoni/">Sofia Pimazzoni</a>
 
 ## 📜 Descrição
 
@@ -53,8 +54,8 @@ Acrescentar as informações necessárias para instalação do projeto, assim co
 
 ## 🗃 Histórico de lançamentos
 
-* 0.1.0 - X/XX/XXXX
-    * Primeira entrega : TO DO.
+* 0.1.0 - 11/08/2023
+    * Entendiment
 * 0.0.0 - 31/07/2023
     * Template Inicial.
 
