@@ -14,7 +14,14 @@ Nome do Parceiro: IBM
 
 Nome do Grupo: CogniVoice
 
-Integrantes do grupo: Antonio Nassar, Bruno Meira, Luísa Silva, Marcelo Feitoza, Matheus Macedo, Pedro Baptista, Sofia Pimazzoni
+Integrantes do grupo: 
+- <a href="https://www.linkedin.com/in/antonionassar/">Antonio Nassar</a>
+- <a href="https://www.linkedin.com/in/bruno-omeira/">Bruno Meira</a>
+- <a href="https://www.linkedin.com/in/luísa-vitória-leite-silva-681443230/">Luísa Silva</a>
+- <a href="https://www.linkedin.com/in/marcelofeitoza7/">Marcelo Feitoza</a>
+- <a href="https://www.linkedin.com/in/matheusmacedosantos/">Matheus Santos</a>
+- <a href="https://www.linkedin.com/in/pedro-hagge/">Pedro Baptista</a>
+- <a href="https://www.linkedin.com/in/sofia-moreiras-pimazzoni/">Sofia Pimazzoni</a>
 
 **Conteúdo**
 
