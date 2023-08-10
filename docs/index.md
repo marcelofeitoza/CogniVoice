@@ -1,7 +1,7 @@
 # Inteli - Instituto de Tecnologia e Liderança
 
 <p align="center">
-<a href= "https://www.inteli.edu.br/"><img src="https://www.inteli.edu.br/wp-content/uploads/2021/08/20172028/marca_1-2.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0" width=40% height=40%></a>
+<a href= "https://www.inteli.edu.br/"><img src="https://imgur.com/fQPDDtj.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0" width=100% height=40%></a>
 </p>
 
 <br>
@@ -32,7 +32,11 @@ Integrantes do grupo: Antonio Nassar, Bruno Meira, Luísa Silva, Marcelo Feitoza
 
 ## Parceiro de Negócios
 
-Breve descrição da instituição representada pelo parceiro de negócios, porte, onde atua, área de mercado que atua e posicionamento no mercado.
+A International Business Machines Corporation (IBM) é uma das empresas de tecnologia mais icônicas e influentes do mundo, com um histórico de mais de um século em inovação contínua. Fundada em 1911, a IBM tem sua sede em Armonk, Nova York, e estabeleceu uma presença global em mais de 170 países, empregando centenas de milhares de profissionais talentosos em todo o mundo.
+
+A IBM atua em várias áreas do mercado de tecnologia, oferecendo uma ampla gama de produtos e serviços, como hardware, software, serviços de TI, inteligência artificial, nuvem etc.
+
+O posicionamento da IBM no mercado é o de um provedor confiável de soluções tecnológicas para empresas e organizações em todo o mundo. Sua ênfase em pesquisa e desenvolvimento, bem como sua longa história de inovação, solidificaram sua reputação como uma empresa que impulsiona o progresso tecnológico e contribui de maneira significativa para o avanço da sociedade global.
 
 ## Problema
 
@@ -85,11 +89,58 @@ Descrever os principais stakeholders envolvidos no projeto e seus papéis.
 
 ## Matriz de avaliação de valor Oceano Azul
 
-Preencher seguindo as orientações da Adalove.
+A matriz do oceano azul é um conceito estratégico que propõe a criação de novos mercados ou espaços de atuação, em contraste com os "oceanos vermelhos", que representam mercados saturados e altamente competitivos. No oceano azul, as empresas buscam inovação, criando valor ao oferecer produtos ou serviços únicos, muitas vezes redefinindo setores inteiros e evitando a competição direta. Isso envolve a identificação de oportunidades não exploradas, a eliminação de elementos indesejados e a criação de características inovadoras, resultando em uma estratégia de diferenciação e crescimento.
+
+- Fatores que devem ser criados:
+
+	- Desenvolvimento de um sistema de recomendação altamente otimizado, visando a facilitar a descoberta de escolhas pertinentes e relevantes.
+	- Integração fluida com diversas plataformas de análise, a exemplo do Cognos, que desempenhará o papel de uma fonte privilegiada para insights de negócios valiosos.
+
+- Fatores que devem ser reduzidos:
+
+	- Condição de uso: Ao contrário de outros competidores como a Alexa, que não exige presença física próxima, o CogniVoice requer que o usuário esteja com o celular em mãos para funcionar adequadamente.
+	- Amplitude da base de dados: Comparativamente, os bancos de dados dos concorrentes abrangem uma maior diversidade e volume crescente de informações.
+
+- Fatores que devem ser aumentados:
+
+	- Excelência tecnológica e qualidade: As tecnologias empregadas no CogniVoice precisam alcançar e aumentar os níveis de alta qualidade característicos dos concorrentes, como a Alexa.
+	- Personalização avançada: Capacidade de personalização voltada para empresas específicas ou tarefas de equipes particulares.
+
+- Fatores que devem ser eliminados:
+
+	- Estilo de conversação: O chatbot do CogniVoice adotará uma abordagem mais formal, especialmente adaptada ao ambiente corporativo, afastando-se da meta de emular a linguagem humana de maneira máxima.
+	- Orientação do aplicativo e funcionalidades: O foco estará em contextos corporativos, o que se traduzirá em uma abordagem mais direcionada e menos casual do que a proposta mantida pelos concorrentes, que tendem a atender a uma variedade de ocasiões.
+
+A seguir, apresenta-se a definição dos 8 atributos essenciais para os clientes, bem como a forma pela qual diferenciamos nossa proposta da concorrência por meio das estratégias de Redução, Eliminação, Aumento e Criação, discutidas e justificadas anteriormente. Essa descrição é acompanhada pela tabela comparativa e pelo gráfico que ilustram essa análise, considerando o projeto em desenvolvimento.
+
+| Atributos   | CogniVoice                          | Alexa (Modelo Fisico)                  |Cortana                 |Google        |
+|----------|------------------------------------------------|-----------------------|----------------------|------------------|
+| Preço | 0 | 5 | 0 | 0 |
+| Qualidade | 7 | 9 | 4 | 10 |
+| Tecnologia | 10 | 10 | 8 | 9 |
+| Conforto | 7 | 10 | 7 | 5 |
+| Comodidade | 8 | 10 | 5 | 10 |
+| Praticidade | 9 | 10 | 8 | 5 |
+| Automação | 10 | 0 | 0 | 0 |
+| Base de dados | 6 | 10 | 9 | 10 |
+
+![Matriz de avaliação de valor Oceano Azul](https://github.com/2023M7T3-Inteli/Projeto2/assets/99202553/8863ab9b-fda3-477c-b44c-34d99ef91b3f)
+
+A seguir, apresentaremos o contexto e os elementos que situam a CognisVoice no oceano azul, com justificativas:
+
+  - Mercado: Criação de um novo mercado que integra análise de dados e pesquisa por voz para o setor de vendas e marketing.
+
+  - Competição: Ausência de concorrência direta devido à abordagem única de combinar busca por voz com análise aprofundada.
+
+  - Inovador na tecnologia: Implementação inovadora de processamento de linguagem natural e análise de sentimentos para fornecer insights profundos por voz.
+
+  - Desempenho: Desempenho excepcional com insights em tempo real e análises detalhadas por meio da combinação de busca por voz e análise profunda.
+    
+  - Cliente: Atendimento eficaz das necessidade de pesquisa em tempo real e análise para o time de marketing e vendas.
 
 ## Canvas Proposta de Valor
 
-Preencher seguindo as orientações da Adalove.
+<img src="https://imgur.com/2xTLcay.png"/>
 
 ## Matriz de Risco
 
@@ -116,7 +167,7 @@ O preço de utilização por demanda é de aproximadamente 0,2117 dólar/hora, e
 
 Além disso, é necessário considerar o custo da hospedagem do banco de dados, na qual poderíamos utilizar o Database for Postgres da IBM na categoria small. O preço é de de utilização desta categoria considerando em uma perspectiva mensal seria de 470.08 dólares.
 
-É possível estimar também o gasto com a equipe que desenvolverá toda a engenharia.
+É possível estimar também o gasto com a equipe que será responsável por dar manutenção e manter toda a engenharia, nesse caso, pensamos em 4 funcionários(as) com o mesmo nível de experiência, no qual, cada um receberia 7000 reais por mês de salário, sendo nesse caso: 1 para BackEnd, 1 para FrontEnd, 1 para DBA, e 1 para Inteligência Artificial.
 
 Lembrando que os valores presentes na planilha são referentes a um gasto mensal, com a possibilidade de visualização na coluna valor mensal.
 
@@ -124,17 +175,30 @@ OBS: Há um custo indireto relacionado a perda de talentos, tendo em vista o fat
 
 OBS1: Deve-se ter em vista que está análise refere-se mais a uma simulação de quanto seriam os gastos a partir da utilização das especificações necessárias pensando nos serviços disponíveis na IBM Cloud, porém deve-se lembrar que o cliente é a própria IBM, dessa forma as tecnologias listadas acima são da própria empresa, e portanto, o custo irá diminuir muito, ou até mesmo zerar nesse sentido.
 
-<img src="https://imgur.com/OY6edPT.png"/>
+<img src="https://imgur.com/NSd9pK7.png"/>
+
+Como nós consideramos esses valores por um mês, a fim de fornecer uma quantificação de preço de forma anual, no qual teríamos a seguinte tabela.
+
+<img src="https://imgur.com/ycIPiwW.png"/>
 
 # Entendimento do Design (Sprint 1)
 
 ### Estudo sobre o usuário do sistema
 
-Preencher seguindo as orientações da Adalove.
+As personas ajudam a entender da melhor forma possível o público-alvo do sistema. Esse, é representado por uma pessoa, que possui uma biografia, motivações e dores atuais, que serão posteriormente resolvidas pela a sua solução. Considerando que o nosso público-alvo vai ser o time de vendas e de marketing da IBM, foram desenvolvidas duas personas, uma para cada time.
+
+<img src="https://imgur.com/e6k9sfr.png"/></br>
+<img src="https://imgur.com/Ts0gilL.png"/>
 
 ### Experiências que o usuário deverá passar ao utilizar o sistema
 
 Preencher seguindo as orientações da Adalove.
+
+### Proposta de UX para o sistema
+
+Ao desenvolver a interface CogniVoice, foi utilizado o Design System da área de Cloud da IBM, que possui o preto, branco e um azul mais escuro como cores principais. Essas cores são favoráveis à visão do usuário, uma vez que o preto como cor de fundo não machuca os olhos, principalmente em ambientes escuros. Já o branco, foi usado para os textos principais, já que produz um contraste muito forte e saudável com o preto. Por último, o azul escuro, que é uma cor que possui contraste com amabas anteriores, foi usado principalmente em botões, para que eles pudessem ficar mais visíveis e ganhar destaque no olhar do usuário. Além disso, considerando que a solução possui dois públicos-alvo diferentes, o time de vendas e o de marketing, logo que o usuário faz o login, ele tem a opção de escolher a opção de resposta que mais lhe agrada, dependendo de qual área ele atua, e sendo possível mudar a escolha posteriormente caso seja necessário. Depois de fazer essa escolha, o usuário é direcionado para a página principal, a qual ele possui acesso a tendências do momento, pesquisas passadas, ou a um chat novo. Caso ele decida por iniciar um novo chat, ele clica no botão e ainda tem a opção tanto de falar, como de escrever o prompt. Essas duas formas de pesquisa deixam o usuário mais satisfeito ao utilizar a plataforma, pois nem sempre ele vai querer falar, e ter uma opção para escrever, e ainda assim usufruir dos benefícios da aplicação, o deixa muito contente.
+
+link de acesso ao mockup da aplicação: https://www.figma.com/file/FirLgWCt3rcQyOOdxIaGZE/Untitled?type=design&node-id=0%3A1&mode=design&t=sDIaIwqvc109ecsE-1
 
 ### Pilha de tecnologias para implementar a proposta de UX
 
