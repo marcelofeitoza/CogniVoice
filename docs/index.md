@@ -140,6 +140,8 @@ A seguir, apresentaremos o contexto e os elementos que situam a CognisVoice no o
 
 ## Canvas Proposta de Valor
 
+A proposta de valor de uma empresa é uma das análises mais importantes, a qual descreve os benefícios exclusivos que ela oferece aos clientes e como isso atende às suas necessidades. Ela destaca o que diferencia a empresa da concorrência e por que os clientes devem escolhê-la. A proposta de valor é extremamente importante porque ajuda a empresa a comunicar de maneira clara e direta como ela pode resolver problemas ou atender desejos específicos dos clientes.
+
 <img src="https://imgur.com/2xTLcay.png"/>
 
 ## Matriz de Risco
@@ -177,7 +179,7 @@ OBS1: Deve-se ter em vista que está análise refere-se mais a uma simulação d
 
 <img src="https://imgur.com/NSd9pK7.png"/>
 
-Como nós consideramos esses valores por um mês, a fim de fornecer uma quantificação de preço de forma anual, no qual teríamos a seguinte tabela.
+Os valores acima se referem à 1 mês de uso da aplicação. Considerando isso, os valores para 1 ano de uso estão abaixo:
 
 <img src="https://imgur.com/ycIPiwW.png"/>
 
