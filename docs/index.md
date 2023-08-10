@@ -87,7 +87,54 @@ Descrever os principais stakeholders envolvidos no projeto e seus papéis.
 
 ## Matriz de avaliação de valor Oceano Azul
 
-Preencher seguindo as orientações da Adalove.
+A matriz do oceano azul é um conceito estratégico que propõe a criação de novos mercados ou espaços de atuação, em contraste com os "oceanos vermelhos", que representam mercados saturados e altamente competitivos. No oceano azul, as empresas buscam inovação, criando valor ao oferecer produtos ou serviços únicos, muitas vezes redefinindo setores inteiros e evitando a competição direta. Isso envolve a identificação de oportunidades não exploradas, a eliminação de elementos indesejados e a criação de características inovadoras, resultando em uma estratégia de diferenciação e crescimento.
+
+- Fatores que devem ser criados:
+
+	- Desenvolvimento de um sistema de recomendação altamente otimizado, visando a facilitar a descoberta de escolhas pertinentes e relevantes.
+	- Integração fluida com diversas plataformas de análise, a exemplo do Cognos, que desempenhará o papel de uma fonte privilegiada para insights de negócios valiosos.
+
+- Fatores que devem ser reduzidos:
+
+	- Condição de uso: Ao contrário de outros competidores como a Alexa, que não exige presença física próxima, o CogniVoice requer que o usuário esteja com o celular em mãos para funcionar adequadamente.
+	- Amplitude da base de dados: Comparativamente, os bancos de dados dos concorrentes abrangem uma maior diversidade e volume crescente de informações.
+
+- Fatores que devem ser aumentados:
+
+	- Excelência tecnológica e qualidade: As tecnologias empregadas no CogniVoice precisam alcançar e aumentar os níveis de alta qualidade característicos dos concorrentes, como a Alexa.
+	- Personalização avançada: Capacidade de personalização voltada para empresas específicas ou tarefas de equipes particulares.
+
+- Fatores que devem ser eliminados:
+
+	- Estilo de conversação: O chatbot do CogniVoice adotará uma abordagem mais formal, especialmente adaptada ao ambiente corporativo, afastando-se da meta de emular a linguagem humana de maneira máxima.
+	- Orientação do aplicativo e funcionalidades: O foco estará em contextos corporativos, o que se traduzirá em uma abordagem mais direcionada e menos casual do que a proposta mantida pelos concorrentes, que tendem a atender a uma variedade de ocasiões.
+
+A seguir, apresenta-se a definição dos 8 atributos essenciais para os clientes, bem como a forma pela qual diferenciamos nossa proposta da concorrência por meio das estratégias de Redução, Eliminação, Aumento e Criação, discutidas e justificadas anteriormente. Essa descrição é acompanhada pela tabela comparativa e pelo gráfico que ilustram essa análise, considerando o projeto em desenvolvimento.
+
+| Atributos   | CogniVoice                          | Alexa (Modelo Fisico)                  |Cortana                 |Google        |
+|----------|------------------------------------------------|-----------------------|----------------------|------------------|
+| Preço | 0 | 5 | 0 | 0 |
+| Qualidade | 7 | 9 | 4 | 10 |
+| Tecnologia | 10 | 10 | 8 | 9 |
+| Conforto | 7 | 10 | 7 | 5 |
+| Comodidade | 8 | 10 | 5 | 10 |
+| Praticidade | 9 | 10 | 8 | 5 |
+| Automação | 10 | 0 | 0 | 0 |
+| Base de dados | 6 | 10 | 9 | 10 |
+
+![Matriz de avaliação de valor Oceano Azul](https://github.com/2023M7T3-Inteli/Projeto2/assets/99202553/8863ab9b-fda3-477c-b44c-34d99ef91b3f)
+
+A seguir, apresentaremos o contexto e os elementos que situam a CognisVoice no oceano azul, com justificativas:
+
+  - Mercado: Criação de um novo mercado que integra análise de dados e pesquisa por voz para o setor de vendas e marketing.
+
+  - Competição: Ausência de concorrência direta devido à abordagem única de combinar busca por voz com análise aprofundada.
+
+  - Inovador na tecnologia: Implementação inovadora de processamento de linguagem natural e análise de sentimentos para fornecer insights profundos por voz.
+
+  - Desempenho: Desempenho excepcional com insights em tempo real e análises detalhadas por meio da combinação de busca por voz e análise profunda.
+    
+  - Cliente: Atendimento eficaz das necessidade de pesquisa em tempo real e análise para o time de marketing e vendas.
 
 ## Canvas Proposta de Valor
 
