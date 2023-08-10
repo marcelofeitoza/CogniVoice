@@ -168,7 +168,7 @@ O preço de utilização por demanda é de aproximadamente 0,2117 dólar/hora, e
 
 Além disso, é necessário considerar o custo da hospedagem do banco de dados, na qual poderíamos utilizar o Database for Postgres da IBM na categoria small. O preço é de de utilização desta categoria considerando em uma perspectiva mensal seria de 470.08 dólares.
 
-É possível estimar também o gasto com a equipe que desenvolverá toda a engenharia.
+É possível estimar também o gasto com a equipe que será responsável por dar manutenção e manter toda a engenharia, nesse caso, pensamos em 4 funcionários(as) com o mesmo nível de experiência, no qual, cada um receberia 7000 reais por mês de salário, sendo nesse caso: 1 para BackEnd, 1 para FrontEnd, 1 para DBA, e 1 para Inteligência Artificial.
 
 Lembrando que os valores presentes na planilha são referentes a um gasto mensal, com a possibilidade de visualização na coluna valor mensal.
 
@@ -180,7 +180,7 @@ OBS1: Deve-se ter em vista que está análise refere-se mais a uma simulação d
 
 Como nós consideramos esses valores por um mês, a fim de fornecer uma quantificação de preço de forma anual, no qual teríamos a seguinte tabela.
 
-<img src="https://imgur.com/W2Sk9bN.png"/>
+<img src="https://imgur.com/ycIPiwW.png"/>
 
 # Entendimento do Design (Sprint 1)
 
