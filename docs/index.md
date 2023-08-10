@@ -48,7 +48,7 @@ Em resumo, a solução proposta se concentra na oportunidade de negócio de forn
 
 ## Objetivos
 
-Descrever os objetivos do projeto.
+O objetivo deste projeto é aprimorar integralmente o processo de pesquisa e análise dos tópicos essenciais para as campanhas e reuniões da equipe de marketing e vendas. Isso será alcançado por meio do desenvolvimento de uma aplicação portátil e intuitiva que faz uso da função de comando de voz para tornar todo o fluxo de pesquisa eficaz e eficiente.
 
 ## Partes Interessadas
 
