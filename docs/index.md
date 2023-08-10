@@ -138,7 +138,7 @@ A seguir, apresentaremos o contexto e os elementos que situam a CognisVoice no o
 
 ## Canvas Proposta de Valor
 
-Preencher seguindo as orientações da Adalove.
+<img src="https://imgur.com/2xTLcay"/>
 
 ## Matriz de Risco
 
