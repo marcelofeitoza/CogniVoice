@@ -54,11 +54,11 @@ Descrever os objetivos do projeto.
 
 De forma geral, os stakeholders representam os indivíduos, grupos ou entidades que têm interesse direto ou indireto no projeto e podem ser afetados por suas atividades, resultados e decisões. Neste projeto podemos entender como stakeholders:
 
--Equipe de Desenvolvimento: Responsável pela criação, desenvolvimento e implementação da solução CogniVoice - Inteli.
+- Equipe de Desenvolvimento: Responsável pela criação, desenvolvimento e implementação da solução CogniVoice - Inteli.
 
--Analistas de Vendas da IBM: Usuários finais da solução, utilizam a plataforma para obter insights sobre tendências de mercado e estratégias concorrentes.
+- Analistas de Vendas da IBM: Usuários finais da solução, utilizam a plataforma para obter insights sobre tendências de mercado e estratégias concorrentes.
 
--Analistas de Marketing da IBM: Assim como os Analistas de Vendas, também são os usuários finais da solução e usariam para obter insights valiosos sobre as tendências do mercado e as estratégias dos concorrentes. 
+- Analistas de Marketing da IBM: Assim como os Analistas de Vendas, também são os usuários finais da solução e usariam para obter insights valiosos sobre as tendências do mercado e as estratégias dos concorrentes. 
 
 -Gestores de Vendas da IBM: Supervisionam e coordenam as atividades dos analistas de vendas, buscando o alinhamento com as metas e estratégias da empresa.
 
