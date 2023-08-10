@@ -173,8 +173,11 @@ OBS: Há um custo indireto relacionado a perda de talentos, tendo em vista o fat
 
 OBS1: Deve-se ter em vista que está análise refere-se mais a uma simulação de quanto seriam os gastos a partir da utilização das especificações necessárias pensando nos serviços disponíveis na IBM Cloud, porém deve-se lembrar que o cliente é a própria IBM, dessa forma as tecnologias listadas acima são da própria empresa, e portanto, o custo irá diminuir muito, ou até mesmo zerar nesse sentido.
 
-<img src="https://imgur.com/OY6edPT.png"/>
+<img src="https://imgur.com/W2Sk9bN.png"/>
 
+Como nós consideramos esses valores por um mês, a fim de fornecer uma quantificação de preço de forma anual, no qual teríamos a seguinte tabela.
+
+<img src="https://imgur.com/W2Sk9bN.png"/>
 
 # Entendimento do Design (Sprint 1)
 
