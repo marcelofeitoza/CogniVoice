@@ -33,8 +33,11 @@ Integrantes do grupo: Antonio Nassar, Bruno Meira, Luísa Silva, Marcelo Feitoza
 
 ## Parceiro de Negócios
 
-Breve descrição da instituição representada pelo parceiro de negócios, porte, onde atua, área de mercado que atua e posicionamento no mercado.
+A International Business Machines Corporation (IBM) é uma das empresas de tecnologia mais icônicas e influentes do mundo, com um histórico de mais de um século em inovação contínua. Fundada em 1911, a IBM tem sua sede em Armonk, Nova York, e estabeleceu uma presença global em mais de 170 países, empregando centenas de milhares de profissionais talentosos em todo o mundo.
 
+A IBM atua em várias áreas do mercado de tecnologia, oferecendo uma ampla gama de produtos e serviços, como hardware, software, serviços de TI, inteligência artificial, nuvem etc.
+
+O posicionamento da IBM no mercado é o de um provedor confiável de soluções tecnológicas para empresas e organizações em todo o mundo. Sua ênfase em pesquisa e desenvolvimento, bem como sua longa história de inovação, solidificaram sua reputação como uma empresa que impulsiona o progresso tecnológico e contribui de maneira significativa para o avanço da sociedade global.
 
 ## Problema
 
