@@ -204,13 +204,15 @@ link de acesso ao mockup da aplicação: https://www.figma.com/file/FirLgWCt3rcQ
 
 Para implementar a proposta de UX, é necessário selecionar uma pilha de tecnologias apropriada. Os elementos a serem considerados incluem a plataforma em que o sistema será executado, linguagens de programação, frameworks, bibliotecas relevantes, e integrações com outros sistemas ou serviços. É importante escolher tecnologias confiáveis, escaláveis e que permitam a criação da UX conforme projetada, garantindo uma implementação eficiente e de qualidade.
 
+Considerando isso, foi decidido por fazer um sistema mobile, para facilitar a usabilidade, utilizando as seguintes tecnologias para desenvolvimento: 
+
 | Tecnologia  | Descrição                                                    | Referência                                   |
 | ----------- | ------------------------------------------------------------ | -------------------------------------------- |
 | Flutter     | Framework para desenvolvimento de aplicações multiplataforma | [https://flutter.dev/](https://flutter.dev/) |
 | Dart        | Linguagem de programação utilizada pelo Flutter              | [https://dart.dev/](https://dart.dev/)       |
 | Material UI | Biblioteca de componentes para o Flutter                     | [https://material.io/](https://material.io/) |
 
-Ao empregar essa pilha de tecnologias, estaremos equipado para criar uma experiência de usuário envolvente, independente da plataforma escolhida. A análise detalhada do público-alvo do sistema e a implementação cuidadosa dessas tecnologias permitirão a realização dos objetivos de UX de maneira eficiente e impactante.
+Ao empregar essa pilha de tecnologias, estaremos equipados para criar uma experiência de usuário envolvente. A análise detalhada do público-alvo do sistema e a implementação cuidadosa dessas tecnologias permitirão a realização dos objetivos de UX de maneira eficiente e impactante.
 
 # Entendimento da Arquitetura do Sistema (Sprint 1)
 
