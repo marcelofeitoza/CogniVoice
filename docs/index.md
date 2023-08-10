@@ -138,7 +138,7 @@ A seguir, apresentaremos o contexto e os elementos que situam a CognisVoice no o
 
 ## Canvas Proposta de Valor
 
-<img src="https://imgur.com/2xTLcay"/>
+<img src="https://imgur.com/2xTLcay.png"/>
 
 ## Matriz de Risco
 
