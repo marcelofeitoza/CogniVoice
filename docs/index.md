@@ -1,4 +1,4 @@
-# Inteli - Instituto de Tecnologia e Liderança 
+# Inteli - Instituto de Tecnologia e Liderança
 
 <p align="center">
 <a href= "https://www.inteli.edu.br/"><img src="https://www.inteli.edu.br/wp-content/uploads/2021/08/20172028/marca_1-2.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0" width=40% height=40%></a>
@@ -18,23 +18,21 @@ Integrantes do grupo: Antonio Nassar, Bruno Meira, Luísa Silva, Marcelo Feitoza
 
 **Conteúdo**
 
-- [Visão Geral do Projeto](#visão-geral-do-projeto)
-- [Entendimento do Negócio](#entendimento-do-neg%C3%B3cio-sprint-1)
-- [Entendimento do Design](#entendimento-do-design-sprint-1)
-- [Entendimento da Arquitetura do Sistema](#entendimento-do-design-sprint-1)
-- [Documentação da Construção do Backend da Solução](#documentação-da-construção-do-backend-da-solução-sprint-3)
-- [Documentação da Construção do Frontend da Solução](#documentação-da-construção-do-frontend-da-solução-sprint-4)
-- [Documentação Final do Projeto](#documentação-final-do-projeto-sprint-5)
-- [Referências](#referências)
-- [Apêndice](#apêndice)
-
+-   [Visão Geral do Projeto](#visão-geral-do-projeto)
+-   [Entendimento do Negócio](#entendimento-do-neg%C3%B3cio-sprint-1)
+-   [Entendimento do Design](#entendimento-do-design-sprint-1)
+-   [Entendimento da Arquitetura do Sistema](#entendimento-do-design-sprint-1)
+-   [Documentação da Construção do Backend da Solução](#documentação-da-construção-do-backend-da-solução-sprint-3)
+-   [Documentação da Construção do Frontend da Solução](#documentação-da-construção-do-frontend-da-solução-sprint-4)
+-   [Documentação Final do Projeto](#documentação-final-do-projeto-sprint-5)
+-   [Referências](#referências)
+-   [Apêndice](#apêndice)
 
 # Visão Geral do Projeto
 
 ## Parceiro de Negócios
 
 Breve descrição da instituição representada pelo parceiro de negócios, porte, onde atua, área de mercado que atua e posicionamento no mercado.
-
 
 ## Problema
 
@@ -44,46 +42,46 @@ Descrever o problema ou a oportunidade de negócio.
 
 Descrever os objetivos do projeto.
 
-## Partes Interessadas 
+## Partes Interessadas
 
 Descrever os principais stakeholders envolvidos no projeto e seus papéis.
 
 # Análise de Requisitos
 
 ## Requisitos Funcionais
-| Código   |Descrição do Requisito                          | Tipo                  |Grupo                 |Prioridade        |
-|----------|------------------------------------------------|-----------------------|----------------------|------------------|
-| RF01 | O sistema deve permitir o usuário curtir os conteúdos que têm interesse | Funcional | Acessibilidade | MEDIUM |
-| RF02 | A interface precisa ser dividida entre 2 usuários (time de vendas e time de marketing) | Funcional | Usabilidade | HIGH |
-| RF03 | O usuário deve ter acesso a antigas pesquisas | Funcional | Acessibilidade | LOW |
-| RF04 | O sistema deve mostrar os resultados da busca na interface de acordo com o perfil do usuário | Funcional | Usabilidade | MEDIUM |
-| RF05 | O sistema deve apresentar possíveis respostas alternativas caso não encontre uma resposta certeira para a pergunta | Funcional | Usabilidade | HIGH |
-| RF06 | O sistema deve compreender corretamente a pergunta do usuário e trazer uma resposta com algum fundamento | Funcional | Usabilidade | HIGH |
-| RF07 | A aplicação deve ser projetada para funcionar em smartphones, permitindo que o time de vendas da IBM acesse facilmente as informações enquanto estiver em deslocamento | Funcional | Usabilidade | HIGH |
-| RF08 | O sistema deve responder ao time de vendas com tendências, gráficos e títulos de manchete | Funcional | Usabilidade | MEDIUM |
-| RF09 | O sistema deve responder ao time de marketing com um pequeno texto sobre o que foi perguntado | Funcional | Usabilidade | LOW |
-| RF10 | O sistema deve informar a fonte e data das pesquisas dadas na resposta | Funcional | Usabilidade | LOW |
-| RF11 | O usuário deve poder clicar em cima de uma pesquisa e ser direcionado para ela | Funcional | Usabilidade | HIGH |
-| RF12 | O sistema deve permitir a pesquisa por comando de voz | Funcional | Usabilidade | MEDIUM |
+
+| Código | Descrição do Requisito                                                                                                                                                 | Tipo      | Grupo          | Prioridade |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------------- | ---------- |
+| RF01   | O sistema deve permitir o usuário curtir os conteúdos que têm interesse                                                                                                | Funcional | Acessibilidade | MEDIUM     |
+| RF02   | A interface precisa ser dividida entre 2 usuários (time de vendas e time de marketing)                                                                                 | Funcional | Usabilidade    | HIGH       |
+| RF03   | O usuário deve ter acesso a antigas pesquisas                                                                                                                          | Funcional | Acessibilidade | LOW        |
+| RF04   | O sistema deve mostrar os resultados da busca na interface de acordo com o perfil do usuário                                                                           | Funcional | Usabilidade    | MEDIUM     |
+| RF05   | O sistema deve apresentar possíveis respostas alternativas caso não encontre uma resposta certeira para a pergunta                                                     | Funcional | Usabilidade    | HIGH       |
+| RF06   | O sistema deve compreender corretamente a pergunta do usuário e trazer uma resposta com algum fundamento                                                               | Funcional | Usabilidade    | HIGH       |
+| RF07   | A aplicação deve ser projetada para funcionar em smartphones, permitindo que o time de vendas da IBM acesse facilmente as informações enquanto estiver em deslocamento | Funcional | Usabilidade    | HIGH       |
+| RF08   | O sistema deve responder ao time de vendas com tendências, gráficos e títulos de manchete                                                                              | Funcional | Usabilidade    | MEDIUM     |
+| RF09   | O sistema deve responder ao time de marketing com um pequeno texto sobre o que foi perguntado                                                                          | Funcional | Usabilidade    | LOW        |
+| RF10   | O sistema deve informar a fonte e data das pesquisas dadas na resposta                                                                                                 | Funcional | Usabilidade    | LOW        |
+| RF11   | O usuário deve poder clicar em cima de uma pesquisa e ser direcionado para ela                                                                                         | Funcional | Usabilidade    | HIGH       |
+| RF12   | O sistema deve permitir a pesquisa por comando de voz                                                                                                                  | Funcional | Usabilidade    | MEDIUM     |
 
 ## Requisitos não funcionais
-| Código   |Descrição do Requisito                          | Tipo                  |Grupo                 |Prioridade        |
-|----------|------------------------------------------------|-----------------------|----------------------|------------------|
-| RNF01 | A aplicação deve estar disponível e acessível aos usuários durante a maior parte do tempo, minimizando possíveis períodos de inatividade | Não Funcional | Acessibilidade | MEDIUM |
-| RNF02 | O sistema deve manter a privacidade dos dados dos usuários | Não Funcional | Segurança | HIGH |
-| RNF03 | O sistema deve ser fluido e rápido | Não Funcional | Performance | HIGH |
-| RNF04 | O sistema deve conseguir manter um fluxo de conversa com o usuário | Não Funcional | Usabilidade | HIGH |
-| RNF05 | O sistema deve seguir as normas da LGPD | Não Funcional | Legal | HIGH |
-| RNF06 | O sistema não deve demorar mais do que 10 segundos para processar um arquivo de áudio por completo | Não Funcional | Performance | MEDIUM |
-| RNF07 | O sistema deve rodar na nuvem | Não Funcional | Implementação | HIGH |
-| RNF08 | O sistema só deve permitir o acesso à página a usuários autenticados | Não Funcional | Segurança | HIGH |
-| RNF09 | O sistema deve ser escalável | Não Funcional | Performance | HIGH |
-| RNF10 | O sistema deve rodar em telefones móveis | Não Funcional | Usabilidade | HIGH |
-| RNF11 | O sistema deve ser implementado na IBM | Não Funcional | Implementação | HIGH |
 
+| Código | Descrição do Requisito                                                                                                                   | Tipo          | Grupo          | Prioridade |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------------- | ---------- |
+| RNF01  | A aplicação deve estar disponível e acessível aos usuários durante a maior parte do tempo, minimizando possíveis períodos de inatividade | Não Funcional | Acessibilidade | MEDIUM     |
+| RNF02  | O sistema deve manter a privacidade dos dados dos usuários                                                                               | Não Funcional | Segurança      | HIGH       |
+| RNF03  | O sistema deve ser fluido e rápido                                                                                                       | Não Funcional | Performance    | HIGH       |
+| RNF04  | O sistema deve conseguir manter um fluxo de conversa com o usuário                                                                       | Não Funcional | Usabilidade    | HIGH       |
+| RNF05  | O sistema deve seguir as normas da LGPD                                                                                                  | Não Funcional | Legal          | HIGH       |
+| RNF06  | O sistema não deve demorar mais do que 10 segundos para processar um arquivo de áudio por completo                                       | Não Funcional | Performance    | MEDIUM     |
+| RNF07  | O sistema deve rodar na nuvem                                                                                                            | Não Funcional | Implementação  | HIGH       |
+| RNF08  | O sistema só deve permitir o acesso à página a usuários autenticados                                                                     | Não Funcional | Segurança      | HIGH       |
+| RNF09  | O sistema deve ser escalável                                                                                                             | Não Funcional | Performance    | HIGH       |
+| RNF10  | O sistema deve rodar em telefones móveis                                                                                                 | Não Funcional | Usabilidade    | HIGH       |
+| RNF11  | O sistema deve ser implementado na IBM                                                                                                   | Não Funcional | Implementação  | HIGH       |
 
 # Entendimento do Negócio (Sprint 1)
-
 
 ## Matriz de avaliação de valor Oceano Azul
 
@@ -128,7 +126,6 @@ OBS1: Deve-se ter em vista que está análise refere-se mais a uma simulação d
 
 <img src="https://imgur.com/OY6edPT.png"/>
 
-
 # Entendimento do Design (Sprint 1)
 
 ### Estudo sobre o usuário do sistema
@@ -139,13 +136,17 @@ Preencher seguindo as orientações da Adalove.
 
 Preencher seguindo as orientações da Adalove.
 
-### Proposta de UX para o sistema
-
-Preencher seguindo as orientações da Adalove.
-
 ### Pilha de tecnologias para implementar a proposta de UX
 
-Preencher seguindo as orientações da Adalove.
+Para implementar a proposta de UX, é necessário selecionar uma pilha de tecnologias apropriada. Os elementos a serem considerados incluem a plataforma em que o sistema será executado, linguagens de programação, frameworks, bibliotecas relevantes, e integrações com outros sistemas ou serviços. É importante escolher tecnologias confiáveis, escaláveis e que permitam a criação da UX conforme projetada, garantindo uma implementação eficiente e de qualidade.
+
+| Tecnologia  | Descrição                                                    | Referência                                   |
+| ----------- | ------------------------------------------------------------ | -------------------------------------------- |
+| Flutter     | Framework para desenvolvimento de aplicações multiplataforma | [https://flutter.dev/](https://flutter.dev/) |
+| Dart        | Linguagem de programação utilizada pelo Flutter              | [https://dart.dev/](https://dart.dev/)       |
+| Material UI | Biblioteca de componentes para o Flutter                     | [https://material.io/](https://material.io/) |
+
+Ao empregar essa pilha de tecnologias, estaremos equipado para criar uma experiência de usuário envolvente, independente da plataforma escolhida. A análise detalhada do público-alvo do sistema e a implementação cuidadosa dessas tecnologias permitirão a realização dos objetivos de UX de maneira eficiente e impactante.
 
 # Entendimento da Arquitetura do Sistema (Sprint 1)
 
@@ -217,20 +218,19 @@ Preencher seguindo as orientações da Adalove.
 
 Preencher seguindo as orientações da Adalove.
 
-
 # Documentação Final do Projeto (Sprint 5)
 
 Preencher seguindo as orientações da Adalove.
 
 A documentação final deve conter:
 
-- Componentes e tecnologias utilizados;
-- Custo de implementação da prova de conceito e estimativa de custo para a solução final;
-- Análise financeira do projeto;
-- Funcionalidades implementadas na prova de conceito;
-- Benefícios entregues pelo projeto;
-- Aperfeiçoamentos futuros possíveis para o projeto;
-- Revisão da visão geral do sistema (arquitetura da integração).
+-   Componentes e tecnologias utilizados;
+-   Custo de implementação da prova de conceito e estimativa de custo para a solução final;
+-   Análise financeira do projeto;
+-   Funcionalidades implementadas na prova de conceito;
+-   Benefícios entregues pelo projeto;
+-   Aperfeiçoamentos futuros possíveis para o projeto;
+-   Revisão da visão geral do sistema (arquitetura da integração).
 
 Referencie as revisões e melhorias realizadas nos itens acima.
 
@@ -239,7 +239,6 @@ Referencie as revisões e melhorias realizadas nos itens acima.
 Toda referência citada no texto deverá constar nessa seção, utilizando o padrão de normalização da ABNT - ABNT NBR 10520). As citações devem ser confiáveis e relevantes para o trabalho. São imprescindíveis as citações dos sites de download das ferramentas utilizadas, bem como a citação de algum objeto, música, textura ou outros que não tenham sido produzidos pelo grupo, mas utilizados (mesmo no caso de licenças gratuitas, royalty free ou similares)
 Sugerimos o uso do sistema autor-data para citações.
 
+# Apêndice
 
-# Apêndice 
-
-Os apêndices representam informações adicionais que não caberiam no documento exposto acima, mas que são importantes por alguma razão específica do projeto. 
+Os apêndices representam informações adicionais que não caberiam no documento exposto acima, mas que são importantes por alguma razão específica do projeto.
