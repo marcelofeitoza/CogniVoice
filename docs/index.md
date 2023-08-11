@@ -14,7 +14,14 @@ Nome do Parceiro: IBM
 
 Nome do Grupo: CogniVoice
 
-Integrantes do grupo: Antonio Nassar, Bruno Meira, Luísa Silva, Marcelo Feitoza, Matheus Macedo, Pedro Baptista, Sofia Pimazzoni
+Integrantes do grupo: 
+- <a href="https://www.linkedin.com/in/antonionassar/">Antonio Nassar</a>
+- <a href="https://www.linkedin.com/in/bruno-omeira/">Bruno Meira</a>
+- <a href="https://www.linkedin.com/in/luísa-vitória-leite-silva-681443230/">Luísa Silva</a>
+- <a href="https://www.linkedin.com/in/marcelofeitoza7/">Marcelo Feitoza</a>
+- <a href="https://www.linkedin.com/in/matheusmacedosantos/">Matheus Santos</a>
+- <a href="https://www.linkedin.com/in/pedro-hagge/">Pedro Baptista</a>
+- <a href="https://www.linkedin.com/in/sofia-moreiras-pimazzoni/">Sofia Pimazzoni</a>
 
 **Conteúdo**
 
@@ -40,15 +47,28 @@ O posicionamento da IBM no mercado é o de um provedor confiável de soluções 
 
 ## Problema
 
-Descrever o problema ou a oportunidade de negócio.
+A busca por informações relevantes, especialmente aquelas relacionadas ao que as empresas estão discutindo sobre temas e campanhas específicas, é crucial para fornecer um contexto sólido durante reuniões, discussões com clientes e estratégias de marketing. No entanto, a natureza dinâmica dos negócios muitas vezes impede que os colaboradores tenham tempo suficiente para pesquisas extensas e aprofundadas antes desses compromissos.
+
+Além disso, a mobilidade do time de vendas é um fator importante a ser considerado. A necessidade de acesso rápido e conveniente a informações-chave, mesmo quando em trânsito, torna fundamental uma solução que possa ser facilmente utilizada em dispositivos móveis, como smartphones. A capacidade de interagir com a solução por meio de comandos de voz adiciona uma camada adicional de conveniência e oportunidade para o negócio, permitindo que os colaboradores obtenham as informações necessárias sem distrações perigosas enquanto estão dirigindo ou em outros ambientes de deslocamento.
+
+Em resumo, a solução proposta se concentra na oportunidade de negócio de fornecer um meio eficaz de buscar, acessar e compreender informações cruciais, ao mesmo tempo em que atende às necessidades de mobilidade e interação conveniente do time de vendas e marketing. Isso não apenas otimiza as operações internas, mas também coloca a sua empresa em uma posição mais competitiva ao oferecer uma abordagem inovadora e eficiente para lidar com o desafio de acessar e utilizar informações relevantes em um ambiente de negócios em constante mudança.
 
 ## Objetivos
 
-Descrever os objetivos do projeto.
+O objetivo deste projeto é aprimorar integralmente o processo de pesquisa e análise dos tópicos essenciais para as campanhas e reuniões da equipe de marketing e vendas. Isso será alcançado por meio do desenvolvimento de uma aplicação portátil e intuitiva que faz uso da função de comando de voz para tornar todo o fluxo de pesquisa eficaz e eficiente.
 
 ## Partes Interessadas
 
-Descrever os principais stakeholders envolvidos no projeto e seus papéis.
+De forma geral, os stakeholders representam os indivíduos, grupos ou entidades que têm interesse direto ou indireto no projeto e podem ser afetados por suas atividades, resultados e decisões. Neste projeto podemos entender como stakeholders:
+
+- Equipe de Desenvolvimento: Responsável pela criação, desenvolvimento e implementação da solução CogniVoice - Inteli.
+
+- Analistas de Vendas da IBM: Usuários finais da solução, utilizam a plataforma para obter insights sobre tendências de mercado e estratégias concorrentes.
+
+- Analistas de Marketing da IBM: Assim como os Analistas de Vendas, também são os usuários finais da solução e usariam para obter insights valiosos sobre as tendências do mercado e as estratégias dos concorrentes. 
+
+-Gestores de Vendas da IBM: Supervisionam e coordenam as atividades dos analistas de vendas, buscando o alinhamento com as metas e estratégias da empresa.
+
 
 # Análise de Requisitos
 
@@ -140,6 +160,8 @@ A seguir, apresentaremos o contexto e os elementos que situam a CognisVoice no o
 
 ## Canvas Proposta de Valor
 
+A proposta de valor de uma empresa é uma das análises mais importantes, a qual descreve os benefícios exclusivos que ela oferece aos clientes e como isso atende às suas necessidades. Ela destaca o que diferencia a empresa da concorrência e por que os clientes devem escolhê-la. A proposta de valor é extremamente importante porque ajuda a empresa a comunicar de maneira clara e direta como ela pode resolver problemas ou atender desejos específicos dos clientes.
+
 <img src="https://imgur.com/2xTLcay.png"/>
 
 ## Matriz de Risco
@@ -177,7 +199,7 @@ OBS1: Deve-se ter em vista que está análise refere-se mais a uma simulação d
 
 <img src="https://imgur.com/NSd9pK7.png"/>
 
-Como nós consideramos esses valores por um mês, a fim de fornecer uma quantificação de preço de forma anual, no qual teríamos a seguinte tabela.
+Os valores acima se referem à 1 mês de uso da aplicação. Considerando isso, os valores para 1 ano de uso estão abaixo:
 
 <img src="https://imgur.com/ycIPiwW.png"/>
 
@@ -204,13 +226,15 @@ link de acesso ao mockup da aplicação: https://www.figma.com/file/FirLgWCt3rcQ
 
 Para implementar a proposta de UX, é necessário selecionar uma pilha de tecnologias apropriada. Os elementos a serem considerados incluem a plataforma em que o sistema será executado, linguagens de programação, frameworks, bibliotecas relevantes, e integrações com outros sistemas ou serviços. É importante escolher tecnologias confiáveis, escaláveis e que permitam a criação da UX conforme projetada, garantindo uma implementação eficiente e de qualidade.
 
+Considerando isso, foi decidido por fazer um sistema mobile, para facilitar a usabilidade, utilizando as seguintes tecnologias para desenvolvimento: 
+
 | Tecnologia  | Descrição                                                    | Referência                                   |
 | ----------- | ------------------------------------------------------------ | -------------------------------------------- |
 | Flutter     | Framework para desenvolvimento de aplicações multiplataforma | [https://flutter.dev/](https://flutter.dev/) |
 | Dart        | Linguagem de programação utilizada pelo Flutter              | [https://dart.dev/](https://dart.dev/)       |
 | Material UI | Biblioteca de componentes para o Flutter                     | [https://material.io/](https://material.io/) |
 
-Ao empregar essa pilha de tecnologias, estaremos equipado para criar uma experiência de usuário envolvente, independente da plataforma escolhida. A análise detalhada do público-alvo do sistema e a implementação cuidadosa dessas tecnologias permitirão a realização dos objetivos de UX de maneira eficiente e impactante.
+Ao empregar essa pilha de tecnologias, estaremos equipados para criar uma experiência de usuário envolvente. A análise detalhada do público-alvo do sistema e a implementação cuidadosa dessas tecnologias permitirão a realização dos objetivos de UX de maneira eficiente e impactante.
 
 # Entendimento da Arquitetura do Sistema (Sprint 1)
 
