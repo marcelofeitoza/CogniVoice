@@ -200,12 +200,12 @@ OBS: Há um custo indireto relacionado a perda de talentos, tendo em vista o fat
 
 OBS1: Deve-se ter em vista que está análise refere-se mais a uma simulação de quanto seriam os gastos a partir da utilização das especificações necessárias pensando nos serviços disponíveis na IBM Cloud, porém deve-se lembrar que o cliente é a própria IBM, dessa forma as tecnologias listadas acima são da própria empresa, e portanto, o custo irá diminuir muito, ou até mesmo zerar nesse sentido.
 
-<img src="https://imgur.com/NSd9pK7.png"/>
-<p align="center">Figura 4: Análise financeira para 1 mês de uso</p>
+<img width="80%" align="center" src="https://imgur.com/NSd9pK7.png"/>
+<p align="center">Figura 4: Análise financeira para 1 mês de uso</p></br></br>
 
 Os valores acima se referem à 1 mês de uso da aplicação. Considerando isso, os valores para 1 ano de uso estão abaixo:
 
-<img src="https://imgur.com/ycIPiwW.png"/>
+<img width="80%" align="center" src="https://imgur.com/ycIPiwW.png"/>
 <p align="center">Figura 5: Análise financeira para 1 ano de uso</p>
 
 # Entendimento do Design (Sprint 1)
@@ -214,18 +214,18 @@ Os valores acima se referem à 1 mês de uso da aplicação. Considerando isso, 
 
 As personas ajudam a entender da melhor forma possível o público-alvo do sistema. Esse, é representado por uma pessoa, que possui uma biografia, motivações e dores atuais, que serão posteriormente resolvidas pela a sua solução. Considerando que o nosso público-alvo vai ser o time de vendas e de marketing da IBM, foram desenvolvidas duas personas, uma para cada time.
 
-<img src="https://imgur.com/e6k9sfr.png"/></br>
-<p align="center">Figura 6: Persona do time de marketing (Rosana)</p></br>
-<img src="https://imgur.com/Ts0gilL.png"/>
+<img width="70%" align="center" src="https://imgur.com/e6k9sfr.png"/></br>
+<p align="center">Figura 6: Persona do time de marketing (Rosana)</p></br></br>
+<img width="70%" align="center" src="https://imgur.com/Ts0gilL.png"/>
 <p align="center">Figura 7: Persona do time de vendas (João)</p>
 
 ### Experiências que o usuário deverá passar ao utilizar o sistema
 
 A jornada do usuário, fundamentada na persona, é um conceito chave no design de experiência do usuário (UX) que mapeia a trajetória completa que um indivíduo percorre ao interagir com um produto, serviço ou plataforma. Ela começa com a descoberta inicial e vai até a fidelização do usuário. Além disso, a jornada do usuário desempenha é muito importante pois ajuda a alinhar as metas do negócio com as expectativas e desejos dos usuários, resultando em um maior engajamento, fidelidade e sucesso geral.
 
-<img src="https://imgur.com/7iipSk5.png"/></br>
-<p align="center">Figura 8: Jornada do usuário da persona de marketing (Rosana)</p></br>
-<img src="https://imgur.com/wyFta8O.png"/>
+<img width="70%" align="center" src="https://imgur.com/7iipSk5.png"/></br>
+<p align="center">Figura 8: Jornada do usuário da persona de marketing (Rosana)</p></br></br>
+<img width="70%" align="center" src="https://imgur.com/wyFta8O.png"/>
 <p align="center">Figura 9: Jornada do usuário da persona de vendas (João)</p>
 
 ### Proposta de UX para o sistema
@@ -250,7 +250,8 @@ Ao empregar essa pilha de tecnologias, estaremos equipados para criar uma experi
 
 # Entendimento da Arquitetura do Sistema (Sprint 1)
 
-<img src="https://imgur.com/4dy6TAS.png"/>
+<img width="60%" align="center" src="https://imgur.com/4dy6TAS.png"/>
+<p align="center">Figura 10: Versão 1 da arquitetura do sistema</p>
 
 # Documentação do Sistema NLP (Sprint 2)
 
