@@ -214,7 +214,10 @@ As personas ajudam a entender da melhor forma possível o público-alvo do siste
 
 ### Experiências que o usuário deverá passar ao utilizar o sistema
 
-Preencher seguindo as orientações da Adalove.
+A jornada do usuário, fundamentada na persona, é um conceito chave no design de experiência do usuário (UX) que mapeia a trajetória completa que um indivíduo percorre ao interagir com um produto, serviço ou plataforma. Ela começa com a descoberta inicial e vai até a fidelização do usuário. Além disso, a jornada do usuário desempenha é muito importante pois ajuda a alinhar as metas do negócio com as expectativas e desejos dos usuários, resultando em um maior engajamento, fidelidade e sucesso geral.
+
+<img src="https://imgur.com/7iipSk5.png"/></br>
+<img src="https://imgur.com/wyFta8O.png"/>
 
 ### Proposta de UX para o sistema
 
