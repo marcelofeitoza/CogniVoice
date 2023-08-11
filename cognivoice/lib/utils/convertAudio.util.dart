@@ -13,10 +13,8 @@ Future<String> convertAudio(
   flutterFFmpeg.cancel();
 
   if (result == 0) {
-    print("Conversion successful");
     return outputPath;
   } else {
-    print("Conversion failed");
     return "Error";
   }
 }
