@@ -250,7 +250,7 @@ Ao empregar essa pilha de tecnologias, estaremos equipados para criar uma experi
 
 # Entendimento da Arquitetura do Sistema (Sprint 1)
 
-Preencher seguindo as orientações da Adalove.
+<img src="https://imgur.com/4dy6TAS.png"/>
 
 # Documentação do Sistema NLP (Sprint 2)
 
