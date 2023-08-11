@@ -1,12 +1,8 @@
-import 'package:cognivoice/utils/convertAudio.util.dart';
+import 'package:cognivoice/services/postAudio.service.dart';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:record/record.dart';
-import 'package:http/http.dart' as http;
-import 'package:path_provider/path_provider.dart';
-import 'dart:convert';
-import 'dart:io';
-import 'dart:typed_data';
+import 'package:cognivoice/models/audioProcessingResult.model.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -82,53 +78,14 @@ class _HomeState extends State<Home> {
     }
   }
 
-  Future<void> postAudio() async {
-    debugPrint("\nPosting audio...\n");
+  Future<void> processAudio() async {
+    AudioProcessingResult response =
+        await postAudio(audioPath);
 
     setState(() {
-      this.response = "Loading...";
+      audioPath = response.tempFilePath!;
+      this.response = response.message;
     });
-
-    String apiUrl = "http://10.128.69.29:3001/";
-
-    String audioFilePath = audioPath;
-    String flacFilePath = await convertAudio(audioFilePath, 'm4a', 'flac');
-    File flacFile = File(flacFilePath);
-    List<int> flacBytes = await flacFile.readAsBytes();
-
-    final response = await http.post(
-      Uri.parse(apiUrl),
-      headers: {
-        "Content-Type": "audio/flac",
-      },
-      body: flacBytes,
-    );
-
-    final jsonResponse = json.decode(response.body);
-
-    final String message = jsonResponse['message'];
-
-    if (response.statusCode == 200) {
-      final String base64Audio = jsonResponse['audio'];
-
-      Uint8List bytes = base64Decode(base64Audio);
-      Directory tempDir = await getTemporaryDirectory();
-      String tempPath = tempDir.path;
-      String tempFilePath = "$tempPath/temp.flac";
-      File tempFile = File(tempFilePath);
-      await tempFile.writeAsBytes(bytes);
-
-      setState(() {
-        this.response = message;
-        this.audioPath = tempFilePath;
-      });
-
-      playRecording();
-    } else {
-      setState(() {
-        this.response = message;
-      });
-    }
   }
 
   @override
@@ -136,18 +93,25 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: Theme.of(context).colorScheme.secondary,
         title: const Text('CogniVoice'),
-        centerTitle: true,
+        elevation: 1,
+        shadowColor: Colors.black12,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(16),
+          ),
+        ),
       ),
       body: Center(
         child: ListView(
+          physics: const BouncingScrollPhysics(),
           padding: const EdgeInsets.all(16),
           children: [
-            Visibility(
-              visible: !isRecording,
-              child: Column(
+            if (!isRecording)
+              Column(
                 children: [
+                  const SizedBox(height: 32),
                   if (response == "Loading...")
                     CircularProgressIndicator(
                       color: Theme.of(context).colorScheme.primary,
@@ -161,16 +125,20 @@ class _HomeState extends State<Home> {
                   const SizedBox(height: 16),
                 ],
               ),
-            ),
-            // spacer
-            const SizedBox(
-              height: 32,
-            ),
+            const SizedBox(height: 32),
             if (isRecording) const Text('Recording...'),
-            ListTile(
-              title: Text(isRecording ? 'Stop Recording' : 'Start Recording'),
-              leading: Icon(isRecording ? Icons.stop : Icons.mic),
-              onTap: isRecording ? stopRecording : startRecording,
+            ButtonBar(
+              alignment: MainAxisAlignment.center,
+              children: [
+                TextButton.icon(
+                  onPressed: isRecording ? stopRecording : startRecording,
+                  icon: Icon(isRecording ? Icons.stop : Icons.mic),
+                  label: Text(
+                    isRecording ? 'Stop Recording' : 'Start Recording',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 32),
             if (!isRecording && audioPath.isNotEmpty)
@@ -184,12 +152,12 @@ class _HomeState extends State<Home> {
                       label: const Text('Play Recording'),
                     ),
                   ElevatedButton.icon(
-                    onPressed: postAudio,
+                    onPressed: processAudio,
                     label: const Text('Process Recording'),
                     icon: const Icon(Icons.send),
                   ),
                 ],
-              )
+              ),
           ],
         ),
       ),
