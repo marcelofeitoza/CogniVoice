@@ -145,6 +145,7 @@ A seguir, apresenta-se a definição dos 8 atributos essenciais para os clientes
 | Base de dados | 6 | 10 | 9 | 10 |
 
 ![Matriz de avaliação de valor Oceano Azul](https://github.com/2023M7T3-Inteli/Projeto2/assets/99202553/8863ab9b-fda3-477c-b44c-34d99ef91b3f)
+<p align="center">Figura 1: Matriz do oceano azul</p>
 
 A seguir, apresentaremos o contexto e os elementos que situam a CognisVoice no oceano azul, com justificativas:
 
@@ -163,6 +164,7 @@ A seguir, apresentaremos o contexto e os elementos que situam a CognisVoice no o
 A proposta de valor de uma empresa é uma das análises mais importantes, a qual descreve os benefícios exclusivos que ela oferece aos clientes e como isso atende às suas necessidades. Ela destaca o que diferencia a empresa da concorrência e por que os clientes devem escolhê-la. A proposta de valor é extremamente importante porque ajuda a empresa a comunicar de maneira clara e direta como ela pode resolver problemas ou atender desejos específicos dos clientes.
 
 <img src="https://imgur.com/2xTLcay.png"/>
+<p align="center">Figura 2: Proposta de valor da IBM</p>
 
 ## Matriz de Risco
 
@@ -178,6 +180,7 @@ A proposta de valor de uma empresa é uma das análises mais importantes, a qual
 10. Não conseguir concluir o MVP, considerando o tempo de desenvolvimento do projeto
 
 <img src="https://imgur.com/ZkhwB7r.png"/>
+<p align="center">Figura 3: Matriz de risco</p>
 
 ## Análise Financeira
 
@@ -197,11 +200,17 @@ OBS: Há um custo indireto relacionado a perda de talentos, tendo em vista o fat
 
 OBS1: Deve-se ter em vista que está análise refere-se mais a uma simulação de quanto seriam os gastos a partir da utilização das especificações necessárias pensando nos serviços disponíveis na IBM Cloud, porém deve-se lembrar que o cliente é a própria IBM, dessa forma as tecnologias listadas acima são da própria empresa, e portanto, o custo irá diminuir muito, ou até mesmo zerar nesse sentido.
 
-<img src="https://imgur.com/NSd9pK7.png"/>
+<p align="center">
+	<img width="80%" src="https://imgur.com/NSd9pK7.png"/>
+</p>
+<p align="center">Figura 4: Análise financeira para 1 mês de uso</p></br></br>
 
 Os valores acima se referem à 1 mês de uso da aplicação. Considerando isso, os valores para 1 ano de uso estão abaixo:
 
-<img src="https://imgur.com/ycIPiwW.png"/>
+<p align="center">
+	<img width="80%" src="https://imgur.com/ycIPiwW.png"/>
+</p>
+<p align="center">Figura 5: Análise financeira para 1 ano de uso</p>
 
 # Entendimento do Design (Sprint 1)
 
@@ -209,12 +218,29 @@ Os valores acima se referem à 1 mês de uso da aplicação. Considerando isso, 
 
 As personas ajudam a entender da melhor forma possível o público-alvo do sistema. Esse, é representado por uma pessoa, que possui uma biografia, motivações e dores atuais, que serão posteriormente resolvidas pela a sua solução. Considerando que o nosso público-alvo vai ser o time de vendas e de marketing da IBM, foram desenvolvidas duas personas, uma para cada time.
 
-<img src="https://imgur.com/e6k9sfr.png"/></br>
-<img src="https://imgur.com/Ts0gilL.png"/>
+<p align="center">
+	<img width="70%" src="https://imgur.com/e6k9sfr.png"/></br>
+</p>
+<p align="center">Figura 6: Persona do time de marketing (Rosana)</p></br></br>
+
+<p align="center">
+	<img width="70%" align="center" src="https://imgur.com/Ts0gilL.png"/>
+</p>
+<p align="center">Figura 7: Persona do time de vendas (João)</p>
 
 ### Experiências que o usuário deverá passar ao utilizar o sistema
 
-Preencher seguindo as orientações da Adalove.
+A jornada do usuário, fundamentada na persona, é um conceito chave no design de experiência do usuário (UX) que mapeia a trajetória completa que um indivíduo percorre ao interagir com um produto, serviço ou plataforma. Ela começa com a descoberta inicial e vai até a fidelização do usuário. Além disso, a jornada do usuário desempenha é muito importante pois ajuda a alinhar as metas do negócio com as expectativas e desejos dos usuários, resultando em um maior engajamento, fidelidade e sucesso geral.
+
+<p align="center">
+	<img width="70%" src="https://imgur.com/7iipSk5.png"/></br>
+</p>
+<p align="center">Figura 8: Jornada do usuário da persona de marketing (Rosana)</p></br></br>
+
+<p align="center">
+	<img width="70%" align="center" src="https://imgur.com/wyFta8O.png"/>
+</p>
+<p align="center">Figura 9: Jornada do usuário da persona de vendas (João)</p>
 
 ### Proposta de UX para o sistema
 
@@ -238,7 +264,12 @@ Ao empregar essa pilha de tecnologias, estaremos equipados para criar uma experi
 
 # Entendimento da Arquitetura do Sistema (Sprint 1)
 
-Preencher seguindo as orientações da Adalove.
+## Versão 1 da arquitetura do sistema
+
+<p align="center">
+	<img width="60%" src="https://imgur.com/4dy6TAS.png"/>
+</p>
+<p align="center">Figura 10: Versão 1 da arquitetura do sistema</p>
 
 # Documentação do Sistema NLP (Sprint 2)
 
