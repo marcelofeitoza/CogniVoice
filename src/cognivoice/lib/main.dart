@@ -14,7 +14,7 @@ class CogniVoice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Cogni Voice',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           primary: const Color(0xFFf1f1f1),
@@ -27,7 +27,7 @@ class CogniVoice extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/home',
       routes: <String, WidgetBuilder>{
-        '/home': (BuildContext context) => const Home(),
+        '/home': (BuildContext context) => Home(context: context),
       },
     );
   }

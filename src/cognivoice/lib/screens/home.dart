@@ -5,7 +5,9 @@ import 'package:record/record.dart';
 import 'package:cognivoice/models/audioProcessingResult.model.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  const Home({super.key, required this.context});
+
+  final BuildContext context;
 
   @override
   State<Home> createState() => _HomeState();
