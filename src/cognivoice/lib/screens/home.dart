@@ -12,13 +12,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final Record audioRecord = Record();
-  final AudioPlayer audioPlayer = AudioPlayer();
-  bool isRecording = false;
-  String audioPath = "";
-  bool isPlaying = false;
-  String response = "Waiting...";
-
   @override
   void initState() {
     super.initState();
@@ -29,63 +22,6 @@ class _HomeState extends State<Home> {
     audioRecord.dispose();
     audioPlayer.dispose();
     super.dispose();
-  }
-
-  Future<void> startRecording() async {
-    try {
-      if (await audioRecord.hasPermission()) {
-        await audioRecord.start();
-        setState(() {
-          isRecording = true;
-          response = "Waiting...";
-        });
-      }
-    } catch (e) {
-      throw Exception("Error: $e");
-    }
-  }
-
-  Future<void> stopRecording() async {
-    try {
-      String? path = await audioRecord.stop();
-
-      setState(() {
-        isRecording = false;
-        audioPath = path!;
-      });
-    } catch (e) {
-      throw Exception("Error: $e");
-    }
-  }
-
-  Future<void> playRecording() async {
-    try {
-      if (audioPath.isNotEmpty) {
-        Source urlSource = UrlSource(audioPath);
-        await audioPlayer.play(urlSource);
-        setState(() {
-          isPlaying = true;
-        });
-
-        audioPlayer.onPlayerComplete.listen((event) {
-          setState(() {
-            isPlaying = false;
-          });
-        });
-      }
-    } catch (e) {
-      throw Exception("Error: $e");
-    }
-  }
-
-  Future<void> processAudio() async {
-    AudioProcessingResult response =
-        await postAudio(audioPath);
-
-    setState(() {
-      audioPath = response.tempFilePath!;
-      this.response = response.message;
-    });
   }
 
   @override
@@ -162,5 +98,68 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
+  }
+
+  final Record audioRecord = Record();
+  final AudioPlayer audioPlayer = AudioPlayer();
+  bool isRecording = false;
+  String audioPath = "";
+  bool isPlaying = false;
+  String response = "Waiting...";
+
+  Future<void> startRecording() async {
+    try {
+      if (await audioRecord.hasPermission()) {
+        await audioRecord.start();
+        setState(() {
+          isRecording = true;
+          response = "Waiting...";
+        });
+      }
+    } catch (e) {
+      throw Exception("Error: $e");
+    }
+  }
+
+  Future<void> stopRecording() async {
+    try {
+      String? path = await audioRecord.stop();
+
+      setState(() {
+        isRecording = false;
+        audioPath = path!;
+      });
+    } catch (e) {
+      throw Exception("Error: $e");
+    }
+  }
+
+  Future<void> playRecording() async {
+    try {
+      if (audioPath.isNotEmpty) {
+        Source urlSource = UrlSource(audioPath);
+        await audioPlayer.play(urlSource);
+        setState(() {
+          isPlaying = true;
+        });
+
+        audioPlayer.onPlayerComplete.listen((event) {
+          setState(() {
+            isPlaying = false;
+          });
+        });
+      }
+    } catch (e) {
+      throw Exception("Error: $e");
+    }
+  }
+
+  Future<void> processAudio() async {
+    AudioProcessingResult response = await postAudio(audioPath);
+
+    setState(() {
+      audioPath = response.tempFilePath!;
+      this.response = response.message;
+    });
   }
 }

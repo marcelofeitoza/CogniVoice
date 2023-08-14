@@ -2,14 +2,6 @@ import 'package:cognivoice/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-// Future void main() async {
-//   await dotenv.load(fileName: "assets/.env", mergeWith: {
-//     'TEST_VAR': '5',
-//   });
-
-//   runApp(const CogniVoice());
-// }
-
 Future main() async {
   await dotenv.load(fileName: ".env");
 
