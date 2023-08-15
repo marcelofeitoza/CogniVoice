@@ -64,7 +64,17 @@ class _HomeState extends State<Home> {
                 ],
               ),
             const SizedBox(height: 32),
-            if (isRecording) const Text('Recording...'),
+            if (isRecording)
+              Column(
+                children: [
+                  Text(
+                    'Recording...',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.labelLarge,
+                  ),
+                  const SizedBox(height: 48),
+                ],
+              ),
             ButtonBar(
               alignment: MainAxisAlignment.center,
               children: [
