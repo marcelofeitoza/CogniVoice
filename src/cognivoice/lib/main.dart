@@ -1,6 +1,6 @@
-import 'package:cognivoice/screens/home.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:cognivoice/screens/work.dart';
+import 'package:flutter/material.dart';
 
 Future main() async {
   await dotenv.load(fileName: ".env");
@@ -25,9 +25,9 @@ class CogniVoice extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/home',
+      initialRoute: '/work',
       routes: <String, WidgetBuilder>{
-        '/home': (BuildContext context) => Home(context: context),
+        '/work': (BuildContext context) => Work(context: context),
       },
     );
   }

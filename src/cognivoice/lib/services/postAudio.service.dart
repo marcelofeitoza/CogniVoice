@@ -20,9 +20,7 @@ Future<AudioProcessingResult> postAudio(String audioFilePath) async {
 
   final response = await http.post(
     Uri.parse("$apiUrl/$path"),
-    headers: {
-      'Content-Type': 'audio/mp4', // or 'audio/x-m4a'
-    },
+    headers: {'Content-Type': 'audio/mp4'},
     body: audioBytes,
   );
 
