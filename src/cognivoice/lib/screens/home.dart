@@ -1,8 +1,12 @@
+import 'dart:convert';
+import 'dart:io';
+import 'dart:typed_data';
 import 'package:cognivoice/services/postAudio.service.dart';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:record/record.dart';
 import 'package:cognivoice/models/audioProcessingResult.model.dart';
+import 'package:path_provider/path_provider.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key, required this.context});
@@ -46,6 +50,27 @@ class _HomeState extends State<Home> {
           physics: const BouncingScrollPhysics(),
           padding: const EdgeInsets.all(16),
           children: [
+            if (statusCode > 0)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Status Code: ',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.labelLarge,
+                  ),
+                  Text(
+                    statusCode.toString(),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: statusCode == 200
+                          ? Colors.green[700]
+                          : Colors.red[500],
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
             if (!isRecording)
               Column(
                 children: [
@@ -118,6 +143,7 @@ class _HomeState extends State<Home> {
   String audioPath = "";
   bool isPlaying = false;
   String response = "Waiting...";
+  int statusCode = 0;
 
   Future<void> startRecording() async {
     try {
@@ -147,31 +173,48 @@ class _HomeState extends State<Home> {
   }
 
   Future<void> playRecording() async {
-    try {
-      if (audioPath.isNotEmpty) {
-        Source urlSource = UrlSource(audioPath);
-        await audioPlayer.play(urlSource);
-        setState(() {
-          isPlaying = true;
-        });
-
-        audioPlayer.onPlayerComplete.listen((event) {
+    if (audioPath.isNotEmpty) {
+      try {
+        if (audioPath.isNotEmpty) {
+          Source urlSource = UrlSource(audioPath);
+          await audioPlayer.play(urlSource);
           setState(() {
-            isPlaying = false;
+            isPlaying = true;
           });
-        });
+
+          audioPlayer.onPlayerComplete.listen((event) {
+            setState(() {
+              isPlaying = false;
+            });
+          });
+        }
+      } catch (e) {
+        throw Exception("Error: $e");
       }
-    } catch (e) {
-      throw Exception("Error: $e");
+    } else {
+      throw Exception("Error: No audio file to play");
     }
   }
 
   Future<void> processAudio() async {
-    AudioProcessingResult response = await postAudio(audioPath);
+    AudioProcessingResult postResponse = await postAudio(audioPath);
+    String audioBase64 = postResponse.audio;
+    File? receivedAudio = await decodeAudio(audioBase64);
 
     setState(() {
-      audioPath = response.tempFilePath!;
-      this.response = response.message;
+      response = postResponse.message;
+      statusCode = postResponse.statusCode;
+      audioPath = receivedAudio.path;
     });
   }
+}
+
+Future<File> decodeAudio(String audioBase64) async {
+  final Uint8List audioBytes = base64.decode(audioBase64);
+  final Directory tempDir = await getTemporaryDirectory();
+  final File tempFile = File('${tempDir.path}/audio.m4a');
+
+  await tempFile.writeAsBytes(audioBytes);
+
+  return tempFile;
 }
