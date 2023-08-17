@@ -37,9 +37,8 @@ class _LoginState extends State<Login> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  // Email textfield
                   TextFormField(
-                    autofocus: true,
+                    textInputAction: TextInputAction.next,
                     controller: emailController,
                     autocorrect: false,
                     validator: (value) {
@@ -63,8 +62,8 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                   const SizedBox(height: 24),
-                  // Password textfield
                   TextFormField(
+                    textInputAction: TextInputAction.done,
                     obscureText: true,
                     controller: passwordController,
                     autocorrect: false,
@@ -86,11 +85,8 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  // Forgot password
                   TextButton(
-                    onPressed: () {
-                      // Action for "Esqueci minha senha"
-                    },
+                    onPressed: () {},
                     child: const Text(
                       'Esqueci minha senha',
                       style: TextStyle(
@@ -110,8 +106,8 @@ class _LoginState extends State<Login> {
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
                     colors: [
-                      Color(0xFF277AFF), // #277AFF
-                      Color(0xFF12307C), // #12307C
+                      Color(0xFF277AFF),
+                      Color(0xFF12307C),
                     ],
                   ),
                   borderRadius: BorderRadius.circular(10),
@@ -145,14 +141,9 @@ class _LoginState extends State<Login> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  child: const Text(
+                  child: Text(
                     'Login',
-                    style: TextStyle(
-                      fontFamily: 'IBM_Plex_Sans',
-                      fontSize: 27,
-                      fontWeight: FontWeight.w300,
-                      color: Colors.white,
-                    ),
+                    style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
               ),

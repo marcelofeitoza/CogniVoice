@@ -1,5 +1,5 @@
-import 'package:cognivoice/screens/login.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:cognivoice/screens/login.dart';
 import 'package:cognivoice/screens/work.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +22,7 @@ class CogniVoice extends StatelessWidget {
           primary: const Color(0xFFf1f1f1),
           secondary: const Color(0xff12307c),
           seedColor: const Color(0xFF12307c),
+          error: Colors.red[400],
           brightness: Brightness.dark,
         ),
         fontFamily: 'IBM_Plex_Sans',
