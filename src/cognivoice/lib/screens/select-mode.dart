@@ -135,8 +135,10 @@ class _SelectModeState extends State<SelectMode> {
                 ),
                 child: ElevatedButton(
                   onPressed: () {
-                    // Action to perform when the button is pressed
-                    // Navigator.pushNamed(context, '/work');
+                    Navigator.pushReplacementNamed(
+                      widget.context,
+                      '/work',
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.transparent,

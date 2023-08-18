@@ -119,7 +119,7 @@ class _LoginState extends State<Login> {
                           passwordController.text == 'admin') {
                         Navigator.pushReplacementNamed(
                           widget.context,
-                          '/work',
+                          '/select-mode',
                         );
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
