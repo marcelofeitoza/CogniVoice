@@ -67,6 +67,8 @@ flutter:
         - .env
         - assets/logo.png
         - assets/logo/logo.png
+        - assets/icons/markettracker.png
+        - assets/icons/salestracker.png
 
     fonts:
         - family: IBM_Plex_Sans

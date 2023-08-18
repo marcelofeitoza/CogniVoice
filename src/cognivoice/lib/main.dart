@@ -1,3 +1,4 @@
+import 'package:cognivoice/screens/select-mode.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:cognivoice/screens/login.dart';
 import 'package:cognivoice/screens/work.dart';
@@ -19,6 +20,7 @@ class CogniVoice extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           background: const Color(0xFF161616),
+          onBackground: const Color(0xff1b1b1b),
           primary: const Color(0xFFf1f1f1),
           secondary: const Color(0xff12307c),
           seedColor: const Color(0xFF12307c),
@@ -29,10 +31,11 @@ class CogniVoice extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/login',
+      initialRoute: '/select-mode',
       routes: <String, WidgetBuilder>{
         '/work': (BuildContext context) => Work(context: context),
         '/login': (BuildContext context) => Login(context: context),
+        '/select-mode': (BuildContext context) => SelectMode(context: context),
       },
     );
   }
