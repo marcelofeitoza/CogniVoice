@@ -31,7 +31,7 @@ class CogniVoice extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/select-mode',
+      initialRoute: '/login',
       routes: <String, WidgetBuilder>{
         '/work': (BuildContext context) => Work(context: context),
         '/login': (BuildContext context) => Login(context: context),
