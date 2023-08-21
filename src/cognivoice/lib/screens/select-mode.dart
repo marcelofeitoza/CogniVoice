@@ -75,7 +75,7 @@ class _SelectModeState extends ConsumerState<SelectMode> {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            "Market",
+                            "MarketTracker",
                             style: TextStyle(
                               color: selectedMode == 0
                                   ? Theme.of(context).colorScheme.primary
@@ -102,7 +102,7 @@ class _SelectModeState extends ConsumerState<SelectMode> {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            "Sales",
+                            "SalesTracker",
                             style: TextStyle(
                               color: selectedMode == 1
                                   ? Theme.of(context).colorScheme.primary

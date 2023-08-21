@@ -56,7 +56,8 @@ class _WorkState extends ConsumerState<Work> {
                       softWrap: true),
                 ]),
                 IconButton(
-                    onPressed: null,
+                    onPressed: () =>
+                        Navigator.pushReplacementNamed(context, '/login'),
                     icon: Icon(
                       Icons.settings_outlined,
                       color: Theme.of(context).colorScheme.onPrimary,
