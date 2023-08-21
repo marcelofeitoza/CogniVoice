@@ -1,55 +1,68 @@
 import 'package:cognivoice/models/audioProcessingResult.model.dart';
-import 'package:cognivoice/services/postAudio.service.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:cognivoice/providers/user.provider.dart';
+import 'package:cognivoice/services/audio.service.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:record/record.dart';
-import 'dart:typed_data';
-import 'dart:convert';
 import 'dart:io';
 
-class Work extends StatefulWidget {
-  const Work({super.key, required this.context});
-
-  final BuildContext context;
-
-  @override
-  State<Work> createState() => _WorkState();
+enum TimeOfDay {
+  morning,
+  afternoon,
+  night,
 }
 
-class _WorkState extends State<Work> {
-  @override
-  void initState() {
-    super.initState();
-  }
+class Work extends ConsumerStatefulWidget {
+  const Work({super.key, required this.context, required this.ref});
+
+  final BuildContext context;
+  final WidgetRef ref;
 
   @override
-  void dispose() {
-    audioRecord.dispose();
-    audioPlayer.dispose();
-    super.dispose();
-  }
+  _WorkState createState() => _WorkState();
+}
 
+class _WorkState extends ConsumerState<Work> {
   @override
   Widget build(BuildContext context) {
+    user = ref.read(userProvider);
+
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.secondary,
-        title: const Text('CogniVoice'),
-        elevation: 1,
-        shadowColor: Colors.black12,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(16),
-          ),
-        ),
-      ),
-      body: Center(
-        child: ListView(
-          physics: const BouncingScrollPhysics(),
-          padding: const EdgeInsets.all(16),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Column(
+          // physics: const BouncingScrollPhysics(),
+          // padding: const EdgeInsets.all(16),
           children: [
+            const SizedBox(
+              height: 72,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text("Good ${timeOfDay.toString().split('.').last}!",
+                      style: TextStyle(
+                        fontSize:
+                            Theme.of(context).textTheme.headlineSmall!.fontSize,
+                        fontWeight: FontWeight.w400,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      )),
+                  Text("Search with CogniVoice",
+                      style: Theme.of(context).textTheme.bodyLarge,
+                      softWrap: true),
+                ]),
+                IconButton(
+                    onPressed: null,
+                    icon: Icon(
+                      Icons.settings_outlined,
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ))
+              ],
+            ),
             if (statusCode > 0)
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -137,6 +150,7 @@ class _WorkState extends State<Work> {
     );
   }
 
+  final AudioService audioService = AudioService();
   final Record audioRecord = Record();
   final AudioPlayer audioPlayer = AudioPlayer();
   bool isRecording = false;
@@ -144,6 +158,8 @@ class _WorkState extends State<Work> {
   bool isPlaying = false;
   String response = "Waiting...";
   int statusCode = 0;
+  late User user;
+  late TimeOfDay timeOfDay;
 
   Future<void> startRecording() async {
     try {
@@ -153,8 +169,27 @@ class _WorkState extends State<Work> {
           isRecording = true;
           response = "Waiting...";
         });
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+              'You must allow audio recording to use this feature',
+              textAlign: TextAlign.center,
+            ),
+            backgroundColor: Colors.red,
+          ),
+        );
       }
     } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'You must allow audio recording to use this feature',
+            textAlign: TextAlign.center,
+          ),
+          backgroundColor: Colors.red,
+        ),
+      );
       throw Exception("Error: $e");
     }
   }
@@ -197,9 +232,10 @@ class _WorkState extends State<Work> {
   }
 
   Future<void> processAudio() async {
-    AudioProcessingResult postResponse = await postAudio(audioPath);
+    AudioProcessingResult postResponse =
+        await audioService.postAudio(audioPath, user.selectedMode);
     String audioBase64 = postResponse.audio;
-    File? receivedAudio = await decodeAudio(audioBase64);
+    File? receivedAudio = await audioService.decodeAudio(audioBase64);
 
     setState(() {
       response = postResponse.message;
@@ -207,14 +243,28 @@ class _WorkState extends State<Work> {
       audioPath = receivedAudio.path;
     });
   }
-}
 
-Future<File> decodeAudio(String audioBase64) async {
-  final Uint8List audioBytes = base64.decode(audioBase64);
-  final Directory tempDir = await getTemporaryDirectory();
-  final File tempFile = File('${tempDir.path}/audio.m4a');
+  @override
+  void initState() {
+    // get time of day
+    DateTime now = DateTime.now();
+    int hour = now.hour;
 
-  await tempFile.writeAsBytes(audioBytes);
+    if (hour >= 5 && hour < 12) {
+      timeOfDay = TimeOfDay.morning;
+    } else if (hour >= 12 && hour < 18) {
+      timeOfDay = TimeOfDay.afternoon;
+    } else {
+      timeOfDay = TimeOfDay.night;
+    }
 
-  return tempFile;
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    audioRecord.dispose();
+    audioPlayer.dispose();
+    super.dispose();
+  }
 }

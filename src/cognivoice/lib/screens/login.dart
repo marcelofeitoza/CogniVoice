@@ -1,18 +1,21 @@
+import 'package:cognivoice/providers/user.provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 
-class Login extends StatefulWidget {
-  const Login({Key? key, required this.context}) : super(key: key);
+class Login extends ConsumerStatefulWidget {
+  const Login({Key? key, required this.context, required this.ref});
 
   final BuildContext context;
+  final WidgetRef ref;
 
   @override
   _LoginState createState() => _LoginState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginState extends ConsumerState<Login> {
   final _formKey = GlobalKey<FormState>();
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  final emailController = TextEditingController(text: "admin");
+  final passwordController = TextEditingController(text: "admin");
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +27,14 @@ class _LoginState extends State<Login> {
           key: _formKey,
           child: Column(
             children: [
-              const SizedBox(height: 70),
+              const SizedBox(height: 64),
               // Logo
               Image.asset(
                 'assets/logo.png',
                 width: 200.0,
                 height: 100.0,
               ),
-              const SizedBox(height: 120),
+              const SizedBox(height: 128),
 
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -43,7 +46,7 @@ class _LoginState extends State<Login> {
                     autocorrect: false,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your email';
+                        return "Please enter your email";
                       }
                       return null;
                     },
@@ -87,10 +90,14 @@ class _LoginState extends State<Login> {
                   const SizedBox(height: 16),
                   TextButton(
                     onPressed: () {},
-                    child: const Text(
-                      'Esqueci minha senha',
+                    child: Text(
+                      'Forgot password?',
                       style: TextStyle(
-                        color: Colors.blue,
+                        fontSize:
+                            Theme.of(context).textTheme.bodySmall!.fontSize,
+                        fontWeight:
+                            Theme.of(context).textTheme.bodySmall!.fontWeight,
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                       textAlign: TextAlign.end,
                     ),
@@ -114,25 +121,7 @@ class _LoginState extends State<Login> {
                 ),
                 child: ElevatedButton(
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      if (emailController.text == 'admin' &&
-                          passwordController.text == 'admin') {
-                        Navigator.pushReplacementNamed(
-                          widget.context,
-                          '/select-mode',
-                        );
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text(
-                              'Email ou senha incorretos',
-                              textAlign: TextAlign.center,
-                            ),
-                            backgroundColor: Colors.red,
-                          ),
-                        );
-                      }
-                    }
+                    _submitHandler();
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.transparent,
@@ -153,6 +142,27 @@ class _LoginState extends State<Login> {
         ),
       ),
     );
+  }
+
+  void _submitHandler() {
+    if (_formKey.currentState!.validate()) {
+      if (passwordController.text == 'admin') {
+        ref.read(userProvider).email = emailController.text;
+        ref.read(userProvider).password = passwordController.text;
+
+        Navigator.pushNamed(context, "/select-mode");
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+              'Email or password incorrect',
+              textAlign: TextAlign.center,
+            ),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    }
   }
 
   @override

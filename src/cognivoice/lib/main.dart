@@ -1,41 +1,37 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cognivoice/screens/select-mode.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:cognivoice/screens/login.dart';
 import 'package:cognivoice/screens/work.dart';
+import 'package:cognivoice/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 Future main() async {
   await dotenv.load(fileName: ".env");
 
-  runApp(const CogniVoice());
+  runApp(const ProviderScope(child: CogniVoice()));
 }
 
-class CogniVoice extends StatelessWidget {
+class CogniVoice extends ConsumerWidget {
   const CogniVoice({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
       title: 'Cogni Voice',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          background: const Color(0xFF161616),
-          onBackground: const Color(0xff1b1b1b),
-          primary: const Color(0xFFf1f1f1),
-          secondary: const Color(0xff12307c),
-          seedColor: const Color(0xFF12307c),
-          error: Colors.red[400],
-          brightness: Brightness.dark,
-        ),
+        colorScheme: CogniVoiceTheme.colorScheme,
+        textTheme: CogniVoiceTheme.textTheme,
         fontFamily: 'IBM_Plex_Sans',
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
       initialRoute: '/login',
       routes: <String, WidgetBuilder>{
-        '/work': (BuildContext context) => Work(context: context),
-        '/login': (BuildContext context) => Login(context: context),
-        '/select-mode': (BuildContext context) => SelectMode(context: context),
+        '/work': (BuildContext context) => Work(context: context, ref: ref),
+        '/login': (BuildContext context) => Login(context: context, ref: ref),
+        '/select-mode': (BuildContext context) =>
+            SelectMode(context: context, ref: ref),
       },
     );
   }
