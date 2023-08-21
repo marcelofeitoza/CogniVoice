@@ -289,9 +289,51 @@ Preencher seguindo as orientações da Adalove.
 
 ## API para receber os áudios enviados pelo usuário
 
-Preencher seguindo as orientações da Adalove.
+A API que recebe os aúdios enviados pelo usuário foi construída com a ajuda de uma função de "Speech to Text" que a própria IBM já fornece por meio da biblioteca do IBM Watson. O que recebe o áudio é na verdade uma função, que é posteriormente chamada em uma API de post.
 
-É possível referenciar os testes da pasta tests do repositório.
+Função "generateText()" que recebe e processa o áudio:
+```
+async function generateText(audio){
+    try {
+        const result = await speechToText.recognize({
+            audio: audio,
+            contentType: "audio/flac",
+            model: "pt-BR_BroadbandModel",
+            keywords: ["oi"],
+            keywordsThreshold: 0.5,
+            maxAlternatives: 3, 
+        })
+
+        return result.result.results[0].alternatives[0].transcript;
+    } catch (error) {
+        throw Error("Error recognizing audio");
+    }
+}
+```
+
+API de post que chama essa função juntamente com o áudio:
+```
+app.post("/text", async (req, res) => {
+    try {
+        const text = await generateText(req.body);
+        console.log(text);
+
+        res.status(200).json({
+            message: text,
+            audio: req.body.toString("base64"),
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: error.message,
+            audio: req.body.toString("base64"),
+        });
+    }
+
+});
+```
+
+Além de chamar a função, essa API transforma o áudio para o formato de "base64" para que o tráfego dele em HTTP seja mais leve, já que o Flutter não consegue suportar tráfegos muito pesados.
+
 
 # Documentação da Construção do Backend da Solução (Sprint 3)
 
