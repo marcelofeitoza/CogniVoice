@@ -12,9 +12,11 @@ app.use(cors())
 
 //Import Routes
 const chatRoute = require("./routes/chat");
+const userRoute = require("./routes/user");
 
 //Use Routes
 app.use("/v1/chat", chatRoute);
+app.use("/v1/user", userRoute);
 
 app.get("/", (req, res) => {
   res.send({

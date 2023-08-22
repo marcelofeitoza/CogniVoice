@@ -37,7 +37,7 @@ class Chat {
     try {
       const text = await ibmUtils.generateText(audioFlac);
 
-      const responseChat = await gptUtils.sendToGPT(text, "teste", mode);
+      const responseChat = await gptUtils.sendToGPT(text, "teste", "sales");
 
       const audio = await ibmUtils.generateSpeech(responseChat);
 
