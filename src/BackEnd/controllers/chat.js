@@ -7,7 +7,6 @@ const service = require('../services/chat')
 const chat = new service.Chat()
 
 const ask = async (req, res) => {
-
     const { mode } = req.params;
 
     //Validação dos campos

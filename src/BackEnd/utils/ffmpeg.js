@@ -4,8 +4,6 @@ const pathToFfmpeg = require("ffmpeg-static");
 ffmpeg.setFfmpegPath(pathToFfmpeg);
 
 async function convertToFlac(origin, destination) {
-  console.log(origin, destination);
-
   return new Promise((resolve, reject) => {
     ffmpeg(origin)
       .output(destination)

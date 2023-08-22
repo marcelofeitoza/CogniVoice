@@ -1,0 +1,24 @@
+[2023-08-22T15:40:02.995] [INFO] chat - Audio Recebido
+[2023-08-22T15:40:06.510] [INFO] chat - Audio convertido para flac
+[2023-08-22T15:40:07.011] [ERROR] chat - Error recognizing audio:
+[2023-08-22T15:42:54.096] [INFO] chat - Audio Recebido
+[2023-08-22T15:42:54.404] [INFO] chat - Audio convertido para flac
+[2023-08-22T15:42:55.357] [ERROR] chat - Error recognizing audio:
+[2023-08-22T15:43:05.490] [INFO] chat - Audio Recebido
+[2023-08-22T15:43:05.654] [INFO] chat - Audio convertido para flac
+[2023-08-22T15:43:10.654] [ERROR] chat - Error recognizing audio:
+[2023-08-22T15:43:18.807] [INFO] chat - Audio Recebido
+[2023-08-22T15:43:18.877] [INFO] chat - Audio convertido para flac
+[2023-08-22T15:43:23.096] [ERROR] chat - Error recognizing audio:
+[2023-08-22T15:43:29.333] [INFO] chat - Audio Recebido
+[2023-08-22T15:43:29.401] [INFO] chat - Audio convertido para flac
+[2023-08-22T15:43:34.549] [INFO] chat - Texto gerado com sucesso!
+[2023-08-22T15:43:48.230] [INFO] chat - Chat finalizado com sucesso!
+[2023-08-22T15:44:47.120] [INFO] chat - Audio gerado com sucesso!
+[2023-08-22T15:44:47.129] [INFO] chat - Resposta Enviada
+[2023-08-22T15:45:09.132] [INFO] chat - Audio Recebido
+[2023-08-22T15:45:09.294] [INFO] chat - Audio convertido para flac
+[2023-08-22T15:45:14.150] [INFO] chat - Texto gerado com sucesso!
+[2023-08-22T15:45:25.224] [INFO] chat - Chat finalizado com sucesso!
+[2023-08-22T15:47:10.811] [INFO] chat - Audio gerado com sucesso!
+[2023-08-22T15:47:10.831] [INFO] chat - Resposta Enviada

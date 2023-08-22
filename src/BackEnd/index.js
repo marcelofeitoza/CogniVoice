@@ -3,9 +3,25 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const log4js = require('log4js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.raw({ type: "audio/mp4", limit: "150mb" }));
+
+//Configurando Log de Usuários
+log4js.configure({
+  appenders: {
+    multi: {
+      type: "multiFile",
+      base: "logs/",
+      property: "categoryName",
+      extension: ".log",
+    },
+  },
+  categories: {
+    default: { appenders: ["multi"], level: "debug" },
+  },
+});
 
 //Import Cors
 app.use(cors())

@@ -1,4 +1,9 @@
 const { Configuration, OpenAIApi } = require("openai");
+require("dotenv").config();
+//Configurando Log
+const log4js = require("log4js");
+
+const loggerChat = log4js.getLogger("chat");
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
@@ -11,13 +16,13 @@ let conversations = {};
 async function sendToGPT(text, userName, mode) {
   let messages = [];
 
-  if (mode === "seller") {
+  if (mode === "SalesTracker") {
     messages.push({
       role: "system",
       content:
         "Você é um assistente de bate-papo que têm como função ajudar usuários que trabalham na área de vendas de uma empresa, e portanto suas informações devem ajudar o usuário em seu trabalho.",
     });
-  } else if (mode === "user") {
+  } else if (mode === "MarketTracker") {
     messages.push({
       role: "system",
       content:
@@ -58,10 +63,12 @@ async function sendToGPT(text, userName, mode) {
     });
 
     console.log("Chat finalizado!", completion.data.choices[0].message.content);
+    loggerChat.info("Chat finalizado com sucesso!");
 
     return completion.data.choices[0].message.content;
   } catch (error) {
     console.error("Error completing chat:", error);
+    loggerChat.error("Error completing chat", error.status);
     throw new Error("Error completing chat");
   }
 }
@@ -79,8 +86,7 @@ async function recordChatOfUser(answer, question, userName) {
   }
 }
 
-
 module.exports = {
-    sendToGPT,
-    recordChatOfUser,
+  sendToGPT,
+  recordChatOfUser,
 };
