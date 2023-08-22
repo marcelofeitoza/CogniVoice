@@ -296,6 +296,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  loggerw:
+    dependency: "direct main"
+    description:
+      name: loggerw
+      sha256: bd6173fc8f01e91c567580ee953224438b11bcd96d355b5c03517511f2243204
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.4"
   matcher:
     dependency: transitive
     description:
