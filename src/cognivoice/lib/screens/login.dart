@@ -1,12 +1,19 @@
 import 'package:cognivoice/providers/user.provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
+import 'package:loggerw/loggerw.dart';
 
 class Login extends ConsumerStatefulWidget {
-  const Login({Key? key, required this.context, required this.ref});
+  const Login({
+    Key? key,
+    required this.context,
+    required this.ref,
+    required this.logger,
+  }) : super(key: key);
 
   final BuildContext context;
   final WidgetRef ref;
+  final Logger logger;
 
   @override
   _LoginState createState() => _LoginState();
@@ -46,6 +53,7 @@ class _LoginState extends ConsumerState<Login> {
                     autocorrect: false,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
+                        widget.logger.e('Login: Email field validation error');
                         return "Please enter your email";
                       }
                       return null;
@@ -72,6 +80,8 @@ class _LoginState extends ConsumerState<Login> {
                     autocorrect: false,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
+                        widget.logger
+                            .e('Login: Password field validation error');
                         return 'Please enter your password';
                       }
                       return null;
@@ -89,7 +99,10 @@ class _LoginState extends ConsumerState<Login> {
                   ),
                   const SizedBox(height: 16),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      widget.logger.i('Login: Forgot password button pressed');
+                      // ...
+                    },
                     child: Text(
                       'Forgot password?',
                       style: TextStyle(
@@ -145,13 +158,21 @@ class _LoginState extends ConsumerState<Login> {
   }
 
   void _submitHandler() {
+    widget.logger.i('Login: Login button pressed');
+
     if (_formKey.currentState!.validate()) {
+      widget.logger.i('Login: Form validated');
+
       if (passwordController.text == 'admin') {
+        widget.logger.i('Login: Login successful');
+
         ref.read(userProvider).email = emailController.text;
         ref.read(userProvider).password = passwordController.text;
 
         Navigator.pushNamed(context, "/select-mode");
       } else {
+        widget.logger.e('Login: Login failed');
+
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text(
@@ -169,6 +190,8 @@ class _LoginState extends ConsumerState<Login> {
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
+
+    widget.logger.i('Login: Disposed');
 
     super.dispose();
   }

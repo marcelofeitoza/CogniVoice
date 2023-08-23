@@ -1,12 +1,19 @@
 import 'package:cognivoice/providers/user.provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
+import 'package:loggerw/loggerw.dart';
 
 class SelectMode extends ConsumerStatefulWidget {
-  const SelectMode({super.key, required this.context, required this.ref});
+  const SelectMode(
+      {Key? key,
+      required this.context,
+      required this.ref,
+      required this.logger})
+      : super(key: key);
 
   final BuildContext context;
   final WidgetRef ref;
+  final Logger logger;
 
   @override
   _SelectModeState createState() => _SelectModeState();
@@ -206,6 +213,8 @@ class _SelectModeState extends ConsumerState<SelectMode> {
   ];
 
   void _submitHandler() {
+    widget.logger.i('SelectMode: Submit button pressed');
+
     widget.ref.read(userProvider).selectedMode = selectedMode == 0
         ? 'MarketTracker'
         : selectedMode == 1
@@ -213,12 +222,19 @@ class _SelectModeState extends ConsumerState<SelectMode> {
             : '';
 
     if (selectedMode == 0 || selectedMode == 1) {
+      widget.logger.i('SelectMode: Submit successful');
+
       widget.ref.read(userProvider).selectedMode = selectedMode == 0
           ? 'MarketTracker'
           : selectedMode == 1
               ? 'SalesTracker'
               : '';
+
+      widget.logger.i(
+          'SelectMode: Selected mode: ${widget.ref.read(userProvider).selectedMode}');
     } else {
+      widget.logger.e('SelectMode: Mode selection failed');
+
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
@@ -237,5 +253,7 @@ class _SelectModeState extends ConsumerState<SelectMode> {
     setState(() {
       selectedMode = mode;
     });
+
+    widget.logger.i('SelectMode: Selected mode: $selectedMode');
   }
 }

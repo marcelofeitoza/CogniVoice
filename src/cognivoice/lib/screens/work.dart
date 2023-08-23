@@ -4,6 +4,7 @@ import 'package:cognivoice/services/audio.service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:loggerw/loggerw.dart';
 import 'package:record/record.dart';
 import 'dart:io';
 
@@ -14,10 +15,16 @@ enum TimeOfDay {
 }
 
 class Work extends ConsumerStatefulWidget {
-  const Work({super.key, required this.context, required this.ref});
+  const Work(
+      {Key? key,
+      required this.context,
+      required this.ref,
+      required this.logger})
+      : super(key: key);
 
   final BuildContext context;
   final WidgetRef ref;
+  final Logger logger;
 
   @override
   _WorkState createState() => _WorkState();
@@ -56,13 +63,49 @@ class _WorkState extends ConsumerState<Work> {
                       softWrap: true),
                 ]),
                 IconButton(
-                    onPressed: () =>
-                        Navigator.pushReplacementNamed(context, '/login'),
-                    icon: Icon(
-                      Icons.settings_outlined,
-                      color: Theme.of(context).colorScheme.onPrimary,
-                    ))
+                  onPressed: () {
+                    widget.logger.i("Work: Settings button clicked");
+                    Navigator.pushReplacementNamed(context, '/login');
+                  },
+                  icon: Icon(
+                    Icons.settings_outlined,
+                    color: Theme.of(context).colorScheme.onPrimary,
+                  ),
+                ),
               ],
+            ),
+            Column(
+              children: [
+                // user details
+                const SizedBox(height: 32),
+                Row(
+                  children: [
+                    Text(
+                      'Name: ',
+                      style: Theme.of(context).textTheme.labelLarge,
+                    ),
+                    Text(
+                      user.email,
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'Mode: ',
+                      style: Theme.of(context).textTheme.labelLarge,
+                    ),
+                    Text(
+                      user.selectedMode,
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 48,
             ),
             if (statusCode > 0)
               Row(
@@ -118,7 +161,8 @@ class _WorkState extends ConsumerState<Work> {
               alignment: MainAxisAlignment.center,
               children: [
                 TextButton.icon(
-                  onPressed: isRecording ? stopRecording : startRecording,
+                  onPressed: () =>
+                      isRecording ? stopRecording() : startRecording(),
                   icon: Icon(isRecording ? Icons.stop : Icons.mic),
                   label: Text(
                     isRecording ? 'Stop Recording' : 'Start Recording',
@@ -163,35 +207,22 @@ class _WorkState extends ConsumerState<Work> {
   late TimeOfDay timeOfDay;
 
   Future<void> startRecording() async {
+    widget.logger.i("Work: Start recording");
+
     try {
       if (await audioRecord.hasPermission()) {
+        widget.logger.i("Work: Has permission to record audio");
+
         await audioRecord.start();
         setState(() {
           isRecording = true;
           response = "Waiting...";
         });
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text(
-              'You must allow audio recording to use this feature',
-              textAlign: TextAlign.center,
-            ),
-            backgroundColor: Colors.red,
-          ),
-        );
+        widget.logger.e("Work: Audio recording permission not granted");
       }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(
-            'You must allow audio recording to use this feature',
-            textAlign: TextAlign.center,
-          ),
-          backgroundColor: Colors.red,
-        ),
-      );
-      throw Exception("Error: $e");
+      widget.logger.e("Work: Error while starting recording - $e");
     }
   }
 
@@ -204,50 +235,59 @@ class _WorkState extends ConsumerState<Work> {
         audioPath = path!;
       });
     } catch (e) {
-      throw Exception("Error: $e");
+      widget.logger.e("Work: Error while stopping recording - $e");
     }
   }
 
   Future<void> playRecording() async {
     if (audioPath.isNotEmpty) {
       try {
-        if (audioPath.isNotEmpty) {
-          Source urlSource = UrlSource(audioPath);
-          await audioPlayer.play(urlSource);
-          setState(() {
-            isPlaying = true;
-          });
+        widget.logger.i("Work: Playing recording from path: $audioPath");
 
-          audioPlayer.onPlayerComplete.listen((event) {
-            setState(() {
-              isPlaying = false;
-            });
+        Source urlSource = UrlSource(audioPath);
+        await audioPlayer.play(urlSource);
+        setState(() {
+          isPlaying = true;
+        });
+
+        audioPlayer.onPlayerComplete.listen((event) {
+          setState(() {
+            isPlaying = false;
           });
-        }
+        });
       } catch (e) {
-        throw Exception("Error: $e");
+        widget.logger.e("Work: Error while playing recording - $e");
       }
     } else {
-      throw Exception("Error: No audio file to play");
+      widget.logger.e("Work: No audio file to play");
     }
   }
 
   Future<void> processAudio() async {
-    AudioProcessingResult postResponse =
-        await audioService.postAudio(audioPath, user.selectedMode);
-    String audioBase64 = postResponse.audio;
-    File? receivedAudio = await audioService.decodeAudio(audioBase64);
+    try {
+      widget.logger.i("Work: Processing audio");
 
-    setState(() {
-      response = postResponse.message;
-      statusCode = postResponse.statusCode;
-      audioPath = receivedAudio.path;
-    });
+      AudioProcessingResult postResponse = await audioService.postAudio(
+          audioPath, widget.logger, user.selectedMode);
+
+      String audioBase64 = postResponse.audio;
+      File? receivedAudio =
+          await audioService.decodeAudio(audioBase64, widget.logger);
+
+      setState(() {
+        response = postResponse.message;
+        statusCode = postResponse.statusCode;
+        audioPath = receivedAudio.path;
+      });
+    } catch (e) {
+      widget.logger.e("Work: Error while processing audio - $e");
+    }
   }
 
   @override
   void initState() {
-    // get time of day
+    widget.logger.i("Work: Initializing state");
+
     DateTime now = DateTime.now();
     int hour = now.hour;
 
@@ -264,6 +304,8 @@ class _WorkState extends ConsumerState<Work> {
 
   @override
   void dispose() {
+    widget.logger.i("Work: Disposing");
+
     audioRecord.dispose();
     audioPlayer.dispose();
     super.dispose();
