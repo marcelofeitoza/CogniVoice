@@ -135,6 +135,34 @@ class User {
 
         return "User removed successfully"
     }
+
+    async Get(id) {
+        try {
+            const user = await prisma.user.findUnique({
+                where: {
+                    id: id
+                }
+            })
+
+            if (!user) {
+                throw new Error('User not found')
+            }
+
+            return user
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
+
+    async GetAll() {
+        try {
+            const users = await prisma.user.findMany()
+
+            return users
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
 }
 
 module.exports = {

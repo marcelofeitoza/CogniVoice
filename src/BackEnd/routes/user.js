@@ -23,15 +23,34 @@ router.post(
     userController.authenticate
 );
 
+router.get(
+    "/",
+    unsureAuthenticated,
+    userController.getCalling
+);
+
+router.get(
+    "/:id",
+    [param("id", "ID é necessário").exists({ checkFalsy: true })],
+    unsureAuthenticated,
+    userController.get
+);
+
+router.get(
+    "/getAll",
+    unsureAuthenticated,
+    userController.getAll
+);
+
 router.put(
-    "/update/:id",
+    "/:id",
     [param("id", "ID é necessário").exists({ checkFalsy: true })],
     unsureAuthenticated,
     userController.update
 );
 
 router.delete(
-    "/delete/:id",
+    "/:id",
     [param("id", "ID é necessário").exists({ checkFalsy: true })],
     unsureAuthenticated,
     userController.remove

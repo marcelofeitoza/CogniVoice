@@ -93,10 +93,59 @@ const remove = async (req, res) => {
   }
 };
 
+const getCalling = async (req, res) => {
+  //Chamada para o service
+  try {
+    //Tratamento das respostas do método da classe
+    const result = await user.Get(req.id);
+    res.send(result);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
+const get = async (req, res) => {
+  const { id } = req.params;
+
+  //Valida se algum paremetro é inválido
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({
+      error: errors.errors[0].msg,
+    });
+  }
+
+  //Chamada para o service
+  try {
+    //Tratamento das respostas do método da classe
+    const result = await user.Get(id);
+    res.send(result);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+}
+
+const getAll = async (req, res) => {
+  //Chamada para o service
+  try {
+    //Tratamento das respostas do método da classe
+    const result = await user.GetAll();
+    res.send(result);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+}
+
+
+
 //Exporta as funções do controller para o ROUTER
 module.exports = {
   subscribe,
   authenticate,
   update,
   remove,
+  getCalling,
+  get,
+  getAll
 };
