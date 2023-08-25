@@ -285,7 +285,149 @@ Preencher seguindo as orientações da Adalove.
 
 ## Processo de deploy do algoritmo em nuvem comercial
 
-Preencher seguindo as orientações da Adalove.
+### Tutorial: Configurando uma Instância EC2 na AWS e Hospedando um Backend em JavaScript
+
+Neste tutorial, vamos configurar uma instância EC2 na AWS e hospedar um backend desenvolvido em JavaScript.
+
+#### Parte 1: Criando uma Instância EC2 na AWS
+
+1. **Acesse o Console da AWS:**
+   Faça login na sua conta da AWS em [https://aws.amazon.com/](https://aws.amazon.com/) e acesse o Console de Gerenciamento da AWS.
+
+2. **Navegue até o serviço EC2:**
+   No painel de controle da AWS, procure e clique no serviço "EC2" (Elastic Compute Cloud).
+
+3. **Crie uma nova instância:**
+   - Clique em "Launch Instances" para iniciar o assistente de criação de instâncias.
+   - Escolha uma Amazon Machine Image (AMI) que atenda às suas necessidades (por exemplo, uma AMI com sistema operacional Linux).
+   - Selecione o tipo de instância "t3.micro" para fins de teste.
+   - Configure outras opções, como rede e segurança.
+   - Clique em "Review and Launch" após configurar tudo.
+
+4. **Configure regras de segurança:**
+   - Crie ou selecione o Security Group "SG-Grupo2".
+   - Adicione as seguintes regras de entrada:
+     - SSH: Origem 0.0.0.0/0
+     - HTTP: Origem 0.0.0.0/0
+     - Custom TCP Rule: Porta 3001, Origem 0.0.0.0/0
+
+5. **Configure a chave SSH:**
+   - Escolha a chave SSH ".pem" que você criou para "KP-GRUPO2".
+
+6. **Revise e inicie a instância:**
+   - Verifique as configurações e clique em "Launch".
+   - Escolha um par de chaves existente ou crie um novo para acessar a instância via SSH.
+
+7. **Acesso à instância:**
+   - Anote o IP público da instância.
+   - Conecte-se via SSH usando o seguinte comando:
+     ```
+     ssh -i /caminho/para/sua/chave.pem ec2-user@seu_ip_publico
+     ```
+
+#### Parte 2: Hospedando um Backend em JavaScript
+
+1. **Instale o NVM e o Node.js:**
+   - Instale o NVM:
+     ```
+     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+     ```
+   - Atualize a sessão do terminal ou execute o seguinte comando:
+     ```
+     source ~/.bashrc
+     ```
+   - Instale uma versão específica do Node.js (por exemplo a LTS):
+     ```
+     nvm install lts
+     ```
+   - Defina a versão instalada como padrão:
+     ```
+     nvm use lts
+     ```
+
+2. **Clone o código:**
+   - Clone o repositório Git com o código do backend:
+     ```
+     git clone https://github.com/2023M7T3-Inteli/Projeto2.git
+     ```
+
+3. **Instale dependências e inicie o backend:**
+   - Navegue até a pasta do projeto:
+     ```
+     cd Projeto2
+     ```
+   - Instale as dependências:
+     ```
+     npm install
+     ```
+   - Inicie o backend com o script "start":
+     ```
+     npm start
+     ```
+
+4. **Acesso ao backend:**
+   - O backend estará acessível através do IP público da instância e a porta configurada (por exemplo, http://seu_ip_publico:3001).
+
+
+### Tutorial: Como criar um banco de dados RDS na AWS - PostgreSQL
+
+Neste tutorial, você aprenderá como criar um banco de dados Amazon RDS com a configuração específica fornecida: nome "GRUPO2_DB", tipo "PostgreSQL", usando a camada gratuita e associando um grupo de segurança chamado "SG_DB".
+
+#### Parte 1: Criação do Banco de Dados RDS
+
+**Passo 1: Acesso ao Console da AWS:**
+1. Faça login na sua conta da AWS em [https://aws.amazon.com/](https://aws.amazon.com/) e acesse o Console de Gerenciamento da AWS.
+
+**Passo 2: Navegação para o Amazon RDS:**
+1. No painel de controle da AWS, procure e clique no serviço "RDS" (Amazon Relational Database Service).
+
+**Passo 3: Criação de um Banco de Dados:**
+1. Clique no botão "Create database" para iniciar o processo de criação.
+
+**Passo 4: Seleção do mecanismo de banco de dados:**
+1. Escolha o mecanismo de banco de dados "PostgreSQL".
+
+**Passo 5: Configurações de Templates de Banco de Dados:**
+1. Selecione a opção "Free tier" para garantir que você está usando a camada gratuita.
+
+**Passo 6: Configuração do Banco de Dados:**
+1. Preencha as seguintes informações:
+   - **DB instance identifier:** GRUPO2_DB
+   - **Master username:** Escolha um nome de usuário para o administrador do banco de dados.
+   - **Master password:** Escolha uma senha segura para o administrador do banco de dados.
+
+**Passo 7: Configurações de Instância:**
+1. Escolha o tipo de instância adequado às suas necessidades. Lembre-se de que você está usando a camada gratuita.
+
+**Passo 8: Configurações de Acesso:**
+1. Deixe as configurações padrão ou ajuste conforme necessário.
+
+**Passo 9: Configurações de Avançado:**
+1. Expanda a seção "Database options".
+2. Escolha o nome do banco de dados, por exemplo, "grupo2db".
+
+**Passo 10: Configurações de VPC, Subnet e Grupos de Segurança:**
+1. Escolha o Virtual Private Cloud (VPC) desejado.
+2. Selecione a Subnet.
+3. Escolha "SG_DB" como o grupo de segurança.
+4. Adicione as regras de entrada necessárias ao "SG_DB" para permitir tráfego necessário.
+
+#### Parte 2: Acesso ao Banco de Dados
+
+**Passo 11: Revisão e Criação:**
+1. Revise todas as configurações e clique em "Create database" para iniciar a criação do banco de dados.
+
+**Passo 12: Acompanhamento da Criação:**
+1. Aguarde até que a criação do banco de dados seja concluída. Isso pode levar alguns minutos.
+
+**Passo 13: Acesso ao Banco de Dados:**
+1. Uma vez que o banco de dados esteja criado, você pode obter o endpoint do banco de dados na página de detalhes do RDS.
+2. Use um cliente PostgreSQL (como o pgAdmin) para se conectar ao banco de dados usando o endpoint, nome de usuário e senha que você configurou.
+
+**Exemplo de URL de conexão PostgreSQL:**
+```plaintext
+postgresql://seu_usuario:sua_senha@endpoint_do_banco:5432/seu_banco_de_dados
+	
 
 ## API para receber os áudios enviados pelo usuário
 
