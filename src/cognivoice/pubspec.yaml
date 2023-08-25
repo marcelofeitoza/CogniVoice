@@ -13,13 +13,13 @@ dependencies:
 
     cupertino_icons: ^1.0.2
     record: ^4.4.4
-    audioplayers: ^4.1.0
+    audioplayers: ^5.1.0 # ^4.1.0
     flutter_dotenv: ^5.1.0
     flutter_native_splash: ^2.3.2
     flutter_launcher_icons: ^0.13.1
     flutter_riverpod: ^2.3.7
-    http: ^0.13.6
-    loggerw: ^1.0.4
+    http: ^1.1.0 # ^0.13.6
+    loggerw: ^1.0.5
 
 dev_dependencies:
     flutter_test:
@@ -38,7 +38,7 @@ flutter:
         - assets/icons/salestracker.png
 
     fonts:
-        - family: IBM_Plex_Sans
+        - family: IBMPlexSans
         - fonts:
               - asset: assets/fonts/IBM_Plex_Sans/IBMPlexSans-Light.ttf
               - asset: assets/fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf

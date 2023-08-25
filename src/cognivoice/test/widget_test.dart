@@ -8,12 +8,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:loggerw/loggerw.dart';
 import 'package:cognivoice/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+    Logger logger = Logger();
+
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const CogniVoice());
+    await tester.pumpWidget(CogniVoice(logger));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

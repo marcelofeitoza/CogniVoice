@@ -9,7 +9,7 @@ import 'package:loggerw/loggerw.dart';
 
 Future main() async {
   await dotenv.load(fileName: ".env");
-  
+
   var logger = Logger(
     level: Level.debug,
     printer: PrettyPrinter(
@@ -37,7 +37,7 @@ class CogniVoice extends ConsumerWidget {
       theme: ThemeData(
         colorScheme: CogniVoiceTheme.colorScheme,
         textTheme: CogniVoiceTheme.textTheme,
-        fontFamily: 'IBM_Plex_Sans',
+        fontFamily: 'IBMPlexSans-Regular',
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
