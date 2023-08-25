@@ -428,7 +428,7 @@ Neste tutorial, você aprenderá como criar um banco de dados Amazon RDS com a c
 ```plaintext
 postgresql://seu_usuario:sua_senha@endpoint_do_banco:5432/seu_banco_de_dados
 	
-
+```
 ## API para receber os áudios enviados pelo usuário
 
 A API que recebe os aúdios enviados pelo usuário foi construída com a ajuda de uma função de "Speech to Text" que a própria IBM já fornece por meio da biblioteca do IBM Watson. O que recebe o áudio é na verdade uma função, que é posteriormente chamada em uma API de post.
@@ -452,6 +452,7 @@ async function generateText(audio){
     }
 }
 ```
+Como é possível perceber, a função espera como entrada um áudio em português no formato flac, e como saída, a transcrição desse áudio.
 
 API de post que chama essa função juntamente com o áudio:
 ```
