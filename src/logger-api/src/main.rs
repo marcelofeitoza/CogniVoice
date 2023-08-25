@@ -81,7 +81,7 @@ async fn logs_handler(info: web::Json<LogInfo>, request: HttpRequest) -> impl Re
     })
 }
 
-#[get("/health")]
+#[get("/")]
 async fn health_handler() -> impl Responder {
     HttpResponse::Ok().json(GenericResponse {
         status: "success".to_string(),

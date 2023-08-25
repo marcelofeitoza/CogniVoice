@@ -246,7 +246,7 @@ class _SelectModeState extends ConsumerState<SelectMode> {
       );
     }
 
-    Navigator.pushNamed(widget.context, '/work');
+    Navigator.pushNamed(widget.context, '/home');
   }
 
   void _updateSelectedMode(int mode) {

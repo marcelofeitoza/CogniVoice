@@ -300,10 +300,10 @@ packages:
     dependency: "direct main"
     description:
       name: loggerw
-      sha256: "0a6eec05849cbcc490e02fbdc1c2f200bf25355da9bc504f04f682dadb896a18"
+      sha256: "09a0ef70bb1e54244cd46ee2aefdc6608879b4bd6a215a434d97e48190870ee6"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.6"
+    version: "1.0.7"
   matcher:
     dependency: transitive
     description:

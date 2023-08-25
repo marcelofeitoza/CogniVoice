@@ -1,3 +1,4 @@
+import 'package:cognivoice/screens/home.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cognivoice/screens/select-mode.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -45,6 +46,8 @@ class CogniVoice extends ConsumerWidget {
       routes: <String, WidgetBuilder>{
         '/work': (BuildContext context) =>
             Work(context: context, ref: ref, logger: logger),
+        '/home': (BuildContext context) =>
+            Home(context: context, ref: ref, logger: logger),
         '/login': (BuildContext context) =>
             Login(context: context, ref: ref, logger: logger),
         '/select-mode': (BuildContext context) =>
