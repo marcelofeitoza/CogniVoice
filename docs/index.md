@@ -275,7 +275,122 @@ Ao empregar essa pilha de tecnologias, estaremos equipados para criar uma experi
 
 ## API para implementar etapa de Speech to Text
 
-Preencher seguindo as orientações da Adalove.
+Para capturar as gravações de áudio dos usuários e realizar transcrições precisas em texto, optamos por integrar a API de Conversão de Fala em Texto (Speech-to-Text) fornecida pelo serviço IBM Watson. O IBM Watson® Speech to Text possibilita a transformação de áudio em texto, viabilizando a incorporação de funcionalidades de transcrição de voz em nossos aplicativos.
+
+Neste guia, destacamos os principais recursos do Speech-to-Text que foram empregados no projeto, acompanhados por exemplos práticos. Apresentaremos o propósito da biblioteca, seu funcionamento e a maneira como a aplicamos para atingir nossos objetivos.
+
+O presente documento cobre a versão 1 do Speech-to-Text. Os exemplos presentes nesta documentação foram elaborados para a plataforma Node.js, utilizando a versão 4.18.2 do framework Express.
+
+### Parte 1: Criação da variável de ambiente
+
+Para fazer uso da API de Conversão de Fala em Texto (Speech-to-Text), é imprescindível a utilização da URL e chave do serviço fornecidos. Por questões de segurança, esses dados sensíveis são armazenados em uma variável de ambiente, destinada a ser empregada nos trechos de código. A seguir, apresentamos um exemplo de configuração do arquivo .env:
+
+```env
+	API_KEY_SPEECH_TO_TEXT="key-speech-to-text"
+	SERVICE_URL_SPEECH_TO_TEXT="url-speech-to-text"
+```
+
+
+
+### Parte 2: Importação
+
+Para importar a api do speech-to-text, execute em seu código:
+
+```js
+	const SpeechToTextV1 = require("ibm-watson/speech-to-text/v1");
+	const { IamAuthenticator } = require("ibm-watson/auth"); (código)
+```
+
+Os códigos acima são específicos para a versão 1 da API de Speech-to-Text e abordam o processo de autenticação necessária junto ao IBM Watson, requisito fundamental para a utilização plena da API.
+
+### Parte 3: Criação de uma Instância do Serviço de Conversão de Fala para Texto
+
+A criação da instância do serviço encapsula todas as configurações necessárias para interagir com a API de conversão de fala para texto. Isso ajuda a manter o código organizado, modular e mais fácil de entender, além de facilitar futuras atualizações ou mudanças nas configurações do serviço.
+
+```js
+	const speechToText = new SpeechToTextV1({
+    		authenticator: new IamAuthenticator({
+        		apikey: process.env.API_KEY_SPEECH_TO_TEXT,
+		}),
+		serviceUrl: process.env.SERVICE_URL_SPEECH_TO_TEXT,
+	});
+```
+
+O código cria uma instância de um serviço de conversão de fala para texto utilizando a biblioteca do IBM Watson fornecido. Ele se autentica usando uma chave de API e uma URL de serviço que são lidas de variáveis de ambiente. Essa instância do serviço pode então ser usada para fazer chamadas à API de conversão de fala para texto fornecida pela IBM Watson.
+
+### Parte 4: Criação da função
+
+Aqui criaremos função chamada generateText que utiliza a API de Reconhecimento de Fala para Texto para converter um bloco de áudio em texto. Segue abaixo o código e a explicação de cada parte do código:
+
+```js
+	async function generateText(audio) {
+		try {
+			const result = await speechToText.recognize({
+				audio: audio,
+				contentType: "audio/flac",
+				model: "pt-BR_BroadbandModel",
+				keywords: ["oi"],
+				keywordsThreshold: 0.5,
+				maxAlternatives: 3,
+			});
+			return result.result.results[0].alternatives[0].transcript;
+		} catch (error) {
+			throw Error("Error recognizing audio");
+		}
+	}
+```
+
+A função generateText é definida como assíncrona e recebe um único parâmetro chamado audio, que é o áudio que será processado para reconhecimento de fala.
+
+O bloco try-catch envolve o código da função, o que significa que ele está preparado para capturar erros que possam ocorrer durante a execução do código dentro do bloco try.
+
+A função speechToText.recognize() é chamada com um conjunto de parâmetros para realizar o reconhecimento de fala:
+
+  - audio: audio: O bloco de áudio é passado como o parâmetro de áudio para a chamada da API.
+  - contentType: "audio/flac": Especifica o tipo de conteúdo do áudio (formato FLAC).
+  - model: "pt-BR_BroadbandModel": Indica o modelo de linguagem a ser usado para o reconhecimento (no caso, para o português do Brasil).
+  - keywords: ["oi"]: Define palavras-chave que o sistema deve procurar no áudio.
+  - keywordsThreshold: 0.5: Define o limite de confiança para reconhecimento das palavras-chave.
+  - maxAlternatives: 3: Especifica o número máximo de alternativas de reconhecimento que a API deve retornar.
+
+Se a chamada à API for bem-sucedida e não houver erros, a função retorna o texto reconhecido da resposta da API. Se ocorrer um erro durante a chamada à API, o bloco catch será executado e a função lança um erro com a mensagem "Error recognizing audio".
+
+### Parte 5: Criação do endpoint
+
+E por ultimo, criaremos o endpoint que irá utilizar da função que processa o reconhecimento de fala. Esse código define uma rota POST para receber dados de áudio, processá-los usando a função generateText explicada anteriormente, e retornar uma resposta JSON contendo o texto reconhecido e uma representação em base64 dos dados de áudio. O detalhaento  do código se apresenta abaixo do mesmo:
+
+```js
+	app.post("/text", async (req, res) => {
+		try {
+			const text = await generateText(req.body);
+			console.log(text);
+
+			res.status(200).json({
+				message: text,
+				audio: req.body.toString("base64"),
+			});
+		} catch (error) {
+			res.status(500).json({
+				message: error.message,
+				audio: req.body.toString("base64"),
+			});
+		}
+	});
+```
+
+  - POST /text: Isso significa que essa rota estará disponível para receber solicitações POST no caminho /text.
+  - Função Assíncrona: A rota é definida como uma função assíncrona, o que significa que contem operações assíncronas que esperam por respostas, como chamadas de API.
+  - Bloco Try-Catch: Assim como no exemplo anterior, a rota envolve todo o seu código em um bloco try-catch, permitindo capturar e lidar com erros que podem ocorrer durante a execução do código dentro do bloco try.
+  - A função generateText é chamada com os dados do corpo da solicitação POST (req.body).
+  - O resultado do reconhecimento de fala (texto reconhecido) é armazenado na variável text.
+  - Console Log: O texto reconhecido (text) é exibido no console usando console.log.
+
+Se o processamento for bem-sucedido (ou seja, nenhum erro é lançado dentro do bloco try), a resposta é montada com status HTTP 200 OK e a resposta vai conter uma mensagem com o texto reconhecido (message: text) e uma representação em base64 dos dados de áudio originalmente enviados na solicitação (audio: req.body.toString("base64")). Em caso de erro a rota capturará o erro no bloco catch e a resposta é montada com status HTTP 500 Internal Server Error contendo uma mensagem de erro (message: error.message) que é derivada do erro capturado e uma representação em base64 dos dados de áudio originalmente enviados na solicitação (audio: req.body.toString("base64")).
+
+### Parte 6: Considerações finais
+
+Esta documentação se concentra exclusivamente na integração da API em nossa aplicação. Se surgirem questionamentos sobre o funcionamento interno da API de Conversão de Fala em Texto (Speech-to-Text) ou a necessidade de informações detalhadas sobre funcionalidades adicionais e parâmetros específicos do IBM Watson, recomendamos acessar a documentação oficial da API de Conversão de Fala em Texto por meio do seguinte link: [Speech to Text Docs](https://cloud.ibm.com/apidocs/speech-to-text)
+
 
 ## Algoritmo de NLP utilizado e sua implementação
 
