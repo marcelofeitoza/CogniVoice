@@ -394,7 +394,7 @@ Esta documentação se concentra exclusivamente na integração da API em nossa 
 
 ## Algoritmo de NLP utilizado e sua implementação
 
-# 1.0 Instalação
+### 1.0 Instalação
 
 O primeiro ponto que devemos analisar é o conjunto de dados, que consiste basicamente em uma tabela com uma coluna e vinte linhas contendo links para reportagens que mencionam a IBM. Essas matérias foram selecionadas pelo grupo.
 
@@ -445,11 +445,11 @@ Logo após, temos estes trechos de código:
 ```
 Por último, importamos a classe "drive" do módulo "google.colab" e montamos o Google Drive no ambiente do Google Colab.
 
-# 2.0 Importação e Compreensão do Dados
+### 2.0 Importação e Compreensão do Dados
 
 Na seção 2.0, "Importação e Compreensão dos Dados", temos apenas a importação do conjunto de dados localizado no drive compartilhado e a visualização da tabela.
 
-# 3.0 **Tratamento dos dados**
+### 3.0 Tratamento dos dados
 
 Na seção 3.0, "Tratamento dos Dados", temos o seguinte código:
 ```env
@@ -488,15 +488,15 @@ Na seção 3.2.2, na qual é testada a função, podemos observar que os datafra
 
 A partir da seção 3.3, "Tratamento do Veículo da Notícia", uma série de métodos continua a tratar o texto para NLP. A primeira função é chamada "clean_title" e tenta extrair a parte do título que vem antes de certos separadores, como hífen, barra vertical ou a palavra "por". A segunda função, "remove_marks", substitui todos os caracteres especiais por uma string vazia. A terceira função remove as aspas, enquanto a quarta exclui espaços duplicados. Após isso, ocorre a remoção de números isolados por um espaço em branco. Finalmente, na seção 3.8, é apresentado o "test_dataframe" após passar por todas essas modificações.
 
-# 4**.0 Web Scraping**
+### 4.0 Web Scraping
 
 Na seção 4, há duas funções. A primeira tem como objetivo extrair o título de uma página da web a partir da URL fornecida como entrada. A função utiliza a biblioteca urllib para fazer uma requisição HTTP à página web e a biblioteca BeautifulSoup para analisar o conteúdo HTML da página e extrair o título dela. A segunda função remove as tags HTML de uma página, extrai o texto restante, processa esse texto (incluindo a busca e manipulação do título) e retorna o resultado final após todas as etapas de processamento. Ao final, podemos ver um conjunto de dados com mais duas colunas resultantes dessas duas funções.
 
-# **5.0 Extração dos dados**
+### 5.0 Extração dos dados
 
 Na seção 5, são adicionadas mais quatro colunas. A primeira delas se chama "data". A função "extract_dates" utiliza expressões regulares para realizar esse trabalho e retorna a primeira data correspondente encontrada ou "None" se nenhuma data for encontrada. A segunda coluna é "fonte", relacionada à função "extrair_dominio", que utiliza expressões regulares para encontrar o domínio em uma URL que começa com "https://", retornando o domínio se encontrado ou "None" se não houver correspondências. As outras duas colunas são nomes de empresas e pessoas retiradas do texto.
 
-# **6.0 Aplicação das tecnicas de PLN**
+### 6.0 Aplicação das tecnicas de PLN
 
 Na seção 6, começam as técnicas de NLP:
 
@@ -504,11 +504,11 @@ Na seção 6, começam as técnicas de NLP:
 2. **Lematização**: tem como objetivo lematizar um texto ou uma lista de textos usando o modelo do spaCy que foi importado no início do notebook.
 3. **Tokenização**: divide o texto em palavras individuais (tokens) e retorna esses tokens em uma lista.
 
-# 7**.0 Pipeline de pré processamento**
+### 7.0 Pipeline de pré processamento
 
 Na seção 7, são realizados todos os testes elaborados, mas com uma nova pipeline de dados.
 
-# **8.0 Bag of Words**
+### 8.0 Bag of Words
 
 Por fim, na seção 8, é utilizado o conceito de Bag of Words, que é uma maneira de representar documentos de texto como vetores numéricos, onde cada posição no vetor representa uma palavra e o valor indica a frequência dessa palavra no documento. Ao final, é apresentado o resultado com as palavras repetidas.
 
