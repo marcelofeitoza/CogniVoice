@@ -394,9 +394,125 @@ Esta documentação se concentra exclusivamente na integração da API em nossa 
 
 ## Algoritmo de NLP utilizado e sua implementação
 
-Preencher seguindo as orientações da Adalove.
+# 1.0 Instalação
 
-É possível referenciar os testes da pasta tests do repositório.
+O primeiro ponto que devemos analisar é o conjunto de dados, que consiste basicamente em uma tabela com uma coluna e vinte linhas contendo links para reportagens que mencionam a IBM. Essas matérias foram selecionadas pelo grupo.
+
+As primeiras células do notebook consistem nas importações das bibliotecas, como o pandas e o numpy (as principais e praticamente presentes em todos os notebooks). Posteriormente, temos a importação da biblioteca "spaCy", uma ferramenta utilizada principalmente para o Processamento de Linguagem Natural (PLN). Ela é empregada em tarefas como análise de sentimento, extração de informações, resumo automático de textos, chatbots, tradução automática, entre outras.
+
+Logo após, temos estes trechos de código:
+
+1- Importa a biblioteca NLTK e faz o download do pacote de recursos chamado 'punkt'. Este pacote contém modelos treinados para a tokenização de palavras e sentenças.
+```env
+	import nltk
+	nltk.download('punkt')
+```
+2- Módulos do NLTK para a tokenização e importação da biblioteca "re" para trabalhar com expressões regulares, as quais são úteis para realizar manipulações em texto.
+```env
+	from nltk.tokenize import word_tokenize
+	from nltk.tokenize import sent_tokenize
+	import re
+```
+3- Importação do lematizador WordNetLemmatizer do NLTK, que transforma as palavras em sua forma básica. Por exemplo, a palavra "corredor" é transformada em "correr".
+```env
+	from nltk.stem import WordNetLemmatizer
+```
+4- Realizando o download dos recursos para o stemmer RSLP (Removedor de Sufixos da Língua Portuguesa). O stemmer é utilizado para reduzir palavras à sua forma raiz (stem) ao remover os sufixos. Por exemplo, se temos a palavra "executar", ele a transforma em "execut". Posteriormente, criamos uma instância para ser utilizada durante o código.
+```env
+	nltk.download('rslp')
+
+	stemmer = nltk.stem.RSLPStemmer()
+```
+5 - A importação do pacote de português do NLP.
+```env
+	nlp = spacy.cli.download('pt_core_news_sm')
+	nlp = spacy.load('pt_core_news_sm')
+```
+6- Como nosso conjunto de dados é composto por URLs, importamos a biblioteca "requests", que permite enviar solicitações HTTP e obter o conteúdo de uma URL. Em seguida, importamos as bibliotecas "urllib.request" e "urlopen", que estão relacionadas à manipulação de URLs.
+```env
+	import requests
+
+	import urllib.request
+	from urllib.request import urlopen
+```
+7- A Beautiful Soup é utilizada para realizar o parsing (análise) de documentos HTML e XML. Ela possibilita a extração de informações específicas de uma página web.
+```env
+	from bs4 import BeautifulSoup
+```
+8- Essa linha importa a classe "Tokenizer" da biblioteca Keras. O Keras é um framework popular para a construção e treinamento de modelos de aprendizado profundo (deep learning). O Tokenizer é empregado para transformar texto em uma representação numérica apropriada para o treinamento de modelos de processamento de linguagem natural.
+```env
+	from keras.preprocessing.text import Tokenizer
+```
+Por último, importamos a classe "drive" do módulo "google.colab" e montamos o Google Drive no ambiente do Google Colab.
+
+# 2.0 Importação e Compreensão do Dados
+
+Na seção 2.0, "Importação e Compreensão dos Dados", temos apenas a importação do conjunto de dados localizado no drive compartilhado e a visualização da tabela.
+
+# 3.0 **Tratamento dos dados**
+
+Na seção 3.0, "Tratamento dos Dados", temos o seguinte código:
+```env
+	dados_dataframe = [
+    "Esta é a primeira frase.",
+    "Aqui vem a segunda frase com palavras de parada.",
+    "E a terceira frase.",
+    "Quarta frase é necessário o uso de acentos e pontuações",
+    "Teste para pontuação (virgulas, `""´ e dois pontos:)",
+    "Exemplo de titulo 1  - Inforchannel",
+    "Exemplo de titulo 2 | Voxel",
+    "Exemplo de titulo 3 Por Investing.com",
+    "  Isso  é um   exemplo   ",
+    "  Espaços   múltiplos     ",
+    "oi, tudo 3 bem 4 com voce?",
+    "isso 76 apresenta 12 número isolados"
+]
+
+test_dataframe = pd.DataFrame(dados_dataframe)
+
+
+maisculas_test = [
+    ["OI", "TESTE", "maisculas", "Funcionando", "KKKKKKK", "Risadas"]
+]
+
+maisculas_dataframe = pd.DataFrame(maisculas_test)
+
+
+test_dataframe
+```
+Ele cria essencialmente dois DataFrames ("test_dataframe" e "maisculas_dataframe") para representar dados de texto em formato tabular. O primeiro DataFrame contém frases e sentenças, enquanto o segundo DataFrame contém palavras em maiúsculas em uma lista aninhada. Esses dataframes serão usados para testes.
+
+Em seguida, ocorre o tratamento desses dados, que envolve a remoção de acentos. Isso é feito porque o processamento de linguagem natural (NLP) envolve comparações de palavras e textos, e isso ajuda a garantir que palavras com e sem acentos sejam consideradas equivalentes. Além disso, há a transformação das letras maiúsculas para minúsculas, pois é preferível trabalhar com texto em minúsculas para que as análises não sejam afetadas pelas variações de caixa.
+
+Na seção 3.2.2, na qual é testada a função, podemos observar que os dataframes "test_dataframe" e "maisculas_dataframe" foram completamente modificados, sem acentos e em letras minúsculas.
+
+A partir da seção 3.3, "Tratamento do Veículo da Notícia", uma série de métodos continua a tratar o texto para NLP. A primeira função é chamada "clean_title" e tenta extrair a parte do título que vem antes de certos separadores, como hífen, barra vertical ou a palavra "por". A segunda função, "remove_marks", substitui todos os caracteres especiais por uma string vazia. A terceira função remove as aspas, enquanto a quarta exclui espaços duplicados. Após isso, ocorre a remoção de números isolados por um espaço em branco. Finalmente, na seção 3.8, é apresentado o "test_dataframe" após passar por todas essas modificações.
+
+# 4**.0 Web Scraping**
+
+Na seção 4, há duas funções. A primeira tem como objetivo extrair o título de uma página da web a partir da URL fornecida como entrada. A função utiliza a biblioteca urllib para fazer uma requisição HTTP à página web e a biblioteca BeautifulSoup para analisar o conteúdo HTML da página e extrair o título dela. A segunda função remove as tags HTML de uma página, extrai o texto restante, processa esse texto (incluindo a busca e manipulação do título) e retorna o resultado final após todas as etapas de processamento. Ao final, podemos ver um conjunto de dados com mais duas colunas resultantes dessas duas funções.
+
+# **5.0 Extração dos dados**
+
+Na seção 5, são adicionadas mais quatro colunas. A primeira delas se chama "data". A função "extract_dates" utiliza expressões regulares para realizar esse trabalho e retorna a primeira data correspondente encontrada ou "None" se nenhuma data for encontrada. A segunda coluna é "fonte", relacionada à função "extrair_dominio", que utiliza expressões regulares para encontrar o domínio em uma URL que começa com "https://", retornando o domínio se encontrado ou "None" se não houver correspondências. As outras duas colunas são nomes de empresas e pessoas retiradas do texto.
+
+# **6.0 Aplicação das tecnicas de PLN**
+
+Na seção 6, começam as técnicas de NLP:
+
+1. **Stop Words**: remove palavras de parada (stop words) de um texto ou de uma lista de textos.
+2. **Lematização**: tem como objetivo lematizar um texto ou uma lista de textos usando o modelo do spaCy que foi importado no início do notebook.
+3. **Tokenização**: divide o texto em palavras individuais (tokens) e retorna esses tokens em uma lista.
+
+# 7**.0 Pipeline de pré processamento**
+
+Na seção 7, são realizados todos os testes elaborados, mas com uma nova pipeline de dados.
+
+# **8.0 Bag of Words**
+
+Por fim, na seção 8, é utilizado o conceito de Bag of Words, que é uma maneira de representar documentos de texto como vetores numéricos, onde cada posição no vetor representa uma palavra e o valor indica a frequência dessa palavra no documento. Ao final, é apresentado o resultado com as palavras repetidas.
+
+Link para o drive compartilhado: https://drive.google.com/drive/folders/0ANJ_Yr0Jevs0Uk9PVA
 
 ## Processo de deploy do algoritmo em nuvem comercial
 
