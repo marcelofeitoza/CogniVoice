@@ -490,15 +490,15 @@ A partir da seção 3.3, "Tratamento do Veículo da Notícia", uma série de mé
 
 ### 4.0 Web Scraping
 
-Na seção 4, há duas funções. A primeira tem como objetivo extrair o título de uma página da web a partir da URL fornecida como entrada. A função utiliza a biblioteca urllib para fazer uma requisição HTTP à página web e a biblioteca BeautifulSoup para analisar o conteúdo HTML da página e extrair o título dela. A segunda função remove as tags HTML de uma página, extrai o texto restante, processa esse texto (incluindo a busca e manipulação do título) e retorna o resultado final após todas as etapas de processamento. Ao final, podemos ver um conjunto de dados com mais duas colunas resultantes dessas duas funções.
+Na seção 4, há duas funções. A primeira tem como objetivo extrair o título de uma página da web a partir da URL fornecida como entrada. A função utiliza a biblioteca urllib para fazer uma requisição HTTP à página web e a biblioteca BeautifulSoup para analisar o conteúdo HTML da página e extrair o título dela. A segunda função remove as tags de style, script e title pois não contém nenhuma informação útil para o programa, e tmabém é removida todas as informações antes do título por conta de serem desnecessarias.  Ao final, podemos ver um conjunto de dados com mais duas colunas resultantes dessas duas funções.
 
 ### 5.0 Extração dos dados
 
-Na seção 5, são adicionadas mais quatro colunas. A primeira delas se chama "data". A função "extract_dates" utiliza expressões regulares para realizar esse trabalho e retorna a primeira data correspondente encontrada ou "None" se nenhuma data for encontrada. A segunda coluna é "fonte", relacionada à função "extrair_dominio", que utiliza expressões regulares para encontrar o domínio em uma URL que começa com "https://", retornando o domínio se encontrado ou "None" se não houver correspondências. As outras duas colunas são nomes de empresas e pessoas retiradas do texto.
+Na seção 5, são adicionadas mais quatro colunas. A primeira delas se chama "data". A função "extract_dates" utiliza expressões regulares para realizar esse trabalho e retorna a primeira data correspondente encontrada ou "None" se nenhuma data for encontrada. A segunda coluna é "fonte", relacionada à função "extrair_dominio", que utiliza expressões regulares para encontrar o domínio em uma URL que começa com "https://", retornando o domínio se encontrado ou "None" se não houver correspondências. As outras duas colunas são nomes de empresas e pessoas retiradas do texto, função essa que usa a técnica identificação de entidades de NLP .
 
 ### 6.0 Aplicação das tecnicas de PLN
 
-Na seção 6, começam as técnicas de NLP:
+Na seção 6, as técnicas de NLP também são usadas:
 
 1. **Stop Words**: remove palavras de parada (stop words) de um texto ou de uma lista de textos.
 2. **Lematização**: tem como objetivo lematizar um texto ou uma lista de textos usando o modelo do spaCy que foi importado no início do notebook.
@@ -506,13 +506,13 @@ Na seção 6, começam as técnicas de NLP:
 
 ### 7.0 Pipeline de pré processamento
 
-Na seção 7, são realizados todos os testes elaborados, mas com uma nova pipeline de dados.
+Na seção 7, são realizados todos os testes elaborados, mas com uma nova pipeline de dados. Pipeline essa que tem dentro todos os outros testes desenvolvidos durante o notebook. 
 
 ### 8.0 Bag of Words
 
 Por fim, na seção 8, é utilizado o conceito de Bag of Words, que é uma maneira de representar documentos de texto como vetores numéricos, onde cada posição no vetor representa uma palavra e o valor indica a frequência dessa palavra no documento. Ao final, é apresentado o resultado com as palavras repetidas.
 
-Link para o drive compartilhado: https://drive.google.com/drive/folders/0ANJ_Yr0Jevs0Uk9PVA
+
 
 ## Processo de deploy do algoritmo em nuvem comercial
 
