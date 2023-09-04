@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const uuid = require('uuid').v4;
 
 const bcrypt = require('bcryptjs')
+const sendAlert = require("../utils/sendAlert")
 
 const prisma = new PrismaClient()
 
@@ -40,15 +41,12 @@ class User {
     }
 
     async Authenticate(email, pass) {
-        console.log(email, pass)
         //verify if user exists
         const user = await prisma.user.findUnique({
             where: {
                 email: email
             }
         })
-
-        console.log(user)
 
         if (!user) {
             throw new Error('Invalid Email or/and Password')
@@ -69,6 +67,8 @@ class User {
         const refresh_token = jwt.sign({ id: user.id }, process.env.TOKEN_USER_REFRESH, {
             expiresIn: '10m'
         })
+
+        sendAlert.send(`User ${user.name} with ID: ${user.id} logged on plataform`)
 
         return {
             message: "User authenticated",
