@@ -711,9 +711,7 @@ Além de chamar a função, essa API transforma o áudio para o formato de "base
 
 # Documentação da Construção do Backend da Solução (Sprint 3)
 
-## Backend preparado para receber os Webhooks de processamento de texto
-
-## Backend preparado para receber os Webhooks de processamento de voz para texto
+## Backend preparado para receber os Webhooks 
 
 Preencher seguindo as orientações da Adalove.
 
@@ -727,9 +725,15 @@ Preencher seguindo as orientações da Adalove.
 
 ## Frontend mínimo para realizar o teste da implementação do modelo
 
-Preencher seguindo as orientações da Adalove.
+A interface do usuário foi desenvolvida de forma muito intuitiva e considerando isso, conta com alguns componentes importantes:
 
-É possível referenciar os testes da pasta tests do repositório.
+- Campos de entrada: o usuário pode chamar a inteligência artificial de 2 maneiras, por voz ou por texto. Ambas se localizam na aba de chat.
+- Botões: os botões principais da nossa aplicação são: o que permite trocar de modo (vendas e marketing), o "Go Chat", que direciona o usuário para a tela de chat, e dois últimos que representam o meio do usuário de comunicar com a inteligência artificial, um para a fala, e outro para texto.
+- Exibição de resultados: Após o usuário perguntar para a AI o que ele deseja, será possível visualizar o que foi mandado em forma de uma mensagem no chat. Considerando isso, a resposta recebida também é em formato de mensagem, e pode englobar um texto, fontes de pesquisas e gráficos.
+
+Além disso, a conexão do frontend com o backend é feita por meio do protocolo HTTPS, e contém apenas 2 APIs, uma que recebe um áudio, e outra que o tranforma por meio do Speech do Text em um texto e retorna o mesmo para o usuário. Posteriormente, será implementada uma função na qual o usuário poderá escutar a resposta além de apenas visualizá-la.
+
+4.3 Instruções de uso e testes: Forneça instruções detalhadas sobre como utilizar o frontend para testar a implementação do modelo. Isso pode incluir guias passo a passo para inserir os dados corretamente, realizar o processamento e visualizar os resultados.
 
 # Documentação da Construção do Frontend da Solução (Sprint 4)
 
