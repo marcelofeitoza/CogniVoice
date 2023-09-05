@@ -665,7 +665,7 @@ postgresql://seu_usuario:sua_senha@endpoint_do_banco:5432/seu_banco_de_dados
 A API que recebe os aúdios enviados pelo usuário foi construída com a ajuda de uma função de "Speech to Text" que a própria IBM já fornece por meio da biblioteca do IBM Watson. O que recebe o áudio é na verdade uma função, que é posteriormente chamada em uma API de post.
 
 Função "generateText()" que recebe e processa o áudio:
-```
+```js
 async function generateText(audio){
     try {
         const result = await speechToText.recognize({
@@ -686,7 +686,7 @@ async function generateText(audio){
 Como é possível perceber, a função espera como entrada um áudio em português no formato flac, e como saída, a transcrição desse áudio.
 
 API de post que chama essa função juntamente com o áudio:
-```
+```js
 app.post("/text", async (req, res) => {
     try {
         const text = await generateText(req.body);
@@ -735,7 +735,7 @@ Cada uma dessas telas possuem componentes importantes, sendo eles:
 - Botões: os botões principais da nossa aplicação são: o que permite trocar de modo (vendas e marketing), o "Go Chat", que direciona o usuário para a tela de chat, e dois últimos que representam o meio do usuário de comunicar com a inteligência artificial, um para a fala, e outro para texto.
 - Exibição de resultados: Após o usuário perguntar para a AI o que ele deseja, será possível visualizar o que foi mandado em forma de uma mensagem no chat. Considerando isso, a resposta recebida também é em formato de mensagem, e pode englobar um texto, fontes de pesquisas e gráficos.
 
-Além disso, a conexão do frontend com o backend é feita por meio do protocolo HTTPS, e contém apenas 2 APIs, uma que recebe um áudio, e outra que o tranforma por meio do Speech do Text em um texto e retorna o mesmo para o usuário. Posteriormente, será implementada uma função na qual o usuário poderá escutar a resposta além de apenas visualizá-la.
+Além disso, a conexão do frontend com o backend é feita por meio do protocolo HTTPS, e contém apenas 2 APIs, uma que recebe um áudio, e outra que o tranforma por meio do Speech do Text em um texto e retorna o mesmo para o usuário. Posteriormente, será implementada uma função na qual o usuário poderá escutar a resposta além de apenas visualizá-la. Além das APIs préviamente citadas na sessão "Documentação do Sistema NLP", o sistema possui uma outra de autenticação de usuário por meio de um token, que permite criar, deletar, atualizar e autenticar um usuário. Tal API pode ser vista abaixo:
 
 # Documentação da Construção do Frontend da Solução (Sprint 4)
 
