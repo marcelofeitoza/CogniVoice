@@ -725,15 +725,17 @@ Preencher seguindo as orientações da Adalove.
 
 ## Frontend mínimo para realizar o teste da implementação do modelo
 
-A interface do usuário foi desenvolvida de forma muito intuitiva e considerando isso, conta com alguns componentes importantes:
+A interface do usuário foi desenvolvida de forma muito intuitiva e por isso contempla apenas 3 telas principais:
+- Onboarding: essa é a primeia tela a qual o usuário é introduzido após o login na plataforma. Nela, são apresentados os dois diferentes modos (SalesTracker e MarketTracker) que a inteligência artificial possui. A diferença entre os modos é a forma como a resposta é apresentada ao usuário, já que cada um irá possuir um foco diferente.
+- Home: após escolher o modo de apresentação de resposta, o usuário será direcionado para a tela principal, a qual possui alguns prompts já prontos que o usuário pode usar, o histórico de suas pesquisas antigas, e um botão que inicia um novo chat.
+- Chat: essa é a página principal da aplicação, a qual o usuário poderá se comunicar com a inteligêcia artificial e fazer perguntas por voz ou por texto.
 
+Cada uma dessas telas possuem componentes importantes, sendo eles:
 - Campos de entrada: o usuário pode chamar a inteligência artificial de 2 maneiras, por voz ou por texto. Ambas se localizam na aba de chat.
 - Botões: os botões principais da nossa aplicação são: o que permite trocar de modo (vendas e marketing), o "Go Chat", que direciona o usuário para a tela de chat, e dois últimos que representam o meio do usuário de comunicar com a inteligência artificial, um para a fala, e outro para texto.
 - Exibição de resultados: Após o usuário perguntar para a AI o que ele deseja, será possível visualizar o que foi mandado em forma de uma mensagem no chat. Considerando isso, a resposta recebida também é em formato de mensagem, e pode englobar um texto, fontes de pesquisas e gráficos.
 
 Além disso, a conexão do frontend com o backend é feita por meio do protocolo HTTPS, e contém apenas 2 APIs, uma que recebe um áudio, e outra que o tranforma por meio do Speech do Text em um texto e retorna o mesmo para o usuário. Posteriormente, será implementada uma função na qual o usuário poderá escutar a resposta além de apenas visualizá-la.
-
-4.3 Instruções de uso e testes: Forneça instruções detalhadas sobre como utilizar o frontend para testar a implementação do modelo. Isso pode incluir guias passo a passo para inserir os dados corretamente, realizar o processamento e visualizar os resultados.
 
 # Documentação da Construção do Frontend da Solução (Sprint 4)
 
