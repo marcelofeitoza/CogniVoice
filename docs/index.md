@@ -735,7 +735,147 @@ Cada uma dessas telas possuem componentes importantes, sendo eles:
 - Botões: os botões principais da nossa aplicação são: o que permite trocar de modo (vendas e marketing), o "Go Chat", que direciona o usuário para a tela de chat, e dois últimos que representam o meio do usuário de comunicar com a inteligência artificial, um para a fala, e outro para texto.
 - Exibição de resultados: Após o usuário perguntar para a AI o que ele deseja, será possível visualizar o que foi mandado em forma de uma mensagem no chat. Considerando isso, a resposta recebida também é em formato de mensagem, e pode englobar um texto, fontes de pesquisas e gráficos.
 
-Além disso, a conexão do frontend com o backend é feita por meio do protocolo HTTPS, e contém apenas 2 APIs, uma que recebe um áudio, e outra que o tranforma por meio do Speech do Text em um texto e retorna o mesmo para o usuário. Posteriormente, será implementada uma função na qual o usuário poderá escutar a resposta além de apenas visualizá-la. Além das APIs préviamente citadas na sessão "Documentação do Sistema NLP", o sistema possui uma outra de autenticação de usuário por meio de um token, que permite criar, deletar, atualizar e autenticar um usuário. Tal API pode ser vista abaixo:
+Além disso, a conexão do frontend com o backend é feita por meio do protocolo HTTPS, e contém apenas 2 APIs, uma que recebe um áudio, e outra que o tranforma por meio do Speech do Text em um texto e retorna o mesmo para o usuário. Posteriormente, será implementada uma função na qual o usuário poderá escutar a resposta além de apenas visualizá-la. Além das APIs préviamente citadas na sessão "Documentação do Sistema NLP", o sistema possui uma outra, que é mais focada no usuário. Essa, possui 4 rotas diferentes: criar, deletar, atualizar e autenticar usuários. As rotas foram definidas dentro de uma classe "User" em um arquivo _service_, e podem ser vistas abaixo:
+
+- Rota de criar um usuário
+```js
+async Create(email, name, password) {
+        //Verify if user already exists
+        const userExists = await prisma.user.findUnique({
+            where: {
+                email: email,
+            },
+        })
+
+        if (userExists) {
+            throw new Error('User already exists')
+        }
+
+        //Verificação de senha != "", e HASH da mesma
+        if(password) {
+            const hashedPassWord = await bcrypt.hash(password, 8) 
+
+            password = hashedPassWord
+        }
+
+        //Create user
+        const user = await prisma.user.create({
+            data: {
+                id: uuid(),
+                email: email,
+                name: name,
+                password: password,
+            },
+        })
+        return user
+    }
+```
+
+- Rota de deletar um usuário
+```js
+async Remove(id) {
+        const userAlreadyExists = await prisma.user.findUnique({
+            where: {
+                id: id
+            }
+        })
+
+        if (!userAlreadyExists) {
+            throw new Error('User not found')
+        }
+
+        await prisma.user.delete({
+            where: {
+                id: id
+            }
+        })
+
+        return "User removed successfully"
+    }
+```
+
+- Rota de atualizar um usuário
+```js
+async Update(id, data) {
+        const userAlreadyExists = await prisma.user.findUnique({
+            where: {
+                id: id
+            }
+        })
+
+        if (!userAlreadyExists) {
+            throw new Error('User not found')
+        }
+
+        //Verificação de senha
+        if(data.password) {
+            if(!data.oldPassword) {
+                throw new Error('Old Password is required')
+            } else {
+                const passMatch = await bcrypt.compare(data.oldPassword, userAlreadyExists.password)
+
+                if (!passMatch) {
+                    throw new Error('Invalid Password')
+                }
+
+                data.password = await bcrypt.hash(data.password, 8)
+            }
+        }
+
+        delete data.oldPassword
+
+        const user = await prisma.user.update({
+            where: {
+                id: id
+            },
+            data,
+        })
+
+        return "User updated successfully"
+    }
+```
+
+- Rota de autenticar um usuário
+```js
+async Authenticate(email, pass) {
+        console.log(email, pass)
+        //verify if user exists
+        const user = await prisma.user.findUnique({
+            where: {
+                email: email
+            }
+        })
+
+        console.log(user)
+
+        if (!user) {
+            throw new Error('Invalid Email or/and Password')
+        }
+
+        //verify if password is correct
+        const passMatch = await bcrypt.compare(pass, user.password)
+
+        if (!passMatch) {
+            throw new Error('Invalid Email or/and Password')
+        }
+
+        //generate token
+        const token = jwt.sign({ id: user.id }, process.env.TOKEN_USER_AUTH, {
+            expiresIn: '1h'
+        })
+
+        const refresh_token = jwt.sign({ id: user.id }, process.env.TOKEN_USER_REFRESH, {
+            expiresIn: '10m'
+        })
+
+        return {
+            message: "User authenticated",
+            access_token: token,
+            refresh_token: refresh_token,
+            id: user.id,
+        }
+    }
+```
 
 # Documentação da Construção do Frontend da Solução (Sprint 4)
 
