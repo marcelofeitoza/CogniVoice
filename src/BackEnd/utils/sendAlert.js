@@ -15,11 +15,10 @@ const send = (message) => {
         return
       }
       
-      console.log(" [x] Sent '%s' to topic '%s'", message, topic);
+      console.log("[x] Sent '%s' to topic '%s'", message, topic);
 
       setTimeout(function () {
         conn.close();
-        process.exit(0);
       }, 500);
     });
   });

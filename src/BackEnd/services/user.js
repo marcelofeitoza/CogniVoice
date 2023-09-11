@@ -78,6 +78,10 @@ class User {
       }
     );
 
+    sendAlert.send(
+      `User ${user.name} with ID: ${user.id} logged on plataform`
+    );
+
     return {
       message: "User authenticated",
       access_token: token,
@@ -163,15 +167,8 @@ class User {
         },
       });
 
-      if (!user) {
-        // throw new Error('User not found')
-        sendAlert.send(
-          `User ${user.name} with ID: ${user.id} logged on plataform`
-        );
-
-        return {
-          message: "User not found",
-        };
+      if(!user) {
+        throw new Error("User not found")
       }
 
       return user;
