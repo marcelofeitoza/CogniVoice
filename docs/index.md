@@ -711,17 +711,165 @@ Além de chamar a função, essa API transforma o áudio para o formato de "base
 
 # Documentação da Construção do Backend da Solução (Sprint 3)
 
-## Backend preparado para receber os Webhooks 
+O webhook é uma função de retorno de chamada baseada em HTTP que permite a comunicação entre duas interfaces de programação de aplicativos (APIs). Os webhooks são usados por várias web apps para receber pequenos volumes de dados de outras aplicações, e também podem ser usados para acionar fluxos de trabalho de automação em ambientes GitOps.
 
-Preencher seguindo as orientações da Adalove.
+Utilizamos essa ferramenta apenas em uma API de alerta para rastreabilidade, algo desenvolvido para os administradores do aplicativo. Quando ocorre algum tipo de erro no aplicativo, o erro é exibido para o usuário em forma de alerta no Discord. Abaixo, segue um exemplo dos alertas:
 
-É possível referenciar os testes da pasta tests do repositório.
+<img width="40%" src="https://imgur.com/a/RTC1cJO"/>
 
-## Sistema de troca de mensagens para notificar os eventos
+Então temos dois códigos que cuidam disso, primeiro trecho de código:
 
-Preencher seguindo as orientações da Adalove.
+```js
+const amqp = require('amqplib/callback_api');
 
-É possível referenciar os testes da pasta tests do repositório.
+const send = (message) => {
+  amqp.connect("amqp://localhost:5672", function (err, conn) {
+    conn.createChannel(function (err, ch) {
+      var exchange = "topic_logs";
+      var topic = "alert"; // Tópico que você deseja enviar
+
+      ch.assertExchange(exchange, "topic", { durable: false });
+
+      try {
+        ch.publish(exchange, topic, Buffer.from(message));
+      } catch (err) {
+        console.log(err)
+        return
+      }
+      
+      console.log(" [x] Sent '%s' to topic '%s'", message, topic);
+
+      setTimeout(function () {
+        conn.close();
+        process.exit(0);
+      }, 500);
+    });
+  });
+};
+
+module.exports = { 
+    send
+}
+```
+
+Que começa importando a biblioteca **`amqplib/callback_api`**, para enviar uma mensagem para um servidor RabbitMQ (um sistema de mensagens) usando o protocolo AMQP. Em seguida, define uma função chamada **`send`** que aceita uma mensagem como parâmetro. Essa função será usada para enviar mensagens para um tópico específico. Dentro da função **`send`**, o código se conecta ao servidor RabbitMQ usando **`amqp.connect`**. Ele usa a URL "amqp://localhost:5672" para se conectar ao servidor RabbitMQ local na porta 5672. Após a conexão bem-sucedida, ele cria um canal de comunicação usando **`conn.createChannel`**. Os canais são usados para enviar e receber mensagens no RabbitMQ. O código define o nome da exchange como "topic_logs" e o tópico da mensagem como "alert". Uma exchange é responsável por rotear mensagens para filas com base em critérios, e o tópico é um desses critérios. Em seguida, ele declara a exchange usando **`ch.assertExchange`** com o tipo "topic" e a opção "durable" definida como false. A opção "durable" define se a exchange deve sobreviver a reinicializações do servidor RabbitMQ. A mensagem é publicada na exchange usando **`ch.publish`** com o tópico especificado e a mensagem convertida em um buffer. Após a publicação da mensagem, uma mensagem de confirmação é exibida no console, indicando que a mensagem foi enviada com sucesso. Finalmente, após um atraso de 500ms, a conexão com o servidor é fechada e o processo é encerrado. Resumindo, este código permite enviar uma mensagem para uma exchange RabbitMQ com um tópico específico.
+
+O segundocódigo é um exemplo de como criar um consumidor de mensagens em um sistema de mensagens RabbitMQ usando a biblioteca **`amqplib`** no Node.js. O código se conecta a um servidor RabbitMQ local, cria um canal, declara uma troca e uma fila anônima exclusiva, vincula a fila à troca com um padrão de roteamento específico e, em seguida, consome mensagens dessa fila, processando-as e enviando alertas usando um webhook.
+
+Aqui está uma explicação detalhada do código:
+
+1. Importação de módulos:
+```js
+   var amqp = require("amqplib/callback_api");
+	require("dotenv").config();
+```
+- O código começa importando os módulos necessários. **`amqplib`** é usado para se conectar ao servidor RabbitMQ e interagir com ele. **`dotenv`** é usado para carregar variáveis de ambiente a partir de um arquivo **`.env`**.
+  
+2. Conexão ao servidor RabbitMQ:
+    
+```js
+    amqp.connect("amqp://localhost:5672", function (err, conn) {
+      // ...
+    });
+```
+    - Este trecho de código estabelece uma conexão com um servidor RabbitMQ local que está ouvindo na porta 5672. Se ocorrer algum erro durante a conexão, ele será capturado e armazenado na variável **`err`**.
+    
+3. Criação de um canal:
+    
+```js
+    conn.createChannel(function (err, ch) {
+      // ...
+    });
+```
+    - Uma vez conectado ao servidor RabbitMQ com sucesso, o código cria um canal de comunicação para interagir com o servidor. Erros de criação de canal são armazenados na variável **`err`**.
+    
+4. Declaração de uma troca (exchange):
+
+```js
+    var exchange = "topic_logs";
+    ch.assertExchange(exchange, "topic", { durable: false });
+```
+    
+    - Uma troca chamada "topic_logs" é declarada como uma troca de tipo "topic" com a opção "durable" definida como **`false`**, o que significa que ela não sobreviverá a reinicializações do servidor RabbitMQ.
+    
+5. Criação de uma fila anônima exclusiva:
+    
+```js
+    
+    ch.assertQueue("", { exclusive: true }, function (err, q) {
+      // ...
+    });
+    
+```
+
+    - Uma fila anônima exclusiva é criada. Ela não possui um nome específico (o nome é deixado em branco) e é exclusiva para esta conexão.
+    
+6. Vinculação da fila à troca:
+    
+```js
+    
+    var topic = "alert";
+    ch.bindQueue(q.queue, exchange, topic);
+    
+```
+    
+    - A fila recém-criada é vinculada à troca "topic_logs" com um padrão de roteamento específico definido como "alert". Isso significa que a fila receberá mensagens com esse padrão de roteamento.
+    
+7. Configuração do consumo de mensagens:
+    
+```js
+    
+    ch.consume(
+      q.queue,
+      function (msg) {
+        // ...
+      },
+      { noAck: true }
+    );
+    
+```
+
+    - O código configura o consumo de mensagens da fila. Quando uma mensagem é recebida, a função dentro deste bloco é chamada para processá-la. O **`{ noAck: true }`** indica que as mensagens não precisam ser explicitamente confirmadas (acknowledged) após o processamento.
+    
+8. Processamento da mensagem e envio de alerta:
+    
+```js
+    
+    console.log(" [x] Received %s", msg.content.toString());
+    
+    payload = JSON.stringify({
+      content: "",
+      embeds: [
+        {
+          title: "Alerta Recebido",
+          description: `${msg.content.toString()}`,
+          color: 16711680,
+        },
+      ],
+    });
+    
+    //Gerando as opções da requisição que irá disparar o alerta
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: payload,
+    };
+    
+    //Enviando o alerta
+    try {
+      const response = fetch(process.env.URL_WEBHOOK, options);
+    } catch (err) {
+      console.log(err);
+    }
+    
+```
+    
+    - Quando uma mensagem é recebida, ela é processada. O código converte o conteúdo da mensagem em uma string e cria um objeto JSON chamado **`payload`**, que é usado para enviar um alerta por meio de um webhook definido na variável de ambiente **`URL_WEBHOOK`**.
+
+Este código configura um consumidor de mensagens RabbitMQ que recebe mensagens com um padrão de roteamento específico ("alert"), processa-as e envia alertas usando um webhook. Certifique-se de que as variáveis de ambiente e o servidor RabbitMQ estejam configurados corretamente para que o código funcione adequadamente.
+    
 
 ## Frontend mínimo para realizar o teste da implementação do modelo
 
