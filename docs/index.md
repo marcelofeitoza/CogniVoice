@@ -715,7 +715,7 @@ O webhook é uma função de retorno de chamada baseada em HTTP que permite a co
 
 Utilizamos essa ferramenta apenas em uma API de alerta para rastreabilidade, algo desenvolvido para os administradores do aplicativo. Quando ocorre algum tipo de erro no aplicativo, o erro é exibido para o usuário em forma de alerta no Discord. Abaixo, segue um exemplo dos alertas:
 
-<img src="https://imgur.com/a/RTC1cJO.jpg"/>
+<img src="https://imgur.com/a/UYS1GmA.png"/>
 
 Então temos dois códigos que cuidam disso, primeiro trecho de código:
 
