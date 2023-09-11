@@ -25,34 +25,34 @@ router.post(
 
 router.get(
     "/",
-    unsureAuthenticated,
+    // unsureAuthenticated
     userController.getCalling
 );
 
 router.get(
     "/:id",
     [param("id", "ID é necessário").exists({ checkFalsy: true })],
-    unsureAuthenticated,
+    // unsureAuthenticated
     userController.get
 );
 
 router.get(
     "/getAll",
-    unsureAuthenticated,
+    // unsureAuthenticated
     userController.getAll
 );
 
 router.put(
     "/:id",
     [param("id", "ID é necessário").exists({ checkFalsy: true })],
-    unsureAuthenticated,
+    // unsureAuthenticated
     userController.update
 );
 
 router.delete(
     "/:id",
     [param("id", "ID é necessário").exists({ checkFalsy: true })],
-    unsureAuthenticated,
+    // unsureAuthenticated
     userController.remove
 );
 

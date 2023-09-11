@@ -45,7 +45,9 @@ const authenticate = async (req, res) => {
     const result = await user.Authenticate(email, password);
     res.send(result);
   } catch (err) {
-    res.status(500).send(err.message);
+    res.status(500).send({
+      message: err.message,
+    });
   }
 };
 
@@ -98,7 +100,7 @@ const getCalling = async (req, res) => {
   try {
     //Tratamento das respostas do método da classe
     const result = await user.Get(req.id);
-    res.send(result);
+    res.send({result});
   } catch (err) {
     res.status(500).send(err.message);
   }
@@ -112,7 +114,7 @@ const get = async (req, res) => {
 
   if (!errors.isEmpty()) {
     return res.status(400).json({
-      error: errors.errors[0].msg,
+      message: errors.errors[0].msg,
     });
   }
 

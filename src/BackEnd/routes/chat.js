@@ -4,10 +4,7 @@ const { body, param, validationResult } = require("express-validator");
 
 const chatController = require("../controllers/chat");
 
-router.post(
-    "/ask/:mode",
-    chatController.ask
-)
+router.post("/ask/:mode", chatController.ask);
 
 //Exporta o ROUTER
 module.exports = router;

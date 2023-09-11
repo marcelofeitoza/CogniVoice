@@ -1,39 +1,230 @@
-[2023-08-22T15:40:02.995] [INFO] chat - Audio Recebido
-[2023-08-22T15:40:06.510] [INFO] chat - Audio convertido para flac
-[2023-08-22T15:40:07.011] [ERROR] chat - Error recognizing audio:
-[2023-08-22T15:42:54.096] [INFO] chat - Audio Recebido
-[2023-08-22T15:42:54.404] [INFO] chat - Audio convertido para flac
-[2023-08-22T15:42:55.357] [ERROR] chat - Error recognizing audio:
-[2023-08-22T15:43:05.490] [INFO] chat - Audio Recebido
-[2023-08-22T15:43:05.654] [INFO] chat - Audio convertido para flac
-[2023-08-22T15:43:10.654] [ERROR] chat - Error recognizing audio:
-[2023-08-22T15:43:18.807] [INFO] chat - Audio Recebido
-[2023-08-22T15:43:18.877] [INFO] chat - Audio convertido para flac
-[2023-08-22T15:43:23.096] [ERROR] chat - Error recognizing audio:
-[2023-08-22T15:43:29.333] [INFO] chat - Audio Recebido
-[2023-08-22T15:43:29.401] [INFO] chat - Audio convertido para flac
-[2023-08-22T15:43:34.549] [INFO] chat - Texto gerado com sucesso!
-[2023-08-22T15:43:48.230] [INFO] chat - Chat finalizado com sucesso!
-[2023-08-22T15:44:47.120] [INFO] chat - Audio gerado com sucesso!
-[2023-08-22T15:44:47.129] [INFO] chat - Resposta Enviada
-[2023-08-22T15:45:09.132] [INFO] chat - Audio Recebido
-[2023-08-22T15:45:09.294] [INFO] chat - Audio convertido para flac
-[2023-08-22T15:45:14.150] [INFO] chat - Texto gerado com sucesso!
-[2023-08-22T15:45:25.224] [INFO] chat - Chat finalizado com sucesso!
-[2023-08-22T15:47:10.811] [INFO] chat - Audio gerado com sucesso!
-[2023-08-22T15:47:10.831] [INFO] chat - Resposta Enviada
-[2023-08-22T15:50:09.013] [INFO] chat - Audio Recebido
-[2023-08-22T15:50:09.276] [INFO] chat - Audio convertido para flac
-[2023-08-22T15:50:15.433] [INFO] chat - Texto gerado com sucesso!
-[2023-08-22T15:50:22.373] [INFO] chat - Chat finalizado com sucesso!
-[2023-08-22T15:50:54.713] [INFO] chat - Audio gerado com sucesso!
-[2023-08-22T15:50:54.722] [INFO] chat - Resposta Enviada
-[2023-08-22T15:52:25.296] [INFO] chat - Audio Recebido
-[2023-08-22T15:52:25.466] [INFO] chat - Audio convertido para flac
-[2023-08-22T15:52:31.946] [INFO] chat - Texto gerado com sucesso!
-[2023-08-22T15:52:59.497] [INFO] chat - Audio Recebido
-[2023-08-22T15:52:59.667] [INFO] chat - Audio convertido para flac
-[2023-08-22T15:53:08.034] [INFO] chat - Texto gerado com sucesso!
-[2023-08-22T15:53:16.958] [INFO] chat - Chat finalizado com sucesso!
-[2023-08-22T15:54:09.970] [INFO] chat - Audio gerado com sucesso!
-[2023-08-22T15:54:09.978] [INFO] chat - Resposta Enviada
+[2023-09-04T11:03:41.933] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T11:03:41.940] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'SalesTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T14:03:31.767Z
+}
+[2023-09-04T11:21:53.918] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T11:21:53.925] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'MarketTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T14:03:47.578Z
+}
+[2023-09-04T12:06:17.119] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T12:06:17.119] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'MarketTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T14:03:47.578Z
+}
+[2023-09-04T12:06:45.669] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T12:06:45.671] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'MarketTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T14:03:47.578Z
+}
+[2023-09-04T12:07:01.595] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T12:07:01.596] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'MarketTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T14:03:47.578Z
+}
+[2023-09-04T12:08:47.947] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T12:08:47.950] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'MarketTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T14:03:47.578Z
+}
+[2023-09-04T12:09:00.017] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T12:09:00.018] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'MarketTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T14:03:47.578Z
+}
+[2023-09-04T12:10:48.437] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T12:10:48.439] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'MarketTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T14:03:47.578Z
+}
+[2023-09-04T14:09:28.198] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T14:09:28.199] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'MarketTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T14:03:47.578Z
+}
+[2023-09-04T14:22:52.643] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T14:22:52.643] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'MarketTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T14:03:47.578Z
+}
+[2023-09-04T14:32:01.435] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T14:32:01.436] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'MarketTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T14:03:47.578Z
+}
+[2023-09-04T14:35:46.692] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T14:35:46.693] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'SalesTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T17:34:37.899Z
+}
+[2023-09-04T14:47:37.046] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T14:47:37.047] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'SalesTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T17:34:37.899Z
+}
+[2023-09-04T14:55:59.754] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T14:55:59.756] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'SalesTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T17:34:37.899Z
+}
+[2023-09-04T15:00:56.657] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T15:00:56.658] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'SalesTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T17:34:37.899Z
+}
+[2023-09-04T15:35:24.447] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T15:35:24.448] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'SalesTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T17:34:37.899Z
+}
+[2023-09-04T15:40:36.945] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T15:40:36.948] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'SalesTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T17:34:37.899Z
+}
+[2023-09-04T15:41:36.021] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T15:41:36.022] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'SalesTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T17:34:37.899Z
+}
+[2023-09-04T15:42:43.364] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T15:42:43.366] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'SalesTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T17:34:37.899Z
+}
+[2023-09-04T15:43:36.359] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T15:43:36.361] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'SalesTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T17:34:37.899Z
+}
+[2023-09-04T15:45:34.482] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T15:45:34.484] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'SalesTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T17:34:37.899Z
+}
+[2023-09-04T15:56:45.275] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T15:56:45.277] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'SalesTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T17:34:37.899Z
+}
+[2023-09-04T16:29:19.676] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
+[2023-09-04T16:29:19.676] [DEBUG] chat - {
+  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
+  email: 'marcelo.feitoza@sou.inteli.edu.br',
+  name: 'Marcelo Gomes Feitoza',
+  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+  mode: 'SalesTracker',
+  createdAt: 2023-08-28T03:01:40.647Z,
+  updatedAt: 2023-09-04T17:34:37.899Z
+}

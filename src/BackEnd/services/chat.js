@@ -5,9 +5,8 @@ const gptUtils = require("../utils/gpt");
 const ffmpegUtils = require("../utils/ffmpeg");
 
 //Configurando Log
-const log4js = require('log4js');
-
-const loggerChat = log4js.getLogger('chat');
+const log4js = require("log4js");
+const loggerChat = log4js.getLogger("chat");
 
 class Chat {
   async Ask(content, mode) {
@@ -19,7 +18,7 @@ class Chat {
       throw new Error("Mode is required");
     }
 
-    console.log("Recebendo audio...");
+    loggerChat.debug("Recebendo audio...");
     loggerChat.info("Audio Recebido");
 
     //Save in a file the audio
@@ -55,8 +54,10 @@ class Chat {
       const audio = await ibmUtils.generateSpeech(responseChat);
 
       const response = {
+        question: text,
         audio: audio.toString("base64"),
         message: responseChat,
+        chat: gptUtils.getActualChat("teste"),
       };
 
       await gptUtils.recordChatOfUser(responseChat, text);
@@ -65,7 +66,7 @@ class Chat {
       try {
         fs.readdirSync("audios").forEach((file) => {
           if (file.includes("receiving") || file.includes("sending")) {
-            fs.unlinkSync("audios/"+file);
+            fs.unlinkSync("audios/" + file);
           }
         });
       } catch (err) {
@@ -74,7 +75,7 @@ class Chat {
         throw new Error("Error removing audio files");
       }
 
-      console.log("Resposta Enviada!");
+      loggerChat.debug("Resposta Enviada!");
       loggerChat.info("Resposta Enviada");
 
       return response;

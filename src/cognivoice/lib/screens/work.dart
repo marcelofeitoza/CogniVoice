@@ -33,7 +33,7 @@ class Work extends ConsumerStatefulWidget {
 class _WorkState extends ConsumerState<Work> {
   @override
   Widget build(BuildContext context) {
-    user = ref.read(userProvider);
+    user = widget.ref.read(userProvider).get();
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
@@ -85,6 +85,18 @@ class _WorkState extends ConsumerState<Work> {
                       style: Theme.of(context).textTheme.labelLarge,
                     ),
                     Text(
+                      user.name,
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'Email: ',
+                      style: Theme.of(context).textTheme.labelLarge,
+                    ),
+                    Text(
                       user.email,
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
@@ -97,16 +109,30 @@ class _WorkState extends ConsumerState<Work> {
                       style: Theme.of(context).textTheme.labelLarge,
                     ),
                     Text(
-                      user.selectedMode,
+                      user.mode,
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ],
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 48,
             ),
+            Row(children: [
+              Text(
+                'Question: ',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
+              Flexible(
+                child: Text(
+                  question,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+              ),
+            ]),
             if (statusCode > 0)
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -157,25 +183,15 @@ class _WorkState extends ConsumerState<Work> {
                   const SizedBox(height: 48),
                 ],
               ),
-            ButtonBar(
-              alignment: MainAxisAlignment.center,
-              children: [
-                TextButton.icon(
-                  onPressed: () =>
-                      isRecording ? stopRecording() : startRecording(),
-                  icon: Icon(isRecording ? Icons.stop : Icons.mic),
-                  label: Text(
-                    isRecording ? 'Stop Recording' : 'Start Recording',
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 32),
             if (!isRecording && audioPath.isNotEmpty)
               Column(
                 children: [
-                  if (isPlaying) const Text('Playing...'),
+                  if (isPlaying)
+                    ElevatedButton.icon(
+                      onPressed: stopPlaying,
+                      icon: const Icon(Icons.stop),
+                      label: const Text('Stop Playing'),
+                    ),
                   if (!isPlaying)
                     ElevatedButton.icon(
                       onPressed: playRecording,
@@ -192,6 +208,25 @@ class _WorkState extends ConsumerState<Work> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          if (isRecording) {
+            stopRecording();
+          } else {
+            
+            startRecording();
+          }
+        },
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(64.0)),
+        child: Icon(
+          isRecording ? Icons.stop : Icons.mic,
+          color: Theme.of(context).colorScheme.onPrimary,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
     );
   }
 
@@ -199,6 +234,7 @@ class _WorkState extends ConsumerState<Work> {
   final Record audioRecord = Record();
   final AudioPlayer audioPlayer = AudioPlayer();
   bool isRecording = false;
+  String question = "";
   String audioPath = "";
   bool isPlaying = false;
   String response = "Waiting...";
@@ -263,18 +299,32 @@ class _WorkState extends ConsumerState<Work> {
     }
   }
 
+  Future<void> stopPlaying() async {
+    try {
+      widget.logger.i("Work: Stopping audio player");
+
+      await audioPlayer.stop();
+      setState(() {
+        isPlaying = false;
+      });
+    } catch (e) {
+      widget.logger.e("Work: Error while stopping audio player - $e");
+    }
+  }
+
   Future<void> processAudio() async {
     try {
       widget.logger.i("Work: Processing audio");
 
-      AudioProcessingResult postResponse = await audioService.postAudio(
-          audioPath, widget.logger, user.selectedMode);
+      AudioProcessingResult postResponse =
+          await audioService.postAudio(audioPath, widget.logger, user.mode);
 
       String audioBase64 = postResponse.audio;
       File? receivedAudio =
           await audioService.decodeAudio(audioBase64, widget.logger);
 
       setState(() {
+        question = postResponse.question;
         response = postResponse.message;
         statusCode = postResponse.statusCode;
         audioPath = receivedAudio.path;

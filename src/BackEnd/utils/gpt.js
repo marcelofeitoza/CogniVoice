@@ -54,7 +54,7 @@ async function sendToGPT(text, userName, mode) {
     });
   }
 
-  console.log(messages);
+  loggerChat.debug(messages);
 
   try {
     const completion = await openai.createChatCompletion({
@@ -62,7 +62,10 @@ async function sendToGPT(text, userName, mode) {
       messages: messages,
     });
 
-    console.log("Chat finalizado!", completion.data.choices[0].message.content);
+    loggerChat.debug(
+      "Chat finalizado!",
+      completion.data.choices[0].message.content
+    );
     loggerChat.info("Chat finalizado com sucesso!");
 
     return completion.data.choices[0].message.content;
@@ -86,7 +89,12 @@ async function recordChatOfUser(answer, question, userName) {
   }
 }
 
+function getActualChat(userName) {
+  return conversations[userName];
+}
+
 module.exports = {
   sendToGPT,
   recordChatOfUser,
+  getActualChat,
 };

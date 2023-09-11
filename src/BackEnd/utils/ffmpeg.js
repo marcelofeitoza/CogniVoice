@@ -1,6 +1,9 @@
 const ffmpeg = require("fluent-ffmpeg");
 const pathToFfmpeg = require("ffmpeg-static");
 
+const log4js = require("log4js");
+const loggerChat = log4js.getLogger("chat");
+
 ffmpeg.setFfmpegPath(pathToFfmpeg);
 
 async function convertToFlac(origin, destination) {
@@ -8,11 +11,11 @@ async function convertToFlac(origin, destination) {
     ffmpeg(origin)
       .output(destination)
       .on("end", function () {
-        console.log("Conversion ended");
+        loggerChat.debug("Conversion ended");
         resolve();
       })
       .on("error", function (err) {
-        console.log(err) / console.log("error: ", err.code, err.msg);
+        loggerChat.error(err) / loggerChat.error("error: ", err.code, err.msg);
         reject("Error converting audio");
       })
       .run();

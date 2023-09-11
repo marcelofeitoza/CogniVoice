@@ -5,6 +5,7 @@ WORKDIR /app
 COPY . .
 
 RUN cargo build --release
+
 FROM debian:buster-slim AS runtime
 
 WORKDIR /app

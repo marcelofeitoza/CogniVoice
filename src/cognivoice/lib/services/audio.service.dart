@@ -11,7 +11,7 @@ class AudioService {
   Future<AudioProcessingResult> postAudio(
       String audioFilePath, Logger logger, String? mode) async {
     String? apiUrl = dotenv.env['API_URL'];
-    String path = "v1/chat/ask";
+    String path = "chat/ask";
 
     logger.i("AudioService: Posting audio to $apiUrl/$path");
 
@@ -20,6 +20,7 @@ class AudioService {
 
       return AudioProcessingResult(
         audio: audioFilePath,
+        question: "",
         message: "API_URL not found",
         statusCode: -1,
       );
@@ -44,8 +45,13 @@ class AudioService {
       logger.i("AudioService: Response success");
 
       final String audioPath = jsonResponse['audio'];
+      final String question = jsonResponse['question'];
+
+      logger.d("AudioService: Audio path - $audioPath");
+      logger.d("AudioService: Text - $question");
 
       return AudioProcessingResult(
+        question: question,
         audio: audioPath,
         message: message,
         statusCode: response.statusCode,
@@ -55,6 +61,7 @@ class AudioService {
 
       return AudioProcessingResult(
         audio: "",
+        question: "",
         message: message,
         statusCode: response.statusCode,
       );

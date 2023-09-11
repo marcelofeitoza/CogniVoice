@@ -14,20 +14,18 @@ const speechToText = new SpeechToTextV1({
   authenticator: new IamAuthenticator({
     apikey: process.env.API_KEY_SPEECH_TO_TEXT,
   }),
-  serviceUrl:
-    process.env.SERVICE_URL_SPEECH_TO_TEXT,
+  serviceUrl: process.env.SERVICE_URL_SPEECH_TO_TEXT,
 });
 
 const textToSpeech = new TextToSpeechV1({
   authenticator: new IamAuthenticator({
     apikey: process.env.API_KEY_TEXT_TO_SPEECH,
   }),
-  serviceUrl:
-    process.env.SERVICE_URL_TEXT_TO_SPEECH,
+  serviceUrl: process.env.SERVICE_URL_TEXT_TO_SPEECH,
 });
 
 async function generateText(audio) {
-  console.log(audio);
+  loggerChat.debug(audio);
 
   try {
     const result = await speechToText.recognize({
@@ -39,7 +37,7 @@ async function generateText(audio) {
       maxAlternatives: 3,
     });
 
-    console.log(result.result.results[0].alternatives[0].transcript);
+    loggerChat.debug(result.result.results[0].alternatives[0].transcript);
 
     loggerChat.info("Texto gerado com sucesso!");
 
@@ -60,7 +58,6 @@ async function generateSpeech(responseText) {
     };
 
     const response = await textToSpeech.synthesize(synthesizeParams);
-
     const buffer = await textToSpeech.repairWavHeaderStream(response.result);
 
     //Generate a file with the audio
@@ -72,7 +69,7 @@ async function generateSpeech(responseText) {
     //Read the audio file as a buffer
     const audio = fs.readFileSync("audios/sending.m4a");
 
-    console.log("Audio gerado!");
+    loggerChat.debug("Audio gerado!");
     loggerChat.info("Audio gerado com sucesso!");
 
     return audio;

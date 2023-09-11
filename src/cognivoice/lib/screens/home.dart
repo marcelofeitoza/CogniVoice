@@ -1,12 +1,7 @@
-import 'package:cognivoice/models/audioProcessingResult.model.dart';
 import 'package:cognivoice/providers/user.provider.dart';
-import 'package:cognivoice/services/audio.service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:loggerw/loggerw.dart';
-import 'package:record/record.dart';
-import 'dart:io';
 
 enum TimeOfDay {
   morning,
@@ -38,250 +33,276 @@ class _HomeState extends ConsumerState<Home> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        physics: const BouncingScrollPhysics(),
         child: Column(
-          // physics: const BouncingScrollPhysics(),
-          // padding: const EdgeInsets.all(16),
           children: [
-            const SizedBox(
-              height: 72,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 72,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                                "Good ${timeOfDay.toString().split('.').last}!",
+                                style: TextStyle(
+                                  fontSize: Theme.of(context)
+                                      .textTheme
+                                      .headlineLarge!
+                                      .fontSize,
+                                  fontWeight: FontWeight.w400,
+                                  color:
+                                      Theme.of(context).colorScheme.onPrimary,
+                                )),
+                            Text("Search with CogniVoice",
+                                style: TextStyle(
+                                  fontSize: Theme.of(context)
+                                      .textTheme
+                                      .headlineSmall!
+                                      .fontSize,
+                                  fontWeight: FontWeight.w300,
+                                  color:
+                                      Theme.of(context).colorScheme.onPrimary,
+                                ),
+                                softWrap: true),
+                          ]),
+                      IconButton(
+                        onPressed: () {
+                          widget.logger.i("Home: Settings button clicked");
+                          Navigator.pushNamed(context, "/settings");
+                        },
+                        icon: Icon(
+                          Icons.settings_outlined,
+                          size: 28,
+                          color: Theme.of(context).colorScheme.onPrimary,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 24),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Prompts",
+                        style: TextStyle(
+                          fontSize: Theme.of(context)
+                              .textTheme
+                              .headlineSmall!
+                              .fontSize,
+                          fontWeight: FontWeight.w400,
+                          color: Theme.of(context).colorScheme.onPrimary,
+                        ),
+                      ),
+                      // TextButton(
+                      //     style: TextButton.styleFrom(
+                      //       padding: EdgeInsets.zero,
+                      //       animationDuration: Duration.zero,
+                      //     ),
+                      //     onPressed: () {},
+                      //     child: Text(
+                      //       "View all",
+                      //       style: TextStyle(
+                      //         decoration: TextDecoration.underline,
+                      //         fontSize: Theme.of(context)
+                      //             .textTheme
+                      //             .bodySmall!
+                      //             .fontSize,
+                      //         fontWeight: FontWeight.w400,
+                      //         color: Theme.of(context).colorScheme.onPrimary,
+                      //       ),
+                      //     )),
+                    ],
+                  ),
+                ],
+              ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text("Good ${timeOfDay.toString().split('.').last}!",
-                      style: TextStyle(
-                        fontSize:
-                            Theme.of(context).textTheme.headlineSmall!.fontSize,
-                        fontWeight: FontWeight.w400,
-                        color: Theme.of(context).colorScheme.onPrimary,
-                      )),
-                  Text("Search with CogniVoice",
-                      style: Theme.of(context).textTheme.bodyLarge,
-                      softWrap: true),
-                ]),
-                IconButton(
-                  onPressed: () {
-                    widget.logger.i("Home: Settings button clicked");
-                    Navigator.pushReplacementNamed(context, '/login');
+            Container(
+                margin: const EdgeInsets.symmetric(vertical: 8),
+                height: 200,
+                child: ListView.builder(
+                  itemBuilder: (BuildContext context, int index) {
+                    return PromptCard(
+                      title: prompts[index]["title"]!,
+                      description: prompts[index]["description"]!,
+                    );
                   },
-                  icon: Icon(
-                    Icons.settings_outlined,
-                    color: Theme.of(context).colorScheme.onPrimary,
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                // user details
-                const SizedBox(height: 32),
-                Row(
-                  children: [
-                    Text(
-                      'Name: ',
-                      style: Theme.of(context).textTheme.labelLarge,
-                    ),
-                    Text(
-                      user.email,
-                      style: Theme.of(context).textTheme.bodyLarge,
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Text(
-                      'Mode: ',
-                      style: Theme.of(context).textTheme.labelLarge,
-                    ),
-                    Text(
-                      user.selectedMode,
-                      style: Theme.of(context).textTheme.bodyLarge,
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                  itemCount: prompts.length,
+                  scrollDirection: Axis.horizontal,
+                  physics: const BouncingScrollPhysics(),
+                )),
             SizedBox(
-              height: 48,
+              height: 8.0,
             ),
-            if (statusCode > 0)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Status Code: ',
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.labelLarge,
-                  ),
-                  Text(
-                    statusCode.toString(),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: statusCode == 200
-                          ? Colors.green[700]
-                          : Colors.red[500],
-                      fontWeight: FontWeight.bold,
+            Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "History (${history.length})",
+                          style: TextStyle(
+                            fontSize: Theme.of(context)
+                                .textTheme
+                                .headlineSmall!
+                                .fontSize,
+                            fontWeight: FontWeight.w400,
+                            color: Theme.of(context).colorScheme.onPrimary,
+                          ),
+                        ),
+                        // TextButton(
+                        //     style: TextButton.styleFrom(
+                        //       padding: EdgeInsets.zero,
+                        //       animationDuration: Duration.zero,
+                        //     ),
+                        //     onPressed: () {},
+                        //     child: Text(
+                        //       "View all",
+                        //       style: TextStyle(
+                        //         decoration: TextDecoration.underline,
+                        //         fontSize: Theme.of(context)
+                        //             .textTheme
+                        //             .bodySmall!
+                        //             .fontSize,
+                        //         fontWeight: FontWeight.w400,
+                        //         color: Theme.of(context).colorScheme.onPrimary,
+                        //       ),
+                        //     )),
+                      ],
                     ),
-                  ),
-                ],
-              ),
-            if (!isRecording)
-              Column(
-                children: [
-                  const SizedBox(height: 32),
-                  if (response == "Loading...")
-                    CircularProgressIndicator(
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
-                  if (response != "Waiting..." || response != "Loading...")
-                    Text(
-                      response,
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.labelLarge,
-                    ),
-                  const SizedBox(height: 16),
-                ],
-              ),
-            const SizedBox(height: 32),
-            if (isRecording)
-              Column(
-                children: [
-                  Text(
-                    'Recording...',
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.labelLarge,
-                  ),
-                  const SizedBox(height: 48),
-                ],
-              ),
-            ButtonBar(
-              alignment: MainAxisAlignment.center,
-              children: [
-                TextButton.icon(
-                  onPressed: () =>
-                      isRecording ? stopRecording() : startRecording(),
-                  icon: Icon(isRecording ? Icons.stop : Icons.mic),
-                  label: Text(
-                    isRecording ? 'Stop Recording' : 'Start Recording',
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 32),
-            if (!isRecording && audioPath.isNotEmpty)
-              Column(
-                children: [
-                  if (isPlaying) const Text('Playing...'),
-                  if (!isPlaying)
-                    ElevatedButton.icon(
-                      onPressed: playRecording,
-                      icon: const Icon(Icons.play_arrow),
-                      label: const Text('Play Recording'),
-                    ),
-                  ElevatedButton.icon(
-                    onPressed: processAudio,
-                    label: const Text('Process Recording'),
-                    icon: const Icon(Icons.send),
-                  ),
-                ],
-              ),
+                    ListView.builder(
+                      shrinkWrap: true,
+                      physics: const BouncingScrollPhysics(),
+                      itemCount: 5,
+                      padding: EdgeInsets.only(top: 8.0),
+                      itemBuilder: (BuildContext context, int index) {
+                        return Column(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(16.0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .primary
+                                    .withOpacity(0.075),
+                              ),
+                              child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.chat_outlined,
+                                    size: 24.0,
+                                  ),
+                                  const SizedBox(
+                                    width: 8.0,
+                                  ),
+                                  Flexible(
+                                    child: Text(
+                                      history[index],
+                                      softWrap: true,
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 2,
+                                      style:
+                                          Theme.of(context).textTheme.bodyLarge,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 16.0,
+                            ),
+                          ],
+                        );
+                      },
+                    )
+                  ],
+                )),
+            SizedBox(
+              height: 96.0,
+            )
           ],
         ),
       ),
+      floatingActionButton: Container(
+        margin: const EdgeInsets.only(bottom: 8.0, left: 16.0, right: 16.0),
+        width: double.infinity,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8.0),
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xFF0062FF),
+              Color(0xff12307C),
+            ],
+          ),
+        ),
+        child: FloatingActionButton.extended(
+          onPressed: _createChat,
+          backgroundColor: Colors.transparent,
+          label: Text(
+            "Go chat",
+            style: TextStyle(
+              fontSize: Theme.of(context).textTheme.headlineSmall!.fontSize,
+              fontWeight: FontWeight.w400,
+              color: Theme.of(context).colorScheme.onPrimary,
+            ),
+          ),
+          elevation: 0,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
     );
   }
 
-  final AudioService audioService = AudioService();
-  final Record audioRecord = Record();
-  final AudioPlayer audioPlayer = AudioPlayer();
-  bool isRecording = false;
-  String audioPath = "";
-  bool isPlaying = false;
-  String response = "Waiting...";
-  int statusCode = 0;
   late User user;
   late TimeOfDay timeOfDay;
+  final List<Map<String, String>> prompts = [
+    {
+      "title": "Market trends",
+      "description": "Have an overview of the main world topics!"
+    },
+    {
+      "title": "Campaign strategies",
+      "description": "Provide support for marketing decisions."
+    },
+    {
+      "title": "Customer support",
+      "description": "Help your customers with their questions."
+    },
+    {
+      "title": "Sales",
+      "description": "Get insights on how to improve your sales."
+    },
+  ];
+  final List<String> history = [
+    "Qual o posicionamento da Cisco sobre a terra plana?",
+    "Qual o posicionamento da Cisco sobre a terra plana?",
+    "Qual o posicionamento da Cisco sobre a terra plana?",
+    "Qual o posicionamento da Cisco sobre a terra plana?",
+    "Qual o posicionamento da Cisco sobre a terra plana?",
+    "Qual o posicionamento da Cisco sobre a terra plana?",
+    "Qual o posicionamento da Cisco sobre a terra plana?",
+    "Qual o posicionamento da Cisco sobre a terra plana?",
+  ];
 
-  Future<void> startRecording() async {
-    widget.logger.i("Home: Start recording");
+  void _createChat() {
+    widget.logger.i("Home: Creating chat");
 
-    try {
-      if (await audioRecord.hasPermission()) {
-        widget.logger.i("Home: Has permission to record audio");
-
-        await audioRecord.start();
-        setState(() {
-          isRecording = true;
-          response = "Waiting...";
-        });
-      } else {
-        widget.logger.e("Home: Audio recording permission not granted");
-      }
-    } catch (e) {
-      widget.logger.e("Home: Error while starting recording - $e");
-    }
-  }
-
-  Future<void> stopRecording() async {
-    try {
-      String? path = await audioRecord.stop();
-
-      setState(() {
-        isRecording = false;
-        audioPath = path!;
-      });
-    } catch (e) {
-      widget.logger.e("Home: Error while stopping recording - $e");
-    }
-  }
-
-  Future<void> playRecording() async {
-    if (audioPath.isNotEmpty) {
-      try {
-        widget.logger.i("Home: Playing recording from path: $audioPath");
-
-        Source urlSource = UrlSource(audioPath);
-        await audioPlayer.play(urlSource);
-        setState(() {
-          isPlaying = true;
-        });
-
-        audioPlayer.onPlayerComplete.listen((event) {
-          setState(() {
-            isPlaying = false;
-          });
-        });
-      } catch (e) {
-        widget.logger.e("Home: Error while playing recording - $e");
-      }
-    } else {
-      widget.logger.e("Home: No audio file to play");
-    }
-  }
-
-  Future<void> processAudio() async {
-    try {
-      widget.logger.i("Home: Processing audio");
-
-      AudioProcessingResult postResponse = await audioService.postAudio(
-          audioPath, widget.logger, user.selectedMode);
-
-      String audioBase64 = postResponse.audio;
-      File? receivedAudio =
-          await audioService.decodeAudio(audioBase64, widget.logger);
-
-      setState(() {
-        response = postResponse.message;
-        statusCode = postResponse.statusCode;
-        audioPath = receivedAudio.path;
-      });
-    } catch (e) {
-      widget.logger.e("Home: Error while processing audio - $e");
-    }
+    Navigator.pushNamed(context, "/chat");
   }
 
   @override
@@ -306,8 +327,71 @@ class _HomeState extends ConsumerState<Home> {
   void dispose() {
     widget.logger.i("Home: Disposing");
 
-    audioRecord.dispose();
-    audioPlayer.dispose();
     super.dispose();
+  }
+}
+
+class PromptCard extends StatelessWidget {
+  final String title;
+  final String description;
+
+  const PromptCard({super.key, required this.title, required this.description});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        const SizedBox(
+          width: 16,
+        ),
+        Container(
+          width: 200,
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Color(0xFF0054DC),
+                Color.fromARGB(255, 15, 40, 103),
+              ],
+            ),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                    fontSize:
+                        Theme.of(context).textTheme.displaySmall!.fontSize,
+                    fontWeight: FontWeight.w600,
+                    color: Theme.of(context).colorScheme.onPrimary,
+                  ),
+                ),
+                const SizedBox(
+                  height: 4,
+                ),
+                Text(
+                  description,
+                  style: TextStyle(
+                    fontSize: Theme.of(context).textTheme.bodyLarge!.fontSize,
+                    fontWeight: FontWeight.w400,
+                    color: Theme.of(context).colorScheme.onPrimary,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(
+          width: 8,
+        )
+      ],
+    );
   }
 }
