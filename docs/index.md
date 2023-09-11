@@ -715,7 +715,7 @@ O webhook é uma função de retorno de chamada baseada em HTTP que permite a co
 
 Utilizamos essa ferramenta apenas em uma API de alerta para rastreabilidade, algo desenvolvido para os administradores do aplicativo. Quando ocorre algum tipo de erro no aplicativo, o erro é exibido para o usuário em forma de alerta no Discord. Abaixo, segue um exemplo dos alertas:
 
-<img width="40%" src="https://imgur.com/a/RTC1cJO"/>
+<img src="https://imgur.com/a/RTC1cJO"/>
 
 Então temos dois códigos que cuidam disso, primeiro trecho de código:
 
@@ -761,64 +761,50 @@ Aqui está uma explicação detalhada do código:
 1. Importação de módulos:
 ```js
    var amqp = require("amqplib/callback_api");
-	require("dotenv").config();
+   require("dotenv").config();
 ```
-- O código começa importando os módulos necessários. **`amqplib`** é usado para se conectar ao servidor RabbitMQ e interagir com ele. **`dotenv`** é usado para carregar variáveis de ambiente a partir de um arquivo **`.env`**.
-  
+O código começa importando os módulos necessários. **`amqplib`** é usado para se conectar ao servidor RabbitMQ e interagir com ele. **`dotenv`** é usado para carregar variáveis de ambiente a partir de um arquivo **`.env`**.
+
 2. Conexão ao servidor RabbitMQ:
-    
 ```js
     amqp.connect("amqp://localhost:5672", function (err, conn) {
       // ...
     });
 ```
-    - Este trecho de código estabelece uma conexão com um servidor RabbitMQ local que está ouvindo na porta 5672. Se ocorrer algum erro durante a conexão, ele será capturado e armazenado na variável **`err`**.
-    
+Este trecho de código estabelece uma conexão com um servidor RabbitMQ local que está ouvindo na porta 5672. Se ocorrer algum erro durante a conexão, ele será capturado e armazenado na variável **`err`**.
+
 3. Criação de um canal:
-    
 ```js
     conn.createChannel(function (err, ch) {
       // ...
     });
 ```
-    - Uma vez conectado ao servidor RabbitMQ com sucesso, o código cria um canal de comunicação para interagir com o servidor. Erros de criação de canal são armazenados na variável **`err`**.
-    
-4. Declaração de uma troca (exchange):
+Uma vez conectado ao servidor RabbitMQ com sucesso, o código cria um canal de comunicação para interagir com o servidor. Erros de criação de canal são armazenados na variável **`err`**.
 
+4. Declaração de uma troca (exchange):
 ```js
     var exchange = "topic_logs";
     ch.assertExchange(exchange, "topic", { durable: false });
 ```
-    
-    - Uma troca chamada "topic_logs" é declarada como uma troca de tipo "topic" com a opção "durable" definida como **`false`**, o que significa que ela não sobreviverá a reinicializações do servidor RabbitMQ.
-    
-5. Criação de uma fila anônima exclusiva:
-    
+Uma troca chamada "topic_logs" é declarada como uma troca de tipo "topic" com a opção "durable" definida como **`false`**, o que significa que ela não sobreviverá a reinicializações do servidor RabbitMQ.
+
+5. Criação de uma fila anônima exclusiva: 
 ```js
-    
     ch.assertQueue("", { exclusive: true }, function (err, q) {
       // ...
     });
-    
 ```
-
-    - Uma fila anônima exclusiva é criada. Ela não possui um nome específico (o nome é deixado em branco) e é exclusiva para esta conexão.
+Uma fila anônima exclusiva é criada. Ela não possui um nome específico (o nome é deixado em branco) e é exclusiva para esta conexão.
     
 6. Vinculação da fila à troca:
-    
 ```js
-    
     var topic = "alert";
     ch.bindQueue(q.queue, exchange, topic);
-    
 ```
-    
-    - A fila recém-criada é vinculada à troca "topic_logs" com um padrão de roteamento específico definido como "alert". Isso significa que a fila receberá mensagens com esse padrão de roteamento.
-    
+A fila recém-criada é vinculada à troca "topic_logs" com um padrão de roteamento específico definido como "alert". Isso significa que a fila receberá mensagens com esse padrão de roteamento.
+
 7. Configuração do consumo de mensagens:
-    
 ```js
-    
     ch.consume(
       q.queue,
       function (msg) {
@@ -826,15 +812,11 @@ Aqui está uma explicação detalhada do código:
       },
       { noAck: true }
     );
-    
 ```
-
-    - O código configura o consumo de mensagens da fila. Quando uma mensagem é recebida, a função dentro deste bloco é chamada para processá-la. O **`{ noAck: true }`** indica que as mensagens não precisam ser explicitamente confirmadas (acknowledged) após o processamento.
+O código configura o consumo de mensagens da fila. Quando uma mensagem é recebida, a função dentro deste bloco é chamada para processá-la. O **`{ noAck: true }`** indica que as mensagens não precisam ser explicitamente confirmadas (acknowledged) após o processamento.
     
 8. Processamento da mensagem e envio de alerta:
-    
 ```js
-    
     console.log(" [x] Received %s", msg.content.toString());
     
     payload = JSON.stringify({
@@ -862,11 +844,9 @@ Aqui está uma explicação detalhada do código:
       const response = fetch(process.env.URL_WEBHOOK, options);
     } catch (err) {
       console.log(err);
-    }
-    
+    } 
 ```
-    
-    - Quando uma mensagem é recebida, ela é processada. O código converte o conteúdo da mensagem em uma string e cria um objeto JSON chamado **`payload`**, que é usado para enviar um alerta por meio de um webhook definido na variável de ambiente **`URL_WEBHOOK`**.
+Quando uma mensagem é recebida, ela é processada. O código converte o conteúdo da mensagem em uma string e cria um objeto JSON chamado **`payload`**, que é usado para enviar um alerta por meio de um webhook definido na variável de ambiente **`URL_WEBHOOK`**.
 
 Este código configura um consumidor de mensagens RabbitMQ que recebe mensagens com um padrão de roteamento específico ("alert"), processa-as e envia alertas usando um webhook. Certifique-se de que as variáveis de ambiente e o servidor RabbitMQ estejam configurados corretamente para que o código funcione adequadamente.
     
