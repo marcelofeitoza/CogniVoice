@@ -1009,7 +1009,7 @@ async Authenticate(email, pass) {
 
 ## Implementação do frontend com o framework ou biblioteca desejada
 
-Preencher seguindo as orientações da Adalove.
+Tópicos como requisitos funcionais e não funcionais, protótipos do sistema e ambiente de desenvolvimento, podem ser encontrados na sessão "Entendimento do Design", presente nessa documentação. Além disso, o código fonte do Front-end está localizado na pasta "cognivoice" dentro de "src".
 
 ## Testes do frontend implementado
 
