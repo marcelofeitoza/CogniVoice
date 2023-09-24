@@ -660,6 +660,53 @@ Neste tutorial, você aprenderá como criar um banco de dados Amazon RDS com a c
 postgresql://seu_usuario:sua_senha@endpoint_do_banco:5432/seu_banco_de_dados
 	
 ```
+
+### Tutorial: Configuração do servidor
+
+Este guia assume que você já possui uma instância EC2 da AWS configurada e um aplicativo Node.js em execução com PM2. Vamos seguir as etapas para atualizar o código no GitHub e executar o seu script `.sh`.
+
+#### Passo 1: Conectar à sua instância EC2
+
+Use o SSH para se conectar à sua instância EC2. Substitua `projeto2.pem` e `3.82.28.119` pelos seus valores reais.
+
+```bash
+ssh -i projeto2.pem ubuntu@3.82.28.119
+```
+
+#### Passo 2: Navegar até o diretório do seu aplicativo
+
+Use o comando cd para entrar no diretório onde seu aplicativo Node.js está localizado.
+
+```bash
+cd Projeto2
+```
+
+#### Passo 3: Fazer um novo pull do GitHub
+
+Certifique-se de que você está na branch correta e então faça um novo pull do repositório GitHub para obter a versão mais recente do código.
+
+```bash
+git pull origin main
+```
+
+#### Passo 4: Retorne a root da maquina
+
+Retorne ao caminho padrão da maquina
+
+```bash
+cd
+```
+
+#### Passo 5: Executar o arquivo .sh
+
+Execute o seu script .sh que cuida da instalação de dependências e recarga do PM2.
+
+```bash
+./update.sh
+```
+
+Agora seu código deve estar atualizado e a maquina rodando com a versõa mais atual do código.
+
 ## API para receber os áudios enviados pelo usuário
 
 A API que recebe os aúdios enviados pelo usuário foi construída com a ajuda de uma função de "Speech to Text" que a própria IBM já fornece por meio da biblioteca do IBM Watson. O que recebe o áudio é na verdade uma função, que é posteriormente chamada em uma API de post.
