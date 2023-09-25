@@ -14,7 +14,8 @@ Nome do Parceiro: IBM
 
 Nome do Grupo: CogniVoice
 
-Integrantes do grupo: 
+Integrantes do grupo:
+
 - <a href="https://www.linkedin.com/in/antonionassar/">Antonio Nassar</a>
 - <a href="https://www.linkedin.com/in/bruno-omeira/">Bruno Meira</a>
 - <a href="https://www.linkedin.com/in/luísa-vitória-leite-silva-681443230/">Luísa Silva</a>
@@ -25,15 +26,15 @@ Integrantes do grupo:
 
 **Conteúdo**
 
--   [Visão Geral do Projeto](#visão-geral-do-projeto)
--   [Entendimento do Negócio](#entendimento-do-neg%C3%B3cio-sprint-1)
--   [Entendimento do Design](#entendimento-do-design-sprint-1)
--   [Entendimento da Arquitetura do Sistema](#entendimento-do-design-sprint-1)
--   [Documentação da Construção do Backend da Solução](#documentação-da-construção-do-backend-da-solução-sprint-3)
--   [Documentação da Construção do Frontend da Solução](#documentação-da-construção-do-frontend-da-solução-sprint-4)
--   [Documentação Final do Projeto](#documentação-final-do-projeto-sprint-5)
--   [Referências](#referências)
--   [Apêndice](#apêndice)
+- [Visão Geral do Projeto](#visão-geral-do-projeto)
+- [Entendimento do Negócio](#entendimento-do-neg%C3%B3cio-sprint-1)
+- [Entendimento do Design](#entendimento-do-design-sprint-1)
+- [Entendimento da Arquitetura do Sistema](#entendimento-do-design-sprint-1)
+- [Documentação da Construção do Backend da Solução](#documentação-da-construção-do-backend-da-solução-sprint-3)
+- [Documentação da Construção do Frontend da Solução](#documentação-da-construção-do-frontend-da-solução-sprint-4)
+- [Documentação Final do Projeto](#documentação-final-do-projeto-sprint-5)
+- [Referências](#referências)
+- [Apêndice](#apêndice)
 
 # Visão Geral do Projeto
 
@@ -65,10 +66,9 @@ De forma geral, os stakeholders representam os indivíduos, grupos ou entidades 
 
 - Analistas de Vendas da IBM: Usuários finais da solução, utilizam a plataforma para obter insights sobre tendências de mercado e estratégias concorrentes.
 
-- Analistas de Marketing da IBM: Assim como os Analistas de Vendas, também são os usuários finais da solução e usariam para obter insights valiosos sobre as tendências do mercado e as estratégias dos concorrentes. 
+- Analistas de Marketing da IBM: Assim como os Analistas de Vendas, também são os usuários finais da solução e usariam para obter insights valiosos sobre as tendências do mercado e as estratégias dos concorrentes.
 
 -Gestores de Vendas da IBM: Supervisionam e coordenam as atividades dos analistas de vendas, buscando o alinhamento com as metas e estratégias da empresa.
-
 
 # Análise de Requisitos
 
@@ -113,51 +113,51 @@ A matriz do oceano azul é um conceito estratégico que propõe a criação de n
 
 - Fatores que devem ser criados:
 
-	- Desenvolvimento de um sistema de recomendação altamente otimizado, visando a facilitar a descoberta de escolhas pertinentes e relevantes.
-	- Integração fluida com diversas plataformas de análise, a exemplo do Cognos, que desempenhará o papel de uma fonte privilegiada para insights de negócios valiosos.
+  - Desenvolvimento de um sistema de recomendação altamente otimizado, visando a facilitar a descoberta de escolhas pertinentes e relevantes.
+  - Integração fluida com diversas plataformas de análise, a exemplo do Cognos, que desempenhará o papel de uma fonte privilegiada para insights de negócios valiosos.
 
 - Fatores que devem ser reduzidos:
 
-	- Condição de uso: Ao contrário de outros competidores como a Alexa, que não exige presença física próxima, o CogniVoice requer que o usuário esteja com o celular em mãos para funcionar adequadamente.
-	- Amplitude da base de dados: Comparativamente, os bancos de dados dos concorrentes abrangem uma maior diversidade e volume crescente de informações.
+  - Condição de uso: Ao contrário de outros competidores como a Alexa, que não exige presença física próxima, o CogniVoice requer que o usuário esteja com o celular em mãos para funcionar adequadamente.
+  - Amplitude da base de dados: Comparativamente, os bancos de dados dos concorrentes abrangem uma maior diversidade e volume crescente de informações.
 
 - Fatores que devem ser aumentados:
 
-	- Excelência tecnológica e qualidade: As tecnologias empregadas no CogniVoice precisam alcançar e aumentar os níveis de alta qualidade característicos dos concorrentes, como a Alexa.
-	- Personalização avançada: Capacidade de personalização voltada para empresas específicas ou tarefas de equipes particulares.
+  - Excelência tecnológica e qualidade: As tecnologias empregadas no CogniVoice precisam alcançar e aumentar os níveis de alta qualidade característicos dos concorrentes, como a Alexa.
+  - Personalização avançada: Capacidade de personalização voltada para empresas específicas ou tarefas de equipes particulares.
 
 - Fatores que devem ser eliminados:
 
-	- Estilo de conversação: O chatbot do CogniVoice adotará uma abordagem mais formal, especialmente adaptada ao ambiente corporativo, afastando-se da meta de emular a linguagem humana de maneira máxima.
-	- Orientação do aplicativo e funcionalidades: O foco estará em contextos corporativos, o que se traduzirá em uma abordagem mais direcionada e menos casual do que a proposta mantida pelos concorrentes, que tendem a atender a uma variedade de ocasiões.
+  - Estilo de conversação: O chatbot do CogniVoice adotará uma abordagem mais formal, especialmente adaptada ao ambiente corporativo, afastando-se da meta de emular a linguagem humana de maneira máxima.
+  - Orientação do aplicativo e funcionalidades: O foco estará em contextos corporativos, o que se traduzirá em uma abordagem mais direcionada e menos casual do que a proposta mantida pelos concorrentes, que tendem a atender a uma variedade de ocasiões.
 
 A seguir, apresenta-se a definição dos 8 atributos essenciais para os clientes, bem como a forma pela qual diferenciamos nossa proposta da concorrência por meio das estratégias de Redução, Eliminação, Aumento e Criação, discutidas e justificadas anteriormente. Essa descrição é acompanhada pela tabela comparativa e pelo gráfico que ilustram essa análise, considerando o projeto em desenvolvimento.
 
-| Atributos   | CogniVoice                          | Alexa (Modelo Fisico)                  |Cortana                 |Google        |
-|----------|------------------------------------------------|-----------------------|----------------------|------------------|
-| Preço | 0 | 5 | 0 | 0 |
-| Qualidade | 7 | 9 | 4 | 10 |
-| Tecnologia | 10 | 10 | 8 | 9 |
-| Conforto | 7 | 10 | 7 | 5 |
-| Comodidade | 8 | 10 | 5 | 10 |
-| Praticidade | 9 | 10 | 8 | 5 |
-| Automação | 10 | 0 | 0 | 0 |
-| Base de dados | 6 | 10 | 9 | 10 |
+| Atributos     | CogniVoice | Alexa (Modelo Fisico) | Cortana | Google |
+| ------------- | ---------- | --------------------- | ------- | ------ |
+| Preço         | 0          | 5                     | 0       | 0      |
+| Qualidade     | 7          | 9                     | 4       | 10     |
+| Tecnologia    | 10         | 10                    | 8       | 9      |
+| Conforto      | 7          | 10                    | 7       | 5      |
+| Comodidade    | 8          | 10                    | 5       | 10     |
+| Praticidade   | 9          | 10                    | 8       | 5      |
+| Automação     | 10         | 0                     | 0       | 0      |
+| Base de dados | 6          | 10                    | 9       | 10     |
 
 ![Matriz de avaliação de valor Oceano Azul](https://github.com/2023M7T3-Inteli/Projeto2/assets/99202553/8863ab9b-fda3-477c-b44c-34d99ef91b3f)
+
 <p align="center">Figura 1: Matriz do oceano azul</p>
 
 A seguir, apresentaremos o contexto e os elementos que situam a CognisVoice no oceano azul, com justificativas:
 
-  - Mercado: Criação de um novo mercado que integra análise de dados e pesquisa por voz para o setor de vendas e marketing.
+- Mercado: Criação de um novo mercado que integra análise de dados e pesquisa por voz para o setor de vendas e marketing.
 
-  - Competição: Ausência de concorrência direta devido à abordagem única de combinar busca por voz com análise aprofundada.
+- Competição: Ausência de concorrência direta devido à abordagem única de combinar busca por voz com análise aprofundada.
 
-  - Inovador na tecnologia: Implementação inovadora de processamento de linguagem natural e análise de sentimentos para fornecer insights profundos por voz.
+- Inovador na tecnologia: Implementação inovadora de processamento de linguagem natural e análise de sentimentos para fornecer insights profundos por voz.
 
-  - Desempenho: Desempenho excepcional com insights em tempo real e análises detalhadas por meio da combinação de busca por voz e análise profunda.
-    
-  - Cliente: Atendimento eficaz das necessidade de pesquisa em tempo real e análise para o time de marketing e vendas.
+- Desempenho: Desempenho excepcional com insights em tempo real e análises detalhadas por meio da combinação de busca por voz e análise profunda.
+- Cliente: Atendimento eficaz das necessidade de pesquisa em tempo real e análise para o time de marketing e vendas.
 
 ## Canvas Proposta de Valor
 
@@ -252,7 +252,7 @@ link de acesso ao mockup da aplicação: https://www.figma.com/file/FirLgWCt3rcQ
 
 Para implementar a proposta de UX, é necessário selecionar uma pilha de tecnologias apropriada. Os elementos a serem considerados incluem a plataforma em que o sistema será executado, linguagens de programação, frameworks, bibliotecas relevantes, e integrações com outros sistemas ou serviços. É importante escolher tecnologias confiáveis, escaláveis e que permitam a criação da UX conforme projetada, garantindo uma implementação eficiente e de qualidade.
 
-Considerando isso, foi decidido por fazer um sistema mobile, para facilitar a usabilidade, utilizando as seguintes tecnologias para desenvolvimento: 
+Considerando isso, foi decidido por fazer um sistema mobile, para facilitar a usabilidade, utilizando as seguintes tecnologias para desenvolvimento:
 
 | Tecnologia  | Descrição                                                    | Referência                                   |
 | ----------- | ------------------------------------------------------------ | -------------------------------------------- |
@@ -290,15 +290,14 @@ Para fazer uso da API de Conversão de Fala em Texto (Speech-to-Text), é impres
 	SERVICE_URL_SPEECH_TO_TEXT="url-speech-to-text"
 ```
 
-
-
 ### Parte 2: Importação
 
 Para importar a api do speech-to-text, execute em seu código:
 
 ```js
-	const SpeechToTextV1 = require("ibm-watson/speech-to-text/v1");
-	const { IamAuthenticator } = require("ibm-watson/auth"); (código)
+const SpeechToTextV1 = require("ibm-watson/speech-to-text/v1");
+const { IamAuthenticator } = require("ibm-watson/auth");
+código;
 ```
 
 Os códigos acima são específicos para a versão 1 da API de Speech-to-Text e abordam o processo de autenticação necessária junto ao IBM Watson, requisito fundamental para a utilização plena da API.
@@ -308,12 +307,12 @@ Os códigos acima são específicos para a versão 1 da API de Speech-to-Text e 
 A criação da instância do serviço encapsula todas as configurações necessárias para interagir com a API de conversão de fala para texto. Isso ajuda a manter o código organizado, modular e mais fácil de entender, além de facilitar futuras atualizações ou mudanças nas configurações do serviço.
 
 ```js
-	const speechToText = new SpeechToTextV1({
-    		authenticator: new IamAuthenticator({
-        		apikey: process.env.API_KEY_SPEECH_TO_TEXT,
-		}),
-		serviceUrl: process.env.SERVICE_URL_SPEECH_TO_TEXT,
-	});
+const speechToText = new SpeechToTextV1({
+  authenticator: new IamAuthenticator({
+    apikey: process.env.API_KEY_SPEECH_TO_TEXT,
+  }),
+  serviceUrl: process.env.SERVICE_URL_SPEECH_TO_TEXT,
+});
 ```
 
 O código cria uma instância de um serviço de conversão de fala para texto utilizando a biblioteca do IBM Watson fornecido. Ele se autentica usando uma chave de API e uma URL de serviço que são lidas de variáveis de ambiente. Essa instância do serviço pode então ser usada para fazer chamadas à API de conversão de fala para texto fornecida pela IBM Watson.
@@ -323,21 +322,21 @@ O código cria uma instância de um serviço de conversão de fala para texto ut
 Aqui criaremos função chamada generateText que utiliza a API de Reconhecimento de Fala para Texto para converter um bloco de áudio em texto. Segue abaixo o código e a explicação de cada parte do código:
 
 ```js
-	async function generateText(audio) {
-		try {
-			const result = await speechToText.recognize({
-				audio: audio,
-				contentType: "audio/flac",
-				model: "pt-BR_BroadbandModel",
-				keywords: ["oi"],
-				keywordsThreshold: 0.5,
-				maxAlternatives: 3,
-			});
-			return result.result.results[0].alternatives[0].transcript;
-		} catch (error) {
-			throw Error("Error recognizing audio");
-		}
-	}
+async function generateText(audio) {
+  try {
+    const result = await speechToText.recognize({
+      audio: audio,
+      contentType: "audio/flac",
+      model: "pt-BR_BroadbandModel",
+      keywords: ["oi"],
+      keywordsThreshold: 0.5,
+      maxAlternatives: 3,
+    });
+    return result.result.results[0].alternatives[0].transcript;
+  } catch (error) {
+    throw Error("Error recognizing audio");
+  }
+}
 ```
 
 A função generateText é definida como assíncrona e recebe um único parâmetro chamado audio, que é o áudio que será processado para reconhecimento de fala.
@@ -346,51 +345,50 @@ O bloco try-catch envolve o código da função, o que significa que ele está p
 
 A função speechToText.recognize() é chamada com um conjunto de parâmetros para realizar o reconhecimento de fala:
 
-  - audio: audio: O bloco de áudio é passado como o parâmetro de áudio para a chamada da API.
-  - contentType: "audio/flac": Especifica o tipo de conteúdo do áudio (formato FLAC).
-  - model: "pt-BR_BroadbandModel": Indica o modelo de linguagem a ser usado para o reconhecimento (no caso, para o português do Brasil).
-  - keywords: ["oi"]: Define palavras-chave que o sistema deve procurar no áudio.
-  - keywordsThreshold: 0.5: Define o limite de confiança para reconhecimento das palavras-chave.
-  - maxAlternatives: 3: Especifica o número máximo de alternativas de reconhecimento que a API deve retornar.
+- audio: audio: O bloco de áudio é passado como o parâmetro de áudio para a chamada da API.
+- contentType: "audio/flac": Especifica o tipo de conteúdo do áudio (formato FLAC).
+- model: "pt-BR_BroadbandModel": Indica o modelo de linguagem a ser usado para o reconhecimento (no caso, para o português do Brasil).
+- keywords: ["oi"]: Define palavras-chave que o sistema deve procurar no áudio.
+- keywordsThreshold: 0.5: Define o limite de confiança para reconhecimento das palavras-chave.
+- maxAlternatives: 3: Especifica o número máximo de alternativas de reconhecimento que a API deve retornar.
 
 Se a chamada à API for bem-sucedida e não houver erros, a função retorna o texto reconhecido da resposta da API. Se ocorrer um erro durante a chamada à API, o bloco catch será executado e a função lança um erro com a mensagem "Error recognizing audio".
 
 ### Parte 5: Criação do endpoint
 
-E por ultimo, criaremos o endpoint que irá utilizar da função que processa o reconhecimento de fala. Esse código define uma rota POST para receber dados de áudio, processá-los usando a função generateText explicada anteriormente, e retornar uma resposta JSON contendo o texto reconhecido e uma representação em base64 dos dados de áudio. O detalhaento  do código se apresenta abaixo do mesmo:
+E por ultimo, criaremos o endpoint que irá utilizar da função que processa o reconhecimento de fala. Esse código define uma rota POST para receber dados de áudio, processá-los usando a função generateText explicada anteriormente, e retornar uma resposta JSON contendo o texto reconhecido e uma representação em base64 dos dados de áudio. O detalhaento do código se apresenta abaixo do mesmo:
 
 ```js
-	app.post("/text", async (req, res) => {
-		try {
-			const text = await generateText(req.body);
-			console.log(text);
+app.post("/text", async (req, res) => {
+  try {
+    const text = await generateText(req.body);
+    console.log(text);
 
-			res.status(200).json({
-				message: text,
-				audio: req.body.toString("base64"),
-			});
-		} catch (error) {
-			res.status(500).json({
-				message: error.message,
-				audio: req.body.toString("base64"),
-			});
-		}
-	});
+    res.status(200).json({
+      message: text,
+      audio: req.body.toString("base64"),
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+      audio: req.body.toString("base64"),
+    });
+  }
+});
 ```
 
-  - POST /text: Isso significa que essa rota estará disponível para receber solicitações POST no caminho /text.
-  - Função Assíncrona: A rota é definida como uma função assíncrona, o que significa que contem operações assíncronas que esperam por respostas, como chamadas de API.
-  - Bloco Try-Catch: Assim como no exemplo anterior, a rota envolve todo o seu código em um bloco try-catch, permitindo capturar e lidar com erros que podem ocorrer durante a execução do código dentro do bloco try.
-  - A função generateText é chamada com os dados do corpo da solicitação POST (req.body).
-  - O resultado do reconhecimento de fala (texto reconhecido) é armazenado na variável text.
-  - Console Log: O texto reconhecido (text) é exibido no console usando console.log.
+- POST /text: Isso significa que essa rota estará disponível para receber solicitações POST no caminho /text.
+- Função Assíncrona: A rota é definida como uma função assíncrona, o que significa que contem operações assíncronas que esperam por respostas, como chamadas de API.
+- Bloco Try-Catch: Assim como no exemplo anterior, a rota envolve todo o seu código em um bloco try-catch, permitindo capturar e lidar com erros que podem ocorrer durante a execução do código dentro do bloco try.
+- A função generateText é chamada com os dados do corpo da solicitação POST (req.body).
+- O resultado do reconhecimento de fala (texto reconhecido) é armazenado na variável text.
+- Console Log: O texto reconhecido (text) é exibido no console usando console.log.
 
 Se o processamento for bem-sucedido (ou seja, nenhum erro é lançado dentro do bloco try), a resposta é montada com status HTTP 200 OK e a resposta vai conter uma mensagem com o texto reconhecido (message: text) e uma representação em base64 dos dados de áudio originalmente enviados na solicitação (audio: req.body.toString("base64")). Em caso de erro a rota capturará o erro no bloco catch e a resposta é montada com status HTTP 500 Internal Server Error contendo uma mensagem de erro (message: error.message) que é derivada do erro capturado e uma representação em base64 dos dados de áudio originalmente enviados na solicitação (audio: req.body.toString("base64")).
 
 ### Parte 6: Considerações finais
 
 Esta documentação se concentra exclusivamente na integração da API em nossa aplicação. Se surgirem questionamentos sobre o funcionamento interno da API de Conversão de Fala em Texto (Speech-to-Text) ou a necessidade de informações detalhadas sobre funcionalidades adicionais e parâmetros específicos do IBM Watson, recomendamos acessar a documentação oficial da API de Conversão de Fala em Texto por meio do seguinte link: [Speech to Text Docs](https://cloud.ibm.com/apidocs/speech-to-text)
-
 
 ## Algoritmo de NLP utilizado e sua implementação
 
@@ -403,46 +401,62 @@ As primeiras células do notebook consistem nas importações das bibliotecas, c
 Logo após, temos estes trechos de código:
 
 1- Importa a biblioteca NLTK e faz o download do pacote de recursos chamado 'punkt'. Este pacote contém modelos treinados para a tokenização de palavras e sentenças.
+
 ```env
 	import nltk
 	nltk.download('punkt')
 ```
+
 2- Módulos do NLTK para a tokenização e importação da biblioteca "re" para trabalhar com expressões regulares, as quais são úteis para realizar manipulações em texto.
+
 ```env
 	from nltk.tokenize import word_tokenize
 	from nltk.tokenize import sent_tokenize
 	import re
 ```
+
 3- Importação do lematizador WordNetLemmatizer do NLTK, que transforma as palavras em sua forma básica. Por exemplo, a palavra "corredor" é transformada em "correr".
+
 ```env
 	from nltk.stem import WordNetLemmatizer
 ```
+
 4- Realizando o download dos recursos para o stemmer RSLP (Removedor de Sufixos da Língua Portuguesa). O stemmer é utilizado para reduzir palavras à sua forma raiz (stem) ao remover os sufixos. Por exemplo, se temos a palavra "executar", ele a transforma em "execut". Posteriormente, criamos uma instância para ser utilizada durante o código.
+
 ```env
 	nltk.download('rslp')
 
 	stemmer = nltk.stem.RSLPStemmer()
 ```
+
 5 - A importação do pacote de português do NLP.
+
 ```env
 	nlp = spacy.cli.download('pt_core_news_sm')
 	nlp = spacy.load('pt_core_news_sm')
 ```
+
 6- Como nosso conjunto de dados é composto por URLs, importamos a biblioteca "requests", que permite enviar solicitações HTTP e obter o conteúdo de uma URL. Em seguida, importamos as bibliotecas "urllib.request" e "urlopen", que estão relacionadas à manipulação de URLs.
+
 ```env
 	import requests
 
 	import urllib.request
 	from urllib.request import urlopen
 ```
+
 7- A Beautiful Soup é utilizada para realizar o parsing (análise) de documentos HTML e XML. Ela possibilita a extração de informações específicas de uma página web.
+
 ```env
 	from bs4 import BeautifulSoup
 ```
+
 8- Essa linha importa a classe "Tokenizer" da biblioteca Keras. O Keras é um framework popular para a construção e treinamento de modelos de aprendizado profundo (deep learning). O Tokenizer é empregado para transformar texto em uma representação numérica apropriada para o treinamento de modelos de processamento de linguagem natural.
+
 ```env
 	from keras.preprocessing.text import Tokenizer
 ```
+
 Por último, importamos a classe "drive" do módulo "google.colab" e montamos o Google Drive no ambiente do Google Colab.
 
 ### 2.0 Importação e Compreensão do Dados
@@ -452,6 +466,7 @@ Na seção 2.0, "Importação e Compreensão dos Dados", temos apenas a importa�
 ### 3.0 Tratamento dos dados
 
 Na seção 3.0, "Tratamento dos Dados", temos o seguinte código:
+
 ```env
 	dados_dataframe = [
     "Esta é a primeira frase.",
@@ -480,6 +495,7 @@ maisculas_dataframe = pd.DataFrame(maisculas_test)
 
 test_dataframe
 ```
+
 Ele cria essencialmente dois DataFrames ("test_dataframe" e "maisculas_dataframe") para representar dados de texto em formato tabular. O primeiro DataFrame contém frases e sentenças, enquanto o segundo DataFrame contém palavras em maiúsculas em uma lista aninhada. Esses dataframes serão usados para testes.
 
 Em seguida, ocorre o tratamento desses dados, que envolve a remoção de acentos. Isso é feito porque o processamento de linguagem natural (NLP) envolve comparações de palavras e textos, e isso ajuda a garantir que palavras com e sem acentos sejam consideradas equivalentes. Além disso, há a transformação das letras maiúsculas para minúsculas, pois é preferível trabalhar com texto em minúsculas para que as análises não sejam afetadas pelas variações de caixa.
@@ -490,7 +506,7 @@ A partir da seção 3.3, "Tratamento do Veículo da Notícia", uma série de mé
 
 ### 4.0 Web Scraping
 
-Na seção 4, há duas funções. A primeira tem como objetivo extrair o título de uma página da web a partir da URL fornecida como entrada. A função utiliza a biblioteca urllib para fazer uma requisição HTTP à página web e a biblioteca BeautifulSoup para analisar o conteúdo HTML da página e extrair o título dela. A segunda função remove as tags de style, script e title pois não contém nenhuma informação útil para o programa, e tmabém é removida todas as informações antes do título por conta de serem desnecessarias.  Ao final, podemos ver um conjunto de dados com mais duas colunas resultantes dessas duas funções.
+Na seção 4, há duas funções. A primeira tem como objetivo extrair o título de uma página da web a partir da URL fornecida como entrada. A função utiliza a biblioteca urllib para fazer uma requisição HTTP à página web e a biblioteca BeautifulSoup para analisar o conteúdo HTML da página e extrair o título dela. A segunda função remove as tags de style, script e title pois não contém nenhuma informação útil para o programa, e tmabém é removida todas as informações antes do título por conta de serem desnecessarias. Ao final, podemos ver um conjunto de dados com mais duas colunas resultantes dessas duas funções.
 
 ### 5.0 Extração dos dados
 
@@ -506,13 +522,11 @@ Na seção 6, as técnicas de NLP também são usadas:
 
 ### 7.0 Pipeline de pré processamento
 
-Na seção 7, são realizados todos os testes elaborados, mas com uma nova pipeline de dados. Pipeline essa que tem dentro todos os outros testes desenvolvidos durante o notebook. 
+Na seção 7, são realizados todos os testes elaborados, mas com uma nova pipeline de dados. Pipeline essa que tem dentro todos os outros testes desenvolvidos durante o notebook.
 
 ### 8.0 Bag of Words
 
 Por fim, na seção 8, é utilizado o conceito de Bag of Words, que é uma maneira de representar documentos de texto como vetores numéricos, onde cada posição no vetor representa uma palavra e o valor indica a frequência dessa palavra no documento. Ao final, é apresentado o resultado com as palavras repetidas.
-
-
 
 ## Processo de deploy do algoritmo em nuvem comercial
 
@@ -529,6 +543,7 @@ Neste tutorial, vamos configurar uma instância EC2 na AWS e hospedar um backend
    No painel de controle da AWS, procure e clique no serviço "EC2" (Elastic Compute Cloud).
 
 3. **Crie uma nova instância:**
+
    - Clique em "Launch Instances" para iniciar o assistente de criação de instâncias.
    - Escolha uma Amazon Machine Image (AMI) que atenda às suas necessidades (por exemplo, uma AMI com sistema operacional Linux).
    - Selecione o tipo de instância "t3.micro" para fins de teste.
@@ -536,6 +551,7 @@ Neste tutorial, vamos configurar uma instância EC2 na AWS e hospedar um backend
    - Clique em "Review and Launch" após configurar tudo.
 
 4. **Configure regras de segurança:**
+
    - Crie ou selecione o Security Group "SG-Grupo2".
    - Adicione as seguintes regras de entrada:
      - SSH: Origem 0.0.0.0/0
@@ -543,9 +559,11 @@ Neste tutorial, vamos configurar uma instância EC2 na AWS e hospedar um backend
      - Custom TCP Rule: Porta 3001, Origem 0.0.0.0/0
 
 5. **Configure a chave SSH:**
+
    - Escolha a chave SSH ".pem" que você criou para "KP-GRUPO2".
 
 6. **Revise e inicie a instância:**
+
    - Verifique as configurações e clique em "Launch".
    - Escolha um par de chaves existente ou crie um novo para acessar a instância via SSH.
 
@@ -559,6 +577,7 @@ Neste tutorial, vamos configurar uma instância EC2 na AWS e hospedar um backend
 #### Parte 2: Hospedando um Backend em JavaScript
 
 1. **Instale o NVM e o Node.js:**
+
    - Instale o NVM:
      ```
      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
@@ -577,12 +596,14 @@ Neste tutorial, vamos configurar uma instância EC2 na AWS e hospedar um backend
      ```
 
 2. **Clone o código:**
+
    - Clone o repositório Git com o código do backend:
      ```
      git clone https://github.com/2023M7T3-Inteli/Projeto2.git
      ```
 
 3. **Instale dependências e inicie o backend:**
+
    - Navegue até a pasta do projeto:
      ```
      cd Projeto2
@@ -599,7 +620,6 @@ Neste tutorial, vamos configurar uma instância EC2 na AWS e hospedar um backend
 4. **Acesso ao backend:**
    - O backend estará acessível através do IP público da instância e a porta configurada (por exemplo, http://seu_ip_publico:3001).
 
-
 ### Tutorial: Como criar um banco de dados RDS na AWS - PostgreSQL
 
 Neste tutorial, você aprenderá como criar um banco de dados Amazon RDS com a configuração específica fornecida: nome "GRUPO2_DB", tipo "PostgreSQL", usando a camada gratuita e associando um grupo de segurança chamado "SG_DB".
@@ -607,37 +627,47 @@ Neste tutorial, você aprenderá como criar um banco de dados Amazon RDS com a c
 #### Parte 1: Criação do Banco de Dados RDS
 
 **Passo 1: Acesso ao Console da AWS:**
+
 1. Faça login na sua conta da AWS em [https://aws.amazon.com/](https://aws.amazon.com/) e acesse o Console de Gerenciamento da AWS.
 
 **Passo 2: Navegação para o Amazon RDS:**
+
 1. No painel de controle da AWS, procure e clique no serviço "RDS" (Amazon Relational Database Service).
 
 **Passo 3: Criação de um Banco de Dados:**
+
 1. Clique no botão "Create database" para iniciar o processo de criação.
 
 **Passo 4: Seleção do mecanismo de banco de dados:**
+
 1. Escolha o mecanismo de banco de dados "PostgreSQL".
 
 **Passo 5: Configurações de Templates de Banco de Dados:**
+
 1. Selecione a opção "Free tier" para garantir que você está usando a camada gratuita.
 
 **Passo 6: Configuração do Banco de Dados:**
+
 1. Preencha as seguintes informações:
    - **DB instance identifier:** GRUPO2_DB
    - **Master username:** Escolha um nome de usuário para o administrador do banco de dados.
    - **Master password:** Escolha uma senha segura para o administrador do banco de dados.
 
 **Passo 7: Configurações de Instância:**
+
 1. Escolha o tipo de instância adequado às suas necessidades. Lembre-se de que você está usando a camada gratuita.
 
 **Passo 8: Configurações de Acesso:**
+
 1. Deixe as configurações padrão ou ajuste conforme necessário.
 
 **Passo 9: Configurações de Avançado:**
+
 1. Expanda a seção "Database options".
 2. Escolha o nome do banco de dados, por exemplo, "grupo2db".
 
 **Passo 10: Configurações de VPC, Subnet e Grupos de Segurança:**
+
 1. Escolha o Virtual Private Cloud (VPC) desejado.
 2. Selecione a Subnet.
 3. Escolha "SG_DB" como o grupo de segurança.
@@ -646,19 +676,23 @@ Neste tutorial, você aprenderá como criar um banco de dados Amazon RDS com a c
 #### Parte 2: Acesso ao Banco de Dados
 
 **Passo 11: Revisão e Criação:**
+
 1. Revise todas as configurações e clique em "Create database" para iniciar a criação do banco de dados.
 
 **Passo 12: Acompanhamento da Criação:**
+
 1. Aguarde até que a criação do banco de dados seja concluída. Isso pode levar alguns minutos.
 
 **Passo 13: Acesso ao Banco de Dados:**
+
 1. Uma vez que o banco de dados esteja criado, você pode obter o endpoint do banco de dados na página de detalhes do RDS.
 2. Use um cliente PostgreSQL (como o pgAdmin) para se conectar ao banco de dados usando o endpoint, nome de usuário e senha que você configurou.
 
 **Exemplo de URL de conexão PostgreSQL:**
+
 ```plaintext
 postgresql://seu_usuario:sua_senha@endpoint_do_banco:5432/seu_banco_de_dados
-	
+
 ```
 
 ### Tutorial: Scripts de implantação
@@ -760,7 +794,7 @@ Uma maneira simples de monitorar a saúde da sua aplicação é verificar se uma
   ```bash
   curl http://3.82.28.119/health
   ```
-  
+
 #### 2. Verificar o Status no PM2
 
 Se você estiver usando o PM2 para gerenciar a sua aplicação em produção, é fundamental verificar o status do processo no PM2. Você pode fazer isso usando o seguinte comando:
@@ -778,49 +812,50 @@ Lembre-se de que essas são apenas algumas das técnicas e ferramentas que você
 A API que recebe os aúdios enviados pelo usuário foi construída com a ajuda de uma função de "Speech to Text" que a própria IBM já fornece por meio da biblioteca do IBM Watson. O que recebe o áudio é na verdade uma função, que é posteriormente chamada em uma API de post.
 
 Função "generateText()" que recebe e processa o áudio:
-```js
-async function generateText(audio){
-    try {
-        const result = await speechToText.recognize({
-            audio: audio,
-            contentType: "audio/flac",
-            model: "pt-BR_BroadbandModel",
-            keywords: ["oi"],
-            keywordsThreshold: 0.5,
-            maxAlternatives: 3, 
-        })
 
-        return result.result.results[0].alternatives[0].transcript;
-    } catch (error) {
-        throw Error("Error recognizing audio");
-    }
+```js
+async function generateText(audio) {
+  try {
+    const result = await speechToText.recognize({
+      audio: audio,
+      contentType: "audio/flac",
+      model: "pt-BR_BroadbandModel",
+      keywords: ["oi"],
+      keywordsThreshold: 0.5,
+      maxAlternatives: 3,
+    });
+
+    return result.result.results[0].alternatives[0].transcript;
+  } catch (error) {
+    throw Error("Error recognizing audio");
+  }
 }
 ```
+
 Como é possível perceber, a função espera como entrada um áudio em português no formato flac, e como saída, a transcrição desse áudio.
 
 API de post que chama essa função juntamente com o áudio:
+
 ```js
 app.post("/text", async (req, res) => {
-    try {
-        const text = await generateText(req.body);
-        console.log(text);
+  try {
+    const text = await generateText(req.body);
+    console.log(text);
 
-        res.status(200).json({
-            message: text,
-            audio: req.body.toString("base64"),
-        });
-    } catch (error) {
-        res.status(500).json({
-            message: error.message,
-            audio: req.body.toString("base64"),
-        });
-    }
-
+    res.status(200).json({
+      message: text,
+      audio: req.body.toString("base64"),
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+      audio: req.body.toString("base64"),
+    });
+  }
 });
 ```
 
 Além de chamar a função, essa API transforma o áudio para o formato de "base64" para que o tráfego dele em HTTP seja mais leve, já que o Flutter não consegue suportar tráfegos muito pesados.
-
 
 # Documentação da Construção do Backend da Solução (Sprint 3)
 
@@ -828,12 +863,12 @@ O webhook é uma função de retorno de chamada baseada em HTTP que permite a co
 
 Utilizamos essa ferramenta apenas em uma API de alerta para rastreabilidade, algo desenvolvido para os administradores do aplicativo. Quando ocorre algum tipo de erro no aplicativo, o erro é exibido para o usuário em forma de alerta no Discord. Abaixo, segue um exemplo dos alertas:
 
-<img src="https://imgur.com/0Ln0Hq7.png"/> 
+<img src="https://imgur.com/0Ln0Hq7.png"/>
 
 Então temos dois códigos que cuidam disso, primeiro trecho de código:
 
 ```js
-const amqp = require('amqplib/callback_api');
+const amqp = require("amqplib/callback_api");
 
 const send = (message) => {
   amqp.connect("amqp://localhost:5672", function (err, conn) {
@@ -846,10 +881,10 @@ const send = (message) => {
       try {
         ch.publish(exchange, topic, Buffer.from(message));
       } catch (err) {
-        console.log(err)
-        return
+        console.log(err);
+        return;
       }
-      
+
       console.log(" [x] Sent '%s' to topic '%s'", message, topic);
 
       setTimeout(function () {
@@ -860,9 +895,9 @@ const send = (message) => {
   });
 };
 
-module.exports = { 
-    send
-}
+module.exports = {
+  send,
+};
 ```
 
 Que começa importando a biblioteca **`amqplib/callback_api`**, para enviar uma mensagem para um servidor RabbitMQ (um sistema de mensagens) usando o protocolo AMQP. Em seguida, define uma função chamada **`send`** que aceita uma mensagem como parâmetro. Essa função será usada para enviar mensagens para um tópico específico. Dentro da função **`send`**, o código se conecta ao servidor RabbitMQ usando **`amqp.connect`**. Ele usa a URL "amqp://localhost:5672" para se conectar ao servidor RabbitMQ local na porta 5672. Após a conexão bem-sucedida, ele cria um canal de comunicação usando **`conn.createChannel`**. Os canais são usados para enviar e receber mensagens no RabbitMQ. O código define o nome da exchange como "topic_logs" e o tópico da mensagem como "alert". Uma exchange é responsável por rotear mensagens para filas com base em critérios, e o tópico é um desses critérios. Em seguida, ele declara a exchange usando **`ch.assertExchange`** com o tipo "topic" e a opção "durable" definida como false. A opção "durable" define se a exchange deve sobreviver a reinicializações do servidor RabbitMQ. A mensagem é publicada na exchange usando **`ch.publish`** com o tópico especificado e a mensagem convertida em um buffer. Após a publicação da mensagem, uma mensagem de confirmação é exibida no console, indicando que a mensagem foi enviada com sucesso. Finalmente, após um atraso de 500ms, a conexão com o servidor é fechada e o processo é encerrado. Resumindo, este código permite enviar uma mensagem para uma exchange RabbitMQ com um tópico específico.
@@ -872,106 +907,123 @@ O segundocódigo é um exemplo de como criar um consumidor de mensagens em um si
 Aqui está uma explicação detalhada do código:
 
 1. Importação de módulos:
+
 ```js
-   var amqp = require("amqplib/callback_api");
-   require("dotenv").config();
+var amqp = require("amqplib/callback_api");
+require("dotenv").config();
 ```
+
 O código começa importando os módulos necessários. **`amqplib`** é usado para se conectar ao servidor RabbitMQ e interagir com ele. **`dotenv`** é usado para carregar variáveis de ambiente a partir de um arquivo **`.env`**.
 
 2. Conexão ao servidor RabbitMQ:
+
 ```js
-    amqp.connect("amqp://localhost:5672", function (err, conn) {
-      // ...
-    });
+amqp.connect("amqp://localhost:5672", function (err, conn) {
+  // ...
+});
 ```
+
 Este trecho de código estabelece uma conexão com um servidor RabbitMQ local que está ouvindo na porta 5672. Se ocorrer algum erro durante a conexão, ele será capturado e armazenado na variável **`err`**.
 
 3. Criação de um canal:
+
 ```js
-    conn.createChannel(function (err, ch) {
-      // ...
-    });
+conn.createChannel(function (err, ch) {
+  // ...
+});
 ```
+
 Uma vez conectado ao servidor RabbitMQ com sucesso, o código cria um canal de comunicação para interagir com o servidor. Erros de criação de canal são armazenados na variável **`err`**.
 
 4. Declaração de uma troca (exchange):
+
 ```js
-    var exchange = "topic_logs";
-    ch.assertExchange(exchange, "topic", { durable: false });
+var exchange = "topic_logs";
+ch.assertExchange(exchange, "topic", { durable: false });
 ```
+
 Uma troca chamada "topic_logs" é declarada como uma troca de tipo "topic" com a opção "durable" definida como **`false`**, o que significa que ela não sobreviverá a reinicializações do servidor RabbitMQ.
 
-5. Criação de uma fila anônima exclusiva: 
+5. Criação de uma fila anônima exclusiva:
+
 ```js
-    ch.assertQueue("", { exclusive: true }, function (err, q) {
-      // ...
-    });
+ch.assertQueue("", { exclusive: true }, function (err, q) {
+  // ...
+});
 ```
+
 Uma fila anônima exclusiva é criada. Ela não possui um nome específico (o nome é deixado em branco) e é exclusiva para esta conexão.
-    
+
 6. Vinculação da fila à troca:
+
 ```js
-    var topic = "alert";
-    ch.bindQueue(q.queue, exchange, topic);
+var topic = "alert";
+ch.bindQueue(q.queue, exchange, topic);
 ```
+
 A fila recém-criada é vinculada à troca "topic_logs" com um padrão de roteamento específico definido como "alert". Isso significa que a fila receberá mensagens com esse padrão de roteamento.
 
 7. Configuração do consumo de mensagens:
+
 ```js
-    ch.consume(
-      q.queue,
-      function (msg) {
-        // ...
-      },
-      { noAck: true }
-    );
+ch.consume(
+  q.queue,
+  function (msg) {
+    // ...
+  },
+  { noAck: true }
+);
 ```
+
 O código configura o consumo de mensagens da fila. Quando uma mensagem é recebida, a função dentro deste bloco é chamada para processá-la. O **`{ noAck: true }`** indica que as mensagens não precisam ser explicitamente confirmadas (acknowledged) após o processamento.
-    
+
 8. Processamento da mensagem e envio de alerta:
+
 ```js
-    console.log(" [x] Received %s", msg.content.toString());
-    
-    payload = JSON.stringify({
-      content: "",
-      embeds: [
-        {
-          title: "Alerta Recebido",
-          description: `${msg.content.toString()}`,
-          color: 16711680,
-        },
-      ],
-    });
-    
-    //Gerando as opções da requisição que irá disparar o alerta
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: payload,
-    };
-    
-    //Enviando o alerta
-    try {
-      const response = fetch(process.env.URL_WEBHOOK, options);
-    } catch (err) {
-      console.log(err);
-    } 
+console.log(" [x] Received %s", msg.content.toString());
+
+payload = JSON.stringify({
+  content: "",
+  embeds: [
+    {
+      title: "Alerta Recebido",
+      description: `${msg.content.toString()}`,
+      color: 16711680,
+    },
+  ],
+});
+
+//Gerando as opções da requisição que irá disparar o alerta
+const options = {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: payload,
+};
+
+//Enviando o alerta
+try {
+  const response = fetch(process.env.URL_WEBHOOK, options);
+} catch (err) {
+  console.log(err);
+}
 ```
+
 Quando uma mensagem é recebida, ela é processada. O código converte o conteúdo da mensagem em uma string e cria um objeto JSON chamado **`payload`**, que é usado para enviar um alerta por meio de um webhook definido na variável de ambiente **`URL_WEBHOOK`**.
 
 Este código configura um consumidor de mensagens RabbitMQ que recebe mensagens com um padrão de roteamento específico ("alert"), processa-as e envia alertas usando um webhook. Certifique-se de que as variáveis de ambiente e o servidor RabbitMQ estejam configurados corretamente para que o código funcione adequadamente.
-    
 
 ## Frontend mínimo para realizar o teste da implementação do modelo
 
 A interface do usuário foi desenvolvida de forma muito intuitiva e por isso contempla apenas 3 telas principais:
+
 - Onboarding: essa é a primeia tela a qual o usuário é introduzido após o login na plataforma. Nela, são apresentados os dois diferentes modos (SalesTracker e MarketTracker) que a inteligência artificial possui. A diferença entre os modos é a forma como a resposta é apresentada ao usuário, já que cada um irá possuir um foco diferente.
 - Home: após escolher o modo de apresentação de resposta, o usuário será direcionado para a tela principal, a qual possui alguns prompts já prontos que o usuário pode usar, o histórico de suas pesquisas antigas, e um botão que inicia um novo chat.
 - Chat: essa é a página principal da aplicação, a qual o usuário poderá se comunicar com a inteligêcia artificial e fazer perguntas por voz ou por texto.
 
 Cada uma dessas telas possuem componentes importantes, sendo eles:
+
 - Campos de entrada: o usuário pode chamar a inteligência artificial de 2 maneiras, por voz ou por texto. Ambas se localizam na aba de chat.
 - Botões: os botões principais da nossa aplicação são: o que permite trocar de modo (vendas e marketing), o "Go Chat", que direciona o usuário para a tela de chat, e dois últimos que representam o meio do usuário de comunicar com a inteligência artificial, um para a fala, e outro para texto.
 - Exibição de resultados: Após o usuário perguntar para a AI o que ele deseja, será possível visualizar o que foi mandado em forma de uma mensagem no chat. Considerando isso, a resposta recebida também é em formato de mensagem, e pode englobar um texto, fontes de pesquisas e gráficos.
@@ -979,6 +1031,7 @@ Cada uma dessas telas possuem componentes importantes, sendo eles:
 Além disso, a conexão do frontend com o backend é feita por meio do protocolo HTTPS, e contém apenas 2 APIs, uma que recebe um áudio, e outra que o tranforma por meio do Speech do Text em um texto e retorna o mesmo para o usuário. Posteriormente, será implementada uma função na qual o usuário poderá escutar a resposta além de apenas visualizá-la. Além das APIs préviamente citadas na sessão "Documentação do Sistema NLP", o sistema possui uma outra, que é mais focada no usuário. Essa, possui 4 rotas diferentes: criar, deletar, atualizar e autenticar usuários. As rotas foram definidas dentro de uma classe "User" em um arquivo _service_, e podem ser vistas abaixo:
 
 - Rota de criar um usuário
+
 ```js
 async Create(email, name, password) {
         //Verify if user already exists
@@ -994,7 +1047,7 @@ async Create(email, name, password) {
 
         //Verificação de senha != "", e HASH da mesma
         if(password) {
-            const hashedPassWord = await bcrypt.hash(password, 8) 
+            const hashedPassWord = await bcrypt.hash(password, 8)
 
             password = hashedPassWord
         }
@@ -1013,6 +1066,7 @@ async Create(email, name, password) {
 ```
 
 - Rota de deletar um usuário
+
 ```js
 async Remove(id) {
         const userAlreadyExists = await prisma.user.findUnique({
@@ -1036,6 +1090,7 @@ async Remove(id) {
 ```
 
 - Rota de atualizar um usuário
+
 ```js
 async Update(id, data) {
         const userAlreadyExists = await prisma.user.findUnique({
@@ -1077,45 +1132,46 @@ async Update(id, data) {
 ```
 
 - Rota de autenticar um usuário
+
 ```js
 async Authenticate(email, pass) {
-        console.log(email, pass)
-        //verify if user exists
-        const user = await prisma.user.findUnique({
-            where: {
-                email: email
-            }
-        })
+  console.log(email, pass)
+  //verify if user exists
+  const user = await prisma.user.findUnique({
+      where: {
+          email: email
+      }
+  })
 
-        console.log(user)
+  console.log(user)
 
-        if (!user) {
-            throw new Error('Invalid Email or/and Password')
-        }
+  if (!user) {
+      throw new Error('Invalid Email or/and Password')
+  }
 
-        //verify if password is correct
-        const passMatch = await bcrypt.compare(pass, user.password)
+  //verify if password is correct
+  const passMatch = await bcrypt.compare(pass, user.password)
 
-        if (!passMatch) {
-            throw new Error('Invalid Email or/and Password')
-        }
+  if (!passMatch) {
+      throw new Error('Invalid Email or/and Password')
+  }
 
-        //generate token
-        const token = jwt.sign({ id: user.id }, process.env.TOKEN_USER_AUTH, {
-            expiresIn: '1h'
-        })
+  //generate token
+  const token = jwt.sign({ id: user.id }, process.env.TOKEN_USER_AUTH, {
+      expiresIn: '1h'
+  })
 
-        const refresh_token = jwt.sign({ id: user.id }, process.env.TOKEN_USER_REFRESH, {
-            expiresIn: '10m'
-        })
+  const refresh_token = jwt.sign({ id: user.id }, process.env.TOKEN_USER_REFRESH, {
+      expiresIn: '10m'
+  })
 
-        return {
-            message: "User authenticated",
-            access_token: token,
-            refresh_token: refresh_token,
-            id: user.id,
-        }
-    }
+  return {
+      message: "User authenticated",
+      access_token: token,
+      refresh_token: refresh_token,
+      id: user.id,
+  }
+}
 ```
 
 # Documentação da Construção do Frontend da Solução (Sprint 4)
@@ -1130,11 +1186,212 @@ Preencher seguindo as orientações da Adalove.
 
 É possível referenciar os testes da pasta tests do repositório.
 
-## Integração do frontend com o backend implementado
 
-Preencher seguindo as orientações da Adalove.
+## Integração do Frontend com o Backend Implementado
 
-É possível referenciar os testes da pasta tests do repositório.
+Nesta seção, forneceremos informações detalhadas sobre como o frontend desenvolvido com o framework Flutter e Dart está integrado com o backend implementado no projeto.
+
+### Documentação da Integração
+
+Aqui, você encontrará instruções passo a passo para integrar o frontend com o backend. Isso incluirá detalhes sobre como fazer chamadas à API, autenticação, tratamento de erros e outros aspectos essenciais da integração.
+
+**Passos para Integrar o Frontend com o Backend:**
+
+- **Configuração das Chamadas à API**:
+
+  - URL do backend definido no arquivo .env.
+  - Utilização da biblioteca HTTP para realização das chamadas para o backend.
+  - Definição das rotas se encontram em cada arquivo dentro da pasta "services" dentro de "lib".
+
+- **Autenticação**:
+
+  - Autenticação com o backend consiste em login, com email e senha, no qual são retornados dois tokens: Refresh token e Access token.
+  - O Refresh token é utilizado para gerar um novo Access token quando o mesmo expira.
+  - O Access token é utilizado para realizar as chamadas à API.
+
+  - Exemplo de Fluxo de Login:
+
+    ```dart
+      Future<void> _submitHandler() async {
+        if (!isLoading) {
+          // Check if not already loading
+          widget.logger.i('Login: Login button pressed');
+
+          if (_formKey.currentState!.validate()) {
+            setState(() {
+              isLoading = true;
+            });
+
+            UserAuthResponse response = await userService.auth(
+              emailController.text,
+              passwordController.text,
+            );
+
+            widget.logger.d('Login: Response status code - ${response.statusCode}');
+
+            if (response.statusCode == 200) {
+              widget.logger.i('Login: Login success');
+
+              GetUserResponse user = await userService.getUser(
+                response.id,
+                response.accessToken!,
+              );
+
+              widget.logger.d('Login: User - ${user.email}');
+
+              widget.ref.read(userProvider).auth(user, response);
+
+              setState(() {
+                isLoading = false;
+              });
+
+              if (widget.ref.read(userProvider).mode.isNotEmpty) {
+                widget.logger.i('Login: User has mode');
+
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  "/home",
+                  (route) => false,
+                );
+              } else {
+                widget.logger.i('Login: User has no mode');
+
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  "/select-mode",
+                  (route) => false,
+                );
+              }
+            } else {
+              widget.logger.e('Login: Login failed');
+
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    response.message,
+                    textAlign: TextAlign.center,
+                  ),
+                  behavior: SnackBarBehavior.floating,
+                  backgroundColor: Colors.red,
+                ),
+              );
+
+              setState(() {
+                isLoading = false;
+              });
+            }
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+          }
+        }
+      }
+    ```
+
+- **Tratamento de Erros**:
+
+  - Erros são tratados com try/catch e são mostrados para o usuário em forma de modal dialog no canto inferior da tela e em vermelho. Por exemplo, se o login falhar, é mostrada uma mensagem com falha no email/senha.
+
+  - Exemplo de Tratamento de Erros no Login:
+    ```dart
+    } else {
+      widget.logger.e('Login: Login failed');
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            response.message,
+            textAlign: TextAlign.center,
+          ),
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: Colors.red,
+        ),
+      );
+
+      setState(() {
+        isLoading = false;
+      });
+    }
+    ```
+
+- **Formato de Dados**:
+  - Todas as chamadas contam com um model, que define a estrutura do JSON esperado do backend, assim reduzindo as chances de erro e criando um padrão para a aplicação como um todo.
+
+  - Exemplo de Uso de Model para Dados de Usuário:
+
+    ```dart
+    class GetUserResponse {
+      final String message;
+      final int statusCode;
+      final String id;
+      final String? name;
+      final String? email;
+      final String? mode;
+      final String? createdAt;
+      final String? updatedAt;
+
+      GetUserResponse({
+        required this.message,
+        required this.statusCode,
+        required this.id,
+        this.name,
+        this.email,
+        this.mode,
+        this.createdAt,
+        this.updatedAt,
+      });
+    }
+    ```
+
+### Testes de Integração
+
+Os testes de integração são fundamentais para garantir que a integração entre o frontend e o backend funcione corretamente. Abaixo estão detalhes sobre como esses testes são realizados:
+
+- **Testes Específicos**: Os testes de integração específicos garantem que a comunicação entre o frontend e o backend ocorra sem problemas, validando a integridade dos dados e o funcionamento correto das funcionalidades.
+
+- **Objetivo dos Testes**: O objetivo principal dos testes de integração é certificar que as chamadas não irão quebrar a aplicação em nenhum caso, garantindo que os dados sejam transmitidos de maneira adequada e que as respostas sejam tratadas corretamente.
+
+- **Exemplo de Teste**:
+
+  ```dart
+  // Exemplo de teste de integração que verifica se o backend está funcionando corretamente.
+  test('Backend health check', () async {
+    // Defina a URL do backend.
+    String? apiBaseUrl = dotenv.env['API_BASE_URL'];
+
+    // Realize uma chamada à API do backend.
+    final response = await http.get(Uri.parse('$apiBaseUrl/health'));
+
+    // Verifique se a resposta é válida.
+    expect(response.statusCode, 200);
+    expect(response.body, 'Health Check Completo');
+  });
+  ```
+
+
+Os testes de integração são fundamentais para garantir que a integração entre o frontend e o backend funcione corretamente. Abaixo estão detalhes sobre como esses testes são realizados:
+
+- **Testes Específicos**: Os testes de integração específicos garantem que a comunicação entre o frontend e o backend ocorra sem problemas, validando a integridade dos dados e o funcionamento correto das funcionalidades.
+
+- **Objetivo dos Testes**: O objetivo principal dos testes de integração é certificar que as chamadas não irão quebrar a aplicação em nenhum caso, garantindo que os dados sejam transmitidos de maneira adequada e que as respostas sejam tratadas corretamente.
+
+- **Exemplo de Teste**:
+
+  ```dart
+  // Exemplo de teste de integração que verifica se o backend está funcionando corretamente.
+  test('Backend health check', () {
+    // Defina a URL do backend.
+    String? apiBaseUrl = dotenv.env['API_BASE_URL'];
+
+    // Realize uma chamada à API do backend.
+    final response = await http.get(Uri.parse('$apiBaseUrl/health'));
+
+    // Verifique se a resposta é válida.
+    expect(response.statusCode, 200);
+    expect(response.body, 'Health Check Completo');
+  });
+  ```
 
 ## Deploy da solução
 
@@ -1146,13 +1403,13 @@ Preencher seguindo as orientações da Adalove.
 
 A documentação final deve conter:
 
--   Componentes e tecnologias utilizados;
--   Custo de implementação da prova de conceito e estimativa de custo para a solução final;
--   Análise financeira do projeto;
--   Funcionalidades implementadas na prova de conceito;
--   Benefícios entregues pelo projeto;
--   Aperfeiçoamentos futuros possíveis para o projeto;
--   Revisão da visão geral do sistema (arquitetura da integração).
+- Componentes e tecnologias utilizados;
+- Custo de implementação da prova de conceito e estimativa de custo para a solução final;
+- Análise financeira do projeto;
+- Funcionalidades implementadas na prova de conceito;
+- Benefícios entregues pelo projeto;
+- Aperfeiçoamentos futuros possíveis para o projeto;
+- Revisão da visão geral do sistema (arquitetura da integração).
 
 Referencie as revisões e melhorias realizadas nos itens acima.
 
