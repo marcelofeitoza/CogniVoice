@@ -1182,10 +1182,239 @@ Tópicos como requisitos funcionais e não funcionais, protótipos do sistema e 
 
 ## Testes do frontend implementado
 
-Preencher seguindo as orientações da Adalove.
+Para criar um plano de testes para o frontend do CogniVoice desenvolvido em Flutter, é importante considerar uma variedade de estratégias de teste, incluindo testes de unidade, testes de integração, testes de interface do usuário e testes de desempenho. Iremos fornecer um plano de testes abrangente com exemplos de casos de teste para cada estratégia pensada para o aplicativo.
 
-É possível referenciar os testes da pasta tests do repositório.
+Este é um plano de testes inicial e que está sujeito a adaptações de acordo com as necessidades específicas do CogniVoice e as mudanças que podem ocorrer durante o desenvolvimento. O objetivo desses testes é registrar os resultados e iterar continuamente para melhorar a qualidade do aplicativo.
 
+A seguir, apresentaremos uma lista numerada dos tipos de testes que serão conduzidos, destacando seus objetivos, casos de teste, procedimentos e as respostas esperadas. Isso permitirá que, ao analisarmos os resultados dos testes, saibamos exatamente o que avaliar e se o projeto está progredindo conforme o planejado, visando sua melhoria contínua.
+
+### 1. Testes de Unidade
+
+Objetivo: Verificar a funcionalidade das partes individuais (widgets, funções, classes) do código-fonte do Back-end, Sistema de NLP ou Front-end.
+Exemplo de Casos de Teste:
+
+- Caso de Teste 1: Verificar se a função de conversão de áudio para texto está funcionando corretamente (Back-end).
+  - Entrada Esperada: Áudio vindo do Front-end
+  - Resultado Esperado: Transcrição correta da fala contida no áudio
+
+- Caso de Teste 2: Verificar se a função de conversão de texto para áudio está funcionando corretamente (Back-end).
+  - Entrada Esperada: String com uma notícia. "Projeto que utiliza inteligência artificial pretende fortalecer línguas indígenas no Brasil"
+  - Resultado Esperado: Áudio com a transcrição da string de entrada
+
+- Caso de Teste 3: Verificar se a função de realizar um request para o GPT está funcionando corretamente (Back-end).
+  - Entrada Esperada: Pergunta em string "Existe algum projeto que a ibm faz com a faculdade da usp?"
+  - Resultado Esperado: Resposta em texto
+
+- Caso de Teste 4: Verificar a função de realizar login está funcionando corretamente (Back-end).
+  - Entrada Esperada: Realizar Login na plataforma
+  - Resultado Esperado: Entrar na plataforma com sucesso
+
+- Caso de Teste 5: Verificar se a função de tratamento de texto está funcionando corretamente (Sistema de NLP).
+  - Entrada Esperada: String "Projeto que utiliza inteligência artificial pretende fortalecer línguas indígenas no Brasil"
+  - Resultado Esperado: String "projeto que utiliza inteligencia artificial pretende fortalecer linguas indigenas no brasil"
+
+- Caso de Teste 6: Verificar se a função de aplicação das técnicas de processamento de linguagem natural está funcionando corretamente (Sistema de NLP).
+  - Entrada Esperada: String "projeto utiliza inteligencia artificial pretende fortalecer linguas indigenas brasil"
+  - Resultado Esperado: Array "[projeto], [utiliza], [inteligencia], [artificial], [pretender], [fortalecer], [linguas], [indigenas], [brasil]"
+
+- Caso de Teste 7: Verificar se a função de vetorização de texto está funcionando corretamente (Sistema de NLP).
+  - Entrada Esperada: Array "[projeto], [utiliza], [inteligencia], [artificial], [pretender], [fortalecer], [linguas], [indigenas], [brasil]"
+  - Resultado Esperado: Vetor "[29.304819], [23.227833], [-41.246915], [-6.971084], [46.494031], [45.407560], [21.914921], [29.390906], [57.222970]"
+
+- Caso de Teste 8: Verificar se a função de cálculo da similaridade do cosseno está funcionando corretamente (Sistema de NLP).
+  - Entrada Esperada: 1° Vetor "[29.304819], [23.227833], [-41.246915], [-6.971084], [46.494031], [45.407560], [21.914921], [29.390906], [57.222970] e 1° Vetor "[12.589388], [5.820205], [-34.974482], [-8.920619], [39.978088], [35.290584], [6.627587], [11.656030], [39.533481]"
+  - Resultado Esperado: Number "0.78653554"
+
+- Caso de Teste 9: Verificar se a função de inserção e consulta do banco de dados está funcionando corretamente (Sistema de NLP).
+  - Entrada Esperada: "https://jornal.usp.br/noticias/projeto-que-utiliza-inteligencia-artificial-pretende-fortalecer-linguas-indigenas-no-brasil/"
+  - Resultado Esperado: Return Post Sucess
+
+- Caso de Teste 10: Verificar se a função de captação e envio do áudio para a API do back-end está funcionando corretamente (Front-end).
+  - Entrada Esperada: Usuário enviar áudio pelo aplicativo
+  - Resultado Esperado: Receber o áudio corretamente e enviar para o Back-end
+
+- Caso de Teste 11: Verificar se a função de chat com o usuário está funcionando corretamente (Front-end).
+  - Entrada Esperada: Usuário inicia um chat no aplicativo
+  - Resultado Esperado: Sistema responde ele sem uma demora significativa
+
+### 2. Testes de Integração
+
+Objetivo: Garantir que os diferentes componentes do aplicativo interajam corretamente.
+
+- Caso de Teste 12: Verificar se a integração entre a interface de pesquisa por voz e o back-end está funcionando.
+  - Entrada Esperada: Usuário faz uma pesquisa por voz.
+  - Resultado Esperado: O áudio é enviado corretamente para o back-end.
+
+### 3. Testes de Interface do Usuário (UI):
+
+Objetivo: Avaliar a usabilidade, aparência e interação do aplicativo.
+
+- Caso de Teste 13: Verificar se a interface de pesquisa por voz está acessível e funcional.
+  - Passos:
+    - Abra o aplicativo.
+    - Toque no ícone de iniciar chat.
+  - Resultado Esperado: A interface de pesquisa por voz é exibida e funcional.
+
+- Caso de Teste 14: Verificar se o botão para ouvir a resposta em áudio está disponível.
+  - Passos:
+    - Após uma pesquisa, toque no botão de reprodução de áudio.
+  - Resultado Esperado: A resposta é reproduzida em áudio.
+
+### 4. Testes de Experiência do Usuário (UX):
+
+#### 4.1 Realizar o login:
+
+**Objetivo:** Verificar se os usuários podem fazer login com sucesso.
+
+- Caso de Teste 15: Realizar um login bem-sucedido.
+  - Passos:
+    - Abra o aplicativo.
+    - Insira credenciais válidas (email e senha).
+    - Toque no botão de login.
+  - Resultado Esperado: O usuário faz login com sucesso e é redirecionado para a tela principal do aplicativo.
+
+#### 4.2 Selecionar o modo correto:
+
+**Objetivo:** Garantir que os usuários possam selecionar o modo de funcionamento correto.
+
+- Caso de Teste 16: Selecionar o modo "Vendas".
+  - Passos:
+    - Após o login, encontre a opção de selecionar o modo.
+    - Escolha o modo "Vendas".
+  - Resultado Esperado: O aplicativo altera o modo de funcionamento para "Vendas".
+
+#### 4.3 Conseguir mandar o áudio pelo app:
+
+**Objetivo:** Verificar se os usuários conseguem enviar áudio através do aplicativo.
+- Caso de Teste 17: Enviar um áudio com sucesso.
+  - Passos:
+    - Acesse a interface de pesquisa por voz.
+    - Grave um áudio.
+    - Envie o áudio.
+  - Resultado Esperado: O áudio é enviado com sucesso para o sistema.
+
+#### 4.4 Conseguir escutar o áudio que enviou pelo app:
+
+**Objetivo:** Verificar se os usuários podem ouvir o áudio que enviaram.
+
+- Caso de Teste 18: Ouvir o áudio enviado anteriormente.
+  - Passos:
+    - Acesse a interface de histórico de áudio.
+    - Selecione o áudio enviado anteriormente.
+    - Toque no botão de reprodução.
+  - Resultado Esperado: O áudio é reproduzido com sucesso.
+
+#### 4.5 Recebeu a resposta para sua pergunta:
+
+**Objetivo:** Verificar se os usuários recebem respostas para suas perguntas.
+
+- Caso de Teste 19: Receber uma resposta após fazer uma pergunta.
+  - Passos:
+    - Faça uma pergunta utilizando a pesquisa por voz.
+    - Aguarde a resposta.
+  - Resultado Esperado: O usuário recebe uma resposta relevante após a pergunta.
+
+### 5. Testes de Retroalimentação de Banco de Dados:
+
+**Objetivo:** Verificar se as informações obtidas do GPT são corretamente enviadas para a API de Processamento de Linguagem Natural (PLN) para retroalimentação do banco de dados.
+
+- Caso de Teste 20: Verificar se a URL da fonte da informação é enviada para a API de PLN após a resposta do GPT.
+  - Passos:
+    - Realize uma pesquisa que aciona o GPT.
+  - Resultado Esperado: A URL é enviada corretamente para a API de PLN e em seguida feita a inserção dela na base de dados.
+
+### 6. Testes de Desempenho:
+
+**Objetivo:** Avaliar o desempenho do aplicativo em situações de carga e uso intensivo.
+- Caso de Teste 21: Avaliar o tempo de resposta da pesquisa por voz.
+  - Passos:
+    - Realize várias pesquisas consecutivas por voz em um curto período de tempo.
+  - Resultado Esperado: As pesquisas são processadas de forma eficiente sem atrasos significativos.
+
+### 7. Testes para validação dos requisitos não funcionais:
+
+#### 7.1 Tempo de resposta com x número de requisições:
+
+**Objetivo:** Avaliar o tempo de resposta do sistema sob carga.
+- Caso de Teste 22: Realizar 100 pesquisas consecutivas e medir o tempo de resposta médio.
+  - Passos:
+    - Realizar 100 pesquisas por voz consecutivas.
+    - Registrar o tempo de resposta de cada pesquisa.
+    - Calcular o tempo de resposta médio.
+  - Resultado Esperado: O tempo de resposta médio está dentro dos limites aceitáveis.
+
+#### 7.2 Teste de carga com x número de requisições:
+
+**Objetivo:** Avaliar o desempenho do sistema sob carga máxima.
+
+- Caso de Teste 23: Realizar 1000 pesquisas por voz consecutivas e verificar se o sistema lida com sucesso.
+  - Passos:
+    - Realize 1000 pesquisas por voz consecutivas em um curto período de tempo.
+  - Resultado Esperado: O sistema lida com sucesso com a carga e não falha.
+
+#### 7.3 Teste de speech-to-text com x número de requisições:
+
+**Objetivo:** Avaliar a precisão do serviço de conversão de voz para texto.
+
+- Caso de Teste 24: Envie 20 gravações de áudio diferentes e verifique a precisão da transcrição.
+  - Passos:
+    - Grave 10 áudios com diferentes pronúncias e entonações.
+    - Envie os áudios para o sistema de conversão de voz para texto.
+  - Resultado Esperado: A transcrição é precisa na maioria dos casos.
+
+#### 7.4 Retorno da resposta do sistema de NLP com x número de requisições:
+
+**Objetivo:** Avaliar o desempenho da API de PLN durante as solicitações.
+
+- Caso de Teste 25: Envie 100 solicitações à API de PLN e verifique o tempo de resposta.
+  - Passos:
+    - Envie 100 solicitações à API de PLN.
+  - Resultado Esperado: O tempo de resposta da API de PLN está dentro dos limites aceitáveis.
+
+### 8. Teste de Autenticação e Segurança:
+
+#### 8.1 Tentar entrar com usuário inválido:
+
+**Objetivo:** Garantir que a autenticação só permita o acesso a usuários válidos.
+
+- Caso de Teste 26: Tentar fazer login com um usuário inválido.
+  - Passos:
+    - Insira credenciais inválidas (email e senha).
+    - Tente fazer login.
+  - Resultado Esperado: O sistema não permite o acesso com credenciais inválidas e exibe uma mensagem de erro adequada.
+
+#### 8.2 Ver resposta do request de login sucedido:
+
+**Objetivo:** Verificar se não há vazamento de dados sensíveis durante o processo de login.
+
+- Caso de Teste 27: Após um login bem-sucedido, verifique se os dados sensíveis não são visíveis.
+  - Passos:
+    - Faça login com sucesso.
+  - Resultado Esperado: Os dados sensíveis não são exibidos ou transmitidos de forma inadequada.
+
+### 9. Teste de Desempenho de carga do Frontend:
+
+#### 9.1 Avaliar o desempenho da interface do usuário (tempo de carregamento na mudança de páginas):
+
+**Objetivo:** Medir o tempo de carregamento das diferentes telas do aplicativo e garantir que elas sejam carregadas de forma eficiente.
+
+- Caso de Teste 28: Medir o tempo de carregamento da tela de pesquisa para a tela de resultados.
+  - Passos:
+    - Acesse a tela de pesquisa.
+    - Execute uma pesquisa.
+    - Meça o tempo necessário para a transição para a tela de resultados.
+  - Resultado Esperado: A transição entre as telas é rápida e eficiente.
+
+#### 9.2 Realizar muitas requisições ao mesmo tempo e anotar o tempo do front-end renderizar por completo em todas as requisições, e se esse tempo aumentar verificar em qual número de requisição esse número começou a crescer significativamente:
+
+**Objetivo:** Avaliar o desempenho do frontend ao lidar com várias requisições simultâneas e identificar qualquer degradação significativa de desempenho.
+
+- Caso de Teste 29: Enviar 50 solicitações simultâneas e registrar o tempo de renderização do frontend para cada uma.
+  - Passos:
+    - Execute 50 solicitações simultâneas ao aplicativo.
+    - Registre o tempo necessário para que o frontend renderize completamente em cada solicitação.
+    - Verifique se há um ponto em que o tempo de renderização começa a aumentar significativamente.
+  - Resultado Esperado: O frontend lida com as 50 solicitações de forma eficiente, e não há um aumento significativo no tempo de renderização até um número considerável de solicitações.
 
 ## Integração do Frontend com o Backend Implementado
 
