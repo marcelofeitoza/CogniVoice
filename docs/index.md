@@ -74,36 +74,35 @@ De forma geral, os stakeholders representam os indivíduos, grupos ou entidades 
 
 ## Requisitos Funcionais
 
-| Código | Descrição do Requisito                                                                                                                                                 | Tipo      | Grupo          | Prioridade |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------------- | ---------- |
-| RF01   | O sistema deve permitir o usuário curtir os conteúdos que têm interesse                                                                                                | Funcional | Acessibilidade | MEDIUM     |
-| RF02   | A interface precisa ser dividida entre 2 usuários (time de vendas e time de marketing)                                                                                 | Funcional | Usabilidade    | HIGH       |
-| RF03   | O usuário deve ter acesso a antigas pesquisas                                                                                                                          | Funcional | Acessibilidade | LOW        |
-| RF04   | O sistema deve mostrar os resultados da busca na interface de acordo com o perfil do usuário                                                                           | Funcional | Usabilidade    | MEDIUM     |
-| RF05   | O sistema deve apresentar possíveis respostas alternativas caso não encontre uma resposta certeira para a pergunta                                                     | Funcional | Usabilidade    | HIGH       |
-| RF06   | O sistema deve compreender corretamente a pergunta do usuário e trazer uma resposta com algum fundamento                                                               | Funcional | Usabilidade    | HIGH       |
-| RF07   | A aplicação deve ser projetada para funcionar em smartphones, permitindo que o time de vendas da IBM acesse facilmente as informações enquanto estiver em deslocamento | Funcional | Usabilidade    | HIGH       |
-| RF08   | O sistema deve responder ao time de vendas com tendências, gráficos e títulos de manchete                                                                              | Funcional | Usabilidade    | MEDIUM     |
-| RF09   | O sistema deve responder ao time de marketing com um pequeno texto sobre o que foi perguntado                                                                          | Funcional | Usabilidade    | LOW        |
-| RF10   | O sistema deve informar a fonte e data das pesquisas dadas na resposta                                                                                                 | Funcional | Usabilidade    | LOW        |
-| RF11   | O usuário deve poder clicar em cima de uma pesquisa e ser direcionado para ela                                                                                         | Funcional | Usabilidade    | HIGH       |
-| RF12   | O sistema deve permitir a pesquisa por comando de voz                                                                                                                  | Funcional | Usabilidade    | MEDIUM     |
+| Código | Descrição do Requisito                                                                                                                                                    | Tipo      | Grupo          | Prioridade | Rastreabilidade |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------------- | ---------- | ---------------- |
+| RF01   | O sistema deve permitir o usuário curtir os conteúdos que têm interesse                                                                                                   | Funcional | Acessibilidade | MEDIUM     | frontend         |
+| RF02   | A interface precisa ser dividida entre 2 usuários (time de vendas e time de marketing)                                                                                    | Funcional | Usabilidade    | HIGH       | backend          |
+| RF03   | O usuário deve ter acesso a antigas pesquisas                                                                                                                             | Funcional | Acessibilidade | LOW        | backend          |
+| RF04   | O sistema deve mostrar os resultados da busca na interface de acordo com o perfil do usuário                                                                            | Funcional | Usabilidade    | MEDIUM     | backend          |
+| RF05   | O sistema deve apresentar possíveis respostas alternativas caso não encontre uma resposta certeira para a pergunta                                                      | Funcional | Usabilidade    | HIGH       | IBM watson       |
+| RF06   | O sistema deve compreender corretamente a pergunta do usuário e trazer uma resposta com algum fundamento                                                                | Funcional | Usabilidade    | HIGH       | frontend         |
+| RF07   | A aplicação deve ser projetada para funcionar em smartphones, permitindo que o time de vendas da IBM acesse facilmente as informações enquanto estiver em deslocamento  | Funcional | Usabilidade    | HIGH       | backend          |
+| RF08   | O sistema deve responder ao time de vendas com tendências, gráficos e títulos de manchete                                                                               | Funcional | Usabilidade    | MEDIUM     | backend          |
+| RF09   | O sistema deve responder ao time de marketing com um pequeno texto sobre o que foi perguntado                                                                           | Funcional | Usabilidade    | LOW        | backend          |
+| RF10   | O sistema deve informar a fonte e data das pesquisas dadas na resposta                                                                                                  | Funcional | Usabilidade    | LOW        | frontend         |
+| RF11   | O usuário deve poder clicar em cima de uma pesquisa e ser direcionado para ela                                                                                          | Funcional | Usabilidade    | HIGH       | backend          |
+| RF12   | O sistema deve permitir a pesquisa por comando de voz                                                                                                                   | Funcional | Usabilidade    | MEDIUM     | infraestrutura cloud |
 
 ## Requisitos não funcionais
 
-| Código | Descrição do Requisito                                                                                                                   | Tipo          | Grupo          | Prioridade |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------------- | ---------- |
-| RNF01  | A aplicação deve estar disponível e acessível aos usuários durante a maior parte do tempo, minimizando possíveis períodos de inatividade | Não Funcional | Acessibilidade | MEDIUM     |
-| RNF02  | O sistema deve manter a privacidade dos dados dos usuários                                                                               | Não Funcional | Segurança      | HIGH       |
-| RNF03  | O sistema deve ser fluido e rápido                                                                                                       | Não Funcional | Performance    | HIGH       |
-| RNF04  | O sistema deve conseguir manter um fluxo de conversa com o usuário                                                                       | Não Funcional | Usabilidade    | HIGH       |
-| RNF05  | O sistema deve seguir as normas da LGPD                                                                                                  | Não Funcional | Legal          | HIGH       |
-| RNF06  | O sistema não deve demorar mais do que 10 segundos para processar um arquivo de áudio por completo                                       | Não Funcional | Performance    | MEDIUM     |
-| RNF07  | O sistema deve rodar na nuvem                                                                                                            | Não Funcional | Implementação  | HIGH       |
-| RNF08  | O sistema só deve permitir o acesso à página a usuários autenticados                                                                     | Não Funcional | Segurança      | HIGH       |
-| RNF09  | O sistema deve ser escalável                                                                                                             | Não Funcional | Performance    | HIGH       |
-| RNF10  | O sistema deve rodar em telefones móveis                                                                                                 | Não Funcional | Usabilidade    | HIGH       |
-| RNF11  | O sistema deve ser implementado na IBM                                                                                                   | Não Funcional | Implementação  | HIGH       |
+| Código | Descrição do Requisito                                                                                                                   | Tipo          | Grupo          | Prioridade | Rastreabilidade      |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------------- | ---------- | --------------------- |
+| RNF01  | O sistema deve manter a privacidade dos dados dos usuários                                                                               | Não Funcional | Segurança      | HIGH       | infraestrutura cloud  |
+| RNF02  | O sistema deve ser fluido e rápido                                                                                                       | Não Funcional | Performance    | HIGH       | IBM watson            |
+| RNF03  | O sistema deve conseguir manter um fluxo de conversa com o usuário                                                                       | Não Funcional | Usabilidade    | HIGH       | backend               |
+| RNF04  | O sistema deve seguir as normas da LGPD                                                                                                  | Não Funcional | Legal          | HIGH       | backend               |
+| RNF05  | O sistema não deve demorar mais do que 10 segundos para processar um arquivo de áudio por completo                                       | Não Funcional | Performance    | MEDIUM     | cloud                 |
+| RNF06  | O sistema deve rodar na nuvem                                                                                                            | Não Funcional | Implementação  | HIGH       | backend               |
+| RNF07  | O sistema só deve permitir o acesso à página a usuários autenticados                                                                     | Não Funcional | Segurança      | HIGH       | infraestrutura cloud  |
+| RNF08  | O sistema deve ser escalável                                                                                                             | Não Funcional | Performance    | HIGH       | IBM watson            |
+| RNF09  | O sistema deve rodar em telefones móveis                                                                                                 | Não Funcional | Usabilidade    | HIGH       | frontend              |
+| RNF10  | O sistema deve ser implementado na IBM                                                                                                   | Não Funcional | Implementação  | HIGH       | backend               |
 
 # Entendimento do Negócio (Sprint 1)
 
