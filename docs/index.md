@@ -661,7 +661,7 @@ postgresql://seu_usuario:sua_senha@endpoint_do_banco:5432/seu_banco_de_dados
 	
 ```
 
-### Tutorial: Configuração do servidor
+### Tutorial: Scripts de implantação
 
 Este guia assume que você já possui uma instância EC2 da AWS configurada e um aplicativo Node.js em execução com PM2. Vamos seguir as etapas para atualizar o código no GitHub e executar o seu script `.sh`.
 
@@ -706,6 +706,72 @@ Execute o seu script .sh que cuida da instalação de dependências e recarga do
 ```
 
 Agora seu código deve estar atualizado e a maquina rodando com a versõa mais atual do código.
+
+### Tutorial: Verificação do Funcionamento em Produção
+
+Para garantir que o seu código está funcionando devidamente em produção, você pode realizar uma série de testes e verificar indicadores-chave. Aqui estão alguns testes e comandos que podem ajudar nesse processo:
+
+#### 1. Verificar a Conexão Local
+
+Você pode começar verificando se o seu aplicativo está respondendo corretamente localmente. Para isso, utilize o comando `curl` para fazer uma solicitação HTTP à sua aplicação localmente:
+
+```bash
+curl localhost:3001
+```
+
+Isso deve retornar uma resposta válida do seu aplicativo. Certifique-se de que a resposta está de acordo com o esperado.
+
+#### 2. Verificar o Status do PM2
+
+Se você estiver usando o PM2 para gerenciar o seu aplicativo em produção, é importante garantir que ele esteja em execução e com o status "online". Você pode verificar isso executando o seguinte comando:
+
+```bash
+pm2 ls
+```
+
+Isso mostrará uma lista dos processos gerenciados pelo PM2 e seu status. Certifique-se de que o aplicativo que você deseja verificar esteja listado como "online".
+
+#### 3. Verificar os Logs do PM2
+
+Os logs do PM2 são uma ferramenta valiosa para diagnosticar problemas em tempo real. Você pode verificar os logs executando o seguinte comando:
+
+```bash
+pm2 logs
+```
+
+Isso mostrará os logs de todos os processos gerenciados pelo PM2. Certifique-se de que os logs estão de acordo com o esperado e não contenham erros ou mensagens de falha.
+
+Lembre-se de que esses são apenas alguns dos testes e verificações que você pode realizar para garantir que o seu código esteja funcionando devidamente em produção. Dependendo da natureza do seu aplicativo, pode haver outros testes específicos que você também deve realizar.
+
+Certifique-se sempre de monitorar continuamente o desempenho e a estabilidade do seu aplicativo em produção e estar preparado para agir rapidamente caso ocorram problemas inesperados.
+
+### Tutorial: Monitoramento e manutenção da Aplicação
+
+Para garantir que a sua aplicação esteja funcionando corretamente e realizar a manutenção adequada, você pode utilizar várias técnicas e ferramentas. Duas possibilidades comuns de monitoramento e manutenção incluem:
+
+#### 1. Verificar a Rota de Saúde (Health Check)
+
+Uma maneira simples de monitorar a saúde da sua aplicação é verificar se uma rota de saúde (health check) está funcionando corretamente. Você pode fazer isso acessando a rota de saúde no navegador ou usando ferramentas como `curl` para fazer solicitações HTTP. Por exemplo:
+
+- No navegador, acesse a seguinte URL: [http://3.82.28.119/health](http://3.82.28.119/health). Certifique-se de que a página exiba o texto "Health Check Completo". Isso indica que a aplicação está saudável.
+
+- Usando o comando `curl` no terminal:
+
+  ```bash
+  curl http://3.82.28.119/health
+  ```
+  
+#### 2. Verificar o Status no PM2
+
+Se você estiver usando o PM2 para gerenciar a sua aplicação em produção, é fundamental verificar o status do processo no PM2. Você pode fazer isso usando o seguinte comando:
+
+```bash
+pm2 ls
+```
+
+Isso mostrará uma lista dos processos gerenciados pelo PM2, incluindo o nome do seu aplicativo, ID do processo, status e outras informações relevantes. Certifique-se de que o aplicativo que você deseja monitorar esteja listado como "online". Isso indica que a aplicação está em execução e funcionando corretamente.
+
+Lembre-se de que essas são apenas algumas das técnicas e ferramentas que você pode usar para monitorar e manter a sua aplicação. Dependendo das necessidades específicas do seu aplicativo, pode ser necessário implementar outras estratégias de monitoramento e manutenção para garantir um desempenho confiável em produção.
 
 ## API para receber os áudios enviados pelo usuário
 
