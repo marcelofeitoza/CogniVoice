@@ -1623,7 +1623,7 @@ Os testes de integração são fundamentais para garantir que a integração ent
 
 ## Deploy da solução
 
-Preencher seguindo as orientações da Adalove.
+O Deploy da solução em nuvem foi explicado passo a passo na sessão "Processo de deploy do algoritmo em nuvem comercial" dentro de "Arquitetura da solução" presente nesse documento. Tal explicação pode ser encontrada pelo link: https://github.com/2023M7T3-Inteli/Projeto2/blob/main/docs/index.md#processo-de-deploy-do-algoritmo-em-nuvem-comercial
 
 # Documentação Final do Projeto (Sprint 5)
 
