@@ -3,8 +3,6 @@ require("express-async-errors");
 
 const service = require("../services/url");
 
-const urlService = new service.Url();
-
 const handleErrors = (res, error) => {
   console.error(error);
   res.status(500).json({ message: error.message });
@@ -22,7 +20,7 @@ const addUrl = async (req, res) => {
   }
 
   try {
-    const result = await urlService.create(urlInput);
+    const result = await service.Url.create(urlInput);
     res.send(result);
   } catch (err) {
     handleErrors(res, err);
@@ -31,6 +29,7 @@ const addUrl = async (req, res) => {
 
 const removeUrl = async (req, res) => {
   const { url: urlInput } = req.params;
+  console.log("aq")
 
   const errors = validationResult(req);
 
@@ -41,7 +40,7 @@ const removeUrl = async (req, res) => {
   }
 
   try {
-    const result = await urlService.remove(urlInput);
+    const result = await service.Url.remove(urlInput);
     res.send(result);
   } catch (err) {
     handleErrors(res, err);
@@ -49,8 +48,9 @@ const removeUrl = async (req, res) => {
 };
 
 const getAll = async (req, res) => {
+  console.log("aq2")
   try {
-    const result = await urlService.getAll();
+    const result = await service.Url.getAll();
     res.send(result);
   } catch (err) {
     handleErrors(res, err);

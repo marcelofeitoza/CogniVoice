@@ -1,5 +1,6 @@
 const { PrismaClient } = require("@prisma/client");
 const uuid = require("uuid").v4;
+const http = require("http");
 const validUrl = require("valid-url");
 
 const prisma = new PrismaClient();
@@ -37,13 +38,28 @@ class Url {
       },
     });
 
+    try {
+      const flaskUrl = "http://13b8-35-237-57-249.ngrok-free.app/call_external_api";
+      http.get(flaskUrl, (response) => {
+        let data = "";
+        response.on("data", (chunk) => {
+          data += chunk;
+        });
+        response.on("end", () => {
+          console.log("GET request to the NLP API successful");
+        });
+      });
+    } catch (error) {
+      console.error("Error making GET request to the NLP API:", error);
+    }
+
     return newUrl;
   }
 
-  static async remove(url) {
+  static async remove(url_bd) {
     const removeUrl = await prisma.url.findUnique({
       where: {
-        url: url,
+        url: url_bd,
       },
     });
 
@@ -53,7 +69,7 @@ class Url {
 
     await prisma.url.delete({
       where: {
-        url: url,
+        url: url_bd,
       },
     });
 

@@ -30,7 +30,8 @@
     "log4js": "^6.9.1",
     "openai": "^3.3.0",
     "prisma": "^5.2.0",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "valid-url": "^1.0.9"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

@@ -5,18 +5,18 @@ const { body, param } = require("express-validator");
 const userController = require("../controllers/url");
 
 router.post(
-    "/url/addUrl",
+    "/addurl",
     [body("url", "url is required to proceed").exists({ checkFalsy: true })],
     userController.addUrl
 );
 
 router.get(
-    "/url/getAll",
+    "/getall",
     userController.getAll
 );
 
 router.delete(
-    "/url/delete/:url",
+    "/delete/:url",
     [param("url", "url is required to proceed").exists({ checkFalsy: true })],
     userController.removeUrl
 );
