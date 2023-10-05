@@ -714,3 +714,19 @@ Foreign key constraint failed on the field: `foreign key`
 [2023-10-05T14:26:47.071] [DEBUG] chat - Chat eee0e92a-d9a3-485e-acaa-64dd7f05e8d3 found in user 94a61c04-4e1d-49ac-b722-20616b0b4463
 [2023-10-05T14:26:47.092] [INFO] chat - Chat removed successfully
 [2023-10-05T14:26:47.126] [DEBUG] chat - Starting GetAll method...
+[2023-10-05T14:34:18.089] [DEBUG] chat - marcelo.feitoza@ibm.com marcelo123
+[2023-10-05T14:34:18.096] [DEBUG] chat - {
+  id: '94a61c04-4e1d-49ac-b722-20616b0b4463',
+  email: 'marcelo.feitoza@ibm.com',
+  name: 'Marcelo G Feitoza',
+  password: '$2a$08$rTbZmoEkvfMbYGGvPF895OUG3yDZpakc3xU2zM.ZFuv7RrVSZ7AGa',
+  mode: 'MarketTracker',
+  createdAt: 2023-10-04T15:08:22.651Z,
+  updatedAt: 2023-10-05T04:52:12.411Z
+}
+[2023-10-05T14:34:18.438] [DEBUG] chat - Starting GetAll method...
+[2023-10-05T14:34:20.797] [DEBUG] chat - Deleting chat 969b6e32-1864-4420-bdc1-4dba069d0175 from user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:34:20.799] [DEBUG] chat - chatAlreadyExists: {"id":"969b6e32-1864-4420-bdc1-4dba069d0175","userId":"94a61c04-4e1d-49ac-b722-20616b0b4463","createdAt":"2023-10-05T14:30:24.946Z","updatedAt":"2023-10-05T14:30:24.946Z"}
+[2023-10-05T14:34:20.799] [DEBUG] chat - Chat 969b6e32-1864-4420-bdc1-4dba069d0175 found in user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:34:20.819] [INFO] chat - Chat removed successfully
+[2023-10-05T14:34:20.895] [DEBUG] chat - Starting GetAll method...
