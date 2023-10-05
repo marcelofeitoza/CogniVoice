@@ -4,7 +4,7 @@ const send = (message) => {
   amqp.connect("amqp://localhost:5672", function (err, conn) {
     conn.createChannel(function (err, ch) {
       var exchange = "topic_logs";
-      var topic = "alert"; // Tópico que você deseja enviar
+      var topic = "alert";
 
       ch.assertExchange(exchange, "topic", { durable: false });
 
@@ -14,7 +14,7 @@ const send = (message) => {
         console.log(err)
         return
       }
-      
+
       console.log("[x] Sent '%s' to topic '%s'", message, topic);
 
       setTimeout(function () {
@@ -24,6 +24,6 @@ const send = (message) => {
   });
 };
 
-module.exports = { 
-    send
+module.exports = {
+  send
 }

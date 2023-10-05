@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const log4js = require('log4js');
+const log4js = require("log4js");
 
 app.use(bodyParser.json());
 app.use(bodyParser.raw({ type: "audio/mp4", limit: "150mb" }));
@@ -24,23 +24,32 @@ log4js.configure({
 });
 
 //Import Cors
-app.use(cors())
+app.use(cors());
 
 //Import Routes
 const chatRoute = require("./routes/chat");
 const userRoute = require("./routes/user");
-const urlRoute = require("./routes/url");
+// const urlRoute = require("./routes/url");
 
 //Use Routes
 app.use("/v1/chat", chatRoute);
 app.use("/v1/user", userRoute);
-app.use("/v1/url", urlRoute);
+// app.use("/v1/url", urlRoute);
 
 app.get("/", (req, res) => {
   res.send({
     message: "Health check completed!",
     status: 200,
   });
+});
+
+app.get("/audio", (req, res) => {
+  let audio = fs.readFileSync("./audio/audio-file.flac");
+
+  res.writeHead(200, {
+    "Content-Type": "audio/flac",
+    "Content-Length": audio.length,
+  }).end(audio);
 });
 
 app.listen(3001, () => {

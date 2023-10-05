@@ -1,9 +1,13 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:cognivoice/providers/user.provider.dart';
+import 'package:cognivoice/components/message.component.dart';
+import 'package:cognivoice/models/audioProcessingResult.model.dart';
 import 'package:cognivoice/services/audio.service.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:cognivoice/services/chat.service.dart';
 import 'package:record/record.dart';
+import 'package:cognivoice/models/message.model.dart';
+import 'package:cognivoice/providers/user.provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:loggerw/loggerw.dart';
 
 class ChatScreen extends ConsumerStatefulWidget {
@@ -23,63 +27,30 @@ class ChatScreen extends ConsumerStatefulWidget {
 }
 
 class _ChatScreenState extends ConsumerState<ChatScreen> {
-  Widget _renderChat(List<Map<String, dynamic>> chat) {
-    return ListView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: chat.length,
-      itemBuilder: (BuildContext context, int index) {
-        return _renderChatItem(chat[index]);
-      },
-    );
-  }
+  late User user;
 
-  Widget _renderChatItem(Map<String, dynamic> chatItem) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(
-        mainAxisAlignment:
-            chatItem["user"] ? MainAxisAlignment.end : MainAxisAlignment.start,
-        children: [
-          Container(
-            constraints: BoxConstraints(
-              maxWidth: MediaQuery.of(context).size.width * 0.75,
-            ),
-            margin: const EdgeInsets.symmetric(horizontal: 8.0),
-            padding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-            decoration: BoxDecoration(
-              color: chatItem["user"]
-                  ? Theme.of(context).colorScheme.primary
-                  : Theme.of(context).colorScheme.background,
-              borderRadius: BorderRadius.circular(16.0),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  chatItem["message"],
-                  style: TextStyle(
-                      fontSize: Theme.of(context).textTheme.bodyLarge!.fontSize,
-                      color: Theme.of(context).colorScheme.onPrimary),
-                ),
-                const SizedBox(
-                  height: 8.0,
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  bool isRecording = false;
+  String audioPath = "";
+
+  bool isPlaying = false;
+  bool isPlayingRecordedAudio = false;
+
+  bool isProcessing = false;
+
+  String chatIndex = ""; // "91891459-b896-447a-aff5-4dac8069c6f6";
+
+  final List<ChatMessage> chat = [];
+  late final ChatService chatService;
+
+  final Record audioRecord = Record();
+  final AudioPlayer audioPlayer = AudioPlayer();
+  late final AudioService audioService;
 
   @override
   Widget build(BuildContext context) {
-    user = ref.read(userProvider);
+    user = widget.ref.read(userProvider).get();
 
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.onPrimary,
       appBar: AppBar(
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
@@ -87,194 +58,435 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
           ),
         ),
         leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             widget.logger.i("ChatScreen: Back button pressed");
-            Navigator.pop(context);
+
+            // pop the chat screen and go back to the home screen
+            // and run the home screen's init state
+            Navigator.of(context).pop(context);
           },
-          icon: Icon(
-            Icons.arrow_back,
-            color: Theme.of(context).colorScheme.onPrimary,
+        ),
+        title: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16.0),
+          child: Image.asset(
+            'assets/logo.png',
+            width: 128,
           ),
         ),
         centerTitle: true,
-        title: Image.asset(
-          'assets/logo.png',
-          width: 128.0,
-        ),
-        backgroundColor: Theme.of(context).colorScheme.background,
-        elevation: 0,
+        backgroundColor: Theme.of(context).colorScheme.onBackground,
+        toolbarHeight: 64.0,
         actions: [
           IconButton(
             onPressed: () {
               widget.logger.i("ChatScreen: Settings button pressed");
-              Navigator.pushNamed(context, '/work');
+              Navigator.pushNamed(context, '/settings');
             },
-            icon: Icon(
-              Icons.menu,
-              color: Theme.of(context).colorScheme.onPrimary,
-            ),
+            icon: const Icon(Icons.settings_outlined),
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Expanded(
-              child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: Column(
-              children: [
-                _renderChat(chat),
-                const SizedBox(
-                  height: 80.0,
-                )
-              ],
-            ),
-          )),
-          Row(
-            children: [
-              Text("$audioPath", style: TextStyle(color: Colors.black)),
-            ],
-          ),
-          Container(
-            height: 128.0,
-            color: Colors.transparent,
-            child: Stack(
-              children: [
-                Positioned(
-                  top: 48.0,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 96.0,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.vertical(
-                        top: Radius.circular(16),
+      backgroundColor: Theme.of(context).colorScheme.onPrimary,
+      body: Stack(children: [
+        Column(
+          children: [
+            Expanded(
+              child: isGettingChat
+                  ? Container(
+                      alignment: Alignment.center,
+                      child: const Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CircularProgressIndicator(),
+                          SizedBox(height: 16.0),
+                          Text(
+                            "Getting chat...",
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ],
                       ),
-                      color: Theme.of(context).colorScheme.background,
+                    )
+                  : SingleChildScrollView(
+                      child: _renderChat(chat),
                     ),
-                  ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(8.0),
+              decoration: const BoxDecoration(
+                color: Colors.transparent,
+              ),
+              child: Container(
+                decoration: BoxDecoration(
+                  // borderRadius: BorderRadius.circular(16.0),
+                  borderRadius: BorderRadius.circular(16.0),
+                  color: Theme.of(context).colorScheme.onBackground,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                width: double.infinity,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
-                      children: [
-                        Text(isRecording ? "Stop" : "Speak",
-                            style: TextStyle(
-                              fontSize: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge!
-                                  .fontSize,
-                              color: const Color(0xff2e2e2e),
-                            )),
-                        GestureDetector(
-                          onTap: isRecording ? stopRecording : startRecording,
-                          child: Container(
-                            width: 64,
-                            height: 64,
-                            padding: const EdgeInsets.all(16.0),
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              gradient: const LinearGradient(
-                                colors: [
-                                  Color(0xFF277AFF),
-                                  Color(0xFF12307C),
-                                ],
+                    audioPath.isNotEmpty
+                        ? Row(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: const Color(0xff2e2e2e),
+                                  borderRadius: BorderRadius.circular(32.0),
+                                ),
+                                child: Row(
+                                  children: [
+                                    GestureDetector(
+                                      onTap: !isProcessing ? deleteAudio : null,
+                                      child: Container(
+                                        height: 48,
+                                        width: 48,
+                                        decoration: BoxDecoration(
+                                          gradient: const LinearGradient(
+                                            colors: [
+                                              Color(0xFF277AFF),
+                                              Color(0xFF12307C),
+                                            ],
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(32.0),
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: const Icon(
+                                          Icons.delete_outline,
+                                          size: 24.0,
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 8),
+                                    GestureDetector(
+                                      onTap: playPauseAudio,
+                                      child: Container(
+                                        height: 48,
+                                        width: 48,
+                                        decoration: BoxDecoration(
+                                          gradient: const LinearGradient(
+                                            colors: [
+                                              Color(0xFF277AFF),
+                                              Color(0xFF12307C),
+                                            ],
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(32.0),
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: Icon(
+                                          isPlaying
+                                              ? Icons.pause
+                                              : Icons.play_arrow,
+                                          size: 24.0,
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
-                              borderRadius: BorderRadius.circular(32.0),
-                            ),
-                            child: Icon(
-                              isRecording ? Icons.stop : Icons.graphic_eq,
-                              size: 24.0,
-                            ),
+                              const SizedBox(width: 8),
+                            ],
+                          )
+                        : const SizedBox(width: 0),
+                    GestureDetector(
+                      onTap: audioPath.isNotEmpty
+                          // ? sendMessage
+                          ? processAudio
+                          : isRecording
+                              ? stopRecording
+                              : startRecording,
+                      child: Container(
+                        width: 64,
+                        height: 64,
+                        padding: const EdgeInsets.all(16.0),
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            colors: [
+                              Color(0xFF277AFF),
+                              Color(0xFF12307C),
+                            ],
                           ),
-                        )
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Text("Type",
-                            style: TextStyle(
-                              fontSize: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge!
-                                  .fontSize,
-                              color: const Color(0xff2e2e2e),
-                            )),
-                        Container(
-                          width: 64,
-                          height: 64,
-                          padding: const EdgeInsets.all(16.0),
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                              colors: [
-                                Color(0xFF277AFF),
-                                Color(0xFF12307C),
-                              ],
-                            ),
-                            borderRadius: BorderRadius.circular(32.0),
-                          ),
-                          child: const Icon(
-                            Icons.keyboard_alt_outlined,
-                            size: 24.0,
-                          ),
+                          borderRadius: BorderRadius.circular(32.0),
                         ),
-                      ],
+                        child: Icon(
+                          audioPath.isNotEmpty
+                              ? Icons.send
+                              : isRecording
+                                  ? Icons.stop
+                                  : Icons.graphic_eq,
+                          size: 24.0,
+                        ),
+                      ),
                     ),
                   ],
                 ),
-              ],
+              ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
+      ]),
     );
   }
 
-  late User user;
-  List<Map<String, dynamic>> chat = [
-    {
-      "user": true,
-      "message": "Qual foi o faturamento da empresa no último mês?",
-      "audio": "audio",
-    },
-    {
-      "user": false,
-      "message":
-          "O faturamento da empresa no último mês foi de R\$ 1.000.000,00",
-      "audio": "audio",
-    },
-    {
-      "user": true,
-      "message": "Como posso melhorar o faturamento da empresa?",
-      "audio": "audio",
-    },
-    {
-      "user": false,
-      "message": "Você pode melhorar o faturamento da empresa fazendo X, Y e Z",
-      "audio": "audio",
-    },
-    {
-      "user": true,
-      "message": "Obrigado!",
-      "audio": "audio",
-    },
-    {
-      "user": false,
-      "message": "De nada!",
-      "audio": "audio",
-    },
-  ];
-  final AudioService audioService = AudioService();
-  final Record audioRecord = Record();
-  final AudioPlayer audioPlayer = AudioPlayer();
-  bool isRecording = false;
-  String question = "";
-  String audioPath = "";
-  String tempAudioPath = "";
-  bool isPlaying = false;
-  String response = "Waiting...";
-  int statusCode = 0;
+  Widget _renderChat(List<ChatMessage> chat) {
+    if (chat.isEmpty) {
+      return Center(
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 48.0, horizontal: 16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.chat_bubble_outline,
+                size: 64.0,
+                color: Colors.grey[400],
+              ),
+              const SizedBox(height: 0.0),
+              Text(
+                "No messages yet...",
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      color: Colors.grey[400],
+                    ),
+              ),
+              const SizedBox(height: 48.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Make a question by tapping the",
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: Colors.grey[400],
+                        ),
+                  ),
+                  const SizedBox(width: 4.0),
+                  Icon(
+                    Icons.graphic_eq,
+                    color: Colors.grey[400],
+                  ),
+                  const SizedBox(width: 4.0),
+                  Text(
+                    "button",
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: Colors.grey[400],
+                        ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Stop recording by tapping the",
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: Colors.grey[400],
+                        ),
+                  ),
+                  const SizedBox(width: 4.0),
+                  Icon(
+                    Icons.stop,
+                    color: Colors.grey[400],
+                  ),
+                  const SizedBox(width: 4.0),
+                  Text(
+                    "button",
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: Colors.grey[400],
+                        ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Send the recording by tapping the",
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: Colors.grey[400],
+                        ),
+                  ),
+                  const SizedBox(width: 4.0),
+                  Icon(
+                    Icons.send,
+                    color: Colors.grey[400],
+                  ),
+                  const SizedBox(width: 4.0),
+                  Text(
+                    "button",
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: Colors.grey[400],
+                        ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: chat.length,
+      itemBuilder: (BuildContext context, int index) {
+        return MessageComponent(
+          chat[index],
+        );
+      },
+    );
+  }
+
+  Future<void> processAudio() async {
+    if (!isProcessing) {
+      if (chatIndex.isEmpty) {
+        String id = await chatService.create(user.id);
+        setState(() {
+          chatIndex = id;
+        });
+
+        widget.logger.i("ChatScreen: Chat created successfully: $chatIndex");
+      }
+
+      setState(() {
+        isProcessing = true;
+      });
+
+      try {
+        // Add user message to chat and store its index
+        final int userMessageIndex = chat.length;
+
+        // Create the audio as base64 string
+        final String audioBase64 = await audioService.encodeAudio(audioPath);
+
+        setState(() {
+          chat.add(ChatMessage(
+              isLoading: true,
+              id: "",
+              audio: audioBase64,
+              audioUrl: "",
+              isUser: true,
+              content: "Processing transcript...",
+              createdAt: DateTime.now().toString(),
+              updatedAt: DateTime.now().toString(),
+              chatId: chatIndex));
+        });
+
+        // Create the response message and store its index for later updating
+        final int responseMessageIndex = chat.length;
+
+        setState(() {
+          chat.add(ChatMessage(
+              isLoading: true,
+              id: "",
+              audio: "",
+              audioUrl: "",
+              isUser: false,
+              content: "",
+              createdAt: DateTime.now().toString(),
+              updatedAt: DateTime.now().toString(),
+              chatId: chatIndex));
+        });
+
+        final AudioProcessingResult result =
+            await audioService.postAudio(audioPath, user.mode, chatIndex);
+
+        if (result.statusCode == 200) {
+          widget.logger.i("ChatScreen: Audio processed successfully");
+
+          // Handle the success case: Destructure the result and add it to the chat
+          final AudioContent question = result.question;
+          final AudioContent answer = result.answer;
+
+          // Update the user message with the question text
+          setState(() {
+            chat[userMessageIndex].content = question.text;
+            chat[userMessageIndex].isLoading = false;
+
+            chat[responseMessageIndex].content = answer.text;
+            chat[responseMessageIndex].audio = answer.audio;
+            chat[responseMessageIndex].isLoading = false;
+          });
+
+          audioPath = "";
+        } else {
+          widget.logger.e("ChatScreen: Error processing audio");
+
+          // Handle the error case: Show a snackbar with a generic error message
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            behavior: SnackBarBehavior.floating,
+            content:
+                Text("Error: Could not process audio - ${result.statusCode}"),
+            backgroundColor: Theme.of(context).colorScheme.error,
+          ));
+        }
+      } catch (e) {
+        // remove the last two messages (if they exist)
+        if (chat.length >= 2) {
+          chat.removeLast();
+          chat.removeLast();
+        }
+
+        widget.logger.e("ChatScreen: Error processing audio - $e");
+
+        // Handle unexpected errors: Show a snackbar with a generic error message
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          behavior: SnackBarBehavior.floating,
+          content: const Text("Unexpected Error: Could not process audio"),
+          backgroundColor: Theme.of(context).colorScheme.error,
+        ));
+      }
+
+      setState(() {
+        isProcessing = false;
+      });
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        behavior: SnackBarBehavior.floating,
+        content: Text("Please wait for the current audio to finish"),
+      ));
+    }
+  }
+
+  Future<void> playPauseAudio() async {
+    try {
+      if (isPlaying) {
+        await audioPlayer.pause();
+        setState(() {
+          isPlaying = false;
+        });
+      } else {
+        Source urlSource = UrlSource(audioPath);
+        await audioPlayer.play(urlSource);
+
+        setState(() {
+          isPlaying = true;
+        });
+      }
+
+      audioPlayer.onPlayerComplete.listen((event) {
+        setState(() {
+          isPlaying = false;
+        });
+      });
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          behavior: SnackBarBehavior.floating,
+          content: Text("Error: Could not play audio"),
+        ),
+      );
+    }
+  }
 
   Future<void> startRecording() async {
     try {
@@ -307,27 +519,77 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
       });
     } catch (e) {
       widget.logger.e("ChatScreen: Error stopping recording - $e");
+    }
+  }
+
+  void deleteAudio() {
+    setState(() {
+      audioPath = "";
+    });
+  }
+
+  bool isGettingChat = false;
+
+  Future<void> _getChat(String userId, String id) async {
+    setState(() {
+      isGettingChat = true;
+    });
+
+    widget.logger.i("Home: Getting chat $id");
+
+    try {
+      List<ChatMessage> getChat = await chatService.getChat(userId, id);
+
+      widget.logger.i("Home: Chat $id retrieved successfully");
+
+      setState(() {
+        chat.addAll(getChat);
+        isGettingChat = false;
+      });
+    } catch (e) {
+      widget.logger.e("Home: Error getting chat $id: $e");
+
+      setState(() {
+        isGettingChat = false;
+      });
 
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
+          content: const Text('Error getting chat data'),
           behavior: SnackBarBehavior.floating,
-          content: Text("Error: Could not stop recording"),
+          backgroundColor: Theme.of(context).colorScheme.error,
         ),
       );
+
+      Navigator.of(context).pop();
+    }
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final args = ModalRoute.of(context)?.settings.arguments;
+    if (args != null && args is String) {
+      setState(() {
+        chatIndex = args;
+      });
+
+      // Now you can use chatIndex here
+      _getChat(user.id, chatIndex);
     }
   }
 
   @override
   void initState() {
-    widget.logger.i("ChatScreen: Initializing state");
+    chatService = ChatService(widget.logger);
+    audioService = AudioService(widget.logger);
+    user = widget.ref.read(userProvider).get();
 
     super.initState();
-  }
 
-  @override
-  void dispose() {
-    widget.logger.i("ChatScreen: Disposing");
-
-    super.dispose();
+    if (chatIndex.isNotEmpty) {
+      widget.logger.i("ChatScreen: Chat index is not empty: $chatIndex");
+      _getChat(user.id, chatIndex);
+    }
   }
 }

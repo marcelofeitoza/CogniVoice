@@ -1,312 +1,732 @@
-[2023-09-04T11:03:41.933] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T11:03:41.940] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'SalesTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T14:03:31.767Z
+[2023-10-05T13:31:12.181] [DEBUG] chat - Starting Ask method...
+[2023-10-05T13:31:12.187] [DEBUG] chat - Receiving audio...
+[2023-10-05T13:31:12.187] [INFO] chat - Audio Received
+[2023-10-05T13:31:12.188] [INFO] chat - Audio saved
+[2023-10-05T13:31:12.269] [DEBUG] chat - Conversion ended
+[2023-10-05T13:31:12.269] [INFO] chat - Audio converted to flac
+[2023-10-05T13:31:12.269] [DEBUG] chat - <Buffer 66 4c 61 43 00 00 00 22 12 00 12 00 00 00 10 00 46 58 0a c4 43 70 00 01 a0 00 6d b2 40 34 2d ee 1d 84 26 f8 3e 34 59 63 2b 1f 04 00 00 8b 0c 00 00 00 ... 329482 more bytes>
+[2023-10-05T13:31:15.251] [DEBUG] chat - quando a ibm foi fundada 
+[2023-10-05T13:31:15.251] [INFO] chat - Texto gerado com sucesso!
+[2023-10-05T13:31:15.251] [DEBUG] chat - quando a ibm foi fundada 
+[2023-10-05T13:31:15.252] [DEBUG] chat - [
+  {
+    role: 'system',
+    content: 'Você é um assistente de bate-papo que têm como função ajudar usuários que trabalham na área de marketing de uma empresa, e portanto suas informações devem ajudar o usuário em seu trabalho.'
+  },
+  { role: 'user', content: 'quando a ibm foi fundada ' }
+]
+[2023-10-05T13:31:16.226] [ERROR] chat - Error completing chat undefined
+[2023-10-05T13:31:16.226] [ERROR] chat - Error: Error completing chat
+    at Object.sendToGPT (/home/marcelo/dev/CogniVoice/src/BackEnd/utils/gpt.js:75:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Chat.Ask (/home/marcelo/dev/CogniVoice/src/BackEnd/services/chat.js:77:25)
+    at async ask (/home/marcelo/dev/CogniVoice/src/BackEnd/controllers/chat.js:22:18)
+[2023-10-05T13:35:34.101] [DEBUG] chat - Starting Ask method...
+[2023-10-05T13:35:34.101] [DEBUG] chat - Receiving audio...
+[2023-10-05T13:35:34.101] [INFO] chat - Audio Received
+[2023-10-05T13:35:34.102] [INFO] chat - Audio saved
+[2023-10-05T13:35:34.127] [DEBUG] chat - Conversion ended
+[2023-10-05T13:35:34.127] [INFO] chat - Audio converted to flac
+[2023-10-05T13:35:34.127] [DEBUG] chat - <Buffer 66 4c 61 43 00 00 00 22 12 00 12 00 00 00 10 00 46 58 0a c4 43 70 00 01 a0 00 6d b2 40 34 2d ee 1d 84 26 f8 3e 34 59 63 2b 1f 04 00 00 8b 0c 00 00 00 ... 329482 more bytes>
+[2023-10-05T13:35:37.847] [DEBUG] chat - quando a ibm foi fundada 
+[2023-10-05T13:35:37.848] [INFO] chat - Texto gerado com sucesso!
+[2023-10-05T13:35:37.848] [DEBUG] chat - quando a ibm foi fundada 
+[2023-10-05T13:35:37.848] [DEBUG] chat - [
+  {
+    role: 'system',
+    content: 'Você é um assistente de bate-papo que têm como função ajudar usuários que trabalham na área de marketing de uma empresa, e portanto suas informações devem ajudar o usuário em seu trabalho.'
+  },
+  { role: 'user', content: 'quando a ibm foi fundada ' }
+]
+[2023-10-05T13:35:38.475] [ERROR] chat - Error completing chat undefined
+[2023-10-05T13:35:38.475] [ERROR] chat - Error: Error completing chat
+    at Object.sendToGPT (/home/marcelo/dev/CogniVoice/src/BackEnd/utils/gpt.js:75:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Chat.Ask (/home/marcelo/dev/CogniVoice/src/BackEnd/services/chat.js:77:25)
+    at async ask (/home/marcelo/dev/CogniVoice/src/BackEnd/controllers/chat.js:22:18)
+[2023-10-05T13:36:01.234] [DEBUG] chat - Starting Ask method...
+[2023-10-05T13:36:01.236] [DEBUG] chat - Receiving audio...
+[2023-10-05T13:36:01.236] [INFO] chat - Audio Received
+[2023-10-05T13:36:01.237] [INFO] chat - Audio saved
+[2023-10-05T13:36:01.281] [DEBUG] chat - Conversion ended
+[2023-10-05T13:36:01.281] [INFO] chat - Audio converted to flac
+[2023-10-05T13:36:01.282] [DEBUG] chat - <Buffer 66 4c 61 43 00 00 00 22 12 00 12 00 00 00 10 00 46 58 0a c4 43 70 00 01 a0 00 6d b2 40 34 2d ee 1d 84 26 f8 3e 34 59 63 2b 1f 04 00 00 8b 0c 00 00 00 ... 329482 more bytes>
+[2023-10-05T13:36:05.165] [DEBUG] chat - quando a ibm foi fundada 
+[2023-10-05T13:36:05.165] [INFO] chat - Texto gerado com sucesso!
+[2023-10-05T13:36:05.166] [DEBUG] chat - quando a ibm foi fundada 
+[2023-10-05T13:36:05.166] [DEBUG] chat - [
+  {
+    role: 'system',
+    content: 'Você é um assistente de bate-papo que têm como função ajudar usuários que trabalham na área de marketing de uma empresa, e portanto suas informações devem ajudar o usuário em seu trabalho.'
+  },
+  { role: 'user', content: 'quando a ibm foi fundada ' }
+]
+[2023-10-05T13:36:05.751] [ERROR] chat - Error completing chat undefined
+[2023-10-05T13:36:05.751] [ERROR] chat - Error: Error completing chat
+    at Object.sendToGPT (/home/marcelo/dev/CogniVoice/src/BackEnd/utils/gpt.js:75:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Chat.Ask (/home/marcelo/dev/CogniVoice/src/BackEnd/services/chat.js:77:25)
+    at async ask (/home/marcelo/dev/CogniVoice/src/BackEnd/controllers/chat.js:22:18)
+[2023-10-05T13:37:09.628] [DEBUG] chat - Starting Ask method...
+[2023-10-05T13:37:09.630] [DEBUG] chat - Receiving audio...
+[2023-10-05T13:37:09.630] [INFO] chat - Audio Received
+[2023-10-05T13:37:09.631] [INFO] chat - Audio saved
+[2023-10-05T13:37:09.672] [DEBUG] chat - Conversion ended
+[2023-10-05T13:37:09.672] [INFO] chat - Audio converted to flac
+[2023-10-05T13:37:09.672] [DEBUG] chat - <Buffer 66 4c 61 43 00 00 00 22 12 00 12 00 00 00 10 00 46 58 0a c4 43 70 00 01 a0 00 6d b2 40 34 2d ee 1d 84 26 f8 3e 34 59 63 2b 1f 04 00 00 8b 0c 00 00 00 ... 329482 more bytes>
+[2023-10-05T13:37:13.943] [DEBUG] chat - quando a ibm foi fundada 
+[2023-10-05T13:37:13.943] [INFO] chat - Texto gerado com sucesso!
+[2023-10-05T13:37:13.943] [DEBUG] chat - quando a ibm foi fundada 
+[2023-10-05T13:37:13.943] [DEBUG] chat - This is a mock of a response.
+[2023-10-05T13:37:13.943] [DEBUG] chat - This is a mock of a response.
+[2023-10-05T13:37:13.943] [DEBUG] chat - Gerando audio...
+[2023-10-05T13:37:16.319] [DEBUG] chat - Conversion ended
+[2023-10-05T13:37:16.320] [DEBUG] chat - Audio gerado!
+[2023-10-05T13:37:16.320] [INFO] chat - Audio gerado com sucesso!
+[2023-10-05T13:37:16.320] [DEBUG] chat - <Buffer 00 00 00 1c 66 74 79 70 4d 34 41 20 00 00 02 00 4d 34 41 20 69 73 6f 6d 69 73 6f 32 00 00 00 08 66 72 65 65 00 00 63 44 6d 64 61 74 dc 00 4c 61 76 63 ... 26392 more bytes>
+[2023-10-05T13:37:16.320] [INFO] chat - Response sent - This is a mock of a response.
+[2023-10-05T13:37:45.629] [DEBUG] chat - Starting Ask method...
+[2023-10-05T13:37:45.630] [DEBUG] chat - Receiving audio...
+[2023-10-05T13:37:45.630] [INFO] chat - Audio Received
+[2023-10-05T13:37:45.630] [INFO] chat - Audio saved
+[2023-10-05T13:37:45.657] [DEBUG] chat - Conversion ended
+[2023-10-05T13:37:45.658] [INFO] chat - Audio converted to flac
+[2023-10-05T13:37:45.658] [DEBUG] chat - <Buffer 66 4c 61 43 00 00 00 22 12 00 12 00 00 00 10 00 49 c4 0a c4 43 70 00 01 44 00 b4 39 9a 6f 8f 95 e5 c7 b1 fc 83 85 8b cd 4d d4 04 00 00 8b 0c 00 00 00 ... 237725 more bytes>
+[2023-10-05T13:37:47.937] [DEBUG] chat - olá 
+[2023-10-05T13:37:47.937] [INFO] chat - Texto gerado com sucesso!
+[2023-10-05T13:37:47.937] [DEBUG] chat - olá 
+[2023-10-05T13:37:47.937] [DEBUG] chat - This is a mock of a response.
+[2023-10-05T13:37:47.937] [DEBUG] chat - This is a mock of a response.
+[2023-10-05T13:37:47.937] [DEBUG] chat - Gerando audio...
+[2023-10-05T13:37:49.950] [DEBUG] chat - Conversion ended
+[2023-10-05T13:37:49.950] [DEBUG] chat - Audio gerado!
+[2023-10-05T13:37:49.951] [INFO] chat - Audio gerado com sucesso!
+[2023-10-05T13:37:49.951] [DEBUG] chat - <Buffer 00 00 00 1c 66 74 79 70 4d 34 41 20 00 00 02 00 4d 34 41 20 69 73 6f 6d 69 73 6f 32 00 00 00 08 66 72 65 65 00 00 60 18 6d 64 61 74 dc 00 4c 61 76 63 ... 25580 more bytes>
+[2023-10-05T13:37:49.951] [INFO] chat - Response sent - This is a mock of a response.
+[2023-10-05T13:40:19.323] [DEBUG] chat - Starting Get method...
+[2023-10-05T13:40:19.359] [DEBUG] chat - {
+  id: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3',
+  userId: '94a61c04-4e1d-49ac-b722-20616b0b4463',
+  createdAt: '2023-10-05T14:25:25.506Z',
+  updatedAt: '2023-10-05T14:25:25.506Z',
+  messages: [
+    {
+      id: '08237aa5-5726-4b00-84c4-e3a190edbe3b',
+      isUser: true,
+      content: 'em que ano o bob marley morreu ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T14:25:34.548Z',
+      updatedAt: '2023-10-05T14:25:34.548Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: '77fa0298-8177-4fd4-8efa-27722c0c14dc',
+      isUser: false,
+      content: 'Bob Marley morreu em 1981.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T14:25:34.570Z',
+      updatedAt: '2023-10-05T14:25:34.570Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: '310b644f-4f58-4c6f-9b80-4f2b1aea92a6',
+      isUser: true,
+      content: 'quando o hospital alberti às tem foi fundado ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T14:26:47.806Z',
+      updatedAt: '2023-10-05T14:26:47.806Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: 'd9c7fa86-6d59-449d-9e39-077a0ca8ef43',
+      isUser: false,
+      content: 'Peço desculpas, mas não encontrei informações sobre o Hospital Alberti às tempos. É possível que ele não seja uma instituição conhecida ou que você tenha digitado o nome incorretamente. Será que você pode fornecer mais informações ou verificar o nome do hospital? Assim, poderei tentar ajudá-lo de uma maneira mais efetiva.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T14:26:47.832Z',
+      updatedAt: '2023-10-05T14:26:47.832Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: 'ebbb2d1e-ac9d-4773-af67-1c355b11fd8b',
+      isUser: true,
+      content: 'quando a ibm foi fundada ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T16:37:16.337Z',
+      updatedAt: '2023-10-05T16:37:16.337Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: '64c34456-e3dd-4f07-95fc-198735a1d479',
+      isUser: false,
+      content: 'This is a mock of a response.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T16:37:16.351Z',
+      updatedAt: '2023-10-05T16:37:16.351Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: '3727531e-25fc-4622-9477-64f8a4031ffe',
+      isUser: true,
+      content: 'olá ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T16:37:49.963Z',
+      updatedAt: '2023-10-05T16:37:49.963Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: '697746ee-8c60-4fa5-8e84-b3e326806db0',
+      isUser: false,
+      content: 'This is a mock of a response.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T16:37:49.980Z',
+      updatedAt: '2023-10-05T16:37:49.980Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    }
+  ]
 }
-[2023-09-04T11:21:53.918] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T11:21:53.925] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+[2023-10-05T13:40:38.905] [DEBUG] chat - Starting Ask method...
+[2023-10-05T13:40:38.905] [DEBUG] chat - Receiving audio...
+[2023-10-05T13:40:38.905] [INFO] chat - Audio Received
+[2023-10-05T13:40:38.905] [INFO] chat - Audio saved
+[2023-10-05T13:40:38.938] [DEBUG] chat - Conversion ended
+[2023-10-05T13:40:38.938] [INFO] chat - Audio converted to flac
+[2023-10-05T13:40:38.939] [DEBUG] chat - <Buffer 66 4c 61 43 00 00 00 22 12 00 12 00 00 00 10 00 50 4d 0a c4 43 70 00 02 54 00 f3 4f b2 cc 1f 29 73 02 1f 10 1a ba 3b 68 56 8c 04 00 00 8b 0c 00 00 00 ... 504705 more bytes>
+[2023-10-05T13:40:43.581] [DEBUG] chat - eu te odeio marcelo 
+[2023-10-05T13:40:43.581] [INFO] chat - Texto gerado com sucesso!
+[2023-10-05T13:40:43.581] [DEBUG] chat - eu te odeio marcelo 
+[2023-10-05T13:40:43.581] [DEBUG] chat - This is a mock of a response.
+[2023-10-05T13:40:43.581] [DEBUG] chat - This is a mock of a response.
+[2023-10-05T13:40:43.581] [DEBUG] chat - Gerando audio...
+[2023-10-05T13:40:45.770] [DEBUG] chat - Conversion ended
+[2023-10-05T13:40:45.771] [DEBUG] chat - Audio gerado!
+[2023-10-05T13:40:45.771] [INFO] chat - Audio gerado com sucesso!
+[2023-10-05T13:40:45.771] [DEBUG] chat - <Buffer 00 00 00 1c 66 74 79 70 4d 34 41 20 00 00 02 00 4d 34 41 20 69 73 6f 6d 69 73 6f 32 00 00 00 08 66 72 65 65 00 00 63 fa 6d 64 61 74 dc 00 4c 61 76 63 ... 26574 more bytes>
+[2023-10-05T13:40:45.772] [INFO] chat - Response sent - This is a mock of a response.
+[2023-10-05T13:44:38.287] [DEBUG] chat - Starting Get method...
+[2023-10-05T13:44:38.289] [DEBUG] chat - {
+  id: '969b6e32-1864-4420-bdc1-4dba069d0175',
+  userId: '94a61c04-4e1d-49ac-b722-20616b0b4463',
+  createdAt: '2023-10-05T14:30:24.946Z',
+  updatedAt: '2023-10-05T14:30:24.946Z',
+  messages: []
+}
+[2023-10-05T13:45:24.318] [DEBUG] chat - Starting Get method...
+[2023-10-05T13:45:24.376] [DEBUG] chat - {
+  id: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3',
+  userId: '94a61c04-4e1d-49ac-b722-20616b0b4463',
+  createdAt: '2023-10-05T14:25:25.506Z',
+  updatedAt: '2023-10-05T14:25:25.506Z',
+  messages: [
+    {
+      id: '08237aa5-5726-4b00-84c4-e3a190edbe3b',
+      isUser: true,
+      content: 'em que ano o bob marley morreu ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T14:25:34.548Z',
+      updatedAt: '2023-10-05T14:25:34.548Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: '77fa0298-8177-4fd4-8efa-27722c0c14dc',
+      isUser: false,
+      content: 'Bob Marley morreu em 1981.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T14:25:34.570Z',
+      updatedAt: '2023-10-05T14:25:34.570Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: '310b644f-4f58-4c6f-9b80-4f2b1aea92a6',
+      isUser: true,
+      content: 'quando o hospital alberti às tem foi fundado ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T14:26:47.806Z',
+      updatedAt: '2023-10-05T14:26:47.806Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: 'd9c7fa86-6d59-449d-9e39-077a0ca8ef43',
+      isUser: false,
+      content: 'Peço desculpas, mas não encontrei informações sobre o Hospital Alberti às tempos. É possível que ele não seja uma instituição conhecida ou que você tenha digitado o nome incorretamente. Será que você pode fornecer mais informações ou verificar o nome do hospital? Assim, poderei tentar ajudá-lo de uma maneira mais efetiva.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T14:26:47.832Z',
+      updatedAt: '2023-10-05T14:26:47.832Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: 'ebbb2d1e-ac9d-4773-af67-1c355b11fd8b',
+      isUser: true,
+      content: 'quando a ibm foi fundada ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T16:37:16.337Z',
+      updatedAt: '2023-10-05T16:37:16.337Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: '64c34456-e3dd-4f07-95fc-198735a1d479',
+      isUser: false,
+      content: 'This is a mock of a response.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T16:37:16.351Z',
+      updatedAt: '2023-10-05T16:37:16.351Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: '3727531e-25fc-4622-9477-64f8a4031ffe',
+      isUser: true,
+      content: 'olá ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T16:37:49.963Z',
+      updatedAt: '2023-10-05T16:37:49.963Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: '697746ee-8c60-4fa5-8e84-b3e326806db0',
+      isUser: false,
+      content: 'This is a mock of a response.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T16:37:49.980Z',
+      updatedAt: '2023-10-05T16:37:49.980Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: '18c96304-1296-4a96-9cc9-ec68d1c4d3d1',
+      isUser: true,
+      content: 'eu te odeio marcelo ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T16:40:45.794Z',
+      updatedAt: '2023-10-05T16:40:45.794Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: '0ec9887d-12e9-4023-a843-dad2fb685220',
+      isUser: false,
+      content: 'This is a mock of a response.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T16:40:45.813Z',
+      updatedAt: '2023-10-05T16:40:45.813Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    }
+  ]
+}
+[2023-10-05T13:45:50.785] [DEBUG] chat - Starting Get method...
+[2023-10-05T13:45:50.791] [DEBUG] chat - {
+  id: '969b6e32-1864-4420-bdc1-4dba069d0175',
+  userId: '94a61c04-4e1d-49ac-b722-20616b0b4463',
+  createdAt: '2023-10-05T14:30:24.946Z',
+  updatedAt: '2023-10-05T14:30:24.946Z',
+  messages: []
+}
+[2023-10-05T13:45:54.374] [DEBUG] chat - Starting Get method...
+[2023-10-05T13:45:54.415] [DEBUG] chat - {
+  id: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3',
+  userId: '94a61c04-4e1d-49ac-b722-20616b0b4463',
+  createdAt: '2023-10-05T14:25:25.506Z',
+  updatedAt: '2023-10-05T14:25:25.506Z',
+  messages: [
+    {
+      id: '08237aa5-5726-4b00-84c4-e3a190edbe3b',
+      isUser: true,
+      content: 'em que ano o bob marley morreu ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T14:25:34.548Z',
+      updatedAt: '2023-10-05T14:25:34.548Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: '77fa0298-8177-4fd4-8efa-27722c0c14dc',
+      isUser: false,
+      content: 'Bob Marley morreu em 1981.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T14:25:34.570Z',
+      updatedAt: '2023-10-05T14:25:34.570Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: '310b644f-4f58-4c6f-9b80-4f2b1aea92a6',
+      isUser: true,
+      content: 'quando o hospital alberti às tem foi fundado ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T14:26:47.806Z',
+      updatedAt: '2023-10-05T14:26:47.806Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: 'd9c7fa86-6d59-449d-9e39-077a0ca8ef43',
+      isUser: false,
+      content: 'Peço desculpas, mas não encontrei informações sobre o Hospital Alberti às tempos. É possível que ele não seja uma instituição conhecida ou que você tenha digitado o nome incorretamente. Será que você pode fornecer mais informações ou verificar o nome do hospital? Assim, poderei tentar ajudá-lo de uma maneira mais efetiva.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T14:26:47.832Z',
+      updatedAt: '2023-10-05T14:26:47.832Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: 'ebbb2d1e-ac9d-4773-af67-1c355b11fd8b',
+      isUser: true,
+      content: 'quando a ibm foi fundada ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T16:37:16.337Z',
+      updatedAt: '2023-10-05T16:37:16.337Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: '64c34456-e3dd-4f07-95fc-198735a1d479',
+      isUser: false,
+      content: 'This is a mock of a response.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T16:37:16.351Z',
+      updatedAt: '2023-10-05T16:37:16.351Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: '3727531e-25fc-4622-9477-64f8a4031ffe',
+      isUser: true,
+      content: 'olá ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T16:37:49.963Z',
+      updatedAt: '2023-10-05T16:37:49.963Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: '697746ee-8c60-4fa5-8e84-b3e326806db0',
+      isUser: false,
+      content: 'This is a mock of a response.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T16:37:49.980Z',
+      updatedAt: '2023-10-05T16:37:49.980Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: '18c96304-1296-4a96-9cc9-ec68d1c4d3d1',
+      isUser: true,
+      content: 'eu te odeio marcelo ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T16:40:45.794Z',
+      updatedAt: '2023-10-05T16:40:45.794Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    },
+    {
+      id: '0ec9887d-12e9-4023-a843-dad2fb685220',
+      isUser: false,
+      content: 'This is a mock of a response.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T16:40:45.813Z',
+      updatedAt: '2023-10-05T16:40:45.813Z',
+      chatId: 'eee0e92a-d9a3-485e-acaa-64dd7f05e8d3'
+    }
+  ]
+}
+[2023-10-05T14:00:21.980] [DEBUG] chat - marcelo.feitoza@ibm.com marcelo123
+[2023-10-05T14:00:21.985] [DEBUG] chat - {
+  id: '94a61c04-4e1d-49ac-b722-20616b0b4463',
+  email: 'marcelo.feitoza@ibm.com',
+  name: 'Marcelo G Feitoza',
+  password: '$2a$08$rTbZmoEkvfMbYGGvPF895OUG3yDZpakc3xU2zM.ZFuv7RrVSZ7AGa',
   mode: 'MarketTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T14:03:47.578Z
+  createdAt: 2023-10-04T15:08:22.651Z,
+  updatedAt: 2023-10-05T04:52:12.411Z
 }
-[2023-09-04T12:06:17.119] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T12:06:17.119] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+[2023-10-05T14:00:22.315] [DEBUG] chat - Starting GetAll method...
+[2023-10-05T14:00:23.453] [DEBUG] chat - Starting Get method...
+[2023-10-05T14:00:23.457] [DEBUG] chat - {
+  id: '969b6e32-1864-4420-bdc1-4dba069d0175',
+  userId: '94a61c04-4e1d-49ac-b722-20616b0b4463',
+  createdAt: '2023-10-05T14:30:24.946Z',
+  updatedAt: '2023-10-05T14:30:24.946Z',
+  messages: []
+}
+[2023-10-05T14:02:13.965] [DEBUG] chat - Starting Ask method...
+[2023-10-05T14:02:13.967] [DEBUG] chat - Receiving audio...
+[2023-10-05T14:02:13.967] [INFO] chat - Audio Received
+[2023-10-05T14:02:13.968] [INFO] chat - Audio saved
+[2023-10-05T14:02:14.013] [DEBUG] chat - Conversion ended
+[2023-10-05T14:02:14.013] [INFO] chat - Audio converted to flac
+[2023-10-05T14:02:14.014] [DEBUG] chat - <Buffer 66 4c 61 43 00 00 00 22 12 00 12 00 00 00 10 00 4e 93 0a c4 43 70 00 01 d8 00 4d ba 0f 8b ab d0 08 76 e5 db 8c a0 12 a0 69 b3 04 00 00 8b 0c 00 00 00 ... 415684 more bytes>
+[2023-10-05T14:02:19.969] [DEBUG] chat - qual o carro mais rápido à ferrari 
+[2023-10-05T14:02:19.970] [INFO] chat - Texto gerado com sucesso!
+[2023-10-05T14:02:19.970] [DEBUG] chat - qual o carro mais rápido à ferrari 
+[2023-10-05T14:02:19.971] [DEBUG] chat - [
+  {
+    role: 'system',
+    content: 'Você é um assistente de bate-papo que têm como função ajustar gramática e ortografia de um texto, e portanto suas informações devem ajudar o usuário em seu trabalho.'
+  },
+  { role: 'user', content: 'qual o carro mais rápido à ferrari ' }
+]
+[2023-10-05T14:02:20.300] [ERROR] chat - Error completing chat undefined
+[2023-10-05T14:02:20.300] [ERROR] chat - Error: Error completing chat
+    at Object.sendToGPT (/home/marcelo/dev/CogniVoice/src/BackEnd/utils/gpt.js:81:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Chat.Ask (/home/marcelo/dev/CogniVoice/src/BackEnd/services/chat.js:77:22)
+    at async ask (/home/marcelo/dev/CogniVoice/src/BackEnd/controllers/chat.js:22:18)
+[2023-10-05T14:03:17.284] [DEBUG] chat - Starting Ask method...
+[2023-10-05T14:03:17.289] [DEBUG] chat - Receiving audio...
+[2023-10-05T14:03:17.290] [INFO] chat - Audio Received
+[2023-10-05T14:03:17.291] [INFO] chat - Audio saved
+[2023-10-05T14:03:17.334] [DEBUG] chat - Conversion ended
+[2023-10-05T14:03:17.334] [INFO] chat - Audio converted to flac
+[2023-10-05T14:03:17.334] [DEBUG] chat - <Buffer 66 4c 61 43 00 00 00 22 12 00 12 00 00 00 10 00 4e 93 0a c4 43 70 00 01 d8 00 4d ba 0f 8b ab d0 08 76 e5 db 8c a0 12 a0 69 b3 04 00 00 8b 0c 00 00 00 ... 415684 more bytes>
+[2023-10-05T14:03:22.497] [DEBUG] chat - qual o carro mais rápido à ferrari 
+[2023-10-05T14:03:22.497] [INFO] chat - Texto gerado com sucesso!
+[2023-10-05T14:03:22.497] [DEBUG] chat - qual o carro mais rápido à ferrari 
+[2023-10-05T14:03:22.497] [DEBUG] chat - [
+  {
+    role: 'system',
+    content: 'Você é um assistente de bate-papo que têm como função ajudar usuários que trabalham na área de marketing de uma empresa, e portanto suas informações devem ajudar o usuário em seu trabalho.'
+  },
+  { role: 'user', content: 'qual o carro mais rápido à ferrari ' }
+]
+[2023-10-05T14:03:26.578] [DEBUG] chat - Chat finalizado! A Ferrari tem vários carros esportivos de alta velocidade, mas um dos mais rápidos é o Ferrari LaFerrari Aperta. Ele possui um motor V12 de 6.3 litros combinado com um motor elétrico, resultando em uma potência total de 950 cavalos de potência. O LaFerrari Aperta pode atingir uma velocidade máxima de mais de 350 km/h e acelerar de 0 a 100 km/h em menos de 3 segundos. É importante lembrar que a velocidade máxima pode variar de acordo com o modelo e as configurações do carro.
+[2023-10-05T14:03:26.579] [INFO] chat - Chat finalizado com sucesso!
+[2023-10-05T14:03:26.579] [DEBUG] chat - A Ferrari tem vários carros esportivos de alta velocidade, mas um dos mais rápidos é o Ferrari LaFerrari Aperta. Ele possui um motor V12 de 6.3 litros combinado com um motor elétrico, resultando em uma potência total de 950 cavalos de potência. O LaFerrari Aperta pode atingir uma velocidade máxima de mais de 350 km/h e acelerar de 0 a 100 km/h em menos de 3 segundos. É importante lembrar que a velocidade máxima pode variar de acordo com o modelo e as configurações do carro.
+[2023-10-05T14:03:26.579] [DEBUG] chat - A Ferrari tem vários carros esportivos de alta velocidade, mas um dos mais rápidos é o Ferrari LaFerrari Aperta. Ele possui um motor V12 de 6.3 litros combinado com um motor elétrico, resultando em uma potência total de 950 cavalos de potência. O LaFerrari Aperta pode atingir uma velocidade máxima de mais de 350 km/h e acelerar de 0 a 100 km/h em menos de 3 segundos. É importante lembrar que a velocidade máxima pode variar de acordo com o modelo e as configurações do carro.
+[2023-10-05T14:03:26.579] [DEBUG] chat - Gerando audio...
+[2023-10-05T14:03:42.623] [DEBUG] chat - Conversion ended
+[2023-10-05T14:03:42.623] [DEBUG] chat - Audio gerado!
+[2023-10-05T14:03:42.623] [INFO] chat - Audio gerado com sucesso!
+[2023-10-05T14:03:42.623] [DEBUG] chat - <Buffer 00 00 00 1c 66 74 79 70 4d 34 41 20 00 00 02 00 4d 34 41 20 69 73 6f 6d 69 73 6f 32 00 00 00 08 66 72 65 65 00 05 55 b2 6d 64 61 74 dc 00 4c 61 76 63 ... 353526 more bytes>
+[2023-10-05T14:03:42.625] [INFO] chat - Response sent - A Ferrari tem vários carros esportivos de alta velocidade, mas um dos mais rápidos é o Ferrari LaFerrari Aperta. Ele possui um motor V12 de 6.3 litros combinado com um motor elétrico, resultando em uma potência total de 950 cavalos de potência. O LaFerrari Aperta pode atingir uma velocidade máxima de mais de 350 km/h e acelerar de 0 a 100 km/h em menos de 3 segundos. É importante lembrar que a velocidade máxima pode variar de acordo com o modelo e as configurações do carro.
+[2023-10-05T14:05:02.266] [DEBUG] chat - Starting Ask method...
+[2023-10-05T14:05:02.272] [DEBUG] chat - Receiving audio...
+[2023-10-05T14:05:02.272] [INFO] chat - Audio Received
+[2023-10-05T14:05:02.273] [INFO] chat - Audio saved
+[2023-10-05T14:05:02.331] [DEBUG] chat - Conversion ended
+[2023-10-05T14:05:02.331] [INFO] chat - Audio converted to flac
+[2023-10-05T14:05:02.332] [DEBUG] chat - <Buffer 66 4c 61 43 00 00 00 22 12 00 12 00 00 00 10 00 48 11 0a c4 43 70 00 02 60 00 54 b3 99 a7 a8 ad f6 1d af 44 32 90 14 b3 ff 5b 04 00 00 8b 0c 00 00 00 ... 506471 more bytes>
+[2023-10-05T14:05:07.910] [DEBUG] chat - qual o carro mais rápido daud 
+[2023-10-05T14:05:07.910] [INFO] chat - Texto gerado com sucesso!
+[2023-10-05T14:05:07.910] [DEBUG] chat - Qual o carro mais rápido daud 
+[2023-10-05T14:05:07.911] [DEBUG] chat - [
+  {
+    role: 'system',
+    content: 'Você é um assistente de bate-papo que têm como função ajudar usuários que trabalham na área de marketing de uma empresa, e portanto suas informações devem ajudar o usuário em seu trabalho.'
+  },
+  { role: 'user', content: 'Qual o carro mais rápido daud ' }
+]
+[2023-10-05T14:05:10.912] [DEBUG] chat - Chat finalizado! Atualmente, o carro mais rápido do mundo é o Bugatti Chiron Super Sport 300+. Ele atinge uma velocidade máxima de 490,47 km/h. Porém, é importante ressaltar que a velocidade máxima não é um fator determinante para a maioria dos consumidores na escolha de um carro, já que a maioria dos veículos nunca atinge essa velocidade em condições normais de uso.
+[2023-10-05T14:05:10.912] [INFO] chat - Chat finalizado com sucesso!
+[2023-10-05T14:05:10.912] [DEBUG] chat - Atualmente, o carro mais rápido do mundo é o Bugatti Chiron Super Sport 300+. Ele atinge uma velocidade máxima de 490,47 km/h. Porém, é importante ressaltar que a velocidade máxima não é um fator determinante para a maioria dos consumidores na escolha de um carro, já que a maioria dos veículos nunca atinge essa velocidade em condições normais de uso.
+[2023-10-05T14:05:10.912] [DEBUG] chat - Atualmente, o carro mais rápido do mundo é o Bugatti Chiron Super Sport 300+. Ele atinge uma velocidade máxima de 490,47 km/h. Porém, é importante ressaltar que a velocidade máxima não é um fator determinante para a maioria dos consumidores na escolha de um carro, já que a maioria dos veículos nunca atinge essa velocidade em condições normais de uso.
+[2023-10-05T14:05:10.912] [DEBUG] chat - Gerando audio...
+[2023-10-05T14:05:22.459] [DEBUG] chat - Conversion ended
+[2023-10-05T14:05:22.459] [DEBUG] chat - Audio gerado!
+[2023-10-05T14:05:22.459] [INFO] chat - Audio gerado com sucesso!
+[2023-10-05T14:05:22.459] [DEBUG] chat - <Buffer 00 00 00 1c 66 74 79 70 4d 34 41 20 00 00 02 00 4d 34 41 20 69 73 6f 6d 69 73 6f 32 00 00 00 08 66 72 65 65 00 03 f8 73 6d 64 61 74 dc 00 4c 61 76 63 ... 263319 more bytes>
+[2023-10-05T14:05:22.462] [INFO] chat - Response sent - Atualmente, o carro mais rápido do mundo é o Bugatti Chiron Super Sport 300+. Ele atinge uma velocidade máxima de 490,47 km/h. Porém, é importante ressaltar que a velocidade máxima não é um fator determinante para a maioria dos consumidores na escolha de um carro, já que a maioria dos veículos nunca atinge essa velocidade em condições normais de uso.
+[2023-10-05T14:05:33.933] [DEBUG] chat - marcelo.feitoza@ibm.com marcelo123
+[2023-10-05T14:05:33.937] [DEBUG] chat - {
+  id: '94a61c04-4e1d-49ac-b722-20616b0b4463',
+  email: 'marcelo.feitoza@ibm.com',
+  name: 'Marcelo G Feitoza',
+  password: '$2a$08$rTbZmoEkvfMbYGGvPF895OUG3yDZpakc3xU2zM.ZFuv7RrVSZ7AGa',
   mode: 'MarketTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T14:03:47.578Z
+  createdAt: 2023-10-04T15:08:22.651Z,
+  updatedAt: 2023-10-05T04:52:12.411Z
 }
-[2023-09-04T12:06:45.669] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T12:06:45.671] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+[2023-10-05T14:05:34.083] [DEBUG] chat - Starting GetAll method...
+[2023-10-05T14:09:52.194] [DEBUG] chat - Deleting chat 153b0a4d-8d0c-43cb-a6bf-ec7bc770781e from user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:09:52.221] [ERROR] chat - Chat not found
+[2023-10-05T14:10:46.354] [DEBUG] chat - Deleting chat 153b0a4d-8d0c-43cb-a6bf-ec7bc770781e from user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:10:46.362] [ERROR] chat - Chat not found
+[2023-10-05T14:11:13.293] [DEBUG] chat - Deleting chat 153b0a4d-8d0c-43cb-a6bf-ec7bc770781e from user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:11:13.301] [DEBUG] chat - chatAlreadyExists: null
+[2023-10-05T14:11:13.301] [ERROR] chat - Chat not found
+[2023-10-05T14:13:17.235] [DEBUG] chat - marcelo.feitoza@ibm.com marcelo123
+[2023-10-05T14:13:17.238] [DEBUG] chat - {
+  id: '94a61c04-4e1d-49ac-b722-20616b0b4463',
+  email: 'marcelo.feitoza@ibm.com',
+  name: 'Marcelo G Feitoza',
+  password: '$2a$08$rTbZmoEkvfMbYGGvPF895OUG3yDZpakc3xU2zM.ZFuv7RrVSZ7AGa',
   mode: 'MarketTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T14:03:47.578Z
+  createdAt: 2023-10-04T15:08:22.651Z,
+  updatedAt: 2023-10-05T04:52:12.411Z
 }
-[2023-09-04T12:07:01.595] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T12:07:01.596] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+[2023-10-05T14:13:17.488] [DEBUG] chat - Starting GetAll method...
+[2023-10-05T14:14:06.131] [DEBUG] chat - marcelo.feitoza@ibm.com marcelo123
+[2023-10-05T14:14:06.133] [DEBUG] chat - {
+  id: '94a61c04-4e1d-49ac-b722-20616b0b4463',
+  email: 'marcelo.feitoza@ibm.com',
+  name: 'Marcelo G Feitoza',
+  password: '$2a$08$rTbZmoEkvfMbYGGvPF895OUG3yDZpakc3xU2zM.ZFuv7RrVSZ7AGa',
   mode: 'MarketTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T14:03:47.578Z
+  createdAt: 2023-10-04T15:08:22.651Z,
+  updatedAt: 2023-10-05T04:52:12.411Z
 }
-[2023-09-04T12:08:47.947] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T12:08:47.950] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+[2023-10-05T14:14:06.304] [DEBUG] chat - Starting GetAll method...
+[2023-10-05T14:14:21.002] [DEBUG] chat - Deleting chat 153b0a4d-8d0c-43cb-a6bf-ec7bc770781e from user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:14:21.003] [DEBUG] chat - chatAlreadyExists: null
+[2023-10-05T14:14:21.003] [ERROR] chat - Chat not found
+[2023-10-05T14:16:04.899] [DEBUG] chat - Deleting chat 153b0a4d-8d0c-43cb-a6bf-ec7bc770781e from user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:16:04.900] [DEBUG] chat - chatAlreadyExists: null
+[2023-10-05T14:16:04.900] [ERROR] chat - Chat not found
+[2023-10-05T14:17:09.646] [DEBUG] chat - Deleting chat eee0e92a-d9a3-485e-acaa-64dd7f05e8d3 from user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:17:09.648] [DEBUG] chat - chatAlreadyExists: {"id":"eee0e92a-d9a3-485e-acaa-64dd7f05e8d3","userId":"94a61c04-4e1d-49ac-b722-20616b0b4463","createdAt":"2023-10-05T14:25:25.506Z","updatedAt":"2023-10-05T14:25:25.506Z"}
+[2023-10-05T14:17:09.648] [DEBUG] chat - Chat eee0e92a-d9a3-485e-acaa-64dd7f05e8d3 found
+[2023-10-05T14:17:09.656] [ERROR] chat - Server problems
+[2023-10-05T14:17:17.371] [DEBUG] chat - marcelo.feitoza@ibm.com marcelo123
+[2023-10-05T14:17:17.373] [DEBUG] chat - {
+  id: '94a61c04-4e1d-49ac-b722-20616b0b4463',
+  email: 'marcelo.feitoza@ibm.com',
+  name: 'Marcelo G Feitoza',
+  password: '$2a$08$rTbZmoEkvfMbYGGvPF895OUG3yDZpakc3xU2zM.ZFuv7RrVSZ7AGa',
   mode: 'MarketTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T14:03:47.578Z
+  createdAt: 2023-10-04T15:08:22.651Z,
+  updatedAt: 2023-10-05T04:52:12.411Z
 }
-[2023-09-04T12:09:00.017] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T12:09:00.018] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+[2023-10-05T14:17:17.724] [DEBUG] chat - Starting GetAll method...
+[2023-10-05T14:17:19.664] [DEBUG] chat - Deleting chat eee0e92a-d9a3-485e-acaa-64dd7f05e8d3 from user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:17:19.666] [DEBUG] chat - chatAlreadyExists: {"id":"eee0e92a-d9a3-485e-acaa-64dd7f05e8d3","userId":"94a61c04-4e1d-49ac-b722-20616b0b4463","createdAt":"2023-10-05T14:25:25.506Z","updatedAt":"2023-10-05T14:25:25.506Z"}
+[2023-10-05T14:17:19.666] [DEBUG] chat - Chat eee0e92a-d9a3-485e-acaa-64dd7f05e8d3 found
+[2023-10-05T14:17:19.676] [ERROR] chat - Server problems
+[2023-10-05T14:18:00.394] [DEBUG] chat - Deleting chat 969b6e32-1864-4420-bdc1-4dba069d0175 from user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:18:00.399] [DEBUG] chat - chatAlreadyExists: {"id":"969b6e32-1864-4420-bdc1-4dba069d0175","userId":"94a61c04-4e1d-49ac-b722-20616b0b4463","createdAt":"2023-10-05T14:30:24.946Z","updatedAt":"2023-10-05T14:30:24.946Z"}
+[2023-10-05T14:18:00.399] [DEBUG] chat - Chat 969b6e32-1864-4420-bdc1-4dba069d0175 found
+[2023-10-05T14:18:00.409] [ERROR] chat - Server problems
+[2023-10-05T14:19:42.583] [DEBUG] chat - Deleting chat 969b6e32-1864-4420-bdc1-4dba069d0175 from user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:19:42.585] [DEBUG] chat - chatAlreadyExists: {"id":"969b6e32-1864-4420-bdc1-4dba069d0175","userId":"94a61c04-4e1d-49ac-b722-20616b0b4463","createdAt":"2023-10-05T14:30:24.946Z","updatedAt":"2023-10-05T14:30:24.946Z"}
+[2023-10-05T14:19:42.585] [DEBUG] chat - Chat 969b6e32-1864-4420-bdc1-4dba069d0175 found
+[2023-10-05T14:19:42.589] [DEBUG] chat - Deleting chat 969b6e32-1864-4420-bdc1-4dba069d0175 from user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:19:42.590] [DEBUG] chat - chatAlreadyExists: {"id":"969b6e32-1864-4420-bdc1-4dba069d0175","userId":"94a61c04-4e1d-49ac-b722-20616b0b4463","createdAt":"2023-10-05T14:30:24.946Z","updatedAt":"2023-10-05T14:30:24.946Z"}
+[2023-10-05T14:19:42.591] [DEBUG] chat - Chat 969b6e32-1864-4420-bdc1-4dba069d0175 found
+[2023-10-05T14:19:42.593] [ERROR] chat - Server problems
+[2023-10-05T14:19:42.599] [ERROR] chat - Server problems
+[2023-10-05T14:19:54.974] [DEBUG] chat - marcelo.feitoza@ibm.com marcelo123
+[2023-10-05T14:19:54.977] [DEBUG] chat - {
+  id: '94a61c04-4e1d-49ac-b722-20616b0b4463',
+  email: 'marcelo.feitoza@ibm.com',
+  name: 'Marcelo G Feitoza',
+  password: '$2a$08$rTbZmoEkvfMbYGGvPF895OUG3yDZpakc3xU2zM.ZFuv7RrVSZ7AGa',
   mode: 'MarketTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T14:03:47.578Z
+  createdAt: 2023-10-04T15:08:22.651Z,
+  updatedAt: 2023-10-05T04:52:12.411Z
 }
-[2023-09-04T12:10:48.437] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T12:10:48.439] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
+[2023-10-05T14:19:55.315] [DEBUG] chat - Starting GetAll method...
+[2023-10-05T14:19:57.963] [DEBUG] chat - Deleting chat eee0e92a-d9a3-485e-acaa-64dd7f05e8d3 from user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:19:57.964] [DEBUG] chat - chatAlreadyExists: {"id":"eee0e92a-d9a3-485e-acaa-64dd7f05e8d3","userId":"94a61c04-4e1d-49ac-b722-20616b0b4463","createdAt":"2023-10-05T14:25:25.506Z","updatedAt":"2023-10-05T14:25:25.506Z"}
+[2023-10-05T14:19:57.964] [DEBUG] chat - Chat eee0e92a-d9a3-485e-acaa-64dd7f05e8d3 found
+[2023-10-05T14:19:57.968] [ERROR] chat - Server problems
+[2023-10-05T14:22:19.126] [DEBUG] chat - Deleting chat eee0e92a-d9a3-485e-acaa-64dd7f05e8d3 from user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:22:19.127] [DEBUG] chat - chatAlreadyExists: {"id":"eee0e92a-d9a3-485e-acaa-64dd7f05e8d3","userId":"94a61c04-4e1d-49ac-b722-20616b0b4463","createdAt":"2023-10-05T14:25:25.506Z","updatedAt":"2023-10-05T14:25:25.506Z"}
+[2023-10-05T14:22:19.127] [DEBUG] chat - Chat eee0e92a-d9a3-485e-acaa-64dd7f05e8d3 found
+[2023-10-05T14:22:19.130] [ERROR] chat - Server problems
+[2023-10-05T14:22:29.579] [DEBUG] chat - Deleting chat eee0e92a-d9a3-485e-acaa-64dd7f05e8d3 from user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:22:29.579] [DEBUG] chat - chatAlreadyExists: {"id":"eee0e92a-d9a3-485e-acaa-64dd7f05e8d3","userId":"94a61c04-4e1d-49ac-b722-20616b0b4463","createdAt":"2023-10-05T14:25:25.506Z","updatedAt":"2023-10-05T14:25:25.506Z"}
+[2023-10-05T14:22:29.580] [DEBUG] chat - Chat eee0e92a-d9a3-485e-acaa-64dd7f05e8d3 found
+[2023-10-05T14:22:29.583] [ERROR] chat - Server problems
+[2023-10-05T14:22:49.708] [DEBUG] chat - Starting Get method...
+[2023-10-05T14:22:49.744] [DEBUG] chat - {
+  id: '969b6e32-1864-4420-bdc1-4dba069d0175',
+  userId: '94a61c04-4e1d-49ac-b722-20616b0b4463',
+  createdAt: '2023-10-05T14:30:24.946Z',
+  updatedAt: '2023-10-05T14:30:24.946Z',
+  messages: [
+    {
+      id: 'ba21186b-158e-4c94-a3ca-5f771a547f4d',
+      isUser: true,
+      content: 'qual o carro mais rápido à ferrari ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T17:03:42.649Z',
+      updatedAt: '2023-10-05T17:03:42.649Z',
+      chatId: '969b6e32-1864-4420-bdc1-4dba069d0175'
+    },
+    {
+      id: '48f39a8e-83c3-42c8-a6a3-d48e67336ec7',
+      isUser: false,
+      content: 'A Ferrari tem vários carros esportivos de alta velocidade, mas um dos mais rápidos é o Ferrari LaFerrari Aperta. Ele possui um motor V12 de 6.3 litros combinado com um motor elétrico, resultando em uma potência total de 950 cavalos de potência. O LaFerrari Aperta pode atingir uma velocidade máxima de mais de 350 km/h e acelerar de 0 a 100 km/h em menos de 3 segundos. É importante lembrar que a velocidade máxima pode variar de acordo com o modelo e as configurações do carro.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T17:03:42.676Z',
+      updatedAt: '2023-10-05T17:03:42.676Z',
+      chatId: '969b6e32-1864-4420-bdc1-4dba069d0175'
+    },
+    {
+      id: 'a1c57fd9-a569-422a-ad17-c90e726cdd3e',
+      isUser: true,
+      content: 'Qual o carro mais rápido daud ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T17:05:22.487Z',
+      updatedAt: '2023-10-05T17:05:22.487Z',
+      chatId: '969b6e32-1864-4420-bdc1-4dba069d0175'
+    },
+    {
+      id: '5820ed51-1342-4962-910a-1ce081ce0880',
+      isUser: false,
+      content: 'Atualmente, o carro mais rápido do mundo é o Bugatti Chiron Super Sport 300+. Ele atinge uma velocidade máxima de 490,47 km/h. Porém, é importante ressaltar que a velocidade máxima não é um fator determinante para a maioria dos consumidores na escolha de um carro, já que a maioria dos veículos nunca atinge essa velocidade em condições normais de uso.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-05T17:05:22.519Z',
+      updatedAt: '2023-10-05T17:05:22.519Z',
+      chatId: '969b6e32-1864-4420-bdc1-4dba069d0175'
+    }
+  ]
+}
+[2023-10-05T14:23:23.916] [DEBUG] chat - Deleting chat eee0e92a-d9a3-485e-acaa-64dd7f05e8d3 from user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:23:23.925] [DEBUG] chat - chatAlreadyExists: {"id":"eee0e92a-d9a3-485e-acaa-64dd7f05e8d3","userId":"94a61c04-4e1d-49ac-b722-20616b0b4463","createdAt":"2023-10-05T14:25:25.506Z","updatedAt":"2023-10-05T14:25:25.506Z"}
+[2023-10-05T14:23:23.925] [DEBUG] chat - Chat eee0e92a-d9a3-485e-acaa-64dd7f05e8d3 found in user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:23:23.933] [ERROR] chat - Server problems
+[2023-10-05T14:23:51.046] [DEBUG] chat - Deleting chat eee0e92a-d9a3-485e-acaa-64dd7f05e8d3 from user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:23:51.053] [DEBUG] chat - chatAlreadyExists: {"id":"eee0e92a-d9a3-485e-acaa-64dd7f05e8d3","userId":"94a61c04-4e1d-49ac-b722-20616b0b4463","createdAt":"2023-10-05T14:25:25.506Z","updatedAt":"2023-10-05T14:25:25.506Z"}
+[2023-10-05T14:23:51.053] [DEBUG] chat - Chat eee0e92a-d9a3-485e-acaa-64dd7f05e8d3 found in user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:23:51.064] [ERROR] chat - Server problems
+[2023-10-05T14:24:21.610] [DEBUG] chat - Deleting chat eee0e92a-d9a3-485e-acaa-64dd7f05e8d3 from user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:24:21.616] [DEBUG] chat - chatAlreadyExists: {"id":"eee0e92a-d9a3-485e-acaa-64dd7f05e8d3","userId":"94a61c04-4e1d-49ac-b722-20616b0b4463","createdAt":"2023-10-05T14:25:25.506Z","updatedAt":"2023-10-05T14:25:25.506Z"}
+[2023-10-05T14:24:21.616] [DEBUG] chat - Chat eee0e92a-d9a3-485e-acaa-64dd7f05e8d3 found in user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:24:21.625] [ERROR] chat - Server problems - PrismaClientKnownRequestError: 
+Invalid `prisma.chat.delete()` invocation in
+/home/marcelo/dev/CogniVoice/src/BackEnd/services/chat.js:257:28
+
+  254 loggerChat.debug(`Chat ${chatId} found in user ${userId}`);
+  255 
+  256 try {
+→ 257 	await prisma.chat.delete(
+Foreign key constraint failed on the field: `foreign key`
+[2023-10-05T14:26:47.063] [DEBUG] chat - Deleting chat eee0e92a-d9a3-485e-acaa-64dd7f05e8d3 from user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:26:47.071] [DEBUG] chat - chatAlreadyExists: {"id":"eee0e92a-d9a3-485e-acaa-64dd7f05e8d3","userId":"94a61c04-4e1d-49ac-b722-20616b0b4463","createdAt":"2023-10-05T14:25:25.506Z","updatedAt":"2023-10-05T14:25:25.506Z"}
+[2023-10-05T14:26:47.071] [DEBUG] chat - Chat eee0e92a-d9a3-485e-acaa-64dd7f05e8d3 found in user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:26:47.092] [INFO] chat - Chat removed successfully
+[2023-10-05T14:26:47.126] [DEBUG] chat - Starting GetAll method...
+[2023-10-05T14:34:18.089] [DEBUG] chat - marcelo.feitoza@ibm.com marcelo123
+[2023-10-05T14:34:18.096] [DEBUG] chat - {
+  id: '94a61c04-4e1d-49ac-b722-20616b0b4463',
+  email: 'marcelo.feitoza@ibm.com',
+  name: 'Marcelo G Feitoza',
+  password: '$2a$08$rTbZmoEkvfMbYGGvPF895OUG3yDZpakc3xU2zM.ZFuv7RrVSZ7AGa',
   mode: 'MarketTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T14:03:47.578Z
+  createdAt: 2023-10-04T15:08:22.651Z,
+  updatedAt: 2023-10-05T04:52:12.411Z
 }
-[2023-09-04T14:09:28.198] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T14:09:28.199] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'MarketTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T14:03:47.578Z
-}
-[2023-09-04T14:22:52.643] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T14:22:52.643] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'MarketTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T14:03:47.578Z
-}
-[2023-09-04T14:32:01.435] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T14:32:01.436] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'MarketTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T14:03:47.578Z
-}
-[2023-09-04T14:35:46.692] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T14:35:46.693] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'SalesTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T17:34:37.899Z
-}
-[2023-09-04T14:47:37.046] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T14:47:37.047] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'SalesTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T17:34:37.899Z
-}
-[2023-09-04T14:55:59.754] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T14:55:59.756] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'SalesTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T17:34:37.899Z
-}
-[2023-09-04T15:00:56.657] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T15:00:56.658] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'SalesTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T17:34:37.899Z
-}
-[2023-09-04T15:35:24.447] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T15:35:24.448] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'SalesTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T17:34:37.899Z
-}
-[2023-09-04T15:40:36.945] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T15:40:36.948] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'SalesTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T17:34:37.899Z
-}
-[2023-09-04T15:41:36.021] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T15:41:36.022] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'SalesTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T17:34:37.899Z
-}
-[2023-09-04T15:42:43.364] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T15:42:43.366] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'SalesTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T17:34:37.899Z
-}
-[2023-09-04T15:43:36.359] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T15:43:36.361] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'SalesTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T17:34:37.899Z
-}
-[2023-09-04T15:45:34.482] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T15:45:34.484] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'SalesTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T17:34:37.899Z
-}
-[2023-09-04T15:56:45.275] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T15:56:45.277] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'SalesTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T17:34:37.899Z
-}
-[2023-09-04T16:29:19.676] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-04T16:29:19.676] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'SalesTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T17:34:37.899Z
-}
-[2023-09-18T15:22:23.971] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-18T15:22:24.255] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'SalesTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T17:34:37.899Z
-}
-[2023-09-18T15:22:56.072] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-18T15:22:56.099] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'SalesTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T17:34:37.899Z
-}
-[2023-09-18T15:23:04.954] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-18T15:23:04.959] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'SalesTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T17:34:37.899Z
-}
-[2023-09-18T15:23:26.697] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-18T15:23:26.699] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'SalesTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T17:34:37.899Z
-}
-[2023-09-18T15:24:23.582] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-18T15:24:23.584] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'SalesTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T17:34:37.899Z
-}
-[2023-09-18T15:25:32.498] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-18T15:25:32.500] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'SalesTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T17:34:37.899Z
-}
-[2023-09-18T15:43:20.309] [DEBUG] chat - marcelo.feitoza@sou.inteli.edu.br marcelo123
-[2023-09-18T15:43:20.351] [DEBUG] chat - {
-  id: '24cfc3ad-b84a-4d59-b536-c538b814ac56',
-  email: 'marcelo.feitoza@sou.inteli.edu.br',
-  name: 'Marcelo Gomes Feitoza',
-  password: '$2a$08$nfTfudg5HHtZTYhCKBT5t.2VeuL0bHWvQIL1h0VgeTfa7majIG4Fi',
-  mode: 'SalesTracker',
-  createdAt: 2023-08-28T03:01:40.647Z,
-  updatedAt: 2023-09-04T17:34:37.899Z
-}
-[2023-09-18T15:43:46.816] [DEBUG] chat - Recebendo audio...
-[2023-09-18T15:43:46.818] [INFO] chat - Audio Recebido
-[2023-09-18T15:43:47.429] [DEBUG] chat - Conversion ended
-[2023-09-18T15:43:47.429] [INFO] chat - Audio convertido para flac
-[2023-09-18T15:43:47.430] [DEBUG] chat - <Buffer 66 4c 61 43 00 00 00 22 12 00 12 00 00 04 8f 00 11 aa 0a c4 41 70 00 03 4c 00 62 df 5c 37 47 aa 3a 68 0a b9 18 54 63 d4 8f 98 04 00 00 8b 0c 00 00 00 ... 143974 more bytes>
-[2023-09-18T15:43:49.745] [ERROR] chat - Error recognizing audio:
-[2023-09-18T15:46:07.149] [DEBUG] chat - Recebendo audio...
-[2023-09-18T15:46:07.149] [INFO] chat - Audio Recebido
-[2023-09-18T15:46:07.215] [DEBUG] chat - Conversion ended
-[2023-09-18T15:46:07.215] [INFO] chat - Audio convertido para flac
-[2023-09-18T15:46:07.215] [DEBUG] chat - <Buffer 66 4c 61 43 00 00 00 22 12 00 12 00 00 00 0c 00 11 88 0a c4 41 70 00 01 5c 00 d4 0f b8 b7 2f 47 bb db 28 3b bf 71 ee 5b 83 38 04 00 00 8b 0c 00 00 00 ... 87587 more bytes>
-[2023-09-18T15:46:08.226] [ERROR] chat - Error recognizing audio:
+[2023-10-05T14:34:18.438] [DEBUG] chat - Starting GetAll method...
+[2023-10-05T14:34:20.797] [DEBUG] chat - Deleting chat 969b6e32-1864-4420-bdc1-4dba069d0175 from user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:34:20.799] [DEBUG] chat - chatAlreadyExists: {"id":"969b6e32-1864-4420-bdc1-4dba069d0175","userId":"94a61c04-4e1d-49ac-b722-20616b0b4463","createdAt":"2023-10-05T14:30:24.946Z","updatedAt":"2023-10-05T14:30:24.946Z"}
+[2023-10-05T14:34:20.799] [DEBUG] chat - Chat 969b6e32-1864-4420-bdc1-4dba069d0175 found in user 94a61c04-4e1d-49ac-b722-20616b0b4463
+[2023-10-05T14:34:20.819] [INFO] chat - Chat removed successfully
+[2023-10-05T14:34:20.895] [DEBUG] chat - Starting GetAll method...

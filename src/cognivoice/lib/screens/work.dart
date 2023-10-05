@@ -213,7 +213,6 @@ class _WorkState extends ConsumerState<Work> {
           if (isRecording) {
             stopRecording();
           } else {
-            
             startRecording();
           }
         },
@@ -230,7 +229,7 @@ class _WorkState extends ConsumerState<Work> {
     );
   }
 
-  final AudioService audioService = AudioService();
+  late final AudioService audioService;
   final Record audioRecord = Record();
   final AudioPlayer audioPlayer = AudioPlayer();
   bool isRecording = false;
@@ -317,15 +316,15 @@ class _WorkState extends ConsumerState<Work> {
       widget.logger.i("Work: Processing audio");
 
       AudioProcessingResult postResponse =
-          await audioService.postAudio(audioPath, widget.logger, user.mode);
+          await audioService.postAudio(audioPath, user.mode, "");
 
-      String audioBase64 = postResponse.audio;
-      File? receivedAudio =
-          await audioService.decodeAudio(audioBase64, widget.logger);
+      String audioBase64 = postResponse
+          .question.audio; // Assuming you want the question audio here
+      File? receivedAudio = await audioService.decodeAudio(audioBase64);
 
       setState(() {
-        question = postResponse.question;
-        response = postResponse.message;
+        question = postResponse.question.text;
+        response = postResponse.answer.text;
         statusCode = postResponse.statusCode;
         audioPath = receivedAudio.path;
       });
@@ -349,6 +348,7 @@ class _WorkState extends ConsumerState<Work> {
       timeOfDay = TimeOfDay.night;
     }
 
+    audioService = AudioService(widget.logger);
     super.initState();
   }
 
