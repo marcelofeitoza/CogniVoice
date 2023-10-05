@@ -20,7 +20,7 @@ class Login extends ConsumerStatefulWidget {
 class _LoginState extends ConsumerState<Login> {
   final _formKey = GlobalKey<FormState>();
   final emailController =
-      TextEditingController(text: "marcelo.feitoza@sou.inteli.edu.br");
+      TextEditingController(text: "marcelo.feitoza@ibm.com");
   final passwordController = TextEditingController(text: "marcelo123");
   late final UserService userService;
 
@@ -64,7 +64,7 @@ class _LoginState extends ConsumerState<Login> {
 
             Navigator.pushNamedAndRemoveUntil(
               context,
-              "/home", // "/work", // "/home",
+              "/home",
               (route) => false,
             );
           } else {
@@ -140,13 +140,17 @@ class _LoginState extends ConsumerState<Login> {
                           return null;
                         },
                         decoration: InputDecoration(
-                          hintStyle: const TextStyle(
-                            color: Colors.grey,
-                          ),
                           border: OutlineInputBorder(
                             borderSide: const BorderSide(
                               color: Colors.grey,
                               width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Theme.of(context).colorScheme.primary,
+                              width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(5.0),
                           ),
@@ -175,6 +179,13 @@ class _LoginState extends ConsumerState<Login> {
                             ),
                             borderRadius: BorderRadius.circular(5.0),
                           ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Theme.of(context).colorScheme.primary,
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
                           labelText: 'Password',
                         ),
                       ),
@@ -183,7 +194,6 @@ class _LoginState extends ConsumerState<Login> {
                         onPressed: () {
                           widget.logger
                               .i('Login: Forgot password button pressed');
-                          // ...
                         },
                         child: Text(
                           'Forgot password?',
@@ -236,7 +246,7 @@ class _LoginState extends ConsumerState<Login> {
               ),
             ),
           ),
-          if (isLoading) const ModalLoadingOverlay(),
+          if (isLoading) ModalLoadingOverlay(),
         ],
       ),
     );

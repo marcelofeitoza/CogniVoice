@@ -1,28 +1,29 @@
 import 'package:cognivoice/models/audioProcessingResult.model.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
 import 'package:loggerw/loggerw.dart';
 import 'dart:typed_data';
 import 'dart:convert';
 import 'dart:io';
 
 class AudioService {
-  Future<AudioProcessingResult> postAudio(
-      String audioFilePath, Logger logger, String? mode) async {
-    String? apiUrl = dotenv.env['API_URL'];
-    String path = "chat/ask";
+  final Logger logger;
+  final String? apiUrl;
 
+  AudioService(this.logger) : apiUrl = dotenv.env['API_URL'];
+
+  Future<AudioProcessingResult> postAudio(
+      String audioFilePath, String mode, String? chatId) async {
+    final path = "chat/ask";
     logger.i("AudioService: Posting audio to $apiUrl/$path");
 
     if (apiUrl == null) {
       logger.e("AudioService: API_URL not found");
-
       return AudioProcessingResult(
-        audio: audioFilePath,
-        question: "",
-        message: "API_URL not found",
-        statusCode: -1,
+        answer: AudioContent(text: "", audio: ""),
+        question: AudioContent(text: "", audio: ""),
+        statusCode: 500,
       );
     }
 
@@ -30,7 +31,7 @@ class AudioService {
     logger.i("AudioService: Audio bytes length - ${audioBytes.length}");
 
     final response = await http.post(
-      Uri.parse("$apiUrl/$path/$mode"),
+      Uri.parse("$apiUrl/$path/$mode/${chatId!}"),
       headers: {'Content-Type': 'audio/mp4'},
       body: audioBytes,
     );
@@ -38,37 +39,36 @@ class AudioService {
 
     final jsonResponse = json.decode(response.body);
 
-    final String message = jsonResponse['message'];
-    logger.i("AudioService: Response message - $message");
+    logger.i("AudioService: Response - $jsonResponse");
 
     if (response.statusCode == 200) {
       logger.i("AudioService: Response success");
 
-      final String audioPath = jsonResponse['audio'];
-      final String question = jsonResponse['question'];
+      final answer = AudioContent(
+          text: jsonResponse['answer']['text'],
+          audio: jsonResponse['answer']['audio']);
 
-      logger.d("AudioService: Audio path - $audioPath");
-      logger.d("AudioService: Text - $question");
+      final question = AudioContent(
+          text: jsonResponse['question']['text'],
+          audio: jsonResponse['question']['audio']);
 
       return AudioProcessingResult(
+        answer: answer,
         question: question,
-        audio: audioPath,
-        message: message,
         statusCode: response.statusCode,
       );
     } else {
-      logger.e("AudioService: Response error - $message");
+      logger.e("AudioService: Response error - ${response.body}");
 
       return AudioProcessingResult(
-        audio: "",
-        question: "",
-        message: message,
+        answer: AudioContent(text: "", audio: ""),
+        question: AudioContent(text: "", audio: ""),
         statusCode: response.statusCode,
       );
     }
   }
 
-  Future<File> decodeAudio(String audioBase64, Logger logger) async {
+  Future<File> decodeAudio(String audioBase64) async {
     logger.i("AudioService: Decoding audio");
 
     final Uint8List audioBytes = base64.decode(audioBase64);
@@ -84,5 +84,20 @@ class AudioService {
     logger.i("AudioService: Audio file written to temporary file");
 
     return tempFile;
+  }
+
+  Future<String> encodeAudio(String audioFilePath) async {
+    logger.i("AudioService: Encoding audio");
+
+    final File audioFile = File(audioFilePath);
+    logger.i("AudioService: Audio file");
+
+    final Uint8List audioBytes = await audioFile.readAsBytes();
+    logger.i("AudioService: Audio bytes length");
+
+    final String audioBase64 = base64.encode(audioBytes);
+    logger.i("AudioService: Audio base64");
+
+    return audioBase64;
   }
 }

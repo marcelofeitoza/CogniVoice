@@ -78,9 +78,7 @@ class User {
       }
     );
 
-    sendAlert.send(
-      `User ${user.name} with ID: ${user.id} logged on plataform`
-    );
+    sendAlert.send(`User ${user.name} with ID: ${user.id} logged on plataform`);
 
     return {
       message: "User authenticated",
@@ -167,8 +165,8 @@ class User {
         },
       });
 
-      if(!user) {
-        throw new Error("User not found")
+      if (!user) {
+        throw new Error("User not found");
       }
 
       return user;

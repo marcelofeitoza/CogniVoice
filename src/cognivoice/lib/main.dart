@@ -19,7 +19,7 @@ Future main() async {
       methodCount: 0,
       errorMethodCount: 8,
       colors: true,
-      printEmojis: false,
+      printEmojis: true,
       printTime: true,
     ),
     // apiUrl: "${dotenv.env['LOG_API_URL']}/logs",

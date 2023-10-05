@@ -1,4 +1,7 @@
+import 'package:cognivoice/models/chat.model.dart';
 import 'package:cognivoice/providers/user.provider.dart';
+import 'package:cognivoice/services/chat.service.dart';
+import 'package:cognivoice/services/user.service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:loggerw/loggerw.dart';
@@ -102,24 +105,6 @@ class _HomeState extends ConsumerState<Home> {
                           color: Theme.of(context).colorScheme.onPrimary,
                         ),
                       ),
-                      // TextButton(
-                      //     style: TextButton.styleFrom(
-                      //       padding: EdgeInsets.zero,
-                      //       animationDuration: Duration.zero,
-                      //     ),
-                      //     onPressed: () {},
-                      //     child: Text(
-                      //       "View all",
-                      //       style: TextStyle(
-                      //         decoration: TextDecoration.underline,
-                      //         fontSize: Theme.of(context)
-                      //             .textTheme
-                      //             .bodySmall!
-                      //             .fontSize,
-                      //         fontWeight: FontWeight.w400,
-                      //         color: Theme.of(context).colorScheme.onPrimary,
-                      //       ),
-                      //     )),
                     ],
                   ),
                 ],
@@ -139,7 +124,7 @@ class _HomeState extends ConsumerState<Home> {
                   scrollDirection: Axis.horizontal,
                   physics: const BouncingScrollPhysics(),
                 )),
-            SizedBox(
+            const SizedBox(
               height: 8.0,
             ),
             Padding(
@@ -151,7 +136,7 @@ class _HomeState extends ConsumerState<Home> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          "History (${history.length})",
+                          "History ${history.isEmpty ? "" : "(${history.length})"}",
                           style: TextStyle(
                             fontSize: Theme.of(context)
                                 .textTheme
@@ -161,75 +146,97 @@ class _HomeState extends ConsumerState<Home> {
                             color: Theme.of(context).colorScheme.onPrimary,
                           ),
                         ),
-                        // TextButton(
-                        //     style: TextButton.styleFrom(
-                        //       padding: EdgeInsets.zero,
-                        //       animationDuration: Duration.zero,
-                        //     ),
-                        //     onPressed: () {},
-                        //     child: Text(
-                        //       "View all",
-                        //       style: TextStyle(
-                        //         decoration: TextDecoration.underline,
-                        //         fontSize: Theme.of(context)
-                        //             .textTheme
-                        //             .bodySmall!
-                        //             .fontSize,
-                        //         fontWeight: FontWeight.w400,
-                        //         color: Theme.of(context).colorScheme.onPrimary,
-                        //       ),
-                        //     )),
                       ],
                     ),
-                    ListView.builder(
-                      shrinkWrap: true,
-                      physics: const BouncingScrollPhysics(),
-                      itemCount: 5,
-                      padding: EdgeInsets.only(top: 8.0),
-                      itemBuilder: (BuildContext context, int index) {
-                        return Column(
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.all(16.0),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .primary
-                                    .withOpacity(0.075),
-                              ),
-                              child: Row(
-                                children: [
-                                  const Icon(
-                                    Icons.chat_outlined,
-                                    size: 24.0,
-                                  ),
-                                  const SizedBox(
-                                    width: 8.0,
-                                  ),
-                                  Flexible(
-                                    child: Text(
-                                      history[index],
-                                      softWrap: true,
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 2,
-                                      style:
-                                          Theme.of(context).textTheme.bodyLarge,
+                    loadingHistory
+                        ? const SizedBox(
+                            height: 200,
+                            child: Center(
+                              child: CircularProgressIndicator(),
+                            ),
+                          )
+                        : history.length > 0
+                            ? ListView.builder(
+                                reverse: true,
+                                shrinkWrap: true,
+                                physics: const BouncingScrollPhysics(),
+                                itemCount:
+                                    history.length > 5 ? 5 : history.length,
+                                padding: const EdgeInsets.only(top: 8.0),
+                                itemBuilder: (BuildContext context, int index) {
+                                  return GestureDetector(
+                                    onTap: () {
+                                      widget.logger.i(
+                                          "Home: Navigating to chat ${history[index].id}");
+                                      Navigator.pushNamed(context, "/chat",
+                                          arguments:
+                                              history[index].id.toString());
+                                    },
+                                    onLongPress: () {
+                                      _deleteModal(history[index].id);
+                                    },
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          padding: const EdgeInsets.all(16.0),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .primary
+                                                .withOpacity(0.075),
+                                          ),
+                                          child: Row(
+                                            children: [
+                                              const Icon(
+                                                Icons.chat_outlined,
+                                                size: 24.0,
+                                              ),
+                                              const SizedBox(
+                                                width: 8.0,
+                                              ),
+                                              Flexible(
+                                                child: Text(
+                                                  history[index].lastMessage,
+                                                  softWrap: true,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  maxLines: 2,
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyLarge,
+                                                ),
+                                              ),
+                                              Text(
+                                                "${history[index].id}",
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodySmall,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 16.0,
+                                        ),
+                                      ],
                                     ),
-                                  ),
-                                ],
+                                  );
+                                },
+                              )
+                            : SizedBox(
+                                height: 64,
+                                child: Center(
+                                  child: Text("No history yet...",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodySmall),
+                                ),
                               ),
-                            ),
-                            const SizedBox(
-                              height: 16.0,
-                            ),
-                          ],
-                        );
-                      },
-                    )
                   ],
                 )),
-            SizedBox(
+            const SizedBox(
               height: 96.0,
             )
           ],
@@ -240,7 +247,7 @@ class _HomeState extends ConsumerState<Home> {
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.0),
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
@@ -269,6 +276,8 @@ class _HomeState extends ConsumerState<Home> {
   }
 
   late User user;
+  late UserService userService;
+
   late TimeOfDay timeOfDay;
   final List<Map<String, String>> prompts = [
     {
@@ -288,22 +297,176 @@ class _HomeState extends ConsumerState<Home> {
       "description": "Get insights on how to improve your sales."
     },
   ];
-  final List<String> history = [
-    "Qual o posicionamento da Cisco sobre a terra plana?",
-    "Qual o posicionamento da Cisco sobre a terra plana?",
-    "Qual o posicionamento da Cisco sobre a terra plana?",
-    "Qual o posicionamento da Cisco sobre a terra plana?",
-    "Qual o posicionamento da Cisco sobre a terra plana?",
-    "Qual o posicionamento da Cisco sobre a terra plana?",
-    "Qual o posicionamento da Cisco sobre a terra plana?",
-    "Qual o posicionamento da Cisco sobre a terra plana?",
-  ];
+
+  late ChatService chatService;
+  bool loadingHistory = true;
+  List<ChatModel> history = [];
+
+  void _deleteChat(String chatId) async {
+    widget.logger.d("Chat ID: $chatId");
+    widget.logger.d("User ID: ${user.id}");
+
+    try {
+      widget.logger.i("Home: Deleting chat");
+
+      await chatService.deleteChat(user.id, chatId);
+
+      _getHistory();
+
+      Navigator.pop(context);
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Chat deleted successfully!'),
+          duration: Duration(seconds: 3),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+    } catch (e) {
+      widget.logger.e("Home: Error deleting chat: $e");
+
+      Navigator.pop(context);
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Error deleting chat: $e'),
+          duration: const Duration(seconds: 3),
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: Theme.of(context).colorScheme.error,
+        ),
+      );
+    }
+  }
+
+  void _deleteModal(String chatId) async {
+    widget.logger.i("Home: Deleting chat $chatId");
+
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context) {
+          return Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.background,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(16.0),
+                topRight: Radius.circular(16.0),
+              ),
+            ),
+            height: 200,
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 16.0,
+                ),
+                Text(
+                  "Delete chat",
+                  style: TextStyle(
+                    fontSize:
+                        Theme.of(context).textTheme.headlineSmall!.fontSize,
+                    fontWeight: FontWeight.w400,
+                    color: Theme.of(context).colorScheme.onPrimary,
+                  ),
+                ),
+                const SizedBox(
+                  height: 16.0,
+                ),
+                Text(
+                  "Are you sure you want to delete this chat?",
+                  style: TextStyle(
+                    fontSize: Theme.of(context).textTheme.bodyMedium!.fontSize,
+                    fontWeight: FontWeight.w400,
+                    color: Theme.of(context).colorScheme.onPrimary,
+                  ),
+                ),
+                const SizedBox(
+                  height: 16.0,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: Theme.of(context).colorScheme.primary,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                      ),
+                      child: Text(
+                        "Cancel",
+                        style: TextStyle(
+                          fontSize: Theme.of(context)
+                              .textTheme
+                              .headlineSmall!
+                              .fontSize,
+                          fontWeight: FontWeight.w400,
+                          color: Theme.of(context).colorScheme.onPrimary,
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        _deleteChat(chatId);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Theme.of(context).colorScheme.error,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                      ),
+                      child: Text(
+                        "Delete",
+                        style: TextStyle(
+                          fontSize: Theme.of(context)
+                              .textTheme
+                              .headlineSmall!
+                              .fontSize,
+                          fontWeight: FontWeight.w400,
+                          color: Theme.of(context).colorScheme.onPrimary,
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          );
+        });
+  }
+
+  void _getHistory() async {
+    widget.logger.i("Home: Getting history");
+
+    List<ChatModel> chats = await chatService.getAllChats(user.id);
+
+    for (var element in chats) {
+      debugPrint(element.id);
+    }
+
+    setState(() {
+      history = chats;
+      loadingHistory = false;
+    });
+  }
 
   void _createChat() {
     widget.logger.i("Home: Creating chat");
 
     Navigator.pushNamed(context, "/chat");
   }
+
+  // runs when user gets back to this screen
+  @override
+  void didChangeDependencies() {
+    widget.logger.i("Home: Changing dependencies");
+
+    super.didChangeDependencies();
+  }
+
+  final routeObserverProvider =
+      Provider<RouteObserver>((ref) => RouteObserver());
 
   @override
   void initState() {
@@ -319,6 +482,11 @@ class _HomeState extends ConsumerState<Home> {
     } else {
       timeOfDay = TimeOfDay.night;
     }
+
+    chatService = ChatService(widget.logger);
+
+    user = ref.read(userProvider);
+    _getHistory();
 
     super.initState();
   }
