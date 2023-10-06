@@ -1193,47 +1193,79 @@ Objetivo: Verificar a funcionalidade das partes individuais (widgets, funções,
 Exemplo de Casos de Teste:
 
 - Caso de Teste 1: Verificar se a função de conversão de áudio para texto está funcionando corretamente (Back-end).
-  - Entrada Esperada: Áudio vindo do Front-end
+  - Entrada Esperada: Áudio originado do Front-end. Importante destacar que a extensão do arquivo deve ser .flac, e o tamanho máximo permitido não deve ultrapassar 150 MB.
+  - Passos:
+    - Envie um áudio a partir do Front-end.
+    - Aguarde a transcrição do áudio.
   - Resultado Esperado: Transcrição correta da fala contida no áudio
 
 - Caso de Teste 2: Verificar se a função de conversão de texto para áudio está funcionando corretamente (Back-end).
   - Entrada Esperada: String com uma notícia. "Projeto que utiliza inteligência artificial pretende fortalecer línguas indígenas no Brasil"
+  - Passos:
+    - Insira uma string de notícia no formato de texto.
+    - Inicie o processo de conversão para áudio.
   - Resultado Esperado: Áudio com a transcrição da string de entrada
 
 - Caso de Teste 3: Verificar se a função de realizar um request para o GPT está funcionando corretamente (Back-end).
   - Entrada Esperada: Pergunta em string "Existe algum projeto que a ibm faz com a faculdade da usp?"
+  - Passos:
+    - Formule uma pergunta em formato de string.
+    - Envie a pergunta para o sistema.
   - Resultado Esperado: Resposta em texto
 
 - Caso de Teste 4: Verificar a função de realizar login está funcionando corretamente (Back-end).
   - Entrada Esperada: Realizar Login na plataforma
+  - Passos:
+    - Realize o processo de login na plataforma.
   - Resultado Esperado: Entrar na plataforma com sucesso
 
 - Caso de Teste 5: Verificar se a função de tratamento de texto está funcionando corretamente (Sistema de NLP).
   - Entrada Esperada: String "Projeto que utiliza inteligência artificial pretende fortalecer línguas indígenas no Brasil"
+  - Passos:
+    - Insira uma string de texto com caracteres variados.
+    - Execute o processo de tratamento de texto.
   - Resultado Esperado: String "projeto que utiliza inteligencia artificial pretende fortalecer linguas indigenas no brasil"
 
 - Caso de Teste 6: Verificar se a função de aplicação das técnicas de processamento de linguagem natural está funcionando corretamente (Sistema de NLP).
   - Entrada Esperada: String "projeto utiliza inteligencia artificial pretende fortalecer linguas indigenas brasil"
+  - Passos:
+    - Insira uma string de texto.
+    - Execute o processo de aplicação das técnicas de NLP.
   - Resultado Esperado: Array "[projeto], [utiliza], [inteligencia], [artificial], [pretender], [fortalecer], [linguas], [indigenas], [brasil]"
 
 - Caso de Teste 7: Verificar se a função de vetorização de texto está funcionando corretamente (Sistema de NLP).
   - Entrada Esperada: Array "[projeto], [utiliza], [inteligencia], [artificial], [pretender], [fortalecer], [linguas], [indigenas], [brasil]"
+  - Passos:
+    - Insira um array contendo palavras.
+    - Execute o processo de vetorização.
   - Resultado Esperado: Vetor "[29.304819], [23.227833], [-41.246915], [-6.971084], [46.494031], [45.407560], [21.914921], [29.390906], [57.222970]"
 
 - Caso de Teste 8: Verificar se a função de cálculo da similaridade do cosseno está funcionando corretamente (Sistema de NLP).
   - Entrada Esperada: 1° Vetor "[29.304819], [23.227833], [-41.246915], [-6.971084], [46.494031], [45.407560], [21.914921], [29.390906], [57.222970] e 1° Vetor "[12.589388], [5.820205], [-34.974482], [-8.920619], [39.978088], [35.290584], [6.627587], [11.656030], [39.533481]"
+  - Passos:
+    - Insira dois vetores numéricos.
+    - Execute o cálculo de similaridade do cosseno.
   - Resultado Esperado: Number "0.78653554"
 
 - Caso de Teste 9: Verificar se a função de inserção e consulta do banco de dados está funcionando corretamente (Sistema de NLP).
   - Entrada Esperada: "https://jornal.usp.br/noticias/projeto-que-utiliza-inteligencia-artificial-pretende-fortalecer-linguas-indigenas-no-brasil/"
+  - Passos:
+    - Insira um URL no formato de string.
+    - Execute o processo de inserção e consulta no banco de dados.
   - Resultado Esperado: Return Post Sucess
 
 - Caso de Teste 10: Verificar se a função de captação e envio do áudio para a API do back-end está funcionando corretamente (Front-end).
   - Entrada Esperada: Usuário enviar áudio pelo aplicativo
+  - Passos:
+    - Usuário envia um áudio através do aplicativo.
+    - Verifique se o áudio é recebido corretamente e enviado para o Back-end.
   - Resultado Esperado: Receber o áudio corretamente e enviar para o Back-end
 
 - Caso de Teste 11: Verificar se a função de chat com o usuário está funcionando corretamente (Front-end).
   - Entrada Esperada: Usuário inicia um chat no aplicativo
+  - Passos:
+    - Usuário inicia um chat no aplicativo.
+    - Observe a resposta do sistema e verifique se não há atrasos significativos.
   - Resultado Esperado: Sistema responde ele sem uma demora significativa
 
 ### 2. Testes de Integração
@@ -1242,6 +1274,11 @@ Objetivo: Garantir que os diferentes componentes do aplicativo interajam correta
 
 - Caso de Teste 12: Verificar se a integração entre a interface de pesquisa por voz e o back-end está funcionando.
   - Entrada Esperada: Usuário faz uma pesquisa por voz.
+  - Passos:
+    - Abra o aplicativo.
+    - Toque no ícone de iniciar chat.
+    - Ative a pesquisa por voz pressionando o ícone de microfone.
+    - Fale uma consulta de pesquisa em voz alta.
   - Resultado Esperado: O áudio é enviado corretamente para o back-end.
 
 ### 3. Testes de Interface do Usuário (UI):
@@ -1414,6 +1451,232 @@ Objetivo: Avaliar a usabilidade, aparência e interação do aplicativo.
     - Registre o tempo necessário para que o frontend renderize completamente em cada solicitação.
     - Verifique se há um ponto em que o tempo de renderização começa a aumentar significativamente.
   - Resultado Esperado: O frontend lida com as 50 solicitações de forma eficiente, e não há um aumento significativo no tempo de renderização até um número considerável de solicitações.
+ 
+## Demonstração dos testes
+
+### Testes unitarios do Notebook de processamento de linguagem natural
+
+Este repositório inclui uma série de testes unitários para as funções de manipulação de strings do projeto. Você pode executar esses testes para garantir que as funções estejam funcionando corretamente. Abaixo está a descrição de cada teste:
+
+```python
+import unittest
+
+class TestStringManipulationFunctions(unittest.TestCase):
+    def test_remocaoAcentos(self):
+        result = remocaoAcentos("Café")
+        self.assertEqual(result, "Cafe")
+
+    def test_lowercase_text(self):
+        result = lowercase_text("Hello World")
+        self.assertEqual(result, "hello world")
+
+    def test_clean_title(self):
+        result = clean_title("Title - Subtitle")
+        self.assertEqual(result, "Title")
+
+    def test_remove_marks(self):
+        result = remove_marks("Hello, World! This is a test.")
+        self.assertEqual(result, "Hello World This is a test")
+
+    def test_remove_aspas_series(self):
+        input_data = pd.Series(['"Text 1"', '"Text 2"'])
+        result = remove_aspas(input_data)
+        expected_result = pd.Series(['Text 1', 'Text 2'])
+        self.assertTrue(result.equals(expected_result))
+
+    def test_remove_aspas_string(self):
+        input_string = '"This is a string with quotes"'
+        result = remove_aspas(input_string)
+        expected_result = 'This is a string with quotes'
+        self.assertEqual(result, expected_result)
+
+    def test_remove_aspas_other_types(self):
+        result = remove_aspas(12345)
+        self.assertEqual(result, 12345)
+
+    def test_remove_duplicate_spaces(self):
+        result = remove_duplicate_spaces("   Hello   World   ")
+        self.assertEqual(result, "Hello World")
+
+    def test_remove_isolated_numbers(self):
+        result = remove_isolated_numbers("Text 123 45 6 with numbers")
+        self.assertEqual(result, "Text    with numbers")
+
+    def test_extrair_titulo_com_sucesso(self):
+        url = "https://www.google.com/"
+        resultado = extrair_titulo(url)
+        self.assertEqual(resultado, "Google")
+
+    def test_remove_tags_com_sucesso(self):
+        url = "https://www.google.com/"
+        resultado = remove_tags(url)
+        result_compare = 'google ai advertising business how search works our third decade of climate action join us privacy terms settings search settings advanced search your data in search search history search help send feedback dark theme off google apps'
+        self.assertEqual(resultado, result_compare)
+
+    def setUp(self):
+        self.sample_data = [
+            {
+                "tag_removed": "Título da Notícia 12/12/2012",
+                "titulo": "Título da Notícia"
+            }
+        ]
+
+    def test_extract_dates(self):
+        for data in self.sample_data:
+            result = extract_dates(data)
+            self.assertIsNotNone(result, "12/12/2012")
+
+    def test_extrair_dominio(self):
+        url = "https://exemplo.com/noticia"
+        result = extrair_dominio(url)
+        self.assertEqual(result, "exemplo.com")
+
+    def test_named_entities_filtred(self):
+        coluna = ["Apple foi fundada em 1976."]
+        filtro = "ORG"
+        result = named_entities_filtred(coluna, filtro)
+        self.assertEqual(result, [{'Apple'}])
+
+    def test_named_entities(self):
+        coluna = ["Apple foi fundada em 1976."]
+        result = named_entities(coluna)
+        self.assertEqual(result, [[('Apple', 'ORG')]])
+
+    def test_stopWords(self):
+        dados = ["Este é um exemplo de texto com palavras de parada."]
+        result = stopWords(dados)
+        self.assertEqual(result, ['texto palavras parada .'])
+
+    def test_lematizar(self):
+        dados = ["Eu tenho corrido e eles correm."]
+        result = lematizar(dados)
+        self.assertEqual(result, ['eu ter corrido e eles correr .'])
+
+    def test_tokenizar_texto(self):
+        texto = "Isso é um exemplo."
+        result = tokenizar_texto(texto)
+        self.assertEqual(result, ["Isso", "é", "um", "exemplo", "."])
+
+
+test_loader = unittest.TestLoader().loadTestsFromTestCase(TestStringManipulationFunctions)
+
+test_runner = unittest.TextTestRunner(verbosity=2)
+test_runner.run(test_loader)
+```
+
+#### Descrição dos Testes
+
+- `test_remocaoAcentos`: Verifica se a função `remocaoAcentos` remove corretamente os acentos de uma string.
+- `test_lowercase_text`: Verifica se a função `lowercase_text` converte corretamente uma string para letras minúsculas.
+- `test_clean_title`: Verifica se a função `clean_title` remove corretamente qualquer subtítulo de um título.
+- `test_remove_marks`: Verifica se a função `remove_marks` remove corretamente os caracteres de pontuação de uma string.
+- `test_remove_aspas_series`: Verifica se a função `remove_aspas` remove as aspas de uma série de dados.
+- `test_remove_aspas_string`: Verifica se a função `remove_aspas` remove as aspas de uma string.
+- `test_remove_aspas_other_types`: Verifica se a função `remove_aspas` lida adequadamente com outros tipos de entrada.
+- `test_remove_duplicate_spaces`: Verifica se a função `remove_duplicate_spaces` remove corretamente espaços duplicados de uma string.
+- `test_remove_isolated_numbers`: Verifica se a função `remove_isolated_numbers` remove corretamente números isolados de uma string.
+- `test_extrair_titulo_com_sucesso`: Verifica se a função `extrair_titulo` extrai o título de uma URL com sucesso.
+- `test_remove_tags_com_sucesso`: Verifica se a função `remove_tags` remove as tags HTML de uma URL com sucesso.
+- `test_extract_dates`: Verifica se a função `extract_dates` extrai datas de uma lista de dados.
+- `test_extrair_dominio`: Verifica se a função `extrair_dominio` extrai corretamente o domínio de uma URL.
+- `test_named_entities_filtred`: Verifica se a função `named_entities_filtred` filtra entidades nomeadas de uma coluna de texto.
+- `test_named_entities`: Verifica se a função `named_entities` identifica corretamente entidades nomeadas em uma coluna de texto.
+- `test_stopWords`: Verifica se a função `stopWords` remove corretamente palavras de parada de uma lista de dados.
+- `test_lematizar`: Verifica se a função `lematizar` realiza a lematização corretamente em uma lista de dados.
+- `test_tokenizar_texto`: Verifica se a função `tokenizar_texto` divide corretamente um texto em tokens.
+
+#### Rodando os testes
+
+<img width="638" alt="results_tests_pln" src="https://github.com/2023M7T3-Inteli/Projeto2/assets/99202553/fdbcf735-f2ea-4c53-b60d-816a12deecf8">
+
+### Testes das rotas de usuario para do back-end
+
+Você pode encontrar os testes do Back-End [neste diretório](https://github.com/2023M7T3-Inteli/Projeto2/blob/main/src/BackEnd/tests/user.test.js).
+
+#### Descrição dos Testes de Criação de Usuário
+
+- **Teste 1: Deve impedir a criação de um usuário com o mesmo email**
+  - *Descrição*: Este teste verifica se o sistema impede a criação de um usuário com o mesmo endereço de e-mail já existente.
+  - *Entrada*: Um objeto de usuário com um endereço de e-mail já existente.
+  - *Saída Esperada*: O sistema deve lançar uma exceção com a mensagem "User already exists".
+
+- **Teste 2: Deve criar um usuário com sucesso**
+  - *Descrição*: Este teste verifica se o sistema é capaz de criar um usuário com sucesso quando fornecidos dados válidos.
+  - *Entrada*: Um objeto de usuário com informações únicas.
+  - *Saída Esperada*: O sistema deve criar o usuário com sucesso e retornar as informações do usuário criado.
+
+## Testes de Recuperação de Usuário
+
+- **Teste 3: Deve obter um usuário pelo ID**
+  - *Descrição*: Este teste verifica se o sistema é capaz de recuperar um usuário com base no seu ID.
+  - *Entrada*: O ID do usuário a ser recuperado.
+  - *Saída Esperada*: O sistema deve retornar as informações do usuário correspondente ao ID fornecido.
+
+- **Teste 4: Não deve obter um usuário que não existe**
+  - *Descrição*: Este teste verifica se o sistema lida corretamente com a tentativa de recuperar um usuário que não existe.
+  - *Entrada*: Um ID de usuário que não existe no sistema.
+  - *Saída Esperada*: O sistema deve lançar uma exceção com a mensagem "Error: User not found".
+
+## Testes de Atualização de Usuário
+
+- **Teste 5: Deve atualizar um usuário pelo ID**
+  - *Descrição*: Este teste verifica se o sistema é capaz de atualizar as informações de um usuário existente com base no seu ID.
+  - *Entrada*: O ID do usuário a ser atualizado e as informações de atualização.
+  - *Saída Esperada*: O sistema deve atualizar o usuário com sucesso e retornar as informações atualizadas.
+
+- **Teste 6: Não deve atualizar um usuário que não existe**
+  - *Descrição*: Este teste verifica se o sistema lida corretamente com a tentativa de atualizar um usuário que não existe.
+  - *Entrada*: Um ID de usuário que não existe no sistema e as informações de atualização.
+  - *Saída Esperada*: O sistema deve lançar uma exceção com a mensagem "User not found".
+
+## Testes de Exclusão de Usuário
+
+- **Teste 7: Deve excluir um usuário pelo ID**
+  - *Descrição*: Este teste verifica se o sistema é capaz de excluir um usuário existente com base no seu ID.
+  - *Entrada*: O ID do usuário a ser excluído.
+  - *Saída Esperada*: O sistema deve excluir o usuário com sucesso e retornar uma mensagem de confirmação.
+
+- **Teste 8: Não deve excluir um usuário que não existe**
+  - *Descrição*: Este teste verifica se o sistema lida corretamente com a tentativa de excluir um usuário que não existe.
+  - *Entrada*: Um ID de usuário que não existe no sistema.
+  - *Saída Esperada*: O sistema deve lançar uma exceção com a mensagem "User not found".
+
+#### Rodando os testes
+
+![results_back_tests](https://github.com/2023M7T3-Inteli/Projeto2/assets/99202553/64b289db-67cd-4ecd-98fc-fb0dcc45ad4c)
+
+### Testes das rotas de autenticação para do back-end
+
+Você pode encontrar os testes de autenticação para do back-end [neste diretório](https://github.com/2023M7T3-Inteli/Projeto2/blob/main/src/backend/tests/auth.test.js).
+
+### Teste 1: Criação de Usuário
+
+- *Descrição*: Este teste verifica se é possível criar um usuário com sucesso e se não é possível criar um usuário com o mesmo endereço de e-mail.
+- *Comportamento Esperado*: O teste cria um usuário com um endereço de e-mail único e verifica se a criação ocorre sem erros. Em seguida, tenta criar outro usuário com o mesmo endereço de e-mail, esperando uma mensagem de erro indicando que o usuário já existe.
+
+### Teste 2: Autenticação de Usuário
+
+- *Descrição*: Este teste verifica se um usuário pode ser autenticado com sucesso usando seu endereço de e-mail e senha e se a autenticação falha quando as credenciais estão erradas.
+- *Comportamento Esperado*: O teste autentica um usuário com o endereço de e-mail e senha corretos, verificando se a autenticação ocorre sem erros e se o ID do usuário corresponde ao esperado. Em seguida, tenta autenticar um usuário com credenciais erradas, esperando uma mensagem de erro indicando credenciais inválidas.
+
+### Teste 3: Recuperação de Usuário
+
+- *Descrição*: Este teste verifica se é possível recuperar um usuário pelo seu ID e se não é possível recuperar um usuário que não existe.
+- *Comportamento Esperado*: O teste tenta recuperar um usuário pelo seu ID, verificando se a recuperação ocorre sem erros e se o ID do usuário corresponde ao esperado. Em seguida, tenta recuperar um usuário que não existe, esperando uma mensagem de erro indicando que o usuário não foi encontrado.
+
+### Teste 4: Atualização de Usuário
+
+- *Descrição*: Este teste verifica se é possível atualizar os dados de um usuário existente pelo seu ID e se a atualização não é possível para um usuário que não existe.
+- *Comportamento Esperado*: O teste atualiza os dados de um usuário existente e verifica se a atualização ocorre sem erros, incluindo a verificação do nome atualizado. Em seguida, tenta atualizar um usuário que não existe, esperando uma mensagem de erro indicando que o usuário não foi encontrado.
+
+### Teste 5: Exclusão de Usuário
+
+- *Descrição*: Este teste verifica se é possível excluir um usuário pelo seu ID e se a exclusão não é possível para um usuário que não existe.
+- *Comportamento Esperado*: O teste exclui um usuário existente e verifica se a exclusão ocorre sem erros, incluindo a verificação da mensagem de sucesso. Em seguida, tenta excluir um usuário que não existe, esperando uma mensagem de erro indicando que o usuário não foi encontrado.
+
+#### Rodando os testes
+
+![results_auth_tests](https://github.com/2023M7T3-Inteli/Projeto2/assets/99202553/8a113b55-ac13-4b86-bd70-c24c94fb777a)
 
 ## Integração do Frontend com o Backend Implementado
 
