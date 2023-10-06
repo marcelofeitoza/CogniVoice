@@ -39,7 +39,7 @@ class AudioService {
 
     final jsonResponse = json.decode(response.body);
 
-    logger.i("AudioService: Response - $jsonResponse");
+    logger.i("AudioService: Response - ${jsonResponse['answer']['text']}");
 
     if (response.statusCode == 200) {
       logger.i("AudioService: Response success");

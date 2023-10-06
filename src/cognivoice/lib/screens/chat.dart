@@ -111,9 +111,14 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
                         ],
                       ),
                     )
-                  : SingleChildScrollView(
-                      child: _renderChat(chat),
-                    ),
+                  : RefreshIndicator(
+                      child: SingleChildScrollView(
+                        child: _renderChat(chat),
+                      ),
+                      onRefresh: () async {
+                        await Future.delayed(const Duration(seconds: 1));
+                        _getChat(user.id, chatIndex);
+                      }),
             ),
             Container(
               padding: const EdgeInsets.all(8.0),
@@ -195,7 +200,8 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
                               const SizedBox(width: 8),
                             ],
                           )
-                        : const SizedBox(width: 0),
+                        : Text("Press to ${isRecording ? 'stop' : 'record'}",
+                            style: Theme.of(context).textTheme.titleLarge),
                     GestureDetector(
                       onTap: audioPath.isNotEmpty
                           // ? sendMessage
@@ -236,6 +242,8 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
       ]),
     );
   }
+
+  ScrollController _scrollController = ScrollController();
 
   Widget _renderChat(List<ChatMessage> chat) {
     if (chat.isEmpty) {
@@ -336,7 +344,8 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
 
     return ListView.builder(
       shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
+      controller: _scrollController,
+      physics: const BouncingScrollPhysics(),
       itemCount: chat.length,
       itemBuilder: (BuildContext context, int index) {
         return MessageComponent(
@@ -533,6 +542,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
   Future<void> _getChat(String userId, String id) async {
     setState(() {
       isGettingChat = true;
+      chat.clear();
     });
 
     widget.logger.i("Home: Getting chat $id");

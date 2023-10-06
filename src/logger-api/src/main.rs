@@ -1,5 +1,5 @@
-use actix_web::{get, post, web, App, HttpRequest, HttpResponse, HttpServer, Responder};
 use actix_web::middleware::Logger;
+use actix_web::{get, post, web, App, HttpRequest, HttpResponse, HttpServer, Responder};
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use std::fs::OpenOptions;
@@ -34,7 +34,7 @@ fn format_log_entry(info: &LogInfo, time: DateTime<Utc>, request: &HttpRequest) 
         Some(ip) => ip.to_string(),
         None => String::new(),
     };
-    
+
     format!(
         "[{}] - [{}] [{}] - {} {} {}",
         &client_ip,
@@ -96,14 +96,18 @@ async fn main() -> std::io::Result<()> {
     }
     env_logger::init();
 
-    println!("Started on http://127.0.0.1:3002");
+
+    let address = "0.0.0.0:3002"; // Bind to all available network interfaces
+
+    println!("Started on http://{}", address);
 
     HttpServer::new(move || {
         App::new()
             .service(logs_handler)
             .service(health_handler)
             .wrap(Logger::default())
-    }).bind(("127.0.0.1", 3002))?
-      .run()
-      .await
+    })
+    .bind(address)?
+    .run()
+    .await
 }

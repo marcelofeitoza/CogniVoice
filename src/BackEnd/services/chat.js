@@ -27,6 +27,8 @@ class Chat {
 	async Ask(content, mode, chatId) {
 		loggerChat.debug("Starting Ask method...");
 
+		let start = new Date().getTime();
+
 		if (!content) {
 			loggerChat.error("Audio is required");
 			throw new Error("Audio is required");
@@ -64,6 +66,12 @@ class Chat {
 		} catch (error) {
 			console.error("Error converting audio:", error);
 			loggerChat.error("Error converting audio:", error);
+
+			let end = new Date().getTime();
+			let time = end - start;
+
+			loggerChat.info("Tempo de resposta para rodar ASK: " + time + "ms");
+
 			throw new Error("Error converting audio");
 		}
 
@@ -74,7 +82,7 @@ class Chat {
 			const text = await ibmUtils.generateText(audioFlac);
 			loggerChat.debug(text);
 
-			const responseChat = await gptUtils.sendToGPT(text, "teste", mode);
+			const responseChat = await gptUtils.sendToGPT(text, chatId, mode);
 			// const responseChat = "This is a mock of a response.";
 			loggerChat.debug(responseChat);
 
@@ -96,8 +104,6 @@ class Chat {
 				answer: answer,
 			};
 
-			await gptUtils.recordChatOfUser(responseChat, text);
-
 			//Remove all files with audio suffix on this path
 			try {
 				fs.readdirSync("audios").forEach((file) => {
@@ -109,6 +115,13 @@ class Chat {
 					}
 				});
 			} catch (err) {
+				let end = new Date().getTime();
+				let time = end - start;
+
+				loggerChat.info(
+					"Tempo de resposta para rodar ASK: " + time + "ms"
+				);
+
 				console.error("Error removing audio files:", err);
 				loggerChat.error("Error removing audio files:", err);
 				throw new Error("Error removing audio files");
@@ -141,6 +154,13 @@ class Chat {
 					},
 				});
 
+				let end = new Date().getTime();
+				let time = end - start;
+
+				loggerChat.info(
+					"Tempo de resposta para rodar ASK: " + time + "ms"
+				);
+
 				return {
 					question: {
 						text: questionMessage.content,
@@ -156,6 +176,12 @@ class Chat {
 			return response;
 		} catch (error) {
 			loggerChat.error(error);
+
+			let end = new Date().getTime();
+			let time = end - start;
+
+			loggerChat.info("Tempo de resposta para rodar ASK: " + time + "ms");
+
 			throw new Error("Error recognizing audio");
 		}
 	}
@@ -189,7 +215,7 @@ class Chat {
 					messages: {
 						take: 1,
 						orderBy: {
-							createdAt: "asc",
+							createdAt: "desc",
 						},
 					},
 				},

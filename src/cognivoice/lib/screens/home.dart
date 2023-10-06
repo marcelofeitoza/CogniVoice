@@ -35,108 +35,70 @@ class _HomeState extends ConsumerState<Home> {
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 72,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                                "Good ${timeOfDay.toString().split('.').last}!",
-                                style: TextStyle(
-                                  fontSize: Theme.of(context)
-                                      .textTheme
-                                      .headlineLarge!
-                                      .fontSize,
-                                  fontWeight: FontWeight.w400,
-                                  color:
-                                      Theme.of(context).colorScheme.onPrimary,
-                                )),
-                            Text("Search with CogniVoice",
-                                style: TextStyle(
-                                  fontSize: Theme.of(context)
-                                      .textTheme
-                                      .headlineSmall!
-                                      .fontSize,
-                                  fontWeight: FontWeight.w300,
-                                  color:
-                                      Theme.of(context).colorScheme.onPrimary,
-                                ),
-                                softWrap: true),
-                          ]),
-                      IconButton(
-                        onPressed: () {
-                          widget.logger.i("Home: Settings button clicked");
-                          Navigator.pushNamed(context, "/settings");
-                        },
-                        icon: Icon(
-                          Icons.settings_outlined,
-                          size: 28,
-                          color: Theme.of(context).colorScheme.onPrimary,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 24),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Prompts",
-                        style: TextStyle(
-                          fontSize: Theme.of(context)
-                              .textTheme
-                              .headlineSmall!
-                              .fontSize,
-                          fontWeight: FontWeight.w400,
-                          color: Theme.of(context).colorScheme.onPrimary,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            Container(
-                margin: const EdgeInsets.symmetric(vertical: 8),
-                height: 200,
-                child: ListView.builder(
-                  itemBuilder: (BuildContext context, int index) {
-                    return PromptCard(
-                      title: prompts[index]["title"]!,
-                      description: prompts[index]["description"]!,
-                    );
-                  },
-                  itemCount: prompts.length,
-                  scrollDirection: Axis.horizontal,
-                  physics: const BouncingScrollPhysics(),
-                )),
-            const SizedBox(
-              height: 8.0,
-            ),
-            Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      body: RefreshIndicator(
+        onRefresh: () async {
+          getHistory();
+        },
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
                   children: [
+                    const SizedBox(
+                      height: 72,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                  "Good ${timeOfDay.toString().split('.').last},\n${user.name.split(' ')[0]}!",
+                                  style: TextStyle(
+                                    fontSize: Theme.of(context)
+                                        .textTheme
+                                        .headlineLarge!
+                                        .fontSize,
+                                    fontWeight: FontWeight.w400,
+                                    color:
+                                        Theme.of(context).colorScheme.onPrimary,
+                                  )),
+                              Text("Search with CogniVoice",
+                                  style: TextStyle(
+                                    fontSize: Theme.of(context)
+                                        .textTheme
+                                        .headlineSmall!
+                                        .fontSize,
+                                    fontWeight: FontWeight.w300,
+                                    color:
+                                        Theme.of(context).colorScheme.onPrimary,
+                                  ),
+                                  softWrap: true),
+                            ]),
+                        IconButton(
+                          onPressed: () {
+                            widget.logger.i("Home: Settings button clicked");
+                            Navigator.pushNamed(context, "/settings");
+                          },
+                          icon: Icon(
+                            Icons.settings_outlined,
+                            size: 28,
+                            color: Theme.of(context).colorScheme.onPrimary,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 24),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          "History ${history.isEmpty ? "" : "(${history.length})"}",
+                          "Prompts",
                           style: TextStyle(
                             fontSize: Theme.of(context)
                                 .textTheme
@@ -148,98 +110,151 @@ class _HomeState extends ConsumerState<Home> {
                         ),
                       ],
                     ),
-                    loadingHistory
-                        ? const SizedBox(
-                            height: 200,
-                            child: Center(
-                              child: CircularProgressIndicator(),
-                            ),
-                          )
-                        : history.length > 0
-                            ? ListView.builder(
-                                reverse: true,
-                                shrinkWrap: true,
-                                physics: const BouncingScrollPhysics(),
-                                itemCount:
-                                    history.length > 5 ? 5 : history.length,
-                                padding: const EdgeInsets.only(top: 8.0),
-                                itemBuilder: (BuildContext context, int index) {
-                                  return GestureDetector(
-                                    onTap: () {
-                                      widget.logger.i(
-                                          "Home: Navigating to chat ${history[index].id}");
-                                      Navigator.pushNamed(context, "/chat",
-                                          arguments:
-                                              history[index].id.toString());
-                                    },
-                                    onLongPress: () {
-                                      _deleteModal(history[index].id);
-                                    },
-                                    child: Column(
-                                      children: [
-                                        Container(
-                                          padding: const EdgeInsets.all(16.0),
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .primary
-                                                .withOpacity(0.075),
-                                          ),
-                                          child: Row(
-                                            children: [
-                                              const Icon(
-                                                Icons.chat_outlined,
-                                                size: 24.0,
-                                              ),
-                                              const SizedBox(
-                                                width: 8.0,
-                                              ),
-                                              Flexible(
-                                                child: Text(
-                                                  history[index].lastMessage,
-                                                  softWrap: true,
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  maxLines: 2,
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .bodyLarge,
-                                                ),
-                                              ),
-                                              Text(
-                                                "${history[index].id}",
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .bodySmall,
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          height: 16.0,
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                },
-                              )
-                            : SizedBox(
-                                height: 64,
-                                child: Center(
-                                  child: Text("No history yet...",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodySmall),
+                  ],
+                ),
+              ),
+              Container(
+                  margin: const EdgeInsets.symmetric(vertical: 8),
+                  height: 200,
+                  child: ListView.builder(
+                    itemBuilder: (BuildContext context, int index) {
+                      return PromptCard(
+                        title: prompts[index]["title"]!,
+                        description: prompts[index]["description"]!,
+                      );
+                    },
+                    itemCount: prompts.length,
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                  )),
+              const SizedBox(
+                height: 8.0,
+              ),
+              Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "History",
+                                style: TextStyle(
+                                  fontSize: Theme.of(context)
+                                      .textTheme
+                                      .headlineSmall!
+                                      .fontSize,
+                                  fontWeight: FontWeight.w400,
+                                  color:
+                                      Theme.of(context).colorScheme.onPrimary,
                                 ),
                               ),
-                  ],
-                )),
-            const SizedBox(
-              height: 96.0,
-            )
-          ],
+                              IconButton(
+                                onPressed: () {
+                                  getHistory();
+                                },
+                                icon: Icon(
+                                  Icons.refresh_outlined,
+                                  size: 24,
+                                  color:
+                                      Theme.of(context).colorScheme.onPrimary,
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                      loadingHistory
+                          ? const SizedBox(
+                              height: 200,
+                              child: Center(
+                                child: CircularProgressIndicator(),
+                              ),
+                            )
+                          : history.length > 0
+                              ? ListView.builder(
+                                  reverse: true,
+                                  shrinkWrap: true,
+                                  physics: const BouncingScrollPhysics(),
+                                  itemCount: history.length,
+                                  padding: const EdgeInsets.only(top: 8.0),
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return GestureDetector(
+                                      onTap: () {
+                                        widget.logger.i(
+                                            "Home: Navigating to chat ${history[index].id}");
+                                        Navigator.pushNamed(context, "/chat",
+                                            arguments:
+                                                history[index].id.toString());
+                                      },
+                                      onLongPress: () {
+                                        _deleteModal(history[index].id);
+                                      },
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            padding: const EdgeInsets.all(16.0),
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .primary
+                                                  .withOpacity(0.075),
+                                            ),
+                                            child: Row(
+                                              children: [
+                                                const Icon(
+                                                  Icons.chat_outlined,
+                                                  size: 24.0,
+                                                ),
+                                                const SizedBox(
+                                                  width: 8.0,
+                                                ),
+                                                Flexible(
+                                                  child: Text(
+                                                    history[index].lastMessage,
+                                                    softWrap: true,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    maxLines: 2,
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .bodyLarge,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            height: 16.0,
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                )
+                              : SizedBox(
+                                  height: 64,
+                                  child: Center(
+                                    child: Text("No history yet...",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodySmall),
+                                  ),
+                                ),
+                    ],
+                  )),
+              const SizedBox(
+                height: 96.0,
+              )
+            ],
+          ),
         ),
       ),
       floatingActionButton: Container(
@@ -281,10 +296,6 @@ class _HomeState extends ConsumerState<Home> {
   late TimeOfDay timeOfDay;
   final List<Map<String, String>> prompts = [
     {
-      "title": "Market trends",
-      "description": "Have an overview of the main world topics!"
-    },
-    {
       "title": "Campaign strategies",
       "description": "Provide support for marketing decisions."
     },
@@ -293,7 +304,11 @@ class _HomeState extends ConsumerState<Home> {
       "description": "Help your customers with their questions."
     },
     {
-      "title": "Sales",
+      "title": "Market trends",
+      "description": "Have an overview of the main world topics!"
+    },
+    {
+      "title": "Sales insights",
       "description": "Get insights on how to improve your sales."
     },
   ];
@@ -441,9 +456,18 @@ class _HomeState extends ConsumerState<Home> {
 
     List<ChatModel> chats = await chatService.getAllChats(user.id);
 
-    for (var element in chats) {
-      debugPrint(element.id);
-    }
+    setState(() {
+      history = chats;
+      loadingHistory = false;
+    });
+  }
+
+  Future<void> getHistory() async {
+    setState(() {
+      loadingHistory = true;
+    });
+
+    final List<ChatModel> chats = await chatService.getAllChats(user.id);
 
     setState(() {
       history = chats;

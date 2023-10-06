@@ -19,9 +19,8 @@ class Login extends ConsumerStatefulWidget {
 
 class _LoginState extends ConsumerState<Login> {
   final _formKey = GlobalKey<FormState>();
-  final emailController =
-      TextEditingController(text: "marcelo.feitoza@ibm.com");
-  final passwordController = TextEditingController(text: "marcelo123");
+  final emailController = TextEditingController(text: "user@ibm.com");
+  final passwordController = TextEditingController(text: "senha123");
   late final UserService userService;
 
   bool isLoading = false;
@@ -60,7 +59,7 @@ class _LoginState extends ConsumerState<Login> {
           });
 
           if (widget.ref.read(userProvider).mode.isNotEmpty) {
-            widget.logger.i('Login: User has mode');
+            widget.logger.i('Login: User has mode: ${user.mode}');
 
             Navigator.pushNamedAndRemoveUntil(
               context,

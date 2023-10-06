@@ -40,7 +40,9 @@ class _MessageComponentState extends State<MessageComponent> {
         children: [
           Container(
               constraints: BoxConstraints(
-                maxWidth: MediaQuery.of(context).size.width * 0.75,
+                maxWidth: message.isUser
+                    ? MediaQuery.of(context).size.width * 0.75
+                    : MediaQuery.of(context).size.width * 0.85,
               ),
               margin: const EdgeInsets.symmetric(horizontal: 8.0),
               padding:
@@ -69,16 +71,13 @@ class _MessageComponentState extends State<MessageComponent> {
                     height: 4.0,
                   ),
                   Row(
-                      mainAxisAlignment:
-                          // if the message is loading and it's not from the user, center it.
-                          !message.isUser
-                              ? message.isLoading ?? false
-                                  ? MainAxisAlignment.center
-                                  : MainAxisAlignment.spaceBetween
-                              : MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         message.isLoading ?? false
                             ? Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(
                                     width: 24.0,

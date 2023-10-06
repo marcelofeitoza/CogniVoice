@@ -25,7 +25,8 @@ const textToSpeech = new TextToSpeechV1({
 });
 
 async function generateText(audio) {
-	loggerChat.debug(audio);
+	console.log(audio);
+	let start = new Date().getTime();
 
 	try {
 		const result = await speechToText.recognize({
@@ -41,18 +42,20 @@ async function generateText(audio) {
 
 		loggerChat.info("Texto gerado com sucesso!");
 
-		// capitalize the first letter of the text
-		return (
-			result.result.results[0].alternatives[0].transcript
-				.charAt(0)
-				.toUpperCase() +
-			result.result.results[0].alternatives[0].transcript.slice(1)
-		);
+		let end = new Date().getTime();
+		let time = end - start;
 
-		// return result.result.results[0].alternatives[0].transcript;
+		loggerChat.info("Tempo de resposta para gerar texto: " + time + "ms");
+
+		return result.result.results[0].alternatives[0].transcript;
 	} catch (error) {
+		let end = new Date().getTime();
+		let time = end - start;
+
+		loggerChat.info("Tempo de resposta para gerar texto: " + time + "ms");
+
 		console.error("IBM: Error recognizing audio:", error);
-		loggerChat.error("IBM: Error recognizing audio:");
+		loggerChat.error("IBM: Error on T2S audio:");
 		throw new Error("IBM: Error recognizing audio");
 	}
 }
@@ -60,6 +63,8 @@ async function generateText(audio) {
 async function generateSpeech(responseText) {
 	loggerChat.debug(responseText);
 	loggerChat.debug("Gerando audio...");
+
+	let start = new Date().getTime();
 
 	try {
 		const synthesizeParams = {
@@ -85,8 +90,18 @@ async function generateSpeech(responseText) {
 		loggerChat.debug("Audio gerado!");
 		loggerChat.info("Audio gerado com sucesso!");
 
+		let end = new Date().getTime();
+		let time = end - start;
+
+		loggerChat.info("Tempo de resposta para gerar audio: " + time + "ms");
+
 		return audio;
 	} catch (error) {
+		let end = new Date().getTime();
+		let time = end - start;
+
+		loggerChat.info("Tempo de resposta para gerar audio: " + time + "ms");
+
 		console.error("Error generating speech:", error);
 		loggerChat.error("Error generating speech:");
 		throw new Error("Error generating speech");
