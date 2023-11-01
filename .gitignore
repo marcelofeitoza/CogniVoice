@@ -4,3 +4,5 @@ src/logger-api/target/
 # Node modules
 **/node_modules/
 src/BackEnd/audios/**
+.DS_Store
+src/.DS_Store

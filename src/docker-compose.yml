@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - "5672:5672"
+
+  # alert-backend:
+  #   build:
+  #     context: ./alert-backend
+  #     dockerfile: Dockerfile
+  #   depends_on:
+  #     - rabbitmq
+  #   ports:
+  #     - "5672:5672"
+  
+  backend:
+    build:
+      context: ./BackEnd
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+  
+  logger-api:
+    build:
+      context: ./logger-api
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"
+
+networks:
+  default:
+    driver: bridge

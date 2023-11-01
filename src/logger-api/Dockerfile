@@ -1,17 +1,34 @@
-FROM rust:1.67 AS build
+# Use the official Rust image as the build environment
+FROM rust:latest as builder
 
-WORKDIR /app
+ENV APP logger-api
+
+# Add the target for the Rust toolchain
+RUN rustup target add aarch64-unknown-linux-musl
+
+# Install the aarch64-linux-musl-gcc compiler
+RUN apt-get update && apt-get install -y gcc-aarch64-linux-gnu
+
+WORKDIR /usr/src/$APP
 
 COPY . .
 
-RUN cargo build --release
+# Compile for the target
+RUN cargo build --release --target aarch64-unknown-linux-musl
 
-FROM debian:buster-slim AS runtime
+# Use a Debian image for the runtime environment
+FROM debian:latest as runtime
 
-WORKDIR /app
+RUN apt-get update && apt-get install -y libssl-dev ca-certificates libc6 && apt-get clean
+RUN rm -rf /var/lib/apt/lists/*
 
-COPY --from=build /app/target/release/logger-api .
+ENV APP logger-api
+
+# Copy the binary from the builder stage
+COPY --from=builder /usr/src/$APP/target/aarch64-unknown-linux-musl/release/$APP /usr/local/bin/$APP
+
+RUN chmod +x /usr/local/bin/$APP
 
 EXPOSE 3002
 
-CMD ["./logger-api"]
+ENTRYPOINT ["/usr/local/bin/logger-api"]

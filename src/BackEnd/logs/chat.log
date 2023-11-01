@@ -6587,3 +6587,201 @@ Em resumo, o Watson funciona como um sistema inteligente capaz de analisar dados
 [2023-10-06T15:42:28.365] [DEBUG] chat - <Buffer 00 00 00 1c 66 74 79 70 4d 34 41 20 00 00 02 00 4d 34 41 20 69 73 6f 6d 69 73 6f 32 00 00 00 08 66 72 65 65 00 05 70 06 6d 64 61 74 dc 00 4c 61 76 63 ... 360278 more bytes>
 [2023-10-06T15:42:28.367] [INFO] chat - Response sent - A inteligência artificial pode ajudar os clientes de diversas maneiras. Alguns exemplos incluem o uso de chatbots para atendimento ao cliente rápido e eficiente, recomendações personalizadas com base no histórico de compras e preferências do cliente, detecção e prevenção de fraudes, análise de dados para identificar tendências e padrões de comportamento dos clientes, e automação de tarefas repetitivas para economizar tempo e recursos. A IA pode melhorar a experiência do cliente, fornecendo respostas rápidas e precisas, personalização e soluções mais eficientes.
 [2023-10-06T15:42:28.481] [INFO] chat - Tempo de resposta para rodar ASK: 23232ms
+[2023-10-31T20:07:11.839] [DEBUG] chat - user@ibm.com senha123
+[2023-10-31T20:07:11.957] [DEBUG] chat - {
+  id: '94a61c04-4e1d-49ac-b722-20616b0b4463',
+  email: 'user@ibm.com',
+  name: 'User',
+  password: '$2a$08$u4B8ilVMPCudJEv.OdkgcevqWmuAOzZoT4BFDHJtBcad9lNrmIu.q',
+  mode: 'MarketTracker',
+  createdAt: 2023-10-04T15:08:22.651Z,
+  updatedAt: 2023-10-06T18:39:22.333Z
+}
+[2023-10-31T20:07:12.429] [DEBUG] chat - Starting GetAll method...
+[2023-10-31T20:08:37.746] [DEBUG] chat - Starting Get method...
+[2023-10-31T20:08:37.951] [DEBUG] chat - {
+  id: 'f9ff7a42-4d1c-48df-aea2-5de4a8d568e3',
+  userId: '94a61c04-4e1d-49ac-b722-20616b0b4463',
+  createdAt: '2023-10-06T18:39:59.301Z',
+  updatedAt: '2023-10-06T18:39:59.301Z',
+  messages: [
+    {
+      id: '035dd128-c48c-412b-b45e-49f277d62f01',
+      isUser: true,
+      content: 'quais são os principais temas que tão sendo discutidos atualmente em tecnologia ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-06T18:40:12.523Z',
+      updatedAt: '2023-10-06T18:40:12.523Z',
+      chatId: 'f9ff7a42-4d1c-48df-aea2-5de4a8d568e3'
+    },
+    {
+      id: '00c628ff-399c-4c92-ba88-f92c3da69425',
+      isUser: false,
+      content: 'Alguns dos principais temas discutidos atualmente em tecnologia são inteligência artificial, big data, computação em nuvem, internet das coisas, cibersegurança, blockchain e realidade virtual/aumentada.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-06T18:40:12.580Z',
+      updatedAt: '2023-10-06T18:40:12.580Z',
+      chatId: 'f9ff7a42-4d1c-48df-aea2-5de4a8d568e3'
+    },
+    {
+      id: '1ba614b3-f459-49df-9d38-99cf09c0f46d',
+      isUser: true,
+      content: 'como inteligência artificial pode ajudar nossos clientes ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-06T18:42:28.414Z',
+      updatedAt: '2023-10-06T18:42:28.414Z',
+      chatId: 'f9ff7a42-4d1c-48df-aea2-5de4a8d568e3'
+    },
+    {
+      id: '8224038a-37f7-4116-8e67-a3f3d369840b',
+      isUser: false,
+      content: 'A inteligência artificial pode ajudar os clientes de diversas maneiras. Alguns exemplos incluem o uso de chatbots para atendimento ao cliente rápido e eficiente, recomendações personalizadas com base no histórico de compras e preferências do cliente, detecção e prevenção de fraudes, análise de dados para identificar tendências e padrões de comportamento dos clientes, e automação de tarefas repetitivas para economizar tempo e recursos. A IA pode melhorar a experiência do cliente, fornecendo respostas rápidas e precisas, personalização e soluções mais eficientes.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-06T18:42:28.462Z',
+      updatedAt: '2023-10-06T18:42:28.462Z',
+      chatId: 'f9ff7a42-4d1c-48df-aea2-5de4a8d568e3'
+    }
+  ]
+}
+[2023-10-31T20:08:49.328] [DEBUG] chat - Starting Get method...
+[2023-10-31T20:08:49.400] [DEBUG] chat - {
+  id: '10fa0407-cb6e-48ae-8b89-3a511246cb2d',
+  userId: '94a61c04-4e1d-49ac-b722-20616b0b4463',
+  createdAt: '2023-10-06T17:11:09.567Z',
+  updatedAt: '2023-10-06T18:15:00.670Z',
+  messages: [
+    {
+      id: '48c22bf4-04ba-4ece-a15c-7381b6100b44',
+      isUser: true,
+      content: 'fale sobre a i b m duas linhas ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-06T17:11:27.437Z',
+      updatedAt: '2023-10-06T17:11:27.437Z',
+      chatId: '10fa0407-cb6e-48ae-8b89-3a511246cb2d'
+    },
+    {
+      id: '7746fff6-6455-4469-8c83-2c247445992a',
+      isUser: false,
+      content: 'A IBM (International Business Machines) é uma empresa multinacional de tecnologia e consultoria, conhecida por seus avanços em hardware, software e serviços. Com uma história de mais de 100 anos, a IBM é líder em tecnologia e inovação, oferecendo soluções para empresas em diferentes setores em todo o mundo.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-06T17:11:27.459Z',
+      updatedAt: '2023-10-06T17:11:27.459Z',
+      chatId: '10fa0407-cb6e-48ae-8b89-3a511246cb2d'
+    }
+  ]
+}
+[2023-10-31T22:47:18.335] [DEBUG] chat - user@ibm.com senha123
+[2023-10-31T22:47:18.410] [DEBUG] chat - {
+  id: '94a61c04-4e1d-49ac-b722-20616b0b4463',
+  email: 'user@ibm.com',
+  name: 'User',
+  password: '$2a$08$u4B8ilVMPCudJEv.OdkgcevqWmuAOzZoT4BFDHJtBcad9lNrmIu.q',
+  mode: 'MarketTracker',
+  createdAt: 2023-10-04T15:08:22.651Z,
+  updatedAt: 2023-10-06T18:39:22.333Z
+}
+[2023-10-31T22:47:18.753] [DEBUG] chat - Starting GetAll method...
+[2023-10-31T22:47:23.755] [DEBUG] chat - Starting Get method...
+[2023-10-31T22:47:23.821] [DEBUG] chat - {
+  id: 'f9ff7a42-4d1c-48df-aea2-5de4a8d568e3',
+  userId: '94a61c04-4e1d-49ac-b722-20616b0b4463',
+  createdAt: '2023-10-06T18:39:59.301Z',
+  updatedAt: '2023-10-06T18:39:59.301Z',
+  messages: [
+    {
+      id: '035dd128-c48c-412b-b45e-49f277d62f01',
+      isUser: true,
+      content: 'quais são os principais temas que tão sendo discutidos atualmente em tecnologia ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-06T18:40:12.523Z',
+      updatedAt: '2023-10-06T18:40:12.523Z',
+      chatId: 'f9ff7a42-4d1c-48df-aea2-5de4a8d568e3'
+    },
+    {
+      id: '00c628ff-399c-4c92-ba88-f92c3da69425',
+      isUser: false,
+      content: 'Alguns dos principais temas discutidos atualmente em tecnologia são inteligência artificial, big data, computação em nuvem, internet das coisas, cibersegurança, blockchain e realidade virtual/aumentada.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-06T18:40:12.580Z',
+      updatedAt: '2023-10-06T18:40:12.580Z',
+      chatId: 'f9ff7a42-4d1c-48df-aea2-5de4a8d568e3'
+    },
+    {
+      id: '1ba614b3-f459-49df-9d38-99cf09c0f46d',
+      isUser: true,
+      content: 'como inteligência artificial pode ajudar nossos clientes ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-06T18:42:28.414Z',
+      updatedAt: '2023-10-06T18:42:28.414Z',
+      chatId: 'f9ff7a42-4d1c-48df-aea2-5de4a8d568e3'
+    },
+    {
+      id: '8224038a-37f7-4116-8e67-a3f3d369840b',
+      isUser: false,
+      content: 'A inteligência artificial pode ajudar os clientes de diversas maneiras. Alguns exemplos incluem o uso de chatbots para atendimento ao cliente rápido e eficiente, recomendações personalizadas com base no histórico de compras e preferências do cliente, detecção e prevenção de fraudes, análise de dados para identificar tendências e padrões de comportamento dos clientes, e automação de tarefas repetitivas para economizar tempo e recursos. A IA pode melhorar a experiência do cliente, fornecendo respostas rápidas e precisas, personalização e soluções mais eficientes.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-06T18:42:28.462Z',
+      updatedAt: '2023-10-06T18:42:28.462Z',
+      chatId: 'f9ff7a42-4d1c-48df-aea2-5de4a8d568e3'
+    }
+  ]
+}
+[2023-10-31T22:48:31.849] [DEBUG] chat - Starting Get method...
+[2023-10-31T22:48:31.982] [DEBUG] chat - {
+  id: 'f9ff7a42-4d1c-48df-aea2-5de4a8d568e3',
+  userId: '94a61c04-4e1d-49ac-b722-20616b0b4463',
+  createdAt: '2023-10-06T18:39:59.301Z',
+  updatedAt: '2023-10-06T18:39:59.301Z',
+  messages: [
+    {
+      id: '035dd128-c48c-412b-b45e-49f277d62f01',
+      isUser: true,
+      content: 'quais são os principais temas que tão sendo discutidos atualmente em tecnologia ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-06T18:40:12.523Z',
+      updatedAt: '2023-10-06T18:40:12.523Z',
+      chatId: 'f9ff7a42-4d1c-48df-aea2-5de4a8d568e3'
+    },
+    {
+      id: '00c628ff-399c-4c92-ba88-f92c3da69425',
+      isUser: false,
+      content: 'Alguns dos principais temas discutidos atualmente em tecnologia são inteligência artificial, big data, computação em nuvem, internet das coisas, cibersegurança, blockchain e realidade virtual/aumentada.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-06T18:40:12.580Z',
+      updatedAt: '2023-10-06T18:40:12.580Z',
+      chatId: 'f9ff7a42-4d1c-48df-aea2-5de4a8d568e3'
+    },
+    {
+      id: '1ba614b3-f459-49df-9d38-99cf09c0f46d',
+      isUser: true,
+      content: 'como inteligência artificial pode ajudar nossos clientes ',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-06T18:42:28.414Z',
+      updatedAt: '2023-10-06T18:42:28.414Z',
+      chatId: 'f9ff7a42-4d1c-48df-aea2-5de4a8d568e3'
+    },
+    {
+      id: '8224038a-37f7-4116-8e67-a3f3d369840b',
+      isUser: false,
+      content: 'A inteligência artificial pode ajudar os clientes de diversas maneiras. Alguns exemplos incluem o uso de chatbots para atendimento ao cliente rápido e eficiente, recomendações personalizadas com base no histórico de compras e preferências do cliente, detecção e prevenção de fraudes, análise de dados para identificar tendências e padrões de comportamento dos clientes, e automação de tarefas repetitivas para economizar tempo e recursos. A IA pode melhorar a experiência do cliente, fornecendo respostas rápidas e precisas, personalização e soluções mais eficientes.',
+      audio: 'audio-base64',
+      audioUrl: '',
+      createdAt: '2023-10-06T18:42:28.462Z',
+      updatedAt: '2023-10-06T18:42:28.462Z',
+      chatId: 'f9ff7a42-4d1c-48df-aea2-5de4a8d568e3'
+    }
+  ]
+}
