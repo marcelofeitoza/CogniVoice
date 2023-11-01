@@ -22,7 +22,7 @@ Future main() async {
       printEmojis: true,
       printTime: true,
     ),
-    // apiUrl: "${dotenv.env['LOG_API_URL']}/logs",
+    apiUrl: "${dotenv.env['LOG_API_URL']}/logs",
   );
 
   runApp(ProviderScope(child: CogniVoice(logger)));
